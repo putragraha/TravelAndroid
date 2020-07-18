@@ -1,17 +1,25 @@
 package com.neptuunia.travel;
 
-import androidx.appcompat.app.AppCompatActivity;
+import com.neptuunia.travel.base.BaseActivity;
+import com.neptuunia.travel.databinding.ActivityDriverLoginBinding;
 
 import android.app.Activity;
 import android.content.Intent;
-import android.os.Bundle;
+import android.view.View;
 
-public class DriverLoginActivity extends AppCompatActivity {
+public class DriverLoginActivity extends BaseActivity {
+
+    private ActivityDriverLoginBinding activityDriverLoginBinding;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_driver_login);
+    public View getView() {
+        activityDriverLoginBinding = ActivityDriverLoginBinding.inflate(getLayoutInflater());
+        return activityDriverLoginBinding.getRoot();
+    }
+
+    @Override
+    public void setup() {
+        // No implementation
     }
 
     public static void startActivity(Activity sourceActivity) {

@@ -6,4 +6,5 @@
     <string name="login_as">Login as:</string>
     <string name="driver">Driver</string>
     <string name="user">User</string>
+    <string name="rox_message">Something had happened. Please contact administrator</string>
 </resources>
