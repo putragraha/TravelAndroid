@@ -12,7 +12,6 @@
         android:textSize="24sp"
         android:textStyle="bold"
         app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toTopOf="parent"
@@ -25,7 +24,6 @@
         android:text="@string/driver"
         android:layout_marginTop="32dp"
         app:layout_constraintBottom_toTopOf="@+id/btn_login_user"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_title" />
@@ -36,7 +34,6 @@
         android:layout_height="wrap_content"
         android:text="@string/user"
         android:layout_marginTop="8dp"
-        app:layout_constraintHorizontal_chainStyle="packed"
         app:layout_constraintLeft_toLeftOf="parent"
         app:layout_constraintRight_toRightOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/btn_login_driver" />
