@@ -1,9 +1,5 @@
 package com.neptuunia.travel.utils;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version NumberUtils, v 0.0.1 19/07/20 13.10 by Putra Nugraha
- */
 public class NumberUtils {
 
     private NumberUtils() {

@@ -14,10 +14,6 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version ArmadaSettingActivity, v 0.0.1 19/07/20 11.32 by Putra Nugraha
- */
 public class ArmadaSettingActivity extends BaseActivity {
 
     private ActivityArmadaSettingBinding activityArmadaSettingBinding;

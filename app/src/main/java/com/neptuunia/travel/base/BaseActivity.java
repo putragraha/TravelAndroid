@@ -11,10 +11,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version BaseActivity, v 0.0.1 19/07/20 04.29 by Putra Nugraha
- */
 public abstract class BaseActivity extends AppCompatActivity {
 
     public abstract View getView();

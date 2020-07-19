@@ -14,10 +14,6 @@ import android.view.View;
 
 import androidx.annotation.NonNull;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version LoginUserActivity, v 0.0.1 19/07/20 08.16 by Putra Nugraha
- */
 public class LoginUserActivity extends BaseActivity {
 
     private ActivityLoginUserBinding activityLoginUserBinding;
