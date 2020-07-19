@@ -1,78 +1,85 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout
+<ScrollView
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:padding="24dp">
+    android:layout_height="match_parent">
 
-    <EditText
-        android:id="@+id/et_departure_time"
-        style="@style/RoundedBoxEditText.Iconed"
-        android:drawableStart="@drawable/ic_access_time"
-        android:hint="@string/choose_departure_time"
-        android:importantForAutofill="no"
-        android:inputType="text"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <EditText
-        android:id="@+id/et_departure_date"
-        style="@style/RoundedBoxEditText.Iconed"
-        android:layout_marginTop="24dp"
-        android:drawableStart="@drawable/ic_calendar"
-        android:hint="@string/choose_departure_date"
-        android:importantForAutofill="no"
-        android:inputType="date"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_departure_time" />
-
-    <EditText
-        android:id="@+id/et_ticket_price"
-        style="@style/RoundedBoxEditText.Iconed"
-        android:layout_marginTop="24dp"
-        android:drawableStart="@drawable/ic_dollar"
-        android:hint="@string/ticket_price"
-        android:importantForAutofill="no"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_departure_date" />
-
-    <EditText
-        android:id="@+id/et_seat_amount"
-        style="@style/RoundedBoxEditText.Iconed"
-        android:layout_marginTop="24dp"
-        android:drawableStart="@drawable/ic_seat"
-        android:hint="@string/seat_amount"
-        android:importantForAutofill="no"
-        android:inputType="number"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_ticket_price" />
-
-    <EditText
-        android:id="@+id/et_note"
-        style="@style/RoundedBoxEditText"
-        android:layout_height="100dp"
-        android:layout_marginTop="24dp"
-        android:hint="@string/note"
-        android:importantForAutofill="no"
-        android:inputType="textMultiLine"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/et_seat_amount" />
-
-    <Button
-        android:id="@+id/btn_login"
-        android:layout_width="0dp"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="32dp"
-        android:text="@string/submit"
-        app:layout_constraintTop_toBottomOf="@id/et_note"
-        app:layout_constraintRight_toRightOf="parent"
-        app:layout_constraintLeft_toLeftOf="parent" />
+        android:padding="24dp">
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <EditText
+            android:id="@+id/et_departure_time"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:drawableStart="@drawable/ic_access_time"
+            android:focusableInTouchMode="false"
+            android:hint="@string/choose_departure_time"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <EditText
+            android:id="@+id/et_departure_date"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_calendar"
+            android:hint="@string/choose_departure_date"
+            android:importantForAutofill="no"
+            android:inputType="date"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_departure_time" />
+
+        <EditText
+            android:id="@+id/et_ticket_price"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_dollar"
+            android:hint="@string/ticket_price"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_departure_date" />
+
+        <EditText
+            android:id="@+id/et_seat_amount"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_seat"
+            android:hint="@string/seat_amount"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_ticket_price" />
+
+        <EditText
+            android:id="@+id/et_note"
+            style="@style/RoundedBoxEditText"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:hint="@string/note"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_seat_amount" />
+
+        <Button
+            android:id="@+id/btn_login"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/submit"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/et_note" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

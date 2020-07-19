@@ -1,5 +1,6 @@
 package com.neptuunia.travel.homedriver;
 
+import com.neptuunia.travel.armadasetting.ArmadaSettingActivity;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.databinding.ActivityHomeDriverBinding;
 
@@ -21,6 +22,12 @@ public class HomeDriverActivity extends BaseActivity {
 
     @Override
     public void setup() {
-        // No implementation
+        setupButtonArmadaSetting();
+    }
+
+    private void setupButtonArmadaSetting() {
+        activityHomeDriverBinding.btnArmadaSetting.setOnClickListener(view ->
+            startActivity(ArmadaSettingActivity.class)
+        );
     }
 }
