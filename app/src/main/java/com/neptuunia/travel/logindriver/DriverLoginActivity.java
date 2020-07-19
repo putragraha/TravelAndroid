@@ -1,4 +1,4 @@
-package com.neptuunia.travel;
+package com.neptuunia.travel.logindriver;
 
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.databinding.ActivityDriverLoginBinding;

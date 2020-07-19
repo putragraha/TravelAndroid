@@ -1,5 +1,6 @@
-package com.neptuunia.travel;
+package com.neptuunia.travel.onboarding;
 
+import com.neptuunia.travel.logindriver.DriverLoginActivity;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.databinding.ActivityMainBinding;
 
