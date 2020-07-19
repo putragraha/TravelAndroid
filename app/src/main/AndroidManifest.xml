@@ -25,7 +25,7 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".logindriver.DriverLoginActivity" />
+        <activity android:name=".logindriver.LoginDriverActivity" />
 
         <activity android:name=".loginuser.LoginUserActivity" />
 

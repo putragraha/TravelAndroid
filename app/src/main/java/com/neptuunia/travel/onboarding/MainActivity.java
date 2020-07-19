@@ -1,6 +1,6 @@
 package com.neptuunia.travel.onboarding;
 
-import com.neptuunia.travel.logindriver.DriverLoginActivity;
+import com.neptuunia.travel.logindriver.LoginDriverActivity;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.databinding.ActivityMainBinding;
 import com.neptuunia.travel.loginuser.LoginUserActivity;
@@ -25,7 +25,7 @@ public class MainActivity extends BaseActivity {
 
     private void setupButtonLoginDriver() {
         activityMainBinding.btnLoginDriver.setOnClickListener(
-            view -> DriverLoginActivity.startActivity(MainActivity.this)
+            view -> LoginDriverActivity.startActivity(MainActivity.this)
         );
     }
 

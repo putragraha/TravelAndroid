@@ -8,7 +8,7 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 
-public class DriverLoginActivity extends BaseActivity {
+public class LoginDriverActivity extends BaseActivity {
 
     private ActivityLoginDriverBinding activityLoginDriverBinding;
 
@@ -24,7 +24,7 @@ public class DriverLoginActivity extends BaseActivity {
     }
 
     public static void startActivity(Activity sourceActivity) {
-        Intent intent = new Intent(sourceActivity, DriverLoginActivity.class);
+        Intent intent = new Intent(sourceActivity, LoginDriverActivity.class);
         sourceActivity.startActivity(intent);
     }
 
