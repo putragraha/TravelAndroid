@@ -27,6 +27,7 @@
             style="@style/RoundedBoxEditText.Iconed"
             android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_calendar"
+            android:focusableInTouchMode="false"
             android:hint="@string/choose_departure_date"
             android:importantForAutofill="no"
             android:inputType="date"
@@ -76,8 +77,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
             android:text="@string/submit"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/et_note" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
