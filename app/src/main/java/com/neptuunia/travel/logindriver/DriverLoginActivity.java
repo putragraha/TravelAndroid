@@ -1,7 +1,7 @@
 package com.neptuunia.travel.logindriver;
 
 import com.neptuunia.travel.base.BaseActivity;
-import com.neptuunia.travel.databinding.ActivityDriverLoginBinding;
+import com.neptuunia.travel.databinding.ActivityLoginDriverBinding;
 
 import android.app.Activity;
 import android.content.Intent;
@@ -9,12 +9,12 @@ import android.view.View;
 
 public class DriverLoginActivity extends BaseActivity {
 
-    private ActivityDriverLoginBinding activityDriverLoginBinding;
+    private ActivityLoginDriverBinding activityLoginDriverBinding;
 
     @Override
     public View getView() {
-        activityDriverLoginBinding = ActivityDriverLoginBinding.inflate(getLayoutInflater());
-        return activityDriverLoginBinding.getRoot();
+        activityLoginDriverBinding = ActivityLoginDriverBinding.inflate(getLayoutInflater());
+        return activityLoginDriverBinding.getRoot();
     }
 
     @Override
