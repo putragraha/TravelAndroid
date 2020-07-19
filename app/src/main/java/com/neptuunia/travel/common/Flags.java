@@ -9,7 +9,8 @@ import io.rollout.flags.RoxFlag;
  */
 public class Flags implements RoxContainer {
 
-    private final RoxFlag travelable = new RoxFlag(false);
+    // TODO (Putra): 19/07/20 Change default value to false later
+    private final RoxFlag travelable = new RoxFlag(true);
 
     public RoxFlag getTravelable() {
         return travelable;
