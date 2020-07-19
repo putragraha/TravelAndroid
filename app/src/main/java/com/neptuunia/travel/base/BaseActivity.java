@@ -3,6 +3,7 @@ package com.neptuunia.travel.base;
 import com.neptuunia.travel.R;
 import com.neptuunia.travel.TravelApplication;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
@@ -24,6 +25,11 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         initTravelable();
+    }
+
+    protected void startActivity(Class clazz) {
+        Intent intent = new Intent(this, clazz);
+        startActivity(intent);
     }
 
     private void initTravelable() {

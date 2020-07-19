@@ -28,6 +28,8 @@
         <activity android:name=".logindriver.DriverLoginActivity" />
 
         <activity android:name=".loginuser.LoginUserActivity" />
+
+        <activity android:name=".homedriver.HomeDriverActivity" />
     </application>
 
 </manifest>

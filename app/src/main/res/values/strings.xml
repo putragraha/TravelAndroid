@@ -9,4 +9,7 @@
     <string name="rox_message">Something had happened. Please contact administrator</string>
     <string name="have_no_account">Have no account? %s</string>
     <string name="register_here">Register here</string>
+    <string name="armada_setting">Armada Setting</string>
+    <string name="history">History</string>
+    <string name="profile">Profile</string>
 </resources>
