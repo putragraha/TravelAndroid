@@ -3,6 +3,7 @@ package com.neptuunia.travel.loginuser;
 import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.databinding.ActivityLoginUserBinding;
+import com.neptuunia.travel.homeuser.HomeUserActivity;
 
 import android.graphics.Color;
 import android.text.SpannableString;
@@ -30,6 +31,13 @@ public class LoginUserActivity extends BaseActivity {
     @Override
     public void setup() {
         setupRegisterTextView();
+        setupButtonLogin();
+    }
+
+    private void setupButtonLogin() {
+        activityLoginUserBinding.btnLogin.setOnClickListener(view ->
+            startActivity(HomeUserActivity.class)
+        );
     }
 
     private void setupRegisterTextView() {
@@ -48,7 +56,7 @@ public class LoginUserActivity extends BaseActivity {
         registerSpannableText.setSpan(new ClickableSpan() {
             @Override
             public void onClick(@NonNull View widget) {
-                // TODO Move to User Home
+                // TODO Move to User Register
             }
         }, startIndex, registerSpannableText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 

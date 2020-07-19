@@ -38,6 +38,10 @@
         <activity
             android:name=".homedriver.HomeDriverActivity"
             android:screenOrientation="portrait" />
+
+        <activity
+            android:name=".homeuser.HomeUserActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
