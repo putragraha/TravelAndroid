@@ -4,8 +4,6 @@ import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.databinding.ActivityLoginUserBinding;
 
-import android.app.Activity;
-import android.content.Intent;
 import android.graphics.Color;
 import android.text.SpannableString;
 import android.text.Spanned;
@@ -22,11 +20,6 @@ import androidx.annotation.NonNull;
 public class LoginUserActivity extends BaseActivity {
 
     private ActivityLoginUserBinding activityLoginUserBinding;
-
-    public static void startActivity(Activity sourceActivity) {
-        Intent intent = new Intent(sourceActivity, LoginUserActivity.class);
-        sourceActivity.startActivity(intent);
-    }
 
     @Override
     public View getView() {

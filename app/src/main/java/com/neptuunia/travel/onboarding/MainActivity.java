@@ -25,13 +25,13 @@ public class MainActivity extends BaseActivity {
 
     private void setupButtonLoginDriver() {
         activityMainBinding.btnLoginDriver.setOnClickListener(
-            view -> LoginDriverActivity.startActivity(MainActivity.this)
+            view -> startActivity(LoginDriverActivity.class)
         );
     }
 
     private void setupButtonUserDriver() {
         activityMainBinding.btnLoginUser.setOnClickListener(
-            view -> LoginUserActivity.startActivity(MainActivity.this)
+            view -> startActivity(LoginUserActivity.class)
         );
     }
 }
