@@ -17,7 +17,9 @@
             android:name="rox.apiKey"
             android:value="${activationKey}" />
 
-        <activity android:name=".onboarding.MainActivity">
+        <activity
+            android:name=".onboarding.MainActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,11 +27,17 @@
             </intent-filter>
         </activity>
 
-        <activity android:name=".logindriver.LoginDriverActivity" />
+        <activity
+            android:name=".logindriver.LoginDriverActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".loginuser.LoginUserActivity" />
+        <activity
+            android:name=".loginuser.LoginUserActivity"
+            android:screenOrientation="portrait" />
 
-        <activity android:name=".homedriver.HomeDriverActivity" />
+        <activity
+            android:name=".homedriver.HomeDriverActivity"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>
