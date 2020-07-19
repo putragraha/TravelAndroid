@@ -13,4 +13,10 @@
     <string name="history">History</string>
     <string name="profile">Profile</string>
     <string name="get_ticket">Get Ticket</string>
+    <string name="choose_departure_time">Choose departure time</string>
+    <string name="choose_departure_date">Choose departure date</string>
+    <string name="ticket_price">Ticket price</string>
+    <string name="seat_amount">Seat amount</string>
+    <string name="note">Note</string>
+    <string name="submit">Submit</string>
 </resources>
