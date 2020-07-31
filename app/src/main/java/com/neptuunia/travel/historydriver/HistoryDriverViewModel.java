@@ -17,8 +17,8 @@ import io.reactivex.rxjava3.observers.DisposableSingleObserver;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version HistoryDriverViewModel, v 0.0.1 19/07/20 19.57 by Putra Nugraha
+ * @author Rengar
+ * @version HistoryDriverViewModel, v 0.0.1 19/07/20 19.57 by Rengar
  */
 public class HistoryDriverViewModel extends AndroidViewModel {
 

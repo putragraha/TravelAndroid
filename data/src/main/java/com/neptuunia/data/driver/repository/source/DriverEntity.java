@@ -7,8 +7,8 @@ import java.util.List;
 import io.reactivex.rxjava3.core.Single;
 
 /**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version DriverEntityData, v 0.0.1 19/07/20 14.49 by Putra Nugraha
+ * @author Rengar
+ * @version DriverEntityData, v 0.0.1 19/07/20 14.49 by Rengar
  */
 public interface DriverEntity {
 

@@ -5,8 +5,8 @@ import com.neptuunia.data.driver.repository.source.DriverEntity;
 import com.neptuunia.data.driver.repository.source.MockDriverEntity;
 
 /**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version DriverEntityFactory, v 0.0.1 19/07/20 15.25 by Putra Nugraha
+ * @author Rengar
+ * @version DriverEntityFactory, v 0.0.1 19/07/20 15.25 by Rengar
  */
 public class DriverEntityFactory {
 

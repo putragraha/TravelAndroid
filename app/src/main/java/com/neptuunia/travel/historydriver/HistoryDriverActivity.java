@@ -10,8 +10,8 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 
 /**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version HistoryDriverActivity, v 0.0.1 29/07/20 22.08 by Putra Nugraha
+ * @author Rengar
+ * @version HistoryDriverActivity, v 0.0.1 29/07/20 22.08 by Rengar
  */
 public class HistoryDriverActivity extends BaseActivity {
 

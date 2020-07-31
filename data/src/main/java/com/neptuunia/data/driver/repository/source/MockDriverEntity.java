@@ -8,8 +8,8 @@ import java.util.List;
 import io.reactivex.rxjava3.core.Single;
 
 /**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version MockDriverEntityData, v 0.0.1 19/07/20 14.50 by Putra Nugraha
+ * @author Rengar
+ * @version MockDriverEntityData, v 0.0.1 19/07/20 14.50 by Rengar
  */
 public class MockDriverEntity implements DriverEntity {
 

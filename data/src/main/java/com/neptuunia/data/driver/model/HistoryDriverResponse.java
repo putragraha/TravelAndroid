@@ -1,8 +1,8 @@
 package com.neptuunia.data.driver.model;
 
 /**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version ArmadaSettingResponse, v 0.0.1 19/07/20 14.22 by Putra Nugraha
+ * @author Rengar
+ * @version ArmadaSettingResponse, v 0.0.1 19/07/20 14.22 by Rengar
  */
 public class HistoryDriverResponse {
 
