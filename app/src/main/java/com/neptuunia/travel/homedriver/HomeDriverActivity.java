@@ -3,6 +3,7 @@ package com.neptuunia.travel.homedriver;
 import com.neptuunia.travel.armadasetting.ArmadaSettingActivity;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.databinding.ActivityHomeDriverBinding;
+import com.neptuunia.travel.historydriver.HistoryDriverActivity;
 
 import android.view.View;
 
@@ -24,6 +25,9 @@ public class HomeDriverActivity extends BaseActivity {
     private void setupButtonArmadaSetting() {
         activityHomeDriverBinding.btnArmadaSetting.setOnClickListener(view ->
             startActivity(ArmadaSettingActivity.class)
+        );
+        activityHomeDriverBinding.btnHistory.setOnClickListener(view ->
+            startActivity(HistoryDriverActivity.class)
         );
     }
 }
