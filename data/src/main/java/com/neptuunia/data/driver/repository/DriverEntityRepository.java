@@ -6,6 +6,8 @@ import com.neptuunia.data.driver.repository.source.DriverEntity;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.rxjava3.core.Single;
 
 /**
@@ -14,17 +16,21 @@ import io.reactivex.rxjava3.core.Single;
  */
 public class DriverEntityRepository implements DriverRepository {
 
+    @Inject
+    DriverEntityFactory driverEntityFactory;
+
+    @Inject
     public DriverEntityRepository() {
         // For dagger injection
     }
 
     @Override
     public Single<List<HistoryDriverResponse>> getHistoryDrivers() {
-        return createDriverEntity(Source.MOCK)
+        return createDriverEntity()
             .getHistoryDrivers();
     }
 
-    public DriverEntity createDriverEntity(@Source String source) {
-        return new DriverEntityFactory().createDriverEntity(source);
+    public DriverEntity createDriverEntity() {
+        return driverEntityFactory.createDriverEntity();
     }
 }

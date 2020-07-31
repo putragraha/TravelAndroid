@@ -4,11 +4,14 @@ import com.neptuunia.travel.common.Flags;
 
 import android.app.Application;
 
+import javax.inject.Inject;
+
 import io.rollout.android.Rox;
 
 public class TravelApplication extends Application {
 
-    private Flags flags;
+    @Inject
+    Flags flags;
 
     @Override
     public void onCreate() {
@@ -21,7 +24,6 @@ public class TravelApplication extends Application {
     }
 
     private void initRox() {
-        flags = new Flags();
         Rox.register("", flags);
         Rox.setup(this);
     }
