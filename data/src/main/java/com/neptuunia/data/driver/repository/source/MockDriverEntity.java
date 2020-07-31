@@ -1,11 +1,9 @@
 package com.neptuunia.data.driver.repository.source;
 
-import com.neptuunia.data.driver.model.ArmadaSettingResponse;
+import com.neptuunia.data.driver.model.HistoryDriverResponse;
 
-import java.util.ArrayList;
+import java.util .ArrayList;
 import java.util.List;
-
-import javax.inject.Inject;
 
 import io.reactivex.rxjava3.core.Single;
 
@@ -15,17 +13,16 @@ import io.reactivex.rxjava3.core.Single;
  */
 public class MockDriverEntity implements DriverEntity {
 
-    @Inject
-    MockDriverEntity() {
+    public MockDriverEntity() {
         // For dagger injection
     }
 
     @Override
-    public Single<List<ArmadaSettingResponse>> getArmadaSettings() {
-        List<ArmadaSettingResponse> armadaSettingResponses = new ArrayList<>();
+    public Single<List<HistoryDriverResponse>> getHistoryDrivers() {
+        List<HistoryDriverResponse> armadaSettingResponses = new ArrayList<>();
 
         for (int i = 1; i <= 5; i++) {
-            ArmadaSettingResponse armadaSettingResponse = new ArmadaSettingResponse();
+            HistoryDriverResponse armadaSettingResponse = new HistoryDriverResponse();
             armadaSettingResponse.setOrderCode(i);
             armadaSettingResponse.setUserName(String.format("Nama: %s", i));
             armadaSettingResponse.setLatitude(i);

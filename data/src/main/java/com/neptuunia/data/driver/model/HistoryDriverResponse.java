@@ -4,7 +4,7 @@ package com.neptuunia.data.driver.model;
  * @author Putra Nugraha (putra.nugraha@dana.id)
  * @version ArmadaSettingResponse, v 0.0.1 19/07/20 14.22 by Putra Nugraha
  */
-public class ArmadaSettingResponse {
+public class HistoryDriverResponse {
 
     private int orderCode;
 
