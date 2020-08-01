@@ -1,7 +1,6 @@
 package com.neptuunia.travel.historydriver;
 
 import com.neptuunia.travel.base.BaseActivity;
-import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.databinding.ActivityHistoryDriverBinding;
 
 import android.view.View;
@@ -23,6 +22,12 @@ public class HistoryDriverActivity extends BaseActivity {
     @Inject
     HistoryDriverAdapter historyDriverAdapter;
 
+    @Inject
+    LinearLayoutManager linearLayoutManager;
+
+    @Inject
+    ViewModelProvider viewModelProvider;
+
     @Override
     public View getView() {
         return activityHistoryDriverBinding.getRoot();
@@ -35,16 +40,16 @@ public class HistoryDriverActivity extends BaseActivity {
     }
 
     private void setupRecylerView() {
-        activityHistoryDriverBinding.rvHistoryDriver.setLayoutManager(new LinearLayoutManager(this));
+        activityHistoryDriverBinding.rvHistoryDriver.setLayoutManager(linearLayoutManager);
         activityHistoryDriverBinding.rvHistoryDriver.setAdapter(historyDriverAdapter);
     }
 
     private void setupHistoryDriverViewModel() {
-        new ViewModelProvider(this, new ViewModelFactory())
-            .get(HistoryDriverViewModel.class)
-            .getHistoryDrivers().observe(
-            this,
-            historyDriverResponses -> historyDriverAdapter.submitList(historyDriverResponses)
-        );
+        viewModelProvider.get(HistoryDriverViewModel.class)
+            .getHistoryDrivers()
+            .observe(
+                this,
+                historyDriverResponses -> historyDriverAdapter.submitList(historyDriverResponses)
+            );
     }
 }

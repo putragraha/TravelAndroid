@@ -14,9 +14,12 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 
+import javax.inject.Inject;
+
 public class ArmadaSettingActivity extends BaseActivity {
 
-    private ActivityArmadaSettingBinding activityArmadaSettingBinding;
+    @Inject
+    ActivityArmadaSettingBinding activityArmadaSettingBinding;
 
     @Override
     public View getView() {

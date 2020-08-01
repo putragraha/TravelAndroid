@@ -1,6 +1,5 @@
 package com.neptuunia.data.driver.repository;
 
-import com.neptuunia.data.constant.Source;
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.data.driver.repository.source.DriverEntity;
 
@@ -16,12 +15,11 @@ import io.reactivex.rxjava3.core.Single;
  */
 public class DriverEntityRepository implements DriverRepository {
 
-    @Inject
-    DriverEntityFactory driverEntityFactory;
+    private DriverEntityFactory driverEntityFactory;
 
     @Inject
-    public DriverEntityRepository() {
-        // For dagger injection
+    public DriverEntityRepository(DriverEntityFactory driverEntityFactory) {
+        this.driverEntityFactory = driverEntityFactory;
     }
 
     @Override

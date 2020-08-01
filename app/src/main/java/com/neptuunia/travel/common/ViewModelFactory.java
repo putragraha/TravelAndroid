@@ -16,12 +16,11 @@ import androidx.lifecycle.ViewModelProvider;
  */
 public class ViewModelFactory implements ViewModelProvider.Factory {
 
-    @Inject
-    HistoryDriverViewModel historyDriverViewModel;
+    private HistoryDriverViewModel historyDriverViewModel;
 
     @Inject
-    public ViewModelFactory() {
-        // For dagger
+    public ViewModelFactory(HistoryDriverViewModel historyDriverViewModel) {
+        this.historyDriverViewModel = historyDriverViewModel;
     }
 
     @NonNull

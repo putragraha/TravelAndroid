@@ -3,11 +3,13 @@ package com.neptuunia.travel.historydriver;
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.travel.databinding.ItemHistoryDriverBinding;
 
-import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -20,16 +22,17 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
 
     private List<HistoryDriverResponse> historyDriverResponses = new ArrayList<>();
 
+    private HistoryDriverViewHolder historyDriverViewHolder;
+
+    @Inject
+    public HistoryDriverAdapter(HistoryDriverViewHolder historyDriverViewHolder) {
+        this.historyDriverViewHolder = historyDriverViewHolder;
+    }
+
     @NonNull
     @Override
     public HistoryDriverViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        return new HistoryDriverViewHolder(
-            ItemHistoryDriverBinding.inflate(
-                LayoutInflater.from(parent.getContext()),
-                parent,
-                false
-            )
-        );
+        return historyDriverViewHolder;
     }
 
     @Override
@@ -51,10 +54,14 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
 
     static class HistoryDriverViewHolder extends RecyclerView.ViewHolder {
 
-        private final ItemHistoryDriverBinding itemHistoryDriverBinding;
+        private ItemHistoryDriverBinding itemHistoryDriverBinding;
 
-        public HistoryDriverViewHolder(@NonNull ItemHistoryDriverBinding itemHistoryDriverBinding) {
-            super(itemHistoryDriverBinding.getRoot());
+        @Inject
+        public HistoryDriverViewHolder(
+            @NonNull View itemView,
+            ItemHistoryDriverBinding itemHistoryDriverBinding
+        ) {
+            super(itemView);
             this.itemHistoryDriverBinding = itemHistoryDriverBinding;
         }
 

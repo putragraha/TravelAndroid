@@ -5,13 +5,15 @@ import com.neptuunia.travel.databinding.ActivityHomeUserBinding;
 
 import android.view.View;
 
+import javax.inject.Inject;
+
 public class HomeUserActivity extends BaseActivity {
 
-    private ActivityHomeUserBinding activityHomeUserBinding;
+    @Inject
+    ActivityHomeUserBinding activityHomeUserBinding;
 
     @Override
     public View getView() {
-        activityHomeUserBinding = ActivityHomeUserBinding.inflate(getLayoutInflater());
         return activityHomeUserBinding.getRoot();
     }
 

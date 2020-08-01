@@ -7,13 +7,15 @@ import com.neptuunia.travel.loginuser.LoginUserActivity;
 
 import android.view.View;
 
+import javax.inject.Inject;
+
 public class MainActivity extends BaseActivity {
 
-    private ActivityMainBinding activityMainBinding;
+    @Inject
+    ActivityMainBinding activityMainBinding;
 
     @Override
     public View getView() {
-        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
         return activityMainBinding.getRoot();
     }
 

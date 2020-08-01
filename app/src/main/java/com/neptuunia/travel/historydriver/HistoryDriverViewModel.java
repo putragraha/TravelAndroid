@@ -26,14 +26,18 @@ public class HistoryDriverViewModel extends AndroidViewModel {
 
     private static final String TAG = HistoryDriverViewModel.class.getSimpleName();
 
-    private MutableLiveData<List<HistoryDriverResponse>> historyDriverResponseLiveData;
+    private MutableLiveData<List<HistoryDriverResponse>> historyDriverResponseLiveData =
+        new MutableLiveData<>();
+
+    private DriverEntityRepository driverEntityRepository;
 
     @Inject
-    DriverEntityRepository driverEntityRepository;
-
-    public HistoryDriverViewModel(@NonNull Application application) {
+    public HistoryDriverViewModel(
+        @NonNull Application application,
+        DriverEntityRepository driverEntityRepository
+    ) {
         super(application);
-        historyDriverResponseLiveData = new MutableLiveData<>();
+        this.driverEntityRepository = driverEntityRepository;
         fetchHistoryDrivers();
     }
 

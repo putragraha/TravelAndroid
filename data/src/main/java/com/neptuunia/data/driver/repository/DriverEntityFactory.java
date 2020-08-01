@@ -12,12 +12,11 @@ import javax.inject.Inject;
  */
 public class DriverEntityFactory {
 
-    @Inject
-    MockDriverEntity mockDriverEntity;
+    private MockDriverEntity mockDriverEntity;
 
     @Inject
-    public DriverEntityFactory() {
-        // For dagger injection
+    public DriverEntityFactory(MockDriverEntity mockDriverEntity) {
+        this.mockDriverEntity = mockDriverEntity;
     }
 
     public DriverEntity createDriverEntity() {

@@ -6,13 +6,15 @@ import com.neptuunia.travel.homedriver.HomeDriverActivity;
 
 import android.view.View;
 
+import javax.inject.Inject;
+
 public class LoginDriverActivity extends BaseActivity {
 
-    private ActivityLoginDriverBinding activityLoginDriverBinding;
+    @Inject
+    ActivityLoginDriverBinding activityLoginDriverBinding;
 
     @Override
     public View getView() {
-        activityLoginDriverBinding = ActivityLoginDriverBinding.inflate(getLayoutInflater());
         return activityLoginDriverBinding.getRoot();
     }
 
