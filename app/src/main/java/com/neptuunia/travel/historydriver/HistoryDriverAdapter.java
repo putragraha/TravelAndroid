@@ -13,8 +13,8 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
- * @author Rengar
- * @version HistoryDriverAdapter, v 0.0.1 29/07/20 22.55 by Rengar
+ * @author nSystem
+ * @version HistoryDriverAdapter, v 0.0.1 29/07/20 22.55 by nSystem
  */
 public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdapter.HistoryDriverViewHolder> {
 

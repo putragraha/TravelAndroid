@@ -9,8 +9,8 @@ import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
 
 /**
- * @author Rengar
- * @version ViewModelFactory, v 0.0.1 31/07/20 10.11 by Rengar
+ * @author nSystem
+ * @version ViewModelFactory, v 0.0.1 31/07/20 10.11 by nSystem
  */
 public class ViewModelFactory implements ViewModelProvider.Factory {
 

@@ -7,8 +7,8 @@ import java.util.List;
 import io.reactivex.rxjava3.core.Single;
 
 /**
- * @author Rengar
- * @version DriverRepository, v 0.0.1 19/07/20 14.18 by Rengar
+ * @author nSystem
+ * @version DriverRepository, v 0.0.1 19/07/20 14.18 by nSystem
  */
 public interface DriverRepository {
 
