@@ -6,8 +6,10 @@ import android.app.Application;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.HiltAndroidApp;
 import io.rollout.android.Rox;
 
+@HiltAndroidApp
 public class TravelApplication extends Application {
 
     @Inject
