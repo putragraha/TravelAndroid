@@ -8,6 +8,9 @@ import android.view.View;
 
 import javax.inject.Inject;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class LoginDriverActivity extends BaseActivity {
 
     @Inject
