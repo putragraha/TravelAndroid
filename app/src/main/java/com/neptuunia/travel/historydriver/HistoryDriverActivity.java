@@ -9,11 +9,13 @@ import javax.inject.Inject;
 
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import dagger.hilt.android.AndroidEntryPoint;
 
 /**
  * @author Rengar
  * @version HistoryDriverActivity, v 0.0.1 29/07/20 22.08 by Rengar
  */
+@AndroidEntryPoint
 public class HistoryDriverActivity extends BaseActivity {
 
     @Inject
