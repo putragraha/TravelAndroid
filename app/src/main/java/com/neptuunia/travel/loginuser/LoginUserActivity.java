@@ -13,7 +13,9 @@ import android.text.style.ClickableSpan;
 import android.view.View;
 
 import androidx.annotation.NonNull;
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class LoginUserActivity extends BaseActivity {
 
     private ActivityLoginUserBinding activityLoginUserBinding;

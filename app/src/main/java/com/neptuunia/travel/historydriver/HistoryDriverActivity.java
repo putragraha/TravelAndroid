@@ -1,23 +1,33 @@
 package com.neptuunia.travel.historydriver;
 
 import com.neptuunia.travel.base.BaseActivity;
-import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.databinding.ActivityHistoryDriverBinding;
 
 import android.view.View;
 
+import javax.inject.Inject;
+
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
+import dagger.hilt.android.AndroidEntryPoint;
 
 /**
  * @author nSystem
  * @version HistoryDriverActivity, v 0.0.1 29/07/20 22.08 by nSystem
  */
+@AndroidEntryPoint
 public class HistoryDriverActivity extends BaseActivity {
 
-    private ActivityHistoryDriverBinding activityHistoryDriverBinding;
+    @Inject
+    HistoryDriverAdapter historyDriverAdapter;
 
-    private HistoryDriverAdapter historyDriverAdapter;
+    @Inject
+    LinearLayoutManager linearLayoutManager;
+
+    @Inject
+    ViewModelProvider viewModelProvider;
+
+    private ActivityHistoryDriverBinding activityHistoryDriverBinding;
 
     @Override
     public View getView() {
@@ -32,17 +42,16 @@ public class HistoryDriverActivity extends BaseActivity {
     }
 
     private void setupRecylerView() {
-        historyDriverAdapter = new HistoryDriverAdapter();
-        activityHistoryDriverBinding.rvHistoryDriver.setLayoutManager(new LinearLayoutManager(this));
+        activityHistoryDriverBinding.rvHistoryDriver.setLayoutManager(linearLayoutManager);
         activityHistoryDriverBinding.rvHistoryDriver.setAdapter(historyDriverAdapter);
     }
 
     private void setupHistoryDriverViewModel() {
-        new ViewModelProvider(this, new ViewModelFactory(getApplication()))
-            .get(HistoryDriverViewModel.class)
-            .getHistoryDrivers().observe(
-            this,
-            historyDriverResponses -> historyDriverAdapter.submitList(historyDriverResponses)
-        );
+        viewModelProvider.get(HistoryDriverViewModel.class)
+            .getHistoryDrivers()
+            .observe(
+                this,
+                historyDriverResponses -> historyDriverAdapter.submitList(historyDriverResponses)
+            );
     }
 }

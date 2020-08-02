@@ -5,6 +5,9 @@ import com.neptuunia.travel.databinding.ActivityHomeUserBinding;
 
 import android.view.View;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class HomeUserActivity extends BaseActivity {
 
     private ActivityHomeUserBinding activityHomeUserBinding;

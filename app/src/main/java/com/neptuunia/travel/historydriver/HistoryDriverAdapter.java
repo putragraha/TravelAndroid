@@ -9,6 +9,8 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -19,6 +21,11 @@ import androidx.recyclerview.widget.RecyclerView;
 public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdapter.HistoryDriverViewHolder> {
 
     private List<HistoryDriverResponse> historyDriverResponses = new ArrayList<>();
+
+    @Inject
+    public HistoryDriverAdapter() {
+        // For dagger
+    }
 
     @NonNull
     @Override
@@ -51,9 +58,9 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
 
     static class HistoryDriverViewHolder extends RecyclerView.ViewHolder {
 
-        private final ItemHistoryDriverBinding itemHistoryDriverBinding;
+        private ItemHistoryDriverBinding itemHistoryDriverBinding;
 
-        public HistoryDriverViewHolder(@NonNull ItemHistoryDriverBinding itemHistoryDriverBinding) {
+        public HistoryDriverViewHolder(ItemHistoryDriverBinding itemHistoryDriverBinding) {
             super(itemHistoryDriverBinding.getRoot());
             this.itemHistoryDriverBinding = itemHistoryDriverBinding;
         }

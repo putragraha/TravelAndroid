@@ -23,7 +23,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         initTravelable();
     }
 
-    protected void startActivity(Class clazz) {
+    protected <T> void startActivity(Class<T> clazz) {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
     }

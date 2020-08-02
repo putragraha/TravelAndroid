@@ -4,6 +4,8 @@ import com.neptuunia.travel.historydriver.HistoryDriverViewModel;
 
 import android.app.Application;
 
+import javax.inject.Inject;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModel;
 import androidx.lifecycle.ViewModelProvider;
@@ -14,10 +16,11 @@ import androidx.lifecycle.ViewModelProvider;
  */
 public class ViewModelFactory implements ViewModelProvider.Factory {
 
-    private final Application application;
+    private HistoryDriverViewModel historyDriverViewModel;
 
-    public ViewModelFactory(Application application) {
-        this.application = application;
+    @Inject
+    public ViewModelFactory(HistoryDriverViewModel historyDriverViewModel) {
+        this.historyDriverViewModel = historyDriverViewModel;
     }
 
     @NonNull
@@ -25,7 +28,7 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     public <T extends ViewModel> T create(@NonNull Class<T> modelClass) {
         if (modelClass.isAssignableFrom(HistoryDriverViewModel.class)) {
             //noinspection unchecked
-            return (T) new HistoryDriverViewModel(application);
+            return (T) historyDriverViewModel;
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

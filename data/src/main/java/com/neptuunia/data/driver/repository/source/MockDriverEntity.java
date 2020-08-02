@@ -5,6 +5,8 @@ import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import java.util .ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.rxjava3.core.Single;
 
 /**
@@ -13,6 +15,7 @@ import io.reactivex.rxjava3.core.Single;
  */
 public class MockDriverEntity implements DriverEntity {
 
+    @Inject
     public MockDriverEntity() {
         // For dagger injection
     }

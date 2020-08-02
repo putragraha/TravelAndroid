@@ -8,6 +8,8 @@ import android.util.Log;
 
 import java.util.List;
 
+import javax.inject.Inject;
+
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
@@ -24,11 +26,18 @@ public class HistoryDriverViewModel extends AndroidViewModel {
 
     private static final String TAG = HistoryDriverViewModel.class.getSimpleName();
 
-    private MutableLiveData<List<HistoryDriverResponse>> historyDriverResponseLiveData;
+    private MutableLiveData<List<HistoryDriverResponse>> historyDriverResponseLiveData =
+        new MutableLiveData<>();
 
-    public HistoryDriverViewModel(@NonNull Application application) {
+    private DriverEntityRepository driverEntityRepository;
+
+    @Inject
+    public HistoryDriverViewModel(
+        @NonNull Application application,
+        DriverEntityRepository driverEntityRepository
+    ) {
         super(application);
-        historyDriverResponseLiveData = new MutableLiveData<>();
+        this.driverEntityRepository = driverEntityRepository;
         fetchHistoryDrivers();
     }
 
@@ -37,7 +46,7 @@ public class HistoryDriverViewModel extends AndroidViewModel {
     }
 
     private void fetchHistoryDrivers() {
-        new DriverEntityRepository().getHistoryDrivers()
+        driverEntityRepository.getHistoryDrivers()
             .subscribeOn(Schedulers.io())
             .observeOn(AndroidSchedulers.mainThread())
             .subscribe(new DisposableSingleObserver<List<HistoryDriverResponse>>() {

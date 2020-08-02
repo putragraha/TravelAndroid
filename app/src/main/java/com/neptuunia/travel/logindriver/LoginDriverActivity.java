@@ -6,6 +6,9 @@ import com.neptuunia.travel.homedriver.HomeDriverActivity;
 
 import android.view.View;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class LoginDriverActivity extends BaseActivity {
 
     private ActivityLoginDriverBinding activityLoginDriverBinding;

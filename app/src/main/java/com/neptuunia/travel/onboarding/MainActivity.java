@@ -7,6 +7,9 @@ import com.neptuunia.travel.loginuser.LoginUserActivity;
 
 import android.view.View;
 
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class MainActivity extends BaseActivity {
 
     private ActivityMainBinding activityMainBinding;
