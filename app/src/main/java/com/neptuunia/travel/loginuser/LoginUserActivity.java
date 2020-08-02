@@ -15,7 +15,9 @@ import android.view.View;
 import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
+import dagger.hilt.android.AndroidEntryPoint;
 
+@AndroidEntryPoint
 public class LoginUserActivity extends BaseActivity {
 
     @Inject
