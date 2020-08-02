@@ -23,7 +23,6 @@ public class ArmadaSettingActivity extends BaseActivity {
 
     @Override
     public View getView() {
-        activityArmadaSettingBinding = ActivityArmadaSettingBinding.inflate(getLayoutInflater());
         return activityArmadaSettingBinding.getRoot();
     }
 
