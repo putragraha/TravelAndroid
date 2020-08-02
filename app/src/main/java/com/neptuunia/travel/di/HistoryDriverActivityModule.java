@@ -1,8 +1,8 @@
 package com.neptuunia.travel.di;
 
 import com.neptuunia.travel.common.ViewModelFactory;
-import com.neptuunia.travel.databinding.ActivityHistoryDriverBinding;
 import com.neptuunia.travel.historydriver.HistoryDriverActivity;
+import com.neptuunia.travel.historydriver.HistoryDriverViewModel;
 
 import android.content.Context;
 
@@ -23,17 +23,13 @@ import dagger.hilt.android.qualifiers.ActivityContext;
 public class HistoryDriverActivityModule {
 
     @Provides
-    ActivityHistoryDriverBinding provideActivityHistoryDriverBinding(
-        @ActivityContext Context context
-    ) {
-        return ActivityHistoryDriverBinding.inflate(
-            ((HistoryDriverActivity) context).getLayoutInflater()
-        );
+    LinearLayoutManager provideLinearLayoutManager(@ActivityContext Context context) {
+        return new LinearLayoutManager(context);
     }
 
     @Provides
-    LinearLayoutManager provideLinearLayoutManager(@ActivityContext Context context) {
-        return new LinearLayoutManager(context);
+    ViewModelFactory provideViewModelFactory(HistoryDriverViewModel historyDriverViewModel) {
+        return new ViewModelFactory(historyDriverViewModel);
     }
 
     @Provides

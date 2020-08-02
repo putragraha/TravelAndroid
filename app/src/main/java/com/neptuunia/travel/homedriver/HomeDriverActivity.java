@@ -7,18 +7,16 @@ import com.neptuunia.travel.historydriver.HistoryDriverActivity;
 
 import android.view.View;
 
-import javax.inject.Inject;
-
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class HomeDriverActivity extends BaseActivity {
 
-    @Inject
-    ActivityHomeDriverBinding activityHomeDriverBinding;
+    private ActivityHomeDriverBinding activityHomeDriverBinding;
 
     @Override
     public View getView() {
+        activityHomeDriverBinding = ActivityHomeDriverBinding.inflate(getLayoutInflater());
         return activityHomeDriverBinding.getRoot();
     }
 

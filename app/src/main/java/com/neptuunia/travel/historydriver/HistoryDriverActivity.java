@@ -19,9 +19,6 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class HistoryDriverActivity extends BaseActivity {
 
     @Inject
-    ActivityHistoryDriverBinding activityHistoryDriverBinding;
-
-    @Inject
     HistoryDriverAdapter historyDriverAdapter;
 
     @Inject
@@ -30,8 +27,11 @@ public class HistoryDriverActivity extends BaseActivity {
     @Inject
     ViewModelProvider viewModelProvider;
 
+    private ActivityHistoryDriverBinding activityHistoryDriverBinding;
+
     @Override
     public View getView() {
+        activityHistoryDriverBinding = ActivityHistoryDriverBinding.inflate(getLayoutInflater());
         return activityHistoryDriverBinding.getRoot();
     }
 

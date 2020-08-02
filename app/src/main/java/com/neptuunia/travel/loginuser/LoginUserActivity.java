@@ -12,19 +12,17 @@ import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
 
-import javax.inject.Inject;
-
 import androidx.annotation.NonNull;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class LoginUserActivity extends BaseActivity {
 
-    @Inject
-    ActivityLoginUserBinding activityLoginUserBinding;
+    private ActivityLoginUserBinding activityLoginUserBinding;
 
     @Override
     public View getView() {
+        activityLoginUserBinding = ActivityLoginUserBinding.inflate(getLayoutInflater());
         return activityLoginUserBinding.getRoot();
     }
 
