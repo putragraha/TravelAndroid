@@ -7,9 +7,6 @@ import com.neptuunia.travel.historydriver.HistoryDriverActivity;
 
 import android.view.View;
 
-import dagger.hilt.android.AndroidEntryPoint;
-
-@AndroidEntryPoint
 public class HomeDriverActivity extends BaseActivity {
 
     private ActivityHomeDriverBinding activityHomeDriverBinding;
