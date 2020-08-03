@@ -2,6 +2,7 @@ package com.neptuunia.travel.historydriver;
 
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.data.driver.repository.DriverEntityRepository;
+import com.neptuunia.travel.utils.Transformer;
 
 import android.app.Application;
 import android.util.Log;
@@ -14,9 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
-import io.reactivex.rxjava3.android.schedulers.AndroidSchedulers;
 import io.reactivex.rxjava3.observers.DisposableSingleObserver;
-import io.reactivex.rxjava3.schedulers.Schedulers;
 
 /**
  * @author nSystem
@@ -47,8 +46,7 @@ public class HistoryDriverViewModel extends AndroidViewModel {
 
     private void fetchHistoryDrivers() {
         driverEntityRepository.getHistoryDrivers()
-            .subscribeOn(Schedulers.io())
-            .observeOn(AndroidSchedulers.mainThread())
+            .compose(Transformer::applySchedulers)
             .subscribe(new DisposableSingleObserver<List<HistoryDriverResponse>>() {
                 @Override
                 public void onSuccess(
