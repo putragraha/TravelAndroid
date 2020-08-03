@@ -2,15 +2,15 @@ package com.neptuunia.travel;
 
 import com.neptuunia.travel.common.Flags;
 
-import android.app.Application;
-
 import javax.inject.Inject;
 
+import androidx.multidex.MultiDex;
+import androidx.multidex.MultiDexApplication;
 import dagger.hilt.android.HiltAndroidApp;
 import io.rollout.android.Rox;
 
 @HiltAndroidApp
-public class TravelApplication extends Application {
+public class TravelApplication extends MultiDexApplication {
 
     @Inject
     Flags flags;
@@ -18,6 +18,7 @@ public class TravelApplication extends Application {
     @Override
     public void onCreate() {
         super.onCreate();
+        MultiDex.install(this);
         initRox();
     }
 
