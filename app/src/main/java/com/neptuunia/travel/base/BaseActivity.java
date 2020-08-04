@@ -20,7 +20,13 @@ public abstract class BaseActivity extends AppCompatActivity {
     @Override
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        initTravelable();
+
+        if (isTravelable()) {
+            setContentView(getView());
+            setup();
+        } else {
+            showRoxMessage();
+        }
     }
 
     public  <T> void startActivityWithBundle(Class<T> clazz, Bundle bundle) {
@@ -32,15 +38,6 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected <T> void startActivity(Class<T> clazz) {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
-    }
-
-    private void initTravelable() {
-        if (isTravelable()) {
-            setContentView(getView());
-            setup();
-        } else {
-            showRoxMessage();
-        }
     }
 
     private boolean isTravelable() {
