@@ -1,11 +1,16 @@
 package com.neptuunia.travel.di;
 
+import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.travel.common.ViewModelFactory;
+import com.neptuunia.travel.constant.Variable;
 import com.neptuunia.travel.historydriver.HistoryDriverActivity;
 import com.neptuunia.travel.historydriver.HistoryDriverViewModel;
+import com.neptuunia.travel.orderdetaildriver.OrderDetailDriverActivity;
 
 import android.content.Context;
+import android.os.Bundle;
 
+import androidx.core.util.Consumer;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import dagger.Module;
@@ -38,5 +43,20 @@ public class HistoryDriverActivityModule {
         ViewModelFactory viewModelFactory
     ) {
         return new ViewModelProvider((HistoryDriverActivity) context, viewModelFactory);
+    }
+
+    @Provides
+    Consumer<HistoryDriverResponse> provideHistoryDriverResponseConsumer(
+        @ActivityContext Context context
+    ) {
+        return historyDriverResponse -> {
+            Bundle bundle = new Bundle();
+            bundle.putParcelable(Variable.HISTORY_DRIVER_RESPONSE_DATA, historyDriverResponse);
+
+            ((HistoryDriverActivity) context).startActivityWithBundle(
+                OrderDetailDriverActivity.class,
+                bundle
+            );
+        };
     }
 }

@@ -4,6 +4,7 @@ import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.travel.databinding.ItemHistoryDriverBinding;
 
 import android.view.LayoutInflater;
+import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
@@ -12,6 +13,7 @@ import java.util.List;
 import javax.inject.Inject;
 
 import androidx.annotation.NonNull;
+import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.RecyclerView;
 
 /**
@@ -22,9 +24,13 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
 
     private List<HistoryDriverResponse> historyDriverResponses = new ArrayList<>();
 
+    private Consumer<HistoryDriverResponse> historyDriverResponseConsumer;
+
     @Inject
-    public HistoryDriverAdapter() {
-        // For dagger
+    public HistoryDriverAdapter(
+        @NonNull Consumer<HistoryDriverResponse> historyDriverResponseConsumer
+    ) {
+        this.historyDriverResponseConsumer = historyDriverResponseConsumer;
     }
 
     @NonNull
@@ -35,7 +41,8 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
                 LayoutInflater.from(parent.getContext()),
                 parent,
                 false
-            )
+            ),
+            historyDriverResponseConsumer
         );
     }
 
@@ -60,12 +67,24 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
 
         private ItemHistoryDriverBinding itemHistoryDriverBinding;
 
-        public HistoryDriverViewHolder(ItemHistoryDriverBinding itemHistoryDriverBinding) {
+        private Consumer<HistoryDriverResponse> historyDriverResponseConsumer;
+
+        private View rootView;
+
+        public HistoryDriverViewHolder(
+            ItemHistoryDriverBinding itemHistoryDriverBinding,
+            Consumer<HistoryDriverResponse> historyDriverResponseConsumer
+        ) {
             super(itemHistoryDriverBinding.getRoot());
+            this.rootView = itemHistoryDriverBinding.getRoot();
             this.itemHistoryDriverBinding = itemHistoryDriverBinding;
+            this.historyDriverResponseConsumer = historyDriverResponseConsumer;
         }
 
         public void bind(HistoryDriverResponse historyDriverResponse) {
+            rootView.setOnClickListener(view ->
+                historyDriverResponseConsumer.accept(historyDriverResponse)
+            );
             itemHistoryDriverBinding.actvOrderCode.setText(
                 String.valueOf(historyDriverResponse.getOrderCode())
             );

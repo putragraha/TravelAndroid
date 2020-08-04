@@ -23,6 +23,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         initTravelable();
     }
 
+    public  <T> void startActivityWithBundle(Class<T> clazz, Bundle bundle) {
+        Intent intent = new Intent(this, clazz);
+        intent.putExtras(bundle);
+        startActivity(intent);
+    }
+
     protected <T> void startActivity(Class<T> clazz) {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);

@@ -1,10 +1,13 @@
 package com.neptuunia.data.driver.model;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 /**
  * @author nSystem
  * @version ArmadaSettingResponse, v 0.0.1 19/07/20 14.22 by nSystem
  */
-public class HistoryDriverResponse {
+public class HistoryDriverResponse implements Parcelable {
 
     private int orderCode;
 
@@ -19,6 +22,33 @@ public class HistoryDriverResponse {
     private double latitude;
 
     private double longitude;
+
+    public HistoryDriverResponse() {
+        // Enable empty constructor
+    }
+
+    protected HistoryDriverResponse(Parcel in) {
+        orderCode = in.readInt();
+        userName = in.readString();
+        seatBooked = in.readString();
+        price = in.readInt();
+        note = in.readString();
+        latitude = in.readDouble();
+        longitude = in.readDouble();
+    }
+
+    public static final Creator<HistoryDriverResponse> CREATOR =
+        new Creator<HistoryDriverResponse>() {
+        @Override
+        public HistoryDriverResponse createFromParcel(Parcel in) {
+            return new HistoryDriverResponse(in);
+        }
+
+        @Override
+        public HistoryDriverResponse[] newArray(int size) {
+            return new HistoryDriverResponse[size];
+        }
+    };
 
     public int getOrderCode() {
         return orderCode;
@@ -74,5 +104,21 @@ public class HistoryDriverResponse {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeInt(orderCode);
+        out.writeString(userName);
+        out.writeString(seatBooked);
+        out.writeInt(price);
+        out.writeString(note);
+        out.writeDouble(latitude);
+        out.writeDouble(longitude);
     }
 }
