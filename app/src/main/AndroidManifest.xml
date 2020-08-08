@@ -59,6 +59,10 @@
             android:name=".profiledriver.ProfileDriverActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".profileuser.ProfileUserActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>
