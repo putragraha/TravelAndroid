@@ -1,8 +1,13 @@
 package com.neptuunia.travel.historydriver;
 
+import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.travel.base.BaseActivity;
+import com.neptuunia.travel.common.ViewModelFactory;
+import com.neptuunia.travel.constant.Variable;
 import com.neptuunia.travel.databinding.ActivityHistoryDriverBinding;
+import com.neptuunia.travel.orderdetaildriver.OrderDetailDriverActivity;
 
+import android.os.Bundle;
 import android.view.View;
 
 import javax.inject.Inject;
@@ -19,20 +24,16 @@ import dagger.hilt.android.AndroidEntryPoint;
 public class HistoryDriverActivity extends BaseActivity {
 
     @Inject
-    HistoryDriverAdapter historyDriverAdapter;
+    ViewModelFactory viewModelFactory;
 
-    @Inject
-    LinearLayoutManager linearLayoutManager;
+    private HistoryDriverAdapter historyDriverAdapter;
 
-    @Inject
-    ViewModelProvider viewModelProvider;
-
-    private ActivityHistoryDriverBinding activityHistoryDriverBinding;
+    private ActivityHistoryDriverBinding binding;
 
     @Override
     public View getView() {
-        activityHistoryDriverBinding = ActivityHistoryDriverBinding.inflate(getLayoutInflater());
-        return activityHistoryDriverBinding.getRoot();
+        binding = ActivityHistoryDriverBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
 
     @Override
@@ -42,16 +43,23 @@ public class HistoryDriverActivity extends BaseActivity {
     }
 
     private void setupRecylerView() {
-        activityHistoryDriverBinding.rvHistoryDriver.setLayoutManager(linearLayoutManager);
-        activityHistoryDriverBinding.rvHistoryDriver.setAdapter(historyDriverAdapter);
+        historyDriverAdapter = new HistoryDriverAdapter(this::startOrderDetailActivity);
+        binding.rvHistoryDriver.setLayoutManager(new LinearLayoutManager(this));
+        binding.rvHistoryDriver.setAdapter(historyDriverAdapter);
     }
 
     private void setupHistoryDriverViewModel() {
-        viewModelProvider.get(HistoryDriverViewModel.class)
+        new ViewModelProvider(this, viewModelFactory).get(HistoryDriverViewModel.class)
             .getHistoryDrivers()
             .observe(
                 this,
                 historyDriverResponses -> historyDriverAdapter.submitList(historyDriverResponses)
             );
+    }
+
+    private void startOrderDetailActivity(HistoryDriverResponse historyDriverResponse) {
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(Variable.HISTORY_DRIVER_RESPONSE_DATA, historyDriverResponse);
+        startActivityWithBundle(OrderDetailDriverActivity.class, bundle);
     }
 }

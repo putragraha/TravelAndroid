@@ -1,8 +1,7 @@
 package com.neptuunia.travel.common;
 
 import com.neptuunia.travel.historydriver.HistoryDriverViewModel;
-
-import android.app.Application;
+import com.neptuunia.travel.historyuser.HistoryUserViewModel;
 
 import javax.inject.Inject;
 
@@ -18,9 +17,15 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
 
     private HistoryDriverViewModel historyDriverViewModel;
 
+    private HistoryUserViewModel historyUserViewModel;
+
     @Inject
-    public ViewModelFactory(HistoryDriverViewModel historyDriverViewModel) {
+    public ViewModelFactory(
+        HistoryDriverViewModel historyDriverViewModel,
+        HistoryUserViewModel historyUserViewModel
+    ) {
         this.historyDriverViewModel = historyDriverViewModel;
+        this.historyUserViewModel = historyUserViewModel;
     }
 
     @NonNull
@@ -29,6 +34,9 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
         if (modelClass.isAssignableFrom(HistoryDriverViewModel.class)) {
             //noinspection unchecked
             return (T) historyDriverViewModel;
+        } else if (modelClass.isAssignableFrom(HistoryUserViewModel.class)) {
+            //noinspection unchecked
+            return (T) historyUserViewModel;
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

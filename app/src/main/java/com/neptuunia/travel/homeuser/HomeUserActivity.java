@@ -2,6 +2,7 @@ package com.neptuunia.travel.homeuser;
 
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.databinding.ActivityHomeUserBinding;
+import com.neptuunia.travel.historyuser.HistoryUserActivity;
 import com.neptuunia.travel.profileuser.ProfileUserActivity;
 
 import android.view.View;
@@ -20,6 +21,9 @@ public class HomeUserActivity extends BaseActivity {
     public void setup() {
         binding.btnProfile.setOnClickListener(view ->
             startActivity(ProfileUserActivity.class)
+        );
+        binding.btnHistory.setOnClickListener(view ->
+            startActivity(HistoryUserActivity.class)
         );
     }
 }

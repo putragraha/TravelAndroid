@@ -10,8 +10,6 @@ import android.view.ViewGroup;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.inject.Inject;
-
 import androidx.annotation.NonNull;
 import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.RecyclerView;
@@ -24,9 +22,8 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
 
     private List<HistoryDriverResponse> historyDriverResponses = new ArrayList<>();
 
-    private Consumer<HistoryDriverResponse> historyDriverResponseConsumer;
+    private final Consumer<HistoryDriverResponse> historyDriverResponseConsumer;
 
-    @Inject
     public HistoryDriverAdapter(
         @NonNull Consumer<HistoryDriverResponse> historyDriverResponseConsumer
     ) {

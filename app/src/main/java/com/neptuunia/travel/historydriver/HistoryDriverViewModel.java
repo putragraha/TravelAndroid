@@ -1,7 +1,7 @@
 package com.neptuunia.travel.historydriver;
 
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
-import com.neptuunia.data.driver.repository.DriverEntityRepository;
+import com.neptuunia.data.driver.repository.DriverRepository;
 import com.neptuunia.travel.utils.AutoDisposeSingleObserver;
 import com.neptuunia.travel.utils.Transformer;
 
@@ -25,15 +25,15 @@ public class HistoryDriverViewModel extends AndroidViewModel {
     private MutableLiveData<List<HistoryDriverResponse>> historyDriverResponseLiveData =
         new MutableLiveData<>();
 
-    private DriverEntityRepository driverEntityRepository;
+    private DriverRepository driverRepository;
 
     @Inject
     public HistoryDriverViewModel(
         @NonNull Application application,
-        DriverEntityRepository driverEntityRepository
+        DriverRepository driverRepository
     ) {
         super(application);
-        this.driverEntityRepository = driverEntityRepository;
+        this.driverRepository = driverRepository;
         fetchHistoryDrivers();
     }
 
@@ -42,7 +42,7 @@ public class HistoryDriverViewModel extends AndroidViewModel {
     }
 
     private void fetchHistoryDrivers() {
-        driverEntityRepository.getHistoryDrivers()
+        driverRepository.getHistoryDrivers()
             .compose(Transformer::applySchedulers)
             .subscribe(new AutoDisposeSingleObserver<List<HistoryDriverResponse>>() {
 

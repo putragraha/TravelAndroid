@@ -1,7 +1,7 @@
 package com.neptuunia.travel.di;
 
-import com.neptuunia.data.driver.repository.DriverEntityRepository;
-import com.neptuunia.data.driver.repository.DriverRepository;
+import com.neptuunia.data.user.repository.UserEntityRepository;
+import com.neptuunia.data.user.repository.UserRepository;
 
 import dagger.Module;
 import dagger.Provides;
@@ -14,10 +14,10 @@ import dagger.hilt.android.components.ActivityComponent;
  */
 @Module
 @InstallIn(ActivityComponent.class)
-public class HistoryDriverActivityModule {
+public class HistoryUserActivityModule {
 
     @Provides
-    DriverRepository provideDriverEntityRepository(DriverEntityRepository driverEntityRepository) {
-        return driverEntityRepository;
+    UserRepository provideUserEntityRepository(UserEntityRepository userEntityRepository) {
+        return userEntityRepository;
     }
 }
