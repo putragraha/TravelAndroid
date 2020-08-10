@@ -13,9 +13,6 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <meta-data
-            android:name="rox.apiKey"
-            android:value="${activationKey}" />
 
         <activity
             android:name=".onboarding.MainActivity"
