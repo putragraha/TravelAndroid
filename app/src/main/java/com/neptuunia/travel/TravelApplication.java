@@ -1,15 +1,10 @@
 package com.neptuunia.travel;
 
-import androidx.multidex.MultiDex;
-import androidx.multidex.MultiDexApplication;
+import android.app.Application;
+
 import dagger.hilt.android.HiltAndroidApp;
 
 @HiltAndroidApp
-public class TravelApplication extends MultiDexApplication {
-
-    @Override
-    public void onCreate() {
-        super.onCreate();
-        MultiDex.install(this);
-    }
+public class TravelApplication extends Application {
+    // For Dagger Hilt Injection
 }
