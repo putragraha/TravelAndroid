@@ -5,6 +5,7 @@ import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.constant.Variable;
 import com.neptuunia.travel.databinding.ActivityHistoryUserBinding;
+import com.neptuunia.travel.orderdetailuser.OrderDetailUserActivity;
 
 import android.os.Bundle;
 import android.view.View;
@@ -59,6 +60,6 @@ public class HistoryUserActivity extends BaseActivity {
     private void startOrderDetailActivity(HistoryUserResponse historyUserResponse) {
         Bundle bundle = new Bundle();
         bundle.putParcelable(Variable.HISTORY_USER_RESPONSE_DATA, historyUserResponse);
-//        startActivityWithBundle(OrderDetailDriverActivity.class, bundle);
+        startActivityWithBundle(OrderDetailUserActivity.class, bundle);
     }
 }

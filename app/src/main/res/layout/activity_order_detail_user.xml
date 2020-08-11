@@ -23,7 +23,7 @@
             tools:text="Order Code" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_user_name"
+            android:id="@+id/acet_driver_name"
             style="@style/RoundedBoxEditText.Iconed"
             android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_user"
@@ -36,7 +36,7 @@
             tools:text="User Name" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_ticket_amount"
+            android:id="@+id/acet_seat_amount"
             style="@style/RoundedBoxEditText.Iconed"
             android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_seat"
@@ -45,7 +45,7 @@
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_user_name"
+            app:layout_constraintTop_toBottomOf="@id/acet_driver_name"
             tools:text="Ticket Ordered Amount" />
 
         <androidx.appcompat.widget.AppCompatEditText
@@ -58,21 +58,34 @@
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_ticket_amount"
+            app:layout_constraintTop_toBottomOf="@id/acet_seat_amount"
             tools:text="Total Price" />
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_note"
-            style="@style/RoundedBoxEditText"
-            android:layout_height="100dp"
+            android:id="@+id/acet_departure_date"
+            style="@style/RoundedBoxEditText.Iconed"
             android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_calendar"
             android:enabled="false"
             android:importantForAutofill="no"
-            android:inputType="textMultiLine"
+            android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/acet_total_price"
-            tools:text="Note" />
+            tools:text="Departure Date" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_departure_time"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_access_time"
+            android:enabled="false"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_departure_date"
+            tools:text="Departure Time" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/acet_location"
@@ -84,8 +97,21 @@
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_note"
+            app:layout_constraintTop_toBottomOf="@id/acet_departure_time"
             tools:text="Location" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_note"
+            style="@style/RoundedBoxEditText"
+            android:layout_height="100dp"
+            android:layout_marginTop="24dp"
+            android:enabled="false"
+            android:importantForAutofill="no"
+            android:inputType="textMultiLine"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_location"
+            tools:text="Note" />
 
         <Button
             android:id="@+id/btn_submit"
@@ -95,7 +121,7 @@
             android:text="@string/submit"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_location" />
+            app:layout_constraintTop_toBottomOf="@id/acet_note" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

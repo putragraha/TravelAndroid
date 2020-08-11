@@ -18,8 +18,7 @@ public class OrderDetailDriverActivity extends BaseActivity {
 
     @Override
     public View getView() {
-        binding =
-            ActivityOrderDetailDriverBinding.inflate(getLayoutInflater());
+        binding = ActivityOrderDetailDriverBinding.inflate(getLayoutInflater());
         return binding.getRoot();
     }
 

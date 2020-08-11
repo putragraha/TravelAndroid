@@ -70,7 +70,6 @@ public class HistoryUserResponse implements Parcelable {
         dest.writeString(this.driverName);
         dest.writeInt(this.seatAmount);
         dest.writeInt(this.totalPrice);
-        dest.writeInt(this.totalPrice);
         dest.writeString(this.departureDate);
         dest.writeString(this.departureTime);
         dest.writeDouble(this.latitude);
