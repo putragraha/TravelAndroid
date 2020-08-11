@@ -68,6 +68,10 @@
             android:name=".orderdetailuser.OrderDetailUserActivity"
             android:screenOrientation="portrait" />
 
+        <activity
+            android:name=".registeruser.RegisterUserActivity"
+            android:screenOrientation="portrait" />
+
     </application>
 
 </manifest>

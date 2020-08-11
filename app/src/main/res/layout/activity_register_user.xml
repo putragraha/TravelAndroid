@@ -1,0 +1,84 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="24dp">
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_name"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:drawableStart="@drawable/ic_user"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:hint="@string/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_email"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_mail"
+            android:importantForAutofill="no"
+            android:inputType="textEmailAddress"
+            android:hint="@string/email"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_name" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_phone_number"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_phone"
+            android:importantForAutofill="no"
+            android:inputType="number"
+            android:hint="@string/phone_number"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_email" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_password"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_phone"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:hint="@string/password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_phone_number" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_confirm_password"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_phone"
+            android:enabled="false"
+            android:importantForAutofill="no"
+            android:inputType="textPassword"
+            android:hint="@string/confirm_password"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_password" />
+
+        <Button
+            android:id="@+id/btn_submit"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:text="@string/submit"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_confirm_password" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</ScrollView>

@@ -4,6 +4,7 @@ import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.databinding.ActivityLoginUserBinding;
 import com.neptuunia.travel.homeuser.HomeUserActivity;
+import com.neptuunia.travel.registeruser.RegisterUserActivity;
 
 import android.graphics.Color;
 import android.text.SpannableString;
@@ -50,9 +51,10 @@ public class LoginUserActivity extends BaseActivity {
         int startIndex = registerSpannableText.length() - registerHere.length();
 
         registerSpannableText.setSpan(new ClickableSpan() {
+
             @Override
             public void onClick(@NonNull View widget) {
-                // TODO Move to User Register
+                startActivity(RegisterUserActivity.class);
             }
         }, startIndex, registerSpannableText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
 
