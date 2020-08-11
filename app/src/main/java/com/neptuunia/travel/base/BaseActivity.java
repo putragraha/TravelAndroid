@@ -2,6 +2,7 @@ package com.neptuunia.travel.base;
 
 import com.google.android.gms.tasks.Task;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
+import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
 import com.neptuunia.travel.R;
 
@@ -42,22 +43,18 @@ public abstract class BaseActivity extends AppCompatActivity {
     private void initApps() {
         firebaseRemoteConfig = FirebaseRemoteConfig.getInstance();
         firebaseRemoteConfig.setDefaultsAsync(R.xml.firebase_defaults);
-        firebaseRemoteConfig.fetch(ONE_MINUTE)
-            .addOnCompleteListener(this::onFetchComplete);
+        firebaseRemoteConfig.setConfigSettingsAsync(getFirebaseRemoteConfigSettings());
+        firebaseRemoteConfig.fetchAndActivate()
+            .addOnCompleteListener(this::initView);
     }
 
-    private void onFetchComplete(Task<Void> task) {
-        activateFetch(task);
-        initView();
+    private FirebaseRemoteConfigSettings getFirebaseRemoteConfigSettings() {
+        return new FirebaseRemoteConfigSettings.Builder()
+            .setMinimumFetchIntervalInSeconds(ONE_MINUTE)
+            .build();
     }
 
-    private void activateFetch(Task<Void> task) {
-        if (task.isSuccessful()) {
-            firebaseRemoteConfig.activate();
-        }
-    }
-
-    private void initView() {
+    private void initView(Task<Boolean> task) {
         if (firebaseRemoteConfig.getBoolean(getString(R.string.app_green_light))) {
             setContentView(getView());
             setup();
