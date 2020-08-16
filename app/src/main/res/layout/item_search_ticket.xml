@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="8dp">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="16dp">
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aciv_driver_picture"
+            android:layout_width="75dp"
+            android:layout_height="75dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintBottom_toBottomOf="parent"
+            tools:src="@mipmap/ic_launcher"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_driver_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:layout_marginStart="24dp"
+            app:layout_constraintStart_toEndOf="@id/aciv_driver_picture"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Driver Name"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_seat_available"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/actv_driver_name"
+            app:layout_constraintTop_toBottomOf="@id/actv_driver_name"
+            tools:text="1/5 Seat Available"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_ticket_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/actv_seat_available"
+            app:layout_constraintTop_toBottomOf="@id/actv_seat_available"
+            tools:text="Rp 160000"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_driver_depart_date_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/actv_ticket_price"
+            app:layout_constraintTop_toBottomOf="@id/actv_ticket_price"
+            tools:text="Monday, 17/08/2020 20:00"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
