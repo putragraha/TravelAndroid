@@ -5,6 +5,8 @@ import com.neptuunia.data.ticket.model.TicketResponse;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.inject.Inject;
+
 import io.reactivex.rxjava3.core.Single;
 
 /**
@@ -12,6 +14,11 @@ import io.reactivex.rxjava3.core.Single;
  * @version MockTicketEntity, v 0.0.1 16/08/20 18.00 by Putra Nugraha
  */
 public class MockTicketEntity implements TicketEntity {
+
+    @Inject
+    public MockTicketEntity() {
+        // For dagger hilt injection
+    }
 
     @Override
     public Single<List<TicketResponse>> getTickets() {
