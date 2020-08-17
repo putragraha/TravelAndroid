@@ -16,10 +16,6 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-/**
- * @author nSystem
- * @version HistoryDriverViewModel, v 0.0.1 19/07/20 19.57 by nSystem
- */
 public class HistoryDriverViewModel extends AndroidViewModel {
 
     private MutableLiveData<List<HistoryDriverResponse>> historyDriverResponseLiveData =

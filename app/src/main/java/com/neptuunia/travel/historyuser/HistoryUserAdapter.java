@@ -18,10 +18,6 @@ import androidx.annotation.NonNull;
 import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version HistoryUserAdapter, v 0.0.1 09/08/20 00.10 by Putra Nugraha
- */
 public class HistoryUserAdapter extends RecyclerView.Adapter<HistoryUserAdapter.HistoryUserViewHolder> {
 
     private List<HistoryUserResponse> historyUserResponses = new ArrayList<>();

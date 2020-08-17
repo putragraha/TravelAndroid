@@ -9,10 +9,6 @@ import javax.inject.Inject;
 
 import io.reactivex.rxjava3.core.Single;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version MockUserEntity, v 0.0.1 09/08/20 01.46 by Putra Nugraha
- */
 public class MockUserEntity implements UserEntity {
 
     @Inject

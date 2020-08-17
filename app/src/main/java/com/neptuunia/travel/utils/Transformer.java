@@ -5,10 +5,6 @@ import io.reactivex.rxjava3.annotations.NonNull;
 import io.reactivex.rxjava3.core.Single;
 import io.reactivex.rxjava3.schedulers.Schedulers;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version Transformer, v 0.0.1 03/08/20 08.44 by Putra Nugraha
- */
 public class Transformer {
 
     private Transformer() {

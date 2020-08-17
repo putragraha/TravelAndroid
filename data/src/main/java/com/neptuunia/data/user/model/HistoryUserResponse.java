@@ -3,10 +3,6 @@ package com.neptuunia.data.user.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version HistoryUserResponse, v 0.0.1 09/08/20 00.20 by Putra Nugraha
- */
 public class HistoryUserResponse implements Parcelable {
 
     public static final Creator<HistoryUserResponse> CREATOR = new Creator<HistoryUserResponse>() {

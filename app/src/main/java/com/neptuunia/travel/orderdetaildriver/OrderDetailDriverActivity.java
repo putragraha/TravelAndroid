@@ -8,10 +8,6 @@ import com.neptuunia.travel.databinding.ActivityOrderDetailDriverBinding;
 import android.os.Bundle;
 import android.view.View;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version OrderDetailDriverActivity, v 0.0.1 04/08/20 07.39 by Putra Nugraha
- */
 public class OrderDetailDriverActivity extends BaseActivity {
 
     private ActivityOrderDetailDriverBinding binding;

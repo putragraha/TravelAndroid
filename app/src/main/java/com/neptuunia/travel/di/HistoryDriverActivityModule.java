@@ -8,10 +8,6 @@ import dagger.Provides;
 import dagger.hilt.InstallIn;
 import dagger.hilt.android.components.ActivityComponent;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version HistoryDriverActivityModule, v 0.0.1 02/08/20 07.52 by Putra Nugraha
- */
 @Module
 @InstallIn(ActivityComponent.class)
 public class HistoryDriverActivityModule {

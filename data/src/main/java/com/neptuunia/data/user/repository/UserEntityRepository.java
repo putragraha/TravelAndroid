@@ -9,10 +9,6 @@ import javax.inject.Inject;
 
 import io.reactivex.rxjava3.core.Single;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version UserEntityRepository, v 0.0.1 09/08/20 01.44 by Putra Nugraha
- */
 public class UserEntityRepository implements UserRepository {
 
     private UserEntityFactory userEntityFactory;

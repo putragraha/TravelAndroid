@@ -10,10 +10,6 @@ import com.neptuunia.travel.databinding.ActivityOrderTicketBinding;
 import android.os.Bundle;
 import android.view.View;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version OrderTicketActivity, v 0.0.1 17/08/20 10.40 by Putra Nugraha
- */
 public class OrderTicketActivity extends BaseActivity {
 
     private ActivityOrderTicketBinding binding;

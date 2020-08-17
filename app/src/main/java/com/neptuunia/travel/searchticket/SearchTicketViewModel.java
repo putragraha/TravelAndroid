@@ -16,10 +16,6 @@ import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 import androidx.lifecycle.MutableLiveData;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version SearchTicketViewModel, v 0.0.1 16/08/20 20.39 by Putra Nugraha
- */
 public class SearchTicketViewModel extends AndroidViewModel {
 
     private MutableLiveData<List<TicketResponse>> ticketResponseLiveData = new MutableLiveData<>();

@@ -9,10 +9,6 @@ import javax.inject.Inject;
 
 import io.reactivex.rxjava3.core.Single;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version TicketEntityRepository, v 0.0.1 16/08/20 19.27 by Putra Nugraha
- */
 public class TicketEntityRepository implements TicketRepository {
 
     private TicketEntityFactory ticketEntityFactory;

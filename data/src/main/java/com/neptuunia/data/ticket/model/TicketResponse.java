@@ -3,10 +3,6 @@ package com.neptuunia.data.ticket.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version OrderTicketResponse, v 0.0.1 16/08/20 16.45 by Putra Nugraha
- */
 public class TicketResponse implements Parcelable {
 
     public static final Creator<TicketResponse> CREATOR = new Creator<TicketResponse>() {

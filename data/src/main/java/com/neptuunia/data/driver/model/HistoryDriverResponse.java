@@ -3,10 +3,6 @@ package com.neptuunia.data.driver.model;
 import android.os.Parcel;
 import android.os.Parcelable;
 
-/**
- * @author nSystem
- * @version ArmadaSettingResponse, v 0.0.1 19/07/20 14.22 by nSystem
- */
 public class HistoryDriverResponse implements Parcelable {
 
     public static final Creator<HistoryDriverResponse> CREATOR =

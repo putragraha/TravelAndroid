@@ -14,10 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.core.util.Consumer;
 import androidx.recyclerview.widget.RecyclerView;
 
-/**
- * @author nSystem
- * @version HistoryDriverAdapter, v 0.0.1 29/07/20 22.55 by nSystem
- */
 public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdapter.HistoryDriverViewHolder> {
 
     private List<HistoryDriverResponse> historyDriverResponses = new ArrayList<>();

@@ -17,10 +17,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import dagger.hilt.android.AndroidEntryPoint;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version SearchTicketActivity, v 0.0.1 09/08/20 00.08 by Putra Nugraha
- */
 @AndroidEntryPoint
 public class SearchTicketActivity extends BaseActivity {
 

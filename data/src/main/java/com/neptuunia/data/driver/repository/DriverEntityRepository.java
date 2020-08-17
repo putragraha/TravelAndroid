@@ -9,10 +9,6 @@ import javax.inject.Inject;
 
 import io.reactivex.rxjava3.core.Single;
 
-/**
- * @author nSystem
- * @version DriverEntityRepository, v 0.0.1 19/07/20 15.18 by nSystem
- */
 public class DriverEntityRepository implements DriverRepository {
 
     private DriverEntityFactory driverEntityFactory;

@@ -16,10 +16,6 @@ import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import dagger.hilt.android.AndroidEntryPoint;
 
-/**
- * @author nSystem
- * @version HistoryDriverActivity, v 0.0.1 29/07/20 22.08 by nSystem
- */
 @AndroidEntryPoint
 public class HistoryDriverActivity extends BaseActivity {
 

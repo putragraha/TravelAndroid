@@ -6,10 +6,6 @@ import com.neptuunia.travel.databinding.ActivityProfileUserBinding;
 
 import android.view.View;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version ProfileDriverActivity, v 0.0.1 08/08/20 22.48 by Putra Nugraha
- */
 public class ProfileUserActivity extends BaseActivity {
 
     private ActivityProfileUserBinding binding;
