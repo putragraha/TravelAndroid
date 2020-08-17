@@ -23,6 +23,10 @@ public class HistoryUserResponse implements Parcelable {
 
     private String orderCode;
 
+    private String group;
+
+    private String armadaClass;
+
     private String photoUrl;
 
     private String driverName;
@@ -49,6 +53,8 @@ public class HistoryUserResponse implements Parcelable {
 
     protected HistoryUserResponse(Parcel in) {
         orderCode = in.readString();
+        group = in.readString();
+        armadaClass = in.readString();
         photoUrl = in.readString();
         driverName = in.readString();
         driverPhoneNumber = in.readString();
@@ -69,6 +75,8 @@ public class HistoryUserResponse implements Parcelable {
     @Override
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(this.orderCode);
+        dest.writeString(this.group);
+        dest.writeString(this.armadaClass);
         dest.writeString(this.photoUrl);
         dest.writeString(this.driverName);
         dest.writeString(this.driverPhoneNumber);
@@ -87,6 +95,22 @@ public class HistoryUserResponse implements Parcelable {
 
     public void setOrderCode(String orderCode) {
         this.orderCode = orderCode;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public String getArmadaClass() {
+        return armadaClass;
+    }
+
+    public void setArmadaClass(String armadaClass) {
+        this.armadaClass = armadaClass;
     }
 
     public String getPhotoUrl() {

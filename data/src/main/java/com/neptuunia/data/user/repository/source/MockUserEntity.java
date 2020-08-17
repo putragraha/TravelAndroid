@@ -27,6 +27,8 @@ public class MockUserEntity implements UserEntity {
         for (int i = 1; i <= 5; i++) {
             HistoryUserResponse historyUserResponse = new HistoryUserResponse();
             historyUserResponse.setOrderCode("Code" + i);
+            historyUserResponse.setGroup("Group: " + i);
+            historyUserResponse.setArmadaClass("Armada Class: " + i);
             historyUserResponse.setPhotoUrl("PhotoUrl" + i);
             historyUserResponse.setDriverName("DriverName " + i);
             historyUserResponse.setDriverPhoneNumber("Driver Phone Number " + i);

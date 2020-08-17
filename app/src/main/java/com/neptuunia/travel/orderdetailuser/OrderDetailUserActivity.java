@@ -36,7 +36,9 @@ public class OrderDetailUserActivity extends BaseActivity {
             bundle.getParcelable(Variable.HISTORY_USER_RESPONSE_DATA);
 
         if (historyUserResponse != null) {
-            binding.acetOrderCode.setText(String.valueOf(historyUserResponse.getOrderCode()));
+            binding.acetOrderCode.setText(historyUserResponse.getOrderCode());
+            binding.acetGroup.setText(historyUserResponse.getGroup());
+            binding.acetArmadaClass.setText(historyUserResponse.getArmadaClass());
             binding.acetDriverName.setText(historyUserResponse.getDriverName());
             binding.acetSeatAmount.setText(String.valueOf(historyUserResponse.getSeatAmount()));
             binding.acetTotalPrice.setText(String.valueOf(historyUserResponse.getTotalPrice()));
