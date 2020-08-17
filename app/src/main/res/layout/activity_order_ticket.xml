@@ -25,8 +25,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            app:cardBackgroundColor="@color/lightGrey"
             app:cardElevation="1dp"
-            app:cardCornerRadius="4dp"
+            app:cardCornerRadius="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/aciv_driver_picture">
@@ -56,6 +57,26 @@
                     tools:text="Nice"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_group_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/group"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_driver_name" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_group"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_group_title"
+                    tools:text="Libra"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_phone_number_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -64,7 +85,7 @@
                     android:textSize="12sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/actv_driver_name" />
+                    app:layout_constraintTop_toBottomOf="@id/actv_group" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_phone_number"
@@ -124,8 +145,9 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
+            app:cardBackgroundColor="@color/lightGrey"
             app:cardElevation="1dp"
-            app:cardCornerRadius="4dp"
+            app:cardCornerRadius="8dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv_armada_information">
@@ -136,14 +158,34 @@
                 android:layout_margin="12dp">
 
                 <androidx.appcompat.widget.AppCompatTextView
-                    android:id="@+id/actv_seat_available_title"
+                    android:id="@+id/actv_armada_class_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/seat_available"
+                    android:text="@string/armada_class"
                     android:textSize="12sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_armada_class"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_armada_class_title"
+                    tools:text="Economy Class"/>
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_seat_available_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/ticket_price"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_armada_class" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_seat_available"
@@ -152,7 +194,7 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/actv_seat_available_title"
-                    tools:text="3 of 5 Available"/>
+                    tools:text="Rp 160000"/>
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_price_title"

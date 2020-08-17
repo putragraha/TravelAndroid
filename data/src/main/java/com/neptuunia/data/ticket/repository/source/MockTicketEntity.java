@@ -28,8 +28,10 @@ public class MockTicketEntity implements TicketEntity {
             TicketResponse ticketResponse = new TicketResponse();
             ticketResponse.setPhotoUrl("PhotoUrl" + i);
             ticketResponse.setDriverName("Driver Name" + i);
+            ticketResponse.setGroup("Group: " + i);
             ticketResponse.setCar("Car" + i);
             ticketResponse.setDatetime(i);
+            ticketResponse.setArmadaClass("Armada Class: " + i);
             ticketResponse.setSeatAvailable(i);
             ticketResponse.setTicketPrice(i);
             ticketResponse.setDriverPhoneNumber("PhoneNumber: " + i);

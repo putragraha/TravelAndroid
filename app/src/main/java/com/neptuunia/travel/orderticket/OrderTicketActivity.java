@@ -43,8 +43,10 @@ public class OrderTicketActivity extends BaseActivity {
                 .placeholder(R.mipmap.ic_launcher)
                 .into(binding.acivDriverPicture);
             binding.actvDriverName.setText(ticketResponse.getDriverName());
+            binding.actvGroup.setText(ticketResponse.getGroup());
             binding.actvCar.setText(ticketResponse.getCar());
             binding.actvDepartureTime.setText(String.valueOf(ticketResponse.getDatetime()));
+            binding.actvArmadaClass.setText(ticketResponse.getArmadaClass());
             binding.actvSeatAvailable.setText(String.valueOf(ticketResponse.getSeatAvailable()));
             binding.actvPrice.setText(String.valueOf(ticketResponse.getTicketPrice()));
             binding.actvPhoneNumber.setText(ticketResponse.getDriverPhoneNumber());

@@ -25,9 +25,13 @@ public class TicketResponse implements Parcelable {
 
     private String driverName;
 
+    private String group;
+
     private String car;
 
     private long datetime;
+
+    private String armadaClass;
 
     private int seatAvailable;
 
@@ -42,8 +46,10 @@ public class TicketResponse implements Parcelable {
     protected TicketResponse(Parcel in) {
         photoUrl = in.readString();
         driverName = in.readString();
+        group = in.readString();
         car = in.readString();
         datetime = in.readLong();
+        armadaClass = in.readString();
         seatAvailable = in.readInt();
         ticketPrice = in.readLong();
         driverPhoneNumber = in.readString();
@@ -58,8 +64,10 @@ public class TicketResponse implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(photoUrl);
         dest.writeString(driverName);
+        dest.writeString(group);
         dest.writeString(car);
         dest.writeLong(datetime);
+        dest.writeString(armadaClass);
         dest.writeInt(seatAvailable);
         dest.writeLong(ticketPrice);
         dest.writeString(driverPhoneNumber);
@@ -81,6 +89,14 @@ public class TicketResponse implements Parcelable {
         this.driverName = driverName;
     }
 
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
     public String getCar() {
         return car;
     }
@@ -95,6 +111,14 @@ public class TicketResponse implements Parcelable {
 
     public void setDatetime(long datetime) {
         this.datetime = datetime;
+    }
+
+    public String getArmadaClass() {
+        return armadaClass;
+    }
+
+    public void setArmadaClass(String armadaClass) {
+        this.armadaClass = armadaClass;
     }
 
     public int getSeatAvailable() {
