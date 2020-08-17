@@ -33,6 +33,8 @@ public class TicketResponse implements Parcelable {
 
     private long ticketPrice;
 
+    private String driverPhoneNumber;
+
     public TicketResponse() {
         // Enable empty constructor
     }
@@ -44,6 +46,7 @@ public class TicketResponse implements Parcelable {
         datetime = in.readLong();
         seatAvailable = in.readInt();
         ticketPrice = in.readLong();
+        driverPhoneNumber = in.readString();
     }
 
     @Override
@@ -59,6 +62,7 @@ public class TicketResponse implements Parcelable {
         dest.writeLong(datetime);
         dest.writeInt(seatAvailable);
         dest.writeLong(ticketPrice);
+        dest.writeString(driverPhoneNumber);
     }
 
     public String getPhotoUrl() {
@@ -107,5 +111,13 @@ public class TicketResponse implements Parcelable {
 
     public void setTicketPrice(long ticketPrice) {
         this.ticketPrice = ticketPrice;
+    }
+
+    public String getDriverPhoneNumber() {
+        return driverPhoneNumber;
+    }
+
+    public void setDriverPhoneNumber(String driverPhoneNumber) {
+        this.driverPhoneNumber = driverPhoneNumber;
     }
 }

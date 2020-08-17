@@ -47,6 +47,7 @@ public class OrderTicketActivity extends BaseActivity {
             binding.actvDepartureTime.setText(String.valueOf(ticketResponse.getDatetime()));
             binding.actvSeatAvailable.setText(String.valueOf(ticketResponse.getSeatAvailable()));
             binding.actvPrice.setText(String.valueOf(ticketResponse.getTicketPrice()));
+            binding.actvPhoneNumber.setText(ticketResponse.getDriverPhoneNumber());
         }
     }
 }

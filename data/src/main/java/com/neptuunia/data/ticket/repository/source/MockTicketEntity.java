@@ -32,6 +32,7 @@ public class MockTicketEntity implements TicketEntity {
             ticketResponse.setDatetime(i);
             ticketResponse.setSeatAvailable(i);
             ticketResponse.setTicketPrice(i);
+            ticketResponse.setDriverPhoneNumber("PhoneNumber: " + i);
 
             ticketResponses.add(ticketResponse);
         }
