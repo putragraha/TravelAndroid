@@ -22,4 +22,9 @@
     <string name="name">Name</string>
     <string name="phone_number">Phone Number</string>
     <string name="confirm_password">Confirm Password</string>
+    <string name="car">Car</string>
+    <string name="departure_time">Departure Time</string>
+    <string name="seat_available">Seat Available</string>
+    <string name="choose_pick_up_location">Choose Pick Up Location</string>
+    <string name="choose_amount_seat_to_order">How many seat?</string>
 </resources>
