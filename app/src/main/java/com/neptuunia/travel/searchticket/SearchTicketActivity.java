@@ -3,8 +3,12 @@ package com.neptuunia.travel.searchticket;
 import com.neptuunia.data.ticket.model.TicketResponse;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
+import com.neptuunia.travel.constant.Variable;
 import com.neptuunia.travel.databinding.ActivitySearchTicketBinding;
+import com.neptuunia.travel.orderdetailuser.OrderDetailUserActivity;
+import com.neptuunia.travel.orderticket.OrderTicketActivity;
 
+import android.os.Bundle;
 import android.view.View;
 
 import javax.inject.Inject;
@@ -55,6 +59,8 @@ public class SearchTicketActivity extends BaseActivity {
     }
 
     private void startOrderDetailActivity(TicketResponse ticketResponse) {
-        // TODO (Putra): 16/08/20 To Order Ticket
+        Bundle bundle = new Bundle();
+        bundle.putParcelable(Variable.TICKET_RESPONSE_DATA, ticketResponse);
+        startActivityWithBundle(OrderTicketActivity.class, bundle);
     }
 }
