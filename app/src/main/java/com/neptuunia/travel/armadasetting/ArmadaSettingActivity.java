@@ -32,7 +32,7 @@ public class ArmadaSettingActivity extends BaseActivity {
 
     private void setupEditTextDepartureTime() {
         Calendar calendar = Calendar.getInstance();
-        activityArmadaSettingBinding.etDepartureTime.setOnClickListener(view ->
+        activityArmadaSettingBinding.acetDepartureTime.setOnClickListener(view ->
                 new TimePickerDialog(
                     this,
                     this::setTimeEditTextDepartureTime,
@@ -44,7 +44,7 @@ public class ArmadaSettingActivity extends BaseActivity {
     }
 
     private void setTimeEditTextDepartureTime(TimePicker timePicker, int hourOfDay, int minute) {
-        activityArmadaSettingBinding.etDepartureTime.setText(
+        activityArmadaSettingBinding.acetDepartureTime.setText(
             String.format(
                 DateTimeUtils.TIME_STRING_FORMAT,
                 NumberUtils.getTwoDigitsNumber(hourOfDay),
@@ -55,7 +55,7 @@ public class ArmadaSettingActivity extends BaseActivity {
 
     private void setupEditTextDepartureDate() {
         Calendar calendar = Calendar.getInstance();
-        activityArmadaSettingBinding.etDepartureDate.setOnClickListener(view ->
+        activityArmadaSettingBinding.acetDepartureDate.setOnClickListener(view ->
             new DatePickerDialog(
                 this,
                 this::setDateEditTextDepartureDate,
@@ -68,7 +68,7 @@ public class ArmadaSettingActivity extends BaseActivity {
 
     private void setDateEditTextDepartureDate(DatePicker datePicker, int year, int month,
         int dayOfMonth) {
-        activityArmadaSettingBinding.etDepartureDate.setText(
+        activityArmadaSettingBinding.acetDepartureDate.setText(
             String.format(
                 DateTimeUtils.DATE_STRING_FORMAT,
                 NumberUtils.getTwoDigitsNumber(dayOfMonth),

@@ -10,8 +10,8 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
-        <EditText
-            android:id="@+id/et_departure_time"
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_departure_time"
             style="@style/RoundedBoxEditText.Iconed"
             android:drawableStart="@drawable/ic_access_time"
             android:focusableInTouchMode="false"
@@ -22,8 +22,8 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
-        <EditText
-            android:id="@+id/et_departure_date"
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_departure_date"
             style="@style/RoundedBoxEditText.Iconed"
             android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_calendar"
@@ -33,7 +33,19 @@
             android:inputType="date"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_departure_time" />
+            app:layout_constraintTop_toBottomOf="@id/acet_departure_time" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_class"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_star"
+            android:hint="@string/armada_class"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_departure_date" />
 
         <EditText
             android:id="@+id/et_ticket_price"
@@ -45,7 +57,7 @@
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_departure_date" />
+            app:layout_constraintTop_toBottomOf="@id/acet_class" />
 
         <EditText
             android:id="@+id/et_seat_amount"
