@@ -27,6 +27,8 @@ public class HistoryUserResponse implements Parcelable {
 
     private String driverName;
 
+    private String driverPhoneNumber;
+
     private int seatAmount;
 
     private int totalPrice;
@@ -49,6 +51,7 @@ public class HistoryUserResponse implements Parcelable {
         orderCode = in.readString();
         photoUrl = in.readString();
         driverName = in.readString();
+        driverPhoneNumber = in.readString();
         seatAmount = in.readInt();
         totalPrice = in.readInt();
         departureDate = in.readString();
@@ -68,6 +71,7 @@ public class HistoryUserResponse implements Parcelable {
         dest.writeString(this.orderCode);
         dest.writeString(this.photoUrl);
         dest.writeString(this.driverName);
+        dest.writeString(this.driverPhoneNumber);
         dest.writeInt(this.seatAmount);
         dest.writeInt(this.totalPrice);
         dest.writeString(this.departureDate);
@@ -155,5 +159,13 @@ public class HistoryUserResponse implements Parcelable {
 
     public void setNote(String note) {
         this.note = note;
+    }
+
+    public String getDriverPhoneNumber() {
+        return driverPhoneNumber;
+    }
+
+    public void setDriverPhoneNumber(String driverPhoneNumber) {
+        this.driverPhoneNumber = driverPhoneNumber;
     }
 }

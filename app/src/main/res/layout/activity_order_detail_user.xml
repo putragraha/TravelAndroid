@@ -33,7 +33,20 @@
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/acet_order_code"
-            tools:text="User Name" />
+            tools:text="Driver Name" />
+
+        <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_driver_phone_number"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_phone"
+            android:enabled="false"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_driver_name"
+            tools:text="Driver Phone Number" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/acet_seat_amount"
@@ -45,7 +58,7 @@
             android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_driver_name"
+            app:layout_constraintTop_toBottomOf="@id/acet_driver_phone_number"
             tools:text="Ticket Ordered Amount" />
 
         <androidx.appcompat.widget.AppCompatEditText

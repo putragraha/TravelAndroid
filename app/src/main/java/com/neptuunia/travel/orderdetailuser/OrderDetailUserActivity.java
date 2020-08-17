@@ -44,6 +44,7 @@ public class OrderDetailUserActivity extends BaseActivity {
             binding.acetDepartureTime.setText(historyUserResponse.getDepartureTime());
             binding.acetLocation.setText(String.valueOf(historyUserResponse.getLatitude()));
             binding.acetNote.setText(historyUserResponse.getNote());
+            binding.acetDriverPhoneNumber.setText(historyUserResponse.getDriverPhoneNumber());
         }
     }
 }
