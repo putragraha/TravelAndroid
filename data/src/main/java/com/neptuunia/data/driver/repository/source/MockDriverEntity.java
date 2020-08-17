@@ -27,7 +27,9 @@ public class MockDriverEntity implements DriverEntity {
         for (int i = 1; i <= 5; i++) {
             HistoryDriverResponse armadaSettingResponse = new HistoryDriverResponse();
             armadaSettingResponse.setOrderCode(i);
-            armadaSettingResponse.setUserName(String.format("Nama: %s", i));
+            armadaSettingResponse.setGroup(String.format("Group: %s", i));
+            armadaSettingResponse.setArmadaClass(String.format("Armada Class: %s", i));
+            armadaSettingResponse.setUserName(String.format("User Name: %s", i));
             armadaSettingResponse.setLatitude(i);
             armadaSettingResponse.setLongitude(i);
             armadaSettingResponse.setNote(String.format("Code: %s", i));

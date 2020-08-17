@@ -9,7 +9,24 @@ import android.os.Parcelable;
  */
 public class HistoryDriverResponse implements Parcelable {
 
+    public static final Creator<HistoryDriverResponse> CREATOR =
+        new Creator<HistoryDriverResponse>() {
+            @Override
+            public HistoryDriverResponse createFromParcel(Parcel in) {
+                return new HistoryDriverResponse(in);
+            }
+
+            @Override
+            public HistoryDriverResponse[] newArray(int size) {
+                return new HistoryDriverResponse[size];
+            }
+        };
+
     private int orderCode;
+
+    private String group;
+
+    private String armadaClass;
 
     private String userName;
 
@@ -29,6 +46,8 @@ public class HistoryDriverResponse implements Parcelable {
 
     protected HistoryDriverResponse(Parcel in) {
         orderCode = in.readInt();
+        group = in.readString();
+        armadaClass = in.readString();
         userName = in.readString();
         seatBooked = in.readString();
         price = in.readInt();
@@ -37,18 +56,23 @@ public class HistoryDriverResponse implements Parcelable {
         longitude = in.readDouble();
     }
 
-    public static final Creator<HistoryDriverResponse> CREATOR =
-        new Creator<HistoryDriverResponse>() {
-        @Override
-        public HistoryDriverResponse createFromParcel(Parcel in) {
-            return new HistoryDriverResponse(in);
-        }
+    @Override
+    public int describeContents() {
+        return 0;
+    }
 
-        @Override
-        public HistoryDriverResponse[] newArray(int size) {
-            return new HistoryDriverResponse[size];
-        }
-    };
+    @Override
+    public void writeToParcel(Parcel out, int flags) {
+        out.writeInt(orderCode);
+        out.writeString(group);
+        out.writeString(armadaClass);
+        out.writeString(userName);
+        out.writeString(seatBooked);
+        out.writeInt(price);
+        out.writeString(note);
+        out.writeDouble(latitude);
+        out.writeDouble(longitude);
+    }
 
     public int getOrderCode() {
         return orderCode;
@@ -56,6 +80,22 @@ public class HistoryDriverResponse implements Parcelable {
 
     public void setOrderCode(int orderCode) {
         this.orderCode = orderCode;
+    }
+
+    public String getGroup() {
+        return group;
+    }
+
+    public void setGroup(String group) {
+        this.group = group;
+    }
+
+    public String getArmadaClass() {
+        return armadaClass;
+    }
+
+    public void setArmadaClass(String armadaClass) {
+        this.armadaClass = armadaClass;
     }
 
     public String getUserName() {
@@ -104,21 +144,5 @@ public class HistoryDriverResponse implements Parcelable {
 
     public void setLongitude(double longitude) {
         this.longitude = longitude;
-    }
-
-    @Override
-    public int describeContents() {
-        return 0;
-    }
-
-    @Override
-    public void writeToParcel(Parcel out, int flags) {
-        out.writeInt(orderCode);
-        out.writeString(userName);
-        out.writeString(seatBooked);
-        out.writeInt(price);
-        out.writeString(note);
-        out.writeDouble(latitude);
-        out.writeDouble(longitude);
     }
 }
