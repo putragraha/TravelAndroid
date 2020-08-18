@@ -12,21 +12,18 @@ import androidx.lifecycle.ViewModelProvider;
 
 public class ViewModelFactory implements ViewModelProvider.Factory {
 
-    private HistoryDriverViewModel historyDriverViewModel;
-
-    private HistoryUserViewModel historyUserViewModel;
-
-    private SearchTicketViewModel searchTicketViewModel;
+    @Inject
+    HistoryDriverViewModel historyDriverViewModel;
 
     @Inject
-    public ViewModelFactory(
-        HistoryDriverViewModel historyDriverViewModel,
-        HistoryUserViewModel historyUserViewModel,
-        SearchTicketViewModel searchTicketViewModel
-    ) {
-        this.historyDriverViewModel = historyDriverViewModel;
-        this.historyUserViewModel = historyUserViewModel;
-        this.searchTicketViewModel = searchTicketViewModel;
+    HistoryUserViewModel historyUserViewModel;
+
+    @Inject
+    SearchTicketViewModel searchTicketViewModel;
+
+    @Inject
+    public ViewModelFactory() {
+        // For hilt injection
     }
 
     @NonNull
