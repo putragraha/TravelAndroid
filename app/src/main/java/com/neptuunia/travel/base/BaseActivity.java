@@ -9,6 +9,7 @@ import com.neptuunia.travel.R;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Toast;
 
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
@@ -38,6 +39,10 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected <T> void startActivity(Class<T> clazz) {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);
+    }
+
+    protected void showToast(String message) {
+        Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 
     private void initApps() {

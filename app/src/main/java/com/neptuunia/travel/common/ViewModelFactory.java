@@ -2,6 +2,7 @@ package com.neptuunia.travel.common;
 
 import com.neptuunia.travel.historydriver.HistoryDriverViewModel;
 import com.neptuunia.travel.historyuser.HistoryUserViewModel;
+import com.neptuunia.travel.logindriver.LoginDriverViewModel;
 import com.neptuunia.travel.searchticket.SearchTicketViewModel;
 
 import javax.inject.Inject;
@@ -14,6 +15,9 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
 
     @Inject
     HistoryDriverViewModel historyDriverViewModel;
+
+    @Inject
+    LoginDriverViewModel loginDriverViewModel;
 
     @Inject
     HistoryUserViewModel historyUserViewModel;
@@ -32,6 +36,9 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
         if (modelClass.isAssignableFrom(HistoryDriverViewModel.class)) {
             //noinspection unchecked
             return (T) historyDriverViewModel;
+        } else if (modelClass.isAssignableFrom(LoginDriverViewModel.class)) {
+            //noinspection unchecked
+            return (T) loginDriverViewModel;
         } else if (modelClass.isAssignableFrom(HistoryUserViewModel.class)) {
             //noinspection unchecked
             return (T) historyUserViewModel;
