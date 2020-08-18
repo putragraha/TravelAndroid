@@ -9,4 +9,6 @@ import io.reactivex.rxjava3.core.Single;
 public interface DriverRepository {
 
     Single<List<HistoryDriverResponse>> getHistoryDrivers();
+
+    Single<Boolean> loginDriver(String email, String password);
 }

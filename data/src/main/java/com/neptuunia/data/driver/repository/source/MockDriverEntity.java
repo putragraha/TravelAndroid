@@ -37,4 +37,9 @@ public class MockDriverEntity implements DriverEntity {
 
         return Single.just(armadaSettingResponses);
     }
+
+    @Override
+    public Single<Boolean> loginDriver(String email, String password) {
+        return Single.just(false);
+    }
 }

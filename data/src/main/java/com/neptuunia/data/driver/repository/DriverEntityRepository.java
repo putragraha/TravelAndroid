@@ -1,5 +1,6 @@
 package com.neptuunia.data.driver.repository;
 
+import com.neptuunia.data.constant.Source;
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.data.driver.repository.source.DriverEntity;
 
@@ -20,11 +21,17 @@ public class DriverEntityRepository implements DriverRepository {
 
     @Override
     public Single<List<HistoryDriverResponse>> getHistoryDrivers() {
-        return createDriverEntity()
+        return createDriverEntity(Source.MOCK)
             .getHistoryDrivers();
     }
 
-    public DriverEntity createDriverEntity() {
-        return driverEntityFactory.createDriverEntity();
+    @Override
+    public Single<Boolean> loginDriver(String email, String password) {
+        return createDriverEntity(Source.NETWORK)
+            .loginDriver(email, password);
+    }
+
+    public DriverEntity createDriverEntity(@Source String source) {
+        return driverEntityFactory.createDriverEntity(source);
     }
 }
