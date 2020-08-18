@@ -3,7 +3,7 @@ package com.neptuunia.travel.historydriver;
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
-import com.neptuunia.travel.constant.Variable;
+import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityHistoryDriverBinding;
 import com.neptuunia.travel.orderdetaildriver.OrderDetailDriverActivity;
 
@@ -55,7 +55,7 @@ public class HistoryDriverActivity extends BaseActivity {
 
     private void startOrderDetailActivity(HistoryDriverResponse historyDriverResponse) {
         Bundle bundle = new Bundle();
-        bundle.putParcelable(Variable.HISTORY_DRIVER_RESPONSE_DATA, historyDriverResponse);
+        bundle.putParcelable(Constant.HISTORY_DRIVER_RESPONSE_DATA, historyDriverResponse);
         startActivityWithBundle(OrderDetailDriverActivity.class, bundle);
     }
 }

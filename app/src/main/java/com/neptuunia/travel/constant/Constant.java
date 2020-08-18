@@ -1,6 +1,8 @@
 package com.neptuunia.travel.constant;
 
-public class Variable {
+import com.neptuunia.travel.BuildConfig;
+
+public class Constant {
 
     public static final String HISTORY_DRIVER_RESPONSE_DATA = "HistoryDriverResponse";
 
@@ -8,7 +10,9 @@ public class Variable {
 
     public static final String TICKET_RESPONSE_DATA = "TicketResponse";
 
-    private Variable() {
+    public static final String API_URL = BuildConfig.BASE_URL + "project_travel/api/";
+
+    private Constant() {
         // Prevent instantiation
     }
 }

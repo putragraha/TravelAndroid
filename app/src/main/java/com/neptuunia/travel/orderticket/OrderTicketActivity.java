@@ -4,7 +4,7 @@ import com.bumptech.glide.Glide;
 import com.neptuunia.data.ticket.model.TicketResponse;
 import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
-import com.neptuunia.travel.constant.Variable;
+import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityOrderTicketBinding;
 
 import android.os.Bundle;
@@ -30,7 +30,7 @@ public class OrderTicketActivity extends BaseActivity {
     }
 
     private void setupForm(Bundle bundle) {
-        TicketResponse ticketResponse = bundle.getParcelable(Variable.TICKET_RESPONSE_DATA);
+        TicketResponse ticketResponse = bundle.getParcelable(Constant.TICKET_RESPONSE_DATA);
 
         if (ticketResponse != null) {
             Glide.with(this)

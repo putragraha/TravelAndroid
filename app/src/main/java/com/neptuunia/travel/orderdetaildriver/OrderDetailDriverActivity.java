@@ -2,7 +2,7 @@ package com.neptuunia.travel.orderdetaildriver;
 
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.travel.base.BaseActivity;
-import com.neptuunia.travel.constant.Variable;
+import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityOrderDetailDriverBinding;
 
 import android.os.Bundle;
@@ -29,7 +29,7 @@ public class OrderDetailDriverActivity extends BaseActivity {
 
     private void setupForm(Bundle bundle) {
         HistoryDriverResponse historyDriverResponse =
-            bundle.getParcelable(Variable.HISTORY_DRIVER_RESPONSE_DATA);
+            bundle.getParcelable(Constant.HISTORY_DRIVER_RESPONSE_DATA);
 
         if (historyDriverResponse != null) {
             binding.acetOrderCode.setText(String.valueOf(historyDriverResponse.getOrderCode()));

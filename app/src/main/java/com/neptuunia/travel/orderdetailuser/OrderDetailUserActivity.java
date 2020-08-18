@@ -2,7 +2,7 @@ package com.neptuunia.travel.orderdetailuser;
 
 import com.neptuunia.data.user.model.HistoryUserResponse;
 import com.neptuunia.travel.base.BaseActivity;
-import com.neptuunia.travel.constant.Variable;
+import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityOrderDetailUserBinding;
 
 import android.os.Bundle;
@@ -29,7 +29,7 @@ public class OrderDetailUserActivity extends BaseActivity {
 
     private void setupForm(Bundle bundle) {
         HistoryUserResponse historyUserResponse =
-            bundle.getParcelable(Variable.HISTORY_USER_RESPONSE_DATA);
+            bundle.getParcelable(Constant.HISTORY_USER_RESPONSE_DATA);
 
         if (historyUserResponse != null) {
             binding.acetOrderCode.setText(historyUserResponse.getOrderCode());

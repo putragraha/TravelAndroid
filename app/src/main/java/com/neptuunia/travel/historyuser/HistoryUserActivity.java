@@ -3,7 +3,7 @@ package com.neptuunia.travel.historyuser;
 import com.neptuunia.data.user.model.HistoryUserResponse;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
-import com.neptuunia.travel.constant.Variable;
+import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityHistoryUserBinding;
 import com.neptuunia.travel.orderdetailuser.OrderDetailUserActivity;
 
@@ -55,7 +55,7 @@ public class HistoryUserActivity extends BaseActivity {
 
     private void startOrderDetailActivity(HistoryUserResponse historyUserResponse) {
         Bundle bundle = new Bundle();
-        bundle.putParcelable(Variable.HISTORY_USER_RESPONSE_DATA, historyUserResponse);
+        bundle.putParcelable(Constant.HISTORY_USER_RESPONSE_DATA, historyUserResponse);
         startActivityWithBundle(OrderDetailUserActivity.class, bundle);
     }
 }
