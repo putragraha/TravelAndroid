@@ -12,6 +12,8 @@ public class Constant {
 
     public static final String API_URL = BuildConfig.BASE_URL + "/project_travel/api/";
 
+    public static final String SP_NAME = "cache";
+
     private Constant() {
         // Prevent instantiation
     }

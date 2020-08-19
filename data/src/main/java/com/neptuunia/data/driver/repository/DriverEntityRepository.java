@@ -1,5 +1,8 @@
 package com.neptuunia.data.driver.repository;
 
+import com.neptuunia.data.account.model.Account;
+import com.neptuunia.data.account.repository.AccountRepository;
+import com.neptuunia.data.constant.AccountType;
 import com.neptuunia.data.constant.Source;
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.data.driver.model.LoginDriverRequest;
@@ -16,8 +19,14 @@ public class DriverEntityRepository implements DriverRepository {
 
     private DriverEntityFactory driverEntityFactory;
 
+    private AccountRepository accountRepository;
+
     @Inject
-    public DriverEntityRepository(DriverEntityFactory driverEntityFactory) {
+    public DriverEntityRepository(
+        AccountRepository accountRepository,
+        DriverEntityFactory driverEntityFactory
+    ) {
+        this.accountRepository = accountRepository;
         this.driverEntityFactory = driverEntityFactory;
     }
 
@@ -30,10 +39,15 @@ public class DriverEntityRepository implements DriverRepository {
     @Override
     public Single<LoginDriverResponse> loginDriver(String email, String password) {
         return createDriverEntity(Source.NETWORK)
-            .loginDriver(new LoginDriverRequest(email, password));
+            .loginDriver(new LoginDriverRequest(email, password))
+            .doOnSuccess(this::saveSession);
     }
 
     public DriverEntity createDriverEntity(@Source String source) {
         return driverEntityFactory.createDriverEntity(source);
+    }
+
+    private void saveSession(LoginDriverResponse loginDriverResponse) {
+        accountRepository.saveSession(new Account(loginDriverResponse.getId(), AccountType.DRIVER));
     }
 }

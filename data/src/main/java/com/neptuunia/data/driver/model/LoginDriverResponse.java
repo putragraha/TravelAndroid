@@ -6,7 +6,17 @@ package com.neptuunia.data.driver.model;
  */
 public class LoginDriverResponse {
 
+    private int id;
+
     private boolean success;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
 
     public boolean isSuccess() {
         return success;
