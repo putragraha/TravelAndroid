@@ -19,8 +19,9 @@ import androidx.lifecycle.MutableLiveData;
  */
 public class LoginDriverViewModel extends AndroidViewModel {
 
-    private MutableLiveData<Boolean> loginResponseLiveData =
-        new MutableLiveData<>();
+    private MutableLiveData<Boolean> successLiveData = new MutableLiveData<>();
+
+    private MutableLiveData<String> errorLiveData = new MutableLiveData<>();
 
     private DriverRepository driverRepository;
 
@@ -33,8 +34,12 @@ public class LoginDriverViewModel extends AndroidViewModel {
         this.driverRepository = driverRepository;
     }
 
-    public MutableLiveData<Boolean> getLoginResponseLiveData() {
-        return loginResponseLiveData;
+    public MutableLiveData<Boolean> getSuccessLiveData() {
+        return successLiveData;
+    }
+
+    public MutableLiveData<String> getErrorLiveData() {
+        return errorLiveData;
     }
 
     public void loginDriver(String email, String password) {
@@ -45,7 +50,18 @@ public class LoginDriverViewModel extends AndroidViewModel {
                 @Override
                 public void onSuccess(LoginDriverResponse loginDriverResponse) {
                     super.onSuccess(loginDriverResponse);
-                    loginResponseLiveData.postValue(loginDriverResponse.isSuccess());
+
+                    if (loginDriverResponse.isSuccess()) {
+                        successLiveData.postValue(loginDriverResponse.isSuccess());
+                    } else {
+                        errorLiveData.postValue("");
+                    }
+                }
+
+                @Override
+                public void onError(Throwable throwable) {
+                    super.onError(throwable);
+                    errorLiveData.postValue(throwable.getMessage());
                 }
             });
     }

@@ -35,4 +35,5 @@
     <string name="armada_class">Armada class</string>
     <string name="group">Group</string>
     <string name="logout">Logout</string>
+    <string name="login_failed">Login Failed</string>
 </resources>
