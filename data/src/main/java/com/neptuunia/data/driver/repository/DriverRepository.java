@@ -1,6 +1,7 @@
 package com.neptuunia.data.driver.repository;
 
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
+import com.neptuunia.data.driver.model.LoginDriverResponse;
 
 import java.util.List;
 
@@ -10,5 +11,5 @@ public interface DriverRepository {
 
     Single<List<HistoryDriverResponse>> getHistoryDrivers();
 
-    Single<Boolean> loginDriver(String email, String password);
+    Single<LoginDriverResponse> loginDriver(String email, String password);
 }

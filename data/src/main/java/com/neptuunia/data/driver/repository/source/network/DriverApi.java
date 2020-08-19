@@ -1,8 +1,10 @@
 package com.neptuunia.data.driver.repository.source.network;
 
+import com.neptuunia.data.driver.model.LoginDriverRequest;
+import com.neptuunia.data.driver.model.LoginDriverResponse;
+
 import io.reactivex.rxjava3.core.Single;
-import retrofit2.Call;
-import retrofit2.http.Field;
+import retrofit2.http.Body;
 import retrofit2.http.POST;
 
 /**
@@ -12,5 +14,5 @@ import retrofit2.http.POST;
 public interface DriverApi {
 
     @POST("login_driver.php")
-    Single<Boolean> loginDriver(@Field("email") String email, @Field("password") String password);
+    Single<LoginDriverResponse> loginDriver(@Body LoginDriverRequest loginDriverRequest);
 }

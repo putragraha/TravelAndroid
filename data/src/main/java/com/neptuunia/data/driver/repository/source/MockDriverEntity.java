@@ -1,6 +1,8 @@
 package com.neptuunia.data.driver.repository.source;
 
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
+import com.neptuunia.data.driver.model.LoginDriverRequest;
+import com.neptuunia.data.driver.model.LoginDriverResponse;
 
 import java.util .ArrayList;
 import java.util.List;
@@ -39,7 +41,7 @@ public class MockDriverEntity implements DriverEntity {
     }
 
     @Override
-    public Single<Boolean> loginDriver(String email, String password) {
-        return Single.just(false);
+    public Single<LoginDriverResponse> loginDriver(LoginDriverRequest loginDriverRequest) {
+        return Single.just(new LoginDriverResponse());
     }
 }

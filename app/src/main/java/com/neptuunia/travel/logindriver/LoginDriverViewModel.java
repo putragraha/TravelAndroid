@@ -1,5 +1,6 @@
 package com.neptuunia.travel.logindriver;
 
+import com.neptuunia.data.driver.model.LoginDriverResponse;
 import com.neptuunia.data.driver.repository.DriverRepository;
 import com.neptuunia.travel.utils.AutoDisposeSingleObserver;
 import com.neptuunia.travel.utils.Transformer;
@@ -39,12 +40,12 @@ public class LoginDriverViewModel extends AndroidViewModel {
     public void loginDriver(String email, String password) {
         driverRepository.loginDriver(email, password)
             .compose(Transformer::applySchedulers)
-            .subscribe(new AutoDisposeSingleObserver<Boolean>(){
+            .subscribe(new AutoDisposeSingleObserver<LoginDriverResponse>(){
 
                 @Override
-                public void onSuccess(Boolean success) {
-                    super.onSuccess(success);
-                    loginResponseLiveData.postValue(success);
+                public void onSuccess(LoginDriverResponse loginDriverResponse) {
+                    super.onSuccess(loginDriverResponse);
+                    loginResponseLiveData.postValue(loginDriverResponse.isSuccess());
                 }
             });
     }

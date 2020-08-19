@@ -1,6 +1,8 @@
 package com.neptuunia.data.driver.repository.source;
 
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
+import com.neptuunia.data.driver.model.LoginDriverRequest;
+import com.neptuunia.data.driver.model.LoginDriverResponse;
 import com.neptuunia.data.driver.repository.source.network.DriverApi;
 
 import java.util.List;
@@ -8,9 +10,6 @@ import java.util.List;
 import javax.inject.Inject;
 
 import io.reactivex.rxjava3.core.Single;
-import retrofit2.Call;
-import retrofit2.Callback;
-import retrofit2.Response;
 import retrofit2.Retrofit;
 
 /**
@@ -33,7 +32,7 @@ public class NetworkDriverEntity implements DriverEntity {
     }
 
     @Override
-    public Single<Boolean> loginDriver(String email, String password) {
-        return driverApi.loginDriver(email, password);
+    public Single<LoginDriverResponse> loginDriver(LoginDriverRequest loginDriverRequest) {
+        return driverApi.loginDriver(loginDriverRequest);
     }
 }
