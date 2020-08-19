@@ -33,7 +33,7 @@ public class LoginUserActivity extends BaseActivity {
 
     private void setupButtonLogin() {
         activityLoginUserBinding.btnLogin.setOnClickListener(view ->
-            startActivity(HomeUserActivity.class)
+            startActivityAndFinish(HomeUserActivity.class)
         );
     }
 

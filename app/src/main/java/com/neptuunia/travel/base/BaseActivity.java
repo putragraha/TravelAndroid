@@ -41,6 +41,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    protected <T> void startActivityAndFinish(Class<T> clazz) {
+        Intent intent = new Intent(this, clazz);
+        startActivity(intent);
+        finish();
+    }
+
     protected void showToast(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }

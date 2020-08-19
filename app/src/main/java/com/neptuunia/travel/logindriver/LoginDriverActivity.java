@@ -67,7 +67,7 @@ public class LoginDriverActivity extends BaseActivity {
 
     private void handleOnLogin(boolean success) {
         if (success) {
-            startActivity(HomeDriverActivity.class);
+            startActivityAndFinish(HomeDriverActivity.class);
         } else {
             showToast("Login Failed");
         }
