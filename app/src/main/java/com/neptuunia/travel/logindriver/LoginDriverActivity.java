@@ -2,13 +2,11 @@ package com.neptuunia.travel.logindriver;
 
 import com.google.android.material.textfield.TextInputLayout;
 
-import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.databinding.ActivityLoginDriverBinding;
 import com.neptuunia.travel.homedriver.HomeDriverActivity;
 
-import android.text.TextUtils;
 import android.view.View;
 import android.widget.EditText;
 
@@ -75,9 +73,5 @@ public class LoginDriverActivity extends BaseActivity {
             this,
             this::showErrorMessage
         );
-    }
-
-    private void showErrorMessage(String message) {
-        showToast(TextUtils.isEmpty(message) ? getString(R.string.login_failed) : message);
     }
 }

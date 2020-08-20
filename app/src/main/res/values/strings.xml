@@ -35,6 +35,7 @@
     <string name="armada_class">Armada class</string>
     <string name="group">Group</string>
     <string name="logout">Logout</string>
-    <string name="login_failed">Login Failed</string>
+    <string name="failed">Failed… Please try again later</string>
     <string name="update">Update</string>
+    <string name="update_success">Successfully Updated</string>
 </resources>

@@ -3,6 +3,7 @@ package com.neptuunia.data.driver.repository;
 import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.data.driver.model.response.LoginDriverResponse;
 import com.neptuunia.data.driver.model.response.ProfileDriverResponse;
+import com.neptuunia.data.model.CommonResponse;
 
 import java.util.List;
 
@@ -15,4 +16,6 @@ public interface DriverRepository {
     Single<ProfileDriverResponse> getProfileDriver();
 
     Single<LoginDriverResponse> loginDriver(String email, String password);
+
+    Single<CommonResponse> updateProfileDriver(String name, String phoneNumber);
 }

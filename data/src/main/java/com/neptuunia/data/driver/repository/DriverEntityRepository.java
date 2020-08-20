@@ -4,11 +4,14 @@ import com.neptuunia.data.account.model.Account;
 import com.neptuunia.data.account.repository.AccountRepository;
 import com.neptuunia.data.constant.AccountType;
 import com.neptuunia.data.constant.Source;
+import com.neptuunia.data.driver.model.request.EditProfileDriverRequest;
 import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.data.driver.model.request.LoginDriverRequest;
 import com.neptuunia.data.driver.model.response.LoginDriverResponse;
 import com.neptuunia.data.driver.model.response.ProfileDriverResponse;
 import com.neptuunia.data.driver.repository.source.DriverEntity;
+import com.neptuunia.data.model.CommonRequest;
+import com.neptuunia.data.model.CommonResponse;
 
 import java.util.List;
 
@@ -40,7 +43,7 @@ public class DriverEntityRepository implements DriverRepository {
     @Override
     public Single<ProfileDriverResponse> getProfileDriver() {
         return createDriverEntity(Source.NETWORK)
-            .getProfileDriver(accountRepository.getSession());
+            .getProfileDriver(new CommonRequest(accountRepository.getSession().getId()));
     }
 
     @Override
@@ -48,6 +51,17 @@ public class DriverEntityRepository implements DriverRepository {
         return createDriverEntity(Source.NETWORK)
             .loginDriver(new LoginDriverRequest(email, password))
             .doOnSuccess(this::saveSession);
+    }
+
+    @Override
+    public Single<CommonResponse> updateProfileDriver(String name, String phoneNumber) {
+        EditProfileDriverRequest editProfileDriverRequest = new EditProfileDriverRequest();
+        editProfileDriverRequest.setId(accountRepository.getSession().getId());
+        editProfileDriverRequest.setName(name);
+        editProfileDriverRequest.setPhoneNumber(phoneNumber);
+
+        return createDriverEntity(Source.NETWORK)
+            .updateProfileDriver(editProfileDriverRequest);
     }
 
     public DriverEntity createDriverEntity(@Source String source) {

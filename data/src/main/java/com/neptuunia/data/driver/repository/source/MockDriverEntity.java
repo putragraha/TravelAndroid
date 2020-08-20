@@ -1,10 +1,12 @@
 package com.neptuunia.data.driver.repository.source;
 
-import com.neptuunia.data.account.model.Account;
+import com.neptuunia.data.driver.model.request.EditProfileDriverRequest;
 import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.data.driver.model.request.LoginDriverRequest;
 import com.neptuunia.data.driver.model.response.LoginDriverResponse;
 import com.neptuunia.data.driver.model.response.ProfileDriverResponse;
+import com.neptuunia.data.model.CommonRequest;
+import com.neptuunia.data.model.CommonResponse;
 
 import java.util .ArrayList;
 import java.util.List;
@@ -43,12 +45,17 @@ public class MockDriverEntity implements DriverEntity {
     }
 
     @Override
-    public Single<ProfileDriverResponse> getProfileDriver(Account account) {
+    public Single<ProfileDriverResponse> getProfileDriver(CommonRequest commonRequest) {
         return Single.just(new ProfileDriverResponse());
     }
 
     @Override
     public Single<LoginDriverResponse> loginDriver(LoginDriverRequest loginDriverRequest) {
         return Single.just(new LoginDriverResponse());
+    }
+
+    @Override
+    public Single<CommonResponse> updateProfileDriver(EditProfileDriverRequest editProfileDriverRequest) {
+        return Single.just(new CommonResponse());
     }
 }

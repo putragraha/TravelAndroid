@@ -1,7 +1,9 @@
 package com.neptuunia.travel.profiledriver;
 
+import com.neptuunia.data.driver.model.request.EditProfileDriverRequest;
 import com.neptuunia.data.driver.model.response.ProfileDriverResponse;
 import com.neptuunia.data.driver.repository.DriverRepository;
+import com.neptuunia.data.model.CommonResponse;
 import com.neptuunia.travel.utils.AutoDisposeSingleObserver;
 import com.neptuunia.travel.utils.Transformer;
 
@@ -16,7 +18,11 @@ import androidx.lifecycle.MutableLiveData;
 
 public class ProfileDriverViewModel extends AndroidViewModel {
 
-    private MutableLiveData<ProfileDriverResponse> successLiveData = new MutableLiveData<>();
+    private MutableLiveData<ProfileDriverResponse> successGetProfileDriverLiveData =
+        new MutableLiveData<>();
+
+    private MutableLiveData<CommonResponse> successEditProfileDriverLiveData =
+        new MutableLiveData<>();
 
     private MutableLiveData<String> errorLiveData = new MutableLiveData<>();
 
@@ -32,12 +38,40 @@ public class ProfileDriverViewModel extends AndroidViewModel {
         fetchProfileDriver();
     }
 
-    public LiveData<ProfileDriverResponse> getSuccessProfileDriverLiveData() {
-        return successLiveData;
+    public LiveData<ProfileDriverResponse> getSuccessGetProfileDriverLiveData() {
+        return successGetProfileDriverLiveData;
+    }
+
+    public MutableLiveData<CommonResponse> getSuccessEditProfileDriverLiveData() {
+        return successEditProfileDriverLiveData;
     }
 
     public MutableLiveData<String> getErrorProfileDriverLiveData() {
         return errorLiveData;
+    }
+
+    public void editProfileDriver(String name, String phoneNumber) {
+        driverRepository.updateProfileDriver(name, phoneNumber)
+            .compose(Transformer::applySchedulers)
+            .subscribe(new AutoDisposeSingleObserver<CommonResponse>() {
+
+                @Override
+                public void onSuccess(CommonResponse commonResponse) {
+                    super.onSuccess(commonResponse);
+
+                    if (commonResponse.isSuccess()) {
+                        successEditProfileDriverLiveData.postValue(commonResponse);
+                    } else {
+                        errorLiveData.postValue("");
+                    }
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    super.onError(e);
+                    errorLiveData.postValue(e.getMessage());
+                }
+            });
     }
 
     private void fetchProfileDriver() {
@@ -48,7 +82,7 @@ public class ProfileDriverViewModel extends AndroidViewModel {
                 @Override
                 public void onSuccess(ProfileDriverResponse profileDriverResponse) {
                     super.onSuccess(profileDriverResponse);
-                    successLiveData.postValue(profileDriverResponse);
+                    successGetProfileDriverLiveData.postValue(profileDriverResponse);
                 }
 
                 @Override

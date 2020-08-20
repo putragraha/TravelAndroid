@@ -1,9 +1,11 @@
 package com.neptuunia.data.driver.repository.source.network;
 
-import com.neptuunia.data.account.model.Account;
+import com.neptuunia.data.driver.model.request.EditProfileDriverRequest;
 import com.neptuunia.data.driver.model.request.LoginDriverRequest;
 import com.neptuunia.data.driver.model.response.LoginDriverResponse;
 import com.neptuunia.data.driver.model.response.ProfileDriverResponse;
+import com.neptuunia.data.model.CommonRequest;
+import com.neptuunia.data.model.CommonResponse;
 
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.http.Body;
@@ -19,5 +21,8 @@ public interface DriverApi {
     Single<LoginDriverResponse> loginDriver(@Body LoginDriverRequest loginDriverRequest);
 
     @POST("profile_driver.php")
-    Single<ProfileDriverResponse> getProfileDriver(@Body Account account);
+    Single<ProfileDriverResponse> getProfileDriver(@Body CommonRequest commonRequest);
+
+    @POST("edit_profile_driver.php")
+    Single<CommonResponse> updateProfileDriver(@Body EditProfileDriverRequest editProfileDriverRequest);
 }

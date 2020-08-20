@@ -8,6 +8,7 @@ import com.neptuunia.travel.R;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Toast;
 
@@ -47,7 +48,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         finish();
     }
 
-    protected void showToast(String message) {
+    protected void showErrorMessage(String message) {
+        showMessage(TextUtils.isEmpty(message) ? getString(R.string.failed) : message);
+    }
+
+    protected void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
     }
 

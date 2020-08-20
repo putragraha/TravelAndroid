@@ -1,11 +1,13 @@
 package com.neptuunia.data.driver.repository.source;
 
-import com.neptuunia.data.account.model.Account;
+import com.neptuunia.data.driver.model.request.EditProfileDriverRequest;
 import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.data.driver.model.request.LoginDriverRequest;
 import com.neptuunia.data.driver.model.response.LoginDriverResponse;
 import com.neptuunia.data.driver.model.response.ProfileDriverResponse;
 import com.neptuunia.data.driver.repository.source.network.DriverApi;
+import com.neptuunia.data.model.CommonRequest;
+import com.neptuunia.data.model.CommonResponse;
 
 import java.util.List;
 
@@ -34,12 +36,19 @@ public class NetworkDriverEntity implements DriverEntity {
     }
 
     @Override
-    public Single<ProfileDriverResponse> getProfileDriver(Account account) {
-        return driverApi.getProfileDriver(account);
+    public Single<ProfileDriverResponse> getProfileDriver(CommonRequest commonRequest) {
+        return driverApi.getProfileDriver(commonRequest);
     }
 
     @Override
     public Single<LoginDriverResponse> loginDriver(LoginDriverRequest loginDriverRequest) {
         return driverApi.loginDriver(loginDriverRequest);
+    }
+
+    @Override
+    public Single<CommonResponse> updateProfileDriver(
+        EditProfileDriverRequest editProfileDriverRequest
+    ) {
+        return driverApi.updateProfileDriver(editProfileDriverRequest);
     }
 }
