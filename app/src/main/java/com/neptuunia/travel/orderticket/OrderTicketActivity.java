@@ -34,17 +34,17 @@ public class OrderTicketActivity extends BaseActivity {
 
         if (ticketResponse != null) {
             Glide.with(this)
-                .load(ticketResponse.getPhotoUrl())
+                .load(ticketResponse.getPhotoName())
                 .centerCrop()
                 .placeholder(R.mipmap.ic_launcher)
                 .into(binding.acivDriverPicture);
             binding.actvDriverName.setText(ticketResponse.getDriverName());
             binding.actvGroup.setText(ticketResponse.getGroup());
             binding.actvCar.setText(ticketResponse.getCar());
-            binding.actvDepartureTime.setText(String.valueOf(ticketResponse.getDatetime()));
+            binding.actvDepartureTime.setText(ticketResponse.getDatetime());
             binding.actvArmadaClass.setText(ticketResponse.getArmadaClass());
-            binding.actvSeatAvailable.setText(String.valueOf(ticketResponse.getSeatAvailable()));
-            binding.actvPrice.setText(String.valueOf(ticketResponse.getTicketPrice()));
+            binding.actvSeatAvailable.setText(ticketResponse.getSeatAvailable());
+            binding.actvPrice.setText(ticketResponse.getPrice());
             binding.actvPhoneNumber.setText(ticketResponse.getDriverPhoneNumber());
         }
     }

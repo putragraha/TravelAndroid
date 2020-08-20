@@ -1,5 +1,6 @@
 package com.neptuunia.data.ticket.repository;
 
+import com.neptuunia.data.constant.Source;
 import com.neptuunia.data.ticket.model.TicketResponse;
 import com.neptuunia.data.ticket.repository.source.TicketEntity;
 
@@ -20,10 +21,10 @@ public class TicketEntityRepository implements TicketRepository {
 
     @Override
     public Single<List<TicketResponse>> getTickets() {
-        return createTicketEntity().getTickets();
+        return createNetworkTicketEntity().getTickets();
     }
 
-    public TicketEntity createTicketEntity() {
-        return ticketEntityFactory.createTicketEntity();
+    public TicketEntity createNetworkTicketEntity() {
+        return ticketEntityFactory.createTicketEntity(Source.NETWORK);
     }
 }

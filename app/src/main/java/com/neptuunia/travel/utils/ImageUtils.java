@@ -12,7 +12,7 @@ public class ImageUtils {
         // Prevent outside instantiation
     }
 
-    public static String loadImage(String imageName) {
+    public static String getFullUrl(String imageName) {
         String imageFullUrl = Constant.IMAGE_URL + imageName;
         return imageFullUrl.replace(" ", "%20");
     }

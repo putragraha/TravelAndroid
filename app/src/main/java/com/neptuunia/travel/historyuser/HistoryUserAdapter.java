@@ -88,7 +88,7 @@ public class HistoryUserAdapter extends RecyclerView.Adapter<HistoryUserAdapter.
                 historyUserResponseConsumer.accept(historyUserResponse)
             );
             Glide.with(rootView)
-                .load(ImageUtils.loadImage(historyUserResponse.getPhotoName()))
+                .load(ImageUtils.getFullUrl(historyUserResponse.getPhotoName()))
                 .placeholder(R.mipmap.ic_launcher)
                 .into(binding.acivDriverPicture);
             binding.actvOrderCode.setText(historyUserResponse.getOrderCode());

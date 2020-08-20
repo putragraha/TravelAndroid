@@ -17,7 +17,11 @@ public class TicketResponse implements Parcelable {
         }
     };
 
-    private String photoUrl;
+    private String armadaId;
+
+    private String driverId;
+
+    private String photoName;
 
     private String driverName;
 
@@ -25,30 +29,38 @@ public class TicketResponse implements Parcelable {
 
     private String car;
 
-    private long datetime;
+    private String datetime;
 
     private String armadaClass;
 
-    private int seatAvailable;
+    private String seatAmount;
 
-    private long ticketPrice;
+    private String seatAvailable;
+
+    private String price;
 
     private String driverPhoneNumber;
+
+    private String note;
 
     public TicketResponse() {
         // Enable empty constructor
     }
 
     protected TicketResponse(Parcel in) {
-        photoUrl = in.readString();
+        armadaId = in.readString();
+        driverId = in.readString();
+        photoName = in.readString();
         driverName = in.readString();
         group = in.readString();
         car = in.readString();
-        datetime = in.readLong();
+        datetime = in.readString();
         armadaClass = in.readString();
-        seatAvailable = in.readInt();
-        ticketPrice = in.readLong();
+        seatAmount = in.readString();
+        seatAvailable = in.readString();
+        price = in.readString();
         driverPhoneNumber = in.readString();
+        note = in.readString();
     }
 
     @Override
@@ -58,23 +70,43 @@ public class TicketResponse implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(photoUrl);
+        dest.writeString(armadaId);
+        dest.writeString(driverId);
+        dest.writeString(photoName);
         dest.writeString(driverName);
         dest.writeString(group);
         dest.writeString(car);
-        dest.writeLong(datetime);
+        dest.writeString(datetime);
         dest.writeString(armadaClass);
-        dest.writeInt(seatAvailable);
-        dest.writeLong(ticketPrice);
+        dest.writeString(seatAmount);
+        dest.writeString(seatAvailable);
+        dest.writeString(price);
         dest.writeString(driverPhoneNumber);
+        dest.writeString(note);
     }
 
-    public String getPhotoUrl() {
-        return photoUrl;
+    public String getArmadaId() {
+        return armadaId;
     }
 
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
+    public void setArmadaId(String armadaId) {
+        this.armadaId = armadaId;
+    }
+
+    public String getDriverId() {
+        return driverId;
+    }
+
+    public void setDriverId(String driverId) {
+        this.driverId = driverId;
+    }
+
+    public String getPhotoName() {
+        return photoName;
+    }
+
+    public void setPhotoName(String photoName) {
+        this.photoName = photoName;
     }
 
     public String getDriverName() {
@@ -101,11 +133,11 @@ public class TicketResponse implements Parcelable {
         this.car = car;
     }
 
-    public long getDatetime() {
+    public String getDatetime() {
         return datetime;
     }
 
-    public void setDatetime(long datetime) {
+    public void setDatetime(String datetime) {
         this.datetime = datetime;
     }
 
@@ -117,20 +149,28 @@ public class TicketResponse implements Parcelable {
         this.armadaClass = armadaClass;
     }
 
-    public int getSeatAvailable() {
+    public String getSeatAmount() {
+        return seatAmount;
+    }
+
+    public void setSeatAmount(String seatAmount) {
+        this.seatAmount = seatAmount;
+    }
+
+    public String getSeatAvailable() {
         return seatAvailable;
     }
 
-    public void setSeatAvailable(int seatAvailable) {
+    public void setSeatAvailable(String seatAvailable) {
         this.seatAvailable = seatAvailable;
     }
 
-    public long getTicketPrice() {
-        return ticketPrice;
+    public String getPrice() {
+        return price;
     }
 
-    public void setTicketPrice(long ticketPrice) {
-        this.ticketPrice = ticketPrice;
+    public void setPrice(String price) {
+        this.price = price;
     }
 
     public String getDriverPhoneNumber() {
@@ -139,5 +179,13 @@ public class TicketResponse implements Parcelable {
 
     public void setDriverPhoneNumber(String driverPhoneNumber) {
         this.driverPhoneNumber = driverPhoneNumber;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }

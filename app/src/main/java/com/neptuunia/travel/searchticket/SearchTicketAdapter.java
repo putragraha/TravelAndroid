@@ -4,6 +4,7 @@ import com.bumptech.glide.Glide;
 import com.neptuunia.data.ticket.model.TicketResponse;
 import com.neptuunia.travel.R;
 import com.neptuunia.travel.databinding.ItemSearchTicketBinding;
+import com.neptuunia.travel.utils.ImageUtils;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -82,14 +83,13 @@ public class SearchTicketAdapter extends RecyclerView.Adapter<SearchTicketAdapte
                 ticketResponseConsumer.accept(ticketResponse)
             );
             Glide.with(rootView)
-                .load(ticketResponse.getPhotoUrl())
-                .centerCrop()
+                .load(ImageUtils.getFullUrl(ticketResponse.getPhotoName()))
                 .placeholder(R.mipmap.ic_launcher)
                 .into(binding.acivDriverPicture);
             binding.actvDriverName.setText(ticketResponse.getDriverName());
-            binding.actvSeatAvailable.setText(String.valueOf(ticketResponse.getSeatAvailable()));
-            binding.actvDriverDepartDateTime.setText(String.valueOf(ticketResponse.getDatetime()));
-            binding.actvTicketPrice.setText(String.valueOf(ticketResponse.getTicketPrice()));
+            binding.actvSeatAvailable.setText(ticketResponse.getSeatAvailable());
+            binding.actvDriverDepartDateTime.setText(ticketResponse.getDatetime());
+            binding.actvTicketPrice.setText(ticketResponse.getPrice());
         }
     }
 }
