@@ -4,13 +4,17 @@ import com.bumptech.glide.Glide;
 import com.neptuunia.data.ticket.model.TicketResponse;
 import com.neptuunia.travel.R;
 import com.neptuunia.travel.databinding.ItemSearchTicketBinding;
+import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.ImageUtils;
+import com.neptuunia.travel.utils.NumberUtils;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -79,17 +83,35 @@ public class SearchTicketAdapter extends RecyclerView.Adapter<SearchTicketAdapte
         }
 
         public void bind(TicketResponse ticketResponse) {
-            rootView.setOnClickListener(view ->
-                ticketResponseConsumer.accept(ticketResponse)
-            );
+            rootView.setOnClickListener(view -> ticketResponseConsumer.accept(ticketResponse));
             Glide.with(rootView)
                 .load(ImageUtils.getFullUrl(ticketResponse.getPhotoName()))
                 .placeholder(R.mipmap.ic_launcher)
                 .into(binding.acivDriverPicture);
             binding.actvDriverName.setText(ticketResponse.getDriverName());
-            binding.actvSeatAvailable.setText(ticketResponse.getSeatAvailable());
-            binding.actvDriverDepartDateTime.setText(ticketResponse.getDatetime());
-            binding.actvTicketPrice.setText(ticketResponse.getPrice());
+            binding.actvSeatAvailable.setText(getAvailableSeatLabel(ticketResponse));
+            binding.actvDriverDepartDateTime.setText(getDatetimeLabel(ticketResponse.getDatetime()));
+            binding.actvTicketPrice.setText(getPriceLabel(ticketResponse.getPrice()));
+        }
+
+        private String getAvailableSeatLabel(TicketResponse ticketResponse) {
+            Context context = rootView.getContext();
+
+            return String.format(
+                context.getString(R.string.amount_of_seat_available),
+                ticketResponse.getSeatAvailable(),
+                ticketResponse.getSeatAmount()
+            );
+        }
+
+        private String getDatetimeLabel(String datetime) {
+            return DateTimeUtils.getFormattedDatetime(
+                new Date(Long.parseLong(datetime))
+            );
+        }
+
+        private String getPriceLabel(String price) {
+            return NumberUtils.toRupiah(Integer.parseInt(price));
         }
     }
 }
