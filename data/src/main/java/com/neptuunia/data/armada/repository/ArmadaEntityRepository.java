@@ -32,6 +32,7 @@ public class ArmadaEntityRepository implements ArmadaRepository {
     @Override
     public Single<CommonResponse> addArmada(AddArmadaRequest addArmadaRequest) {
         addArmadaRequest.setDriverId(accountRepository.getSession().getId());
+        addArmadaRequest.setArmadaClass("");
 
         return createNetworkArmadaEntity()
             .addArmada(addArmadaRequest);

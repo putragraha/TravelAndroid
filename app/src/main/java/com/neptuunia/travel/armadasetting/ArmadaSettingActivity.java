@@ -107,7 +107,6 @@ public class ArmadaSettingActivity extends BaseActivity {
 
     private void addArmada(View view) {
         AddArmadaRequest addArmadaRequest = new AddArmadaRequest();
-        addArmadaRequest.setArmadaClass("");
         addArmadaRequest.setDatetime(getDateTimeInMillis());
         addArmadaRequest.setNote(getEditTextValue(binding.etNote));
         addArmadaRequest.setPrice(getEditTextAsInteger(binding.etTicketPrice));
