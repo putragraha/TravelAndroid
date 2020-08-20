@@ -23,19 +23,19 @@ public class MockDriverEntity implements DriverEntity {
     }
 
     @Override
-    public Single<List<HistoryDriverResponse>> getHistoryDrivers() {
+    public Single<List<HistoryDriverResponse>> getHistoryDrivers(CommonRequest commonRequest) {
         List<HistoryDriverResponse> armadaSettingResponses = new ArrayList<>();
 
         for (int i = 1; i <= 5; i++) {
             HistoryDriverResponse armadaSettingResponse = new HistoryDriverResponse();
-            armadaSettingResponse.setOrderCode(i);
+            armadaSettingResponse.setOrderCode("String code: " + i);
             armadaSettingResponse.setGroup(String.format("Group: %s", i));
             armadaSettingResponse.setArmadaClass(String.format("Armada Class: %s", i));
             armadaSettingResponse.setUserName(String.format("User Name: %s", i));
-            armadaSettingResponse.setLatitude(i);
-            armadaSettingResponse.setLongitude(i);
+            armadaSettingResponse.setLatitude("Latitude: " + i);
+            armadaSettingResponse.setLongitude("Longitude: " + i);
             armadaSettingResponse.setNote(String.format("Code: %s", i));
-            armadaSettingResponse.setPrice(i);
+            armadaSettingResponse.setTotalPrice(i);
             armadaSettingResponse.setSeatBooked(String.format("Seat number: %s", i));
 
             armadaSettingResponses.add(armadaSettingResponse);

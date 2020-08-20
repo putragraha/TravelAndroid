@@ -32,14 +32,14 @@ public class OrderDetailDriverActivity extends BaseActivity {
             bundle.getParcelable(Constant.HISTORY_DRIVER_RESPONSE_DATA);
 
         if (historyDriverResponse != null) {
-            binding.acetOrderCode.setText(String.valueOf(historyDriverResponse.getOrderCode()));
+            binding.acetOrderCode.setText(historyDriverResponse.getOrderCode());
             binding.acetGroup.setText(historyDriverResponse.getGroup());
             binding.acetArmadaClass.setText(historyDriverResponse.getArmadaClass());
             binding.acetUserName.setText(historyDriverResponse.getUserName());
             binding.acetTicketAmount.setText(historyDriverResponse.getSeatBooked());
-            binding.acetTotalPrice.setText(String.valueOf(historyDriverResponse.getPrice()));
+            binding.acetTotalPrice.setText(String.valueOf(historyDriverResponse.getTotalPrice()));
             binding.acetNote.setText(historyDriverResponse.getNote());
-            binding.acetLocation.setText(String.valueOf(historyDriverResponse.getOrderCode()));
+            binding.acetLocation.setText(historyDriverResponse.getLatitude());
         }
     }
 }

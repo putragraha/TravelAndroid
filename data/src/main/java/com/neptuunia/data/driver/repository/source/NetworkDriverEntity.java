@@ -30,9 +30,8 @@ public class NetworkDriverEntity implements DriverEntity {
     }
 
     @Override
-    public Single<List<HistoryDriverResponse>> getHistoryDrivers() {
-        // TODO (Putra): 17/08/20 Get History Drivers
-        throw new UnsupportedOperationException("Will support later");
+    public Single<List<HistoryDriverResponse>> getHistoryDrivers(CommonRequest commonRequest) {
+        return driverApi.getHistoryDrivers(commonRequest);
     }
 
     @Override

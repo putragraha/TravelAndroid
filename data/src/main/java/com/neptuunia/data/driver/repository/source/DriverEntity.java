@@ -14,7 +14,7 @@ import io.reactivex.rxjava3.core.Single;
 
 public interface DriverEntity {
 
-    Single<List<HistoryDriverResponse>> getHistoryDrivers();
+    Single<List<HistoryDriverResponse>> getHistoryDrivers(CommonRequest commonRequest);
 
     Single<ProfileDriverResponse> getProfileDriver(CommonRequest commonRequest);
 

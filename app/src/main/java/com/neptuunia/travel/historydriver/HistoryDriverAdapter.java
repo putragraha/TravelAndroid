@@ -78,9 +78,7 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
             rootView.setOnClickListener(view ->
                 historyDriverResponseConsumer.accept(historyDriverResponse)
             );
-            itemHistoryDriverBinding.actvOrderCode.setText(
-                String.valueOf(historyDriverResponse.getOrderCode())
-            );
+            itemHistoryDriverBinding.actvOrderCode.setText(historyDriverResponse.getOrderCode());
             itemHistoryDriverBinding.actvSeatBooked.setText(historyDriverResponse.getSeatBooked());
             itemHistoryDriverBinding.actvUserName.setText(historyDriverResponse.getUserName());
         }

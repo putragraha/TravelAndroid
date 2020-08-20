@@ -36,8 +36,8 @@ public class DriverEntityRepository implements DriverRepository {
 
     @Override
     public Single<List<HistoryDriverResponse>> getHistoryDrivers() {
-        return createDriverEntity(Source.MOCK)
-            .getHistoryDrivers();
+        return createDriverEntity(Source.NETWORK)
+            .getHistoryDrivers(new CommonRequest(accountRepository.getSession().getId()));
     }
 
     @Override
