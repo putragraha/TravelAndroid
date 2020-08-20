@@ -34,9 +34,11 @@ public class ProfileUserActivity extends BaseActivity {
     public void setup() {
         initProfileUserViewModel();
         setupOnSuccessGetProfileUser();
-        setupOnSuccessEditProfileDriver();
-        setupOnErrorGetProfileDriver();
+        setupOnSuccessEditProfileUser();
+        setupOnSuccessChangePassword();
+        setupOnErrorGetProfileUser();
         setupOnUpdateClick();
+        setupOnChangePasswordClick();
     }
 
     private void initProfileUserViewModel() {
@@ -49,7 +51,7 @@ public class ProfileUserActivity extends BaseActivity {
             .observe(this, this::setupForm);
     }
 
-    private void setupOnSuccessEditProfileDriver() {
+    private void setupOnSuccessEditProfileUser() {
         profileUserViewModel.getSuccessEditProfileUserLiveData()
             .observe(this, commonResponse -> showMessage(getString(R.string.update_success)));
     }
@@ -60,7 +62,12 @@ public class ProfileUserActivity extends BaseActivity {
         binding.acetPhoneNumber.setText(profileUserResponse.getPhoneNumber());
     }
 
-    private void setupOnErrorGetProfileDriver() {
+    private void setupOnSuccessChangePassword() {
+        profileUserViewModel.getSuccessChangePasswordLiveData()
+            .observe(this, commonResponse -> showMessage(getString(R.string.password_changed)));
+    }
+
+    private void setupOnErrorGetProfileUser() {
         profileUserViewModel.getErrorLiveData()
             .observe(this, this::showErrorMessage);
     }
@@ -74,5 +81,24 @@ public class ProfileUserActivity extends BaseActivity {
 
             profileUserViewModel.editProfileUser(editProfileUserRequest);
         });
+    }
+
+    private void setupOnChangePasswordClick() {
+        binding.btnChange.setOnClickListener(view -> {
+            if (isPasswordMatch()) {
+                profileUserViewModel.changePassword(
+                    getEditTextValue(binding.acetNewPassword),
+                    getEditTextValue(binding.acetOldPassword)
+                );
+            } else {
+                binding.acetConfirmPassword.setError(getString(R.string.password_did_not_match));
+            }
+        });
+    }
+
+    private boolean isPasswordMatch() {
+        return getEditTextValue(binding.acetNewPassword).equals(
+            getEditTextValue(binding.acetConfirmPassword)
+        );
     }
 }

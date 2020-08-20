@@ -60,7 +60,7 @@ public class RegisterUserActivity extends BaseActivity {
 
     private boolean isPasswordMatch() {
         return getEditTextValue(binding.acetPassword)
-            .equalsIgnoreCase(getEditTextValue(binding.acetConfirmPassword));
+            .equals(getEditTextValue(binding.acetConfirmPassword));
     }
 
     private void setupOnSuccessRegisterUser() {

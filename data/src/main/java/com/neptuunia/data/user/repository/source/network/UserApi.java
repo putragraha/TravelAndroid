@@ -2,6 +2,7 @@ package com.neptuunia.data.user.repository.source.network;
 
 import com.neptuunia.data.model.CommonRequest;
 import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.user.model.request.ChangePasswordRequest;
 import com.neptuunia.data.user.model.request.EditProfileUserRequest;
 import com.neptuunia.data.user.model.request.LoginUserRequest;
 import com.neptuunia.data.user.model.request.RegisterUserRequest;
@@ -29,4 +30,7 @@ public interface UserApi {
 
     @POST("register_user.php")
     Single<CommonResponse> registerUser(@Body RegisterUserRequest registerUserRequest);
+
+    @POST("change_password.php")
+    Single<CommonResponse> changePassword(@Body ChangePasswordRequest changePasswordRequest);
 }

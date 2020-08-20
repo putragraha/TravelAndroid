@@ -2,6 +2,7 @@ package com.neptuunia.data.user.repository.source;
 
 import com.neptuunia.data.model.CommonRequest;
 import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.user.model.request.ChangePasswordRequest;
 import com.neptuunia.data.user.model.request.EditProfileUserRequest;
 import com.neptuunia.data.user.model.request.LoginUserRequest;
 import com.neptuunia.data.user.model.request.RegisterUserRequest;
@@ -24,4 +25,6 @@ public interface UserEntity {
     Single<CommonResponse> updateProfileUser(EditProfileUserRequest editProfileUserRequest);
 
     Single<CommonResponse> registerUser(RegisterUserRequest registerUserRequest);
+
+    Single<CommonResponse> changePassword(ChangePasswordRequest changePasswordRequest);
 }

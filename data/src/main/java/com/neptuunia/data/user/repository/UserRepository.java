@@ -22,4 +22,6 @@ public interface UserRepository {
     Single<CommonResponse> updateProfileUser(EditProfileUserRequest editProfileUserRequest);
 
     Single<CommonResponse> registerUser(RegisterUserRequest registerUserRequest);
+
+    Single<CommonResponse> changePassword(String newPassword, String oldPassword);
 }

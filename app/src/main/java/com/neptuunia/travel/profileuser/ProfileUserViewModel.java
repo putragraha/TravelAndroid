@@ -24,6 +24,9 @@ public class ProfileUserViewModel extends AndroidViewModel {
     private MutableLiveData<CommonResponse> successEditProfileUserLiveData =
         new MutableLiveData<>();
 
+    private MutableLiveData<CommonResponse> successChangePasswordLiveData =
+        new MutableLiveData<>();
+
     private MutableLiveData<String> errorLiveData = new MutableLiveData<>();
 
     private UserRepository userRepository;
@@ -46,6 +49,10 @@ public class ProfileUserViewModel extends AndroidViewModel {
         return successEditProfileUserLiveData;
     }
 
+    public MutableLiveData<CommonResponse> getSuccessChangePasswordLiveData() {
+        return successChangePasswordLiveData;
+    }
+
     public MutableLiveData<String> getErrorLiveData() {
         return errorLiveData;
     }
@@ -61,6 +68,30 @@ public class ProfileUserViewModel extends AndroidViewModel {
 
                     if (commonResponse.isSuccess()) {
                         successEditProfileUserLiveData.postValue(commonResponse);
+                    } else {
+                        errorLiveData.postValue("");
+                    }
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    super.onError(e);
+                    errorLiveData.postValue(e.getMessage());
+                }
+            });
+    }
+
+    public void changePassword(String newPassword, String oldPassword) {
+        userRepository.changePassword(newPassword, oldPassword)
+            .compose(Transformer::applySchedulers)
+            .subscribe(new AutoDisposeSingleObserver<CommonResponse>() {
+
+                @Override
+                public void onSuccess(CommonResponse commonResponse) {
+                    super.onSuccess(commonResponse);
+
+                    if (commonResponse.isSuccess()) {
+                        successChangePasswordLiveData.postValue(commonResponse);
                     } else {
                         errorLiveData.postValue("");
                     }

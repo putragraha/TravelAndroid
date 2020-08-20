@@ -42,4 +42,5 @@
     <string name="amount_seat_booked">%1$s seat booked</string>
     <string name="register_success">Registered Successfully</string>
     <string name="password_did_not_match">Password did not match</string>
+    <string name="password_changed">Password changed successfully</string>
 </resources>

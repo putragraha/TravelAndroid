@@ -6,6 +6,7 @@ import com.neptuunia.data.constant.AccountType;
 import com.neptuunia.data.constant.Source;
 import com.neptuunia.data.model.CommonRequest;
 import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.user.model.request.ChangePasswordRequest;
 import com.neptuunia.data.user.model.request.EditProfileUserRequest;
 import com.neptuunia.data.user.model.request.LoginUserRequest;
 import com.neptuunia.data.user.model.request.RegisterUserRequest;
@@ -66,6 +67,17 @@ public class UserEntityRepository implements UserRepository {
     public Single<CommonResponse> registerUser(RegisterUserRequest registerUserRequest) {
         return createUserEntity(Source.NETWORK)
             .registerUser(registerUserRequest);
+    }
+
+    @Override
+    public Single<CommonResponse> changePassword(String newPassword, String oldPassword) {
+        ChangePasswordRequest changePasswordRequest = new ChangePasswordRequest();
+        changePasswordRequest.setId(accountRepository.getSession().getId());
+        changePasswordRequest.setNewPassword(newPassword);
+        changePasswordRequest.setOldPassword(oldPassword);
+
+        return createUserEntity(Source.NETWORK)
+            .changePassword(changePasswordRequest);
     }
 
     public UserEntity createUserEntity(@Source String source) {
