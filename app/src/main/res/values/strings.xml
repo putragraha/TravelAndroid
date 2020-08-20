@@ -43,4 +43,5 @@
     <string name="register_success">Registered Successfully</string>
     <string name="password_did_not_match">Password did not match</string>
     <string name="password_changed">Password changed successfully</string>
+    <string name="update_pickup_location">Update Pickup Location</string>
 </resources>
