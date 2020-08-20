@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,29 +15,37 @@
             android:id="@+id/actv_order_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
+            android:drawableStart="@drawable/ic_order_code"
+            android:drawablePadding="8dp"
+            android:textSize="20sp"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="123456"/>
+            tools:text="123456" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/actv_user_name"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_user"
+            android:drawablePadding="8dp"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/actv_order_code"
             app:layout_constraintTop_toBottomOf="@id/actv_order_code"
-            tools:text="User Name"/>
+            tools:text="User Name" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/actv_seat_booked"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_seat"
+            android:drawablePadding="8dp"
             android:textSize="16sp"
-            android:layout_marginStart="8dp"
-            app:layout_constraintStart_toEndOf="@id/actv_order_code"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="No. 3"/>
+            app:layout_constraintStart_toStartOf="@id/actv_order_code"
+            app:layout_constraintTop_toBottomOf="@id/actv_user_name"
+            tools:text="No. 3" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
