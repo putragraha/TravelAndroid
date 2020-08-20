@@ -2,6 +2,8 @@ package com.neptuunia.travel.di;
 
 import com.neptuunia.data.account.repository.AccountEntityRepository;
 import com.neptuunia.data.account.repository.AccountRepository;
+import com.neptuunia.data.armada.repository.ArmadaEntityRepository;
+import com.neptuunia.data.armada.repository.ArmadaRepository;
 import com.neptuunia.data.driver.repository.DriverEntityRepository;
 import com.neptuunia.data.driver.repository.DriverRepository;
 import com.neptuunia.data.ticket.repository.TicketEntityRepository;
@@ -52,5 +54,10 @@ public class ActivityModule {
     @Provides
     AccountRepository provideAccountRepository(AccountEntityRepository accountEntityRepository) {
         return accountEntityRepository;
+    }
+
+    @Provides
+    ArmadaRepository provideArmadaRepository(ArmadaEntityRepository armadaEntityRepository) {
+        return armadaEntityRepository;
     }
 }

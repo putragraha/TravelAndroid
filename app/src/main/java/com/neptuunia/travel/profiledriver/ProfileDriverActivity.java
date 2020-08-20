@@ -7,7 +7,6 @@ import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.databinding.ActivityProfileDriverBinding;
 
 import android.view.View;
-import android.widget.EditText;
 
 import javax.inject.Inject;
 
@@ -73,9 +72,5 @@ public class ProfileDriverActivity extends BaseActivity {
                 getEditTextValue(binding.acetPhoneNumber)
             )
         );
-    }
-
-    private String getEditTextValue(EditText editText) {
-        return editText.getText() == null ? "" : editText.getText().toString().trim();
     }
 }

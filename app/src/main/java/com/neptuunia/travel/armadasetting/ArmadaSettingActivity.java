@@ -1,6 +1,9 @@
 package com.neptuunia.travel.armadasetting;
 
+import com.neptuunia.data.armada.model.request.AddArmadaRequest;
+import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
+import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.databinding.ActivityArmadaSettingBinding;
 import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.NumberUtils;
@@ -14,25 +17,45 @@ import android.widget.TimePicker;
 
 import java.util.Calendar;
 
+import javax.inject.Inject;
+
+import androidx.lifecycle.ViewModelProvider;
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class ArmadaSettingActivity extends BaseActivity {
 
-    private ActivityArmadaSettingBinding activityArmadaSettingBinding;
+    @Inject
+    ViewModelFactory viewModelFactory;
+
+    private ActivityArmadaSettingBinding binding;
+
+    private ArmadaSettingViewModel armadaSettingViewModel;
 
     @Override
     public View getView() {
-        activityArmadaSettingBinding = ActivityArmadaSettingBinding.inflate(getLayoutInflater());
-        return activityArmadaSettingBinding.getRoot();
+        binding = ActivityArmadaSettingBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
 
     @Override
     public void setup() {
+        initArmadaSettingViewModel();
         setupEditTextDepartureTime();
         setupEditTextDepartureDate();
+        setupOnSubmitClicked();
+        setupOnSuccessAddArmada();
+        setupOnErrorAddArmada();
+    }
+
+    private void initArmadaSettingViewModel() {
+        armadaSettingViewModel = new ViewModelProvider(this, viewModelFactory)
+            .get(ArmadaSettingViewModel.class);
     }
 
     private void setupEditTextDepartureTime() {
         Calendar calendar = Calendar.getInstance();
-        activityArmadaSettingBinding.acetDepartureTime.setOnClickListener(view ->
+        binding.acetDepartureTime.setOnClickListener(view ->
                 new TimePickerDialog(
                     this,
                     this::setTimeEditTextDepartureTime,
@@ -44,7 +67,7 @@ public class ArmadaSettingActivity extends BaseActivity {
     }
 
     private void setTimeEditTextDepartureTime(TimePicker timePicker, int hourOfDay, int minute) {
-        activityArmadaSettingBinding.acetDepartureTime.setText(
+        binding.acetDepartureTime.setText(
             String.format(
                 DateTimeUtils.TIME_STRING_FORMAT,
                 NumberUtils.getTwoDigitsNumber(hourOfDay),
@@ -55,7 +78,7 @@ public class ArmadaSettingActivity extends BaseActivity {
 
     private void setupEditTextDepartureDate() {
         Calendar calendar = Calendar.getInstance();
-        activityArmadaSettingBinding.acetDepartureDate.setOnClickListener(view ->
+        binding.acetDepartureDate.setOnClickListener(view ->
             new DatePickerDialog(
                 this,
                 this::setDateEditTextDepartureDate,
@@ -68,7 +91,7 @@ public class ArmadaSettingActivity extends BaseActivity {
 
     private void setDateEditTextDepartureDate(DatePicker datePicker, int year, int month,
         int dayOfMonth) {
-        activityArmadaSettingBinding.acetDepartureDate.setText(
+        binding.acetDepartureDate.setText(
             String.format(
                 DateTimeUtils.DATE_STRING_FORMAT,
                 NumberUtils.getTwoDigitsNumber(dayOfMonth),
@@ -76,5 +99,42 @@ public class ArmadaSettingActivity extends BaseActivity {
                 year
             )
         );
+    }
+
+    private void setupOnSubmitClicked() {
+        binding.btnSubmit.setOnClickListener(this::addArmada);
+    }
+
+    private void addArmada(View view) {
+        AddArmadaRequest addArmadaRequest = new AddArmadaRequest();
+        addArmadaRequest.setArmadaClass("");
+        addArmadaRequest.setDatetime(getDateTimeInMillis());
+        addArmadaRequest.setNote(getEditTextValue(binding.etNote));
+        addArmadaRequest.setPrice(getEditTextAsInteger(binding.etTicketPrice));
+        addArmadaRequest.setSeatAmount(getEditTextAsInteger(binding.etSeatAmount));
+
+        armadaSettingViewModel.addArmada(addArmadaRequest);
+    }
+
+    private String getDateTimeInMillis() {
+        return String.valueOf(
+            DateTimeUtils.parseToMillis(
+                getEditTextValue(binding.acetDepartureDate),
+                getEditTextValue(binding.acetDepartureTime)
+            )
+        );
+    }
+
+    private void setupOnSuccessAddArmada() {
+        armadaSettingViewModel.getSuccessAddArmadaLiveData()
+            .observe(this, commonResponse -> {
+                showMessage(getString(R.string.add_success));
+                finish();
+            });
+    }
+
+    private void setupOnErrorAddArmada() {
+        armadaSettingViewModel.getErrorLiveData()
+            .observe(this, this::showErrorMessage);
     }
 }

@@ -43,6 +43,7 @@
             android:hint="@string/armada_class"
             android:importantForAutofill="no"
             android:inputType="text"
+            android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/acet_departure_date" />
@@ -84,7 +85,7 @@
             app:layout_constraintTop_toBottomOf="@id/et_seat_amount" />
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_submit"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"

@@ -1,6 +1,5 @@
 package com.neptuunia.travel.profiledriver;
 
-import com.neptuunia.data.driver.model.request.EditProfileDriverRequest;
 import com.neptuunia.data.driver.model.response.ProfileDriverResponse;
 import com.neptuunia.data.driver.repository.DriverRepository;
 import com.neptuunia.data.model.CommonResponse;

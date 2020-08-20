@@ -10,6 +10,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.Toast;
 
 import androidx.annotation.Nullable;
@@ -54,6 +55,14 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void showMessage(String message) {
         Toast.makeText(this, message, Toast.LENGTH_LONG).show();
+    }
+
+    protected String getEditTextValue(EditText editText) {
+        return editText.getText() == null ? "" : editText.getText().toString().trim();
+    }
+
+    protected int getEditTextAsInteger(EditText editText) {
+        return editText.getText() == null ? 0 : Integer.parseInt(editText.getText().toString());
     }
 
     private void initApps() {

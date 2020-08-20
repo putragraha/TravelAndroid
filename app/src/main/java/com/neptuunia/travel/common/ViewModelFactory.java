@@ -1,5 +1,6 @@
 package com.neptuunia.travel.common;
 
+import com.neptuunia.travel.armadasetting.ArmadaSettingViewModel;
 import com.neptuunia.travel.historydriver.HistoryDriverViewModel;
 import com.neptuunia.travel.historyuser.HistoryUserViewModel;
 import com.neptuunia.travel.homedriver.HomeDriverViewModel;
@@ -38,6 +39,9 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     ProfileDriverViewModel profileDriverViewModel;
 
     @Inject
+    ArmadaSettingViewModel armadaSettingViewModel;
+
+    @Inject
     public ViewModelFactory() {
         // For hilt injection
     }
@@ -66,6 +70,9 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
         } else if (modelClass.isAssignableFrom(ProfileDriverViewModel.class)) {
             //noinspection unchecked
             return (T) profileDriverViewModel;
+        } else if (modelClass.isAssignableFrom(ArmadaSettingViewModel.class)) {
+            //noinspection unchecked
+            return (T) armadaSettingViewModel;
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());
