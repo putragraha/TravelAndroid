@@ -43,7 +43,7 @@ public class LoginUserViewModel extends AndroidViewModel {
     }
 
     public void loginUser(String email, String password) {
-        userRepository.loginDriver(email, password)
+        userRepository.loginUser(email, password)
             .compose(Transformer::applySchedulers)
             .subscribe(new AutoDisposeSingleObserver<LoginUserResponse>(){
 

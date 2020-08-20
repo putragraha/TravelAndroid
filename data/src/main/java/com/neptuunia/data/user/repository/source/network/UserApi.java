@@ -1,7 +1,9 @@
 package com.neptuunia.data.user.repository.source.network;
 
+import com.neptuunia.data.model.CommonRequest;
 import com.neptuunia.data.user.model.request.LoginUserRequest;
 import com.neptuunia.data.user.model.response.LoginUserResponse;
+import com.neptuunia.data.user.model.response.ProfileUserResponse;
 
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.http.Body;
@@ -15,4 +17,7 @@ public interface UserApi {
 
     @POST("login_user.php")
     Single<LoginUserResponse> loginUser(@Body LoginUserRequest loginUserRequest);
+
+    @POST("profile_user.php")
+    Single<ProfileUserResponse> getProfileUser(@Body CommonRequest commonRequest);
 }

@@ -2,6 +2,7 @@ package com.neptuunia.data.user.repository;
 
 import com.neptuunia.data.user.model.response.HistoryUserResponse;
 import com.neptuunia.data.user.model.response.LoginUserResponse;
+import com.neptuunia.data.user.model.response.ProfileUserResponse;
 
 import java.util.List;
 
@@ -11,5 +12,7 @@ public interface UserRepository {
 
     Single<List<HistoryUserResponse>> getHistoryUsers();
 
-    Single<LoginUserResponse> loginDriver(String email, String password);
+    Single<LoginUserResponse> loginUser(String email, String password);
+
+    Single<ProfileUserResponse> getProfileUser();
 }
