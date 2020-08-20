@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -16,37 +15,46 @@
             android:id="@+id/aciv_driver_picture"
             android:layout_width="75dp"
             android:layout_height="75dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@mipmap/ic_launcher"/>
+            tools:src="@mipmap/ic_launcher" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/actv_order_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textSize="16sp"
             android:layout_marginStart="24dp"
+            android:drawableStart="@drawable/ic_order_code"
+            android:drawablePadding="4dp"
+            android:textSize="16sp"
             app:layout_constraintStart_toEndOf="@id/aciv_driver_picture"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Driver Name"/>
+            tools:text="Order Code" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/actv_total_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_dollar"
+            android:drawablePadding="4dp"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/actv_order_code"
             app:layout_constraintTop_toBottomOf="@id/actv_order_code"
-            tools:text="320000"/>
+            tools:text="320000" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/actv_driver_depart_date"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_access_time"
+            android:drawablePadding="4dp"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/actv_total_price"
             app:layout_constraintTop_toBottomOf="@id/actv_total_price"
-            tools:text="29 July 2020"/>
+            tools:text="29 July 2020" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

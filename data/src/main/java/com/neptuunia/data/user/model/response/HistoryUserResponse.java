@@ -1,4 +1,4 @@
-package com.neptuunia.data.user.model;
+package com.neptuunia.data.user.model.response;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -23,23 +23,21 @@ public class HistoryUserResponse implements Parcelable {
 
     private String armadaClass;
 
-    private String photoUrl;
+    private String photoName;
 
     private String driverName;
 
     private String driverPhoneNumber;
 
-    private int seatAmount;
+    private String seatBooked;
 
     private int totalPrice;
 
-    private String departureDate;
+    private String datetime;
 
-    private String departureTime;
+    private String latitude;
 
-    private double latitude;
-
-    private double longitude;
+    private String longitude;
 
     private String note;
 
@@ -51,15 +49,14 @@ public class HistoryUserResponse implements Parcelable {
         orderCode = in.readString();
         group = in.readString();
         armadaClass = in.readString();
-        photoUrl = in.readString();
+        photoName = in.readString();
         driverName = in.readString();
         driverPhoneNumber = in.readString();
-        seatAmount = in.readInt();
+        seatBooked = in.readString();
         totalPrice = in.readInt();
-        departureDate = in.readString();
-        departureTime = in.readString();
-        latitude = in.readDouble();
-        longitude = in.readDouble();
+        datetime = in.readString();
+        latitude = in.readString();
+        longitude = in.readString();
         note = in.readString();
     }
 
@@ -73,15 +70,14 @@ public class HistoryUserResponse implements Parcelable {
         dest.writeString(this.orderCode);
         dest.writeString(this.group);
         dest.writeString(this.armadaClass);
-        dest.writeString(this.photoUrl);
+        dest.writeString(this.photoName);
         dest.writeString(this.driverName);
         dest.writeString(this.driverPhoneNumber);
-        dest.writeInt(this.seatAmount);
+        dest.writeString(this.seatBooked);
         dest.writeInt(this.totalPrice);
-        dest.writeString(this.departureDate);
-        dest.writeString(this.departureTime);
-        dest.writeDouble(this.latitude);
-        dest.writeDouble(this.longitude);
+        dest.writeString(this.datetime);
+        dest.writeString(this.latitude);
+        dest.writeString(this.longitude);
         dest.writeString(this.note);
     }
 
@@ -109,12 +105,12 @@ public class HistoryUserResponse implements Parcelable {
         this.armadaClass = armadaClass;
     }
 
-    public String getPhotoUrl() {
-        return photoUrl;
+    public String getPhotoName() {
+        return photoName;
     }
 
-    public void setPhotoUrl(String photoUrl) {
-        this.photoUrl = photoUrl;
+    public void setPhotoName(String photoName) {
+        this.photoName = photoName;
     }
 
     public String getDriverName() {
@@ -125,12 +121,12 @@ public class HistoryUserResponse implements Parcelable {
         this.driverName = driverName;
     }
 
-    public int getSeatAmount() {
-        return seatAmount;
+    public String getSeatBooked() {
+        return seatBooked;
     }
 
-    public void setSeatAmount(int seatAmount) {
-        this.seatAmount = seatAmount;
+    public void setSeatBooked(String seatBooked) {
+        this.seatBooked = seatBooked;
     }
 
     public int getTotalPrice() {
@@ -141,35 +137,27 @@ public class HistoryUserResponse implements Parcelable {
         this.totalPrice = totalPrice;
     }
 
-    public String getDepartureDate() {
-        return departureDate;
+    public String getDatetime() {
+        return datetime;
     }
 
-    public void setDepartureDate(String departureDate) {
-        this.departureDate = departureDate;
+    public void setDatetime(String datetime) {
+        this.datetime = datetime;
     }
 
-    public String getDepartureTime() {
-        return departureTime;
-    }
-
-    public void setDepartureTime(String departureTime) {
-        this.departureTime = departureTime;
-    }
-
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 

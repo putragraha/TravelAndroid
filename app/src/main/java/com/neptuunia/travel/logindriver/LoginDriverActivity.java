@@ -1,29 +1,68 @@
 package com.neptuunia.travel.logindriver;
 
 import com.neptuunia.travel.base.BaseActivity;
+import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.databinding.ActivityLoginDriverBinding;
 import com.neptuunia.travel.homedriver.HomeDriverActivity;
 
 import android.view.View;
 
+import javax.inject.Inject;
+
+import androidx.lifecycle.ViewModelProvider;
+import dagger.hilt.android.AndroidEntryPoint;
+
+@AndroidEntryPoint
 public class LoginDriverActivity extends BaseActivity {
 
-    private ActivityLoginDriverBinding activityLoginDriverBinding;
+    @Inject
+    ViewModelFactory viewModelFactory;
+
+    private LoginDriverViewModel loginDriverViewModel;
+
+    private ActivityLoginDriverBinding binding;
 
     @Override
     public View getView() {
-        activityLoginDriverBinding = ActivityLoginDriverBinding.inflate(getLayoutInflater());
-        return activityLoginDriverBinding.getRoot();
+        binding = ActivityLoginDriverBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
 
     @Override
     public void setup() {
+        initLoginDriverViewModel();
         setupButton();
+        setupOnSuccessLoginDriver();
+        setupOnErrorLoginDriver();
+    }
+
+    private void initLoginDriverViewModel() {
+        loginDriverViewModel = new ViewModelProvider(this, viewModelFactory)
+            .get(LoginDriverViewModel.class);
     }
 
     private void setupButton() {
-        activityLoginDriverBinding.btnLogin.setOnClickListener(view ->
-            startActivity(HomeDriverActivity.class)
+        binding.btnLogin.setOnClickListener(view -> loginDriver());
+    }
+
+    private void loginDriver() {
+        loginDriverViewModel.loginDriver(
+                getTextInputLayoutValue(binding.tilEmail),
+                getTextInputLayoutValue(binding.tilPassword)
+            );
+    }
+
+    private void setupOnSuccessLoginDriver() {
+        loginDriverViewModel.getSuccessLiveData().observe(
+            this,
+            success -> startActivityAndFinish(HomeDriverActivity.class)
+        );
+    }
+
+    private void setupOnErrorLoginDriver() {
+        loginDriverViewModel.getErrorLiveData().observe(
+            this,
+            this::showErrorMessage
         );
     }
 }

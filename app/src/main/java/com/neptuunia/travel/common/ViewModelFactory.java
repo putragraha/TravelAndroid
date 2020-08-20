@@ -1,7 +1,17 @@
 package com.neptuunia.travel.common;
 
+import com.neptuunia.travel.armadasetting.ArmadaSettingViewModel;
 import com.neptuunia.travel.historydriver.HistoryDriverViewModel;
 import com.neptuunia.travel.historyuser.HistoryUserViewModel;
+import com.neptuunia.travel.homedriver.HomeDriverViewModel;
+import com.neptuunia.travel.homeuser.HomeUserViewModel;
+import com.neptuunia.travel.logindriver.LoginDriverViewModel;
+import com.neptuunia.travel.loginuser.LoginUserViewModel;
+import com.neptuunia.travel.onboarding.MainViewModel;
+import com.neptuunia.travel.orderticket.OrderTicketViewModel;
+import com.neptuunia.travel.profiledriver.ProfileDriverViewModel;
+import com.neptuunia.travel.profileuser.ProfileUserViewModel;
+import com.neptuunia.travel.registeruser.RegisterUserViewModel;
 import com.neptuunia.travel.searchticket.SearchTicketViewModel;
 
 import javax.inject.Inject;
@@ -12,21 +22,48 @@ import androidx.lifecycle.ViewModelProvider;
 
 public class ViewModelFactory implements ViewModelProvider.Factory {
 
-    private HistoryDriverViewModel historyDriverViewModel;
-
-    private HistoryUserViewModel historyUserViewModel;
-
-    private SearchTicketViewModel searchTicketViewModel;
+    @Inject
+    HistoryDriverViewModel historyDriverViewModel;
 
     @Inject
-    public ViewModelFactory(
-        HistoryDriverViewModel historyDriverViewModel,
-        HistoryUserViewModel historyUserViewModel,
-        SearchTicketViewModel searchTicketViewModel
-    ) {
-        this.historyDriverViewModel = historyDriverViewModel;
-        this.historyUserViewModel = historyUserViewModel;
-        this.searchTicketViewModel = searchTicketViewModel;
+    LoginDriverViewModel loginDriverViewModel;
+
+    @Inject
+    HistoryUserViewModel historyUserViewModel;
+
+    @Inject
+    SearchTicketViewModel searchTicketViewModel;
+
+    @Inject
+    MainViewModel mainViewModel;
+
+    @Inject
+    HomeDriverViewModel homeDriverViewModel;
+
+    @Inject
+    ProfileDriverViewModel profileDriverViewModel;
+
+    @Inject
+    ArmadaSettingViewModel armadaSettingViewModel;
+
+    @Inject
+    LoginUserViewModel loginUserViewModel;
+
+    @Inject
+    HomeUserViewModel homeUserViewModel;
+
+    @Inject
+    ProfileUserViewModel profileUserViewModel;
+
+    @Inject
+    RegisterUserViewModel registerUserViewModel;
+
+    @Inject
+    OrderTicketViewModel orderTicketViewModel;
+
+    @Inject
+    public ViewModelFactory() {
+        // For hilt injection
     }
 
     @NonNull
@@ -35,12 +72,42 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
         if (modelClass.isAssignableFrom(HistoryDriverViewModel.class)) {
             //noinspection unchecked
             return (T) historyDriverViewModel;
+        } else if (modelClass.isAssignableFrom(LoginDriverViewModel.class)) {
+            //noinspection unchecked
+            return (T) loginDriverViewModel;
         } else if (modelClass.isAssignableFrom(HistoryUserViewModel.class)) {
             //noinspection unchecked
             return (T) historyUserViewModel;
         } else if (modelClass.isAssignableFrom(SearchTicketViewModel.class)) {
             //noinspection unchecked
             return (T) searchTicketViewModel;
+        } else if (modelClass.isAssignableFrom(MainViewModel.class)) {
+            //noinspection unchecked
+            return (T) mainViewModel;
+        } else if (modelClass.isAssignableFrom(HomeDriverViewModel.class)) {
+            //noinspection unchecked
+            return (T) homeDriverViewModel;
+        } else if (modelClass.isAssignableFrom(ProfileDriverViewModel.class)) {
+            //noinspection unchecked
+            return (T) profileDriverViewModel;
+        } else if (modelClass.isAssignableFrom(ArmadaSettingViewModel.class)) {
+            //noinspection unchecked
+            return (T) armadaSettingViewModel;
+        } else if (modelClass.isAssignableFrom(LoginUserViewModel.class)) {
+            //noinspection unchecked
+            return (T) loginUserViewModel;
+        } else if (modelClass.isAssignableFrom(HomeUserViewModel.class)) {
+            //noinspection unchecked
+            return (T) homeUserViewModel;
+        } else if (modelClass.isAssignableFrom(ProfileUserViewModel.class)) {
+            //noinspection unchecked
+            return (T) profileUserViewModel;
+        } else if (modelClass.isAssignableFrom(RegisterUserViewModel.class)) {
+            //noinspection unchecked
+            return (T) registerUserViewModel;
+        } else if (modelClass.isAssignableFrom(OrderTicketViewModel.class)) {
+            //noinspection unchecked
+            return (T) orderTicketViewModel;
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

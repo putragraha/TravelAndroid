@@ -1,6 +1,6 @@
 package com.neptuunia.travel.historyuser;
 
-import com.neptuunia.data.user.model.HistoryUserResponse;
+import com.neptuunia.data.user.model.response.HistoryUserResponse;
 import com.neptuunia.data.user.repository.UserRepository;
 import com.neptuunia.travel.utils.AutoDisposeSingleObserver;
 import com.neptuunia.travel.utils.Transformer;

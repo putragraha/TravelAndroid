@@ -108,20 +108,11 @@
             android:focusableInTouchMode="false"
             android:importantForAutofill="no"
             android:inputType="text"
+            android:enabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/acet_note"
             tools:text="Location" />
-
-        <Button
-            android:id="@+id/btn_submit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/submit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_location" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

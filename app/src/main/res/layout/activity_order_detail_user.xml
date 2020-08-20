@@ -153,11 +153,11 @@
             tools:text="Note" />
 
         <Button
-            android:id="@+id/btn_submit"
+            android:id="@+id/btn_update"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/submit"
+            android:text="@string/update_pickup_location"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/acet_note" />

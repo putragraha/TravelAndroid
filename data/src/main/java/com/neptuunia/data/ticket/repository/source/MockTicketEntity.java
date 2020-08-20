@@ -1,5 +1,7 @@
 package com.neptuunia.data.ticket.repository.source;
 
+import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.ticket.model.OrderTicketRequest;
 import com.neptuunia.data.ticket.model.TicketResponse;
 
 import java.util.ArrayList;
@@ -22,19 +24,24 @@ public class MockTicketEntity implements TicketEntity {
 
         for (int i = 1; i <= 5; i++) {
             TicketResponse ticketResponse = new TicketResponse();
-            ticketResponse.setPhotoUrl("PhotoUrl" + i);
+            ticketResponse.setPhotoName("PhotoUrl" + i);
             ticketResponse.setDriverName("Driver Name" + i);
             ticketResponse.setGroup("Group: " + i);
             ticketResponse.setCar("Car" + i);
-            ticketResponse.setDatetime(i);
+            ticketResponse.setDatetime("Datetime: " + i);
             ticketResponse.setArmadaClass("Armada Class: " + i);
-            ticketResponse.setSeatAvailable(i);
-            ticketResponse.setTicketPrice(i);
+            ticketResponse.setSeatAvailable("Seat Available: " + i);
+            ticketResponse.setPrice("Price: " + i);
             ticketResponse.setDriverPhoneNumber("PhoneNumber: " + i);
 
             ticketResponses.add(ticketResponse);
         }
 
         return Single.just(ticketResponses);
+    }
+
+    @Override
+    public Single<CommonResponse> orderTicket(OrderTicketRequest orderTicketRequest) {
+        return Single.just(new CommonResponse());
     }
 }

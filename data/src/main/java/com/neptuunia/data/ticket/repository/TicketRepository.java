@@ -1,5 +1,7 @@
 package com.neptuunia.data.ticket.repository;
 
+import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.ticket.model.OrderTicketRequest;
 import com.neptuunia.data.ticket.model.TicketResponse;
 
 import java.util.List;
@@ -10,4 +12,5 @@ public interface TicketRepository {
 
     Single<List<TicketResponse>> getTickets();
 
+    Single<CommonResponse> orderTicket(OrderTicketRequest orderTicketRequest);
 }

@@ -1,4 +1,4 @@
-package com.neptuunia.data.driver.model;
+package com.neptuunia.data.driver.model.response;
 
 import android.os.Parcel;
 import android.os.Parcelable;
@@ -18,7 +18,7 @@ public class HistoryDriverResponse implements Parcelable {
             }
         };
 
-    private int orderCode;
+    private String orderCode;
 
     private String group;
 
@@ -28,28 +28,28 @@ public class HistoryDriverResponse implements Parcelable {
 
     private String seatBooked;
 
-    private int price;
+    private int totalPrice;
 
     private String note;
 
-    private double latitude;
+    private String latitude;
 
-    private double longitude;
+    private String longitude;
 
     public HistoryDriverResponse() {
         // Enable empty constructor
     }
 
     protected HistoryDriverResponse(Parcel in) {
-        orderCode = in.readInt();
+        orderCode = in.readString();
         group = in.readString();
         armadaClass = in.readString();
         userName = in.readString();
         seatBooked = in.readString();
-        price = in.readInt();
+        totalPrice = in.readInt();
         note = in.readString();
-        latitude = in.readDouble();
-        longitude = in.readDouble();
+        latitude = in.readString();
+        longitude = in.readString();
     }
 
     @Override
@@ -59,22 +59,22 @@ public class HistoryDriverResponse implements Parcelable {
 
     @Override
     public void writeToParcel(Parcel out, int flags) {
-        out.writeInt(orderCode);
+        out.writeString(orderCode);
         out.writeString(group);
         out.writeString(armadaClass);
         out.writeString(userName);
         out.writeString(seatBooked);
-        out.writeInt(price);
+        out.writeInt(totalPrice);
         out.writeString(note);
-        out.writeDouble(latitude);
-        out.writeDouble(longitude);
+        out.writeString(latitude);
+        out.writeString(longitude);
     }
 
-    public int getOrderCode() {
+    public String getOrderCode() {
         return orderCode;
     }
 
-    public void setOrderCode(int orderCode) {
+    public void setOrderCode(String orderCode) {
         this.orderCode = orderCode;
     }
 
@@ -110,12 +110,12 @@ public class HistoryDriverResponse implements Parcelable {
         this.seatBooked = seatBooked;
     }
 
-    public int getPrice() {
-        return price;
+    public int getTotalPrice() {
+        return totalPrice;
     }
 
-    public void setPrice(int price) {
-        this.price = price;
+    public void setTotalPrice(int totalPrice) {
+        this.totalPrice = totalPrice;
     }
 
     public String getNote() {
@@ -126,19 +126,19 @@ public class HistoryDriverResponse implements Parcelable {
         this.note = note;
     }
 
-    public double getLatitude() {
+    public String getLatitude() {
         return latitude;
     }
 
-    public void setLatitude(double latitude) {
+    public void setLatitude(String latitude) {
         this.latitude = latitude;
     }
 
-    public double getLongitude() {
+    public String getLongitude() {
         return longitude;
     }
 
-    public void setLongitude(double longitude) {
+    public void setLongitude(String longitude) {
         this.longitude = longitude;
     }
 }

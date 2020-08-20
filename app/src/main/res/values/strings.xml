@@ -34,4 +34,16 @@
     <string name="confirm_new_password">Confirm New Password</string>
     <string name="armada_class">Armada class</string>
     <string name="group">Group</string>
+    <string name="logout">Logout</string>
+    <string name="failed">Failed… Please try again later</string>
+    <string name="update">Update</string>
+    <string name="update_success">Successfully Updated</string>
+    <string name="add_success">Successfully Added</string>
+    <string name="amount_seat_booked">%1$s seat booked</string>
+    <string name="register_success">Registered Successfully</string>
+    <string name="password_did_not_match">Password did not match</string>
+    <string name="password_changed">Password changed successfully</string>
+    <string name="update_pickup_location">Update Pickup Location</string>
+    <string name="amount_of_seat_available">%1$s of %2$s seat available</string>
+    <string name="order_ticket_success">Successfully order ticket</string>
 </resources>

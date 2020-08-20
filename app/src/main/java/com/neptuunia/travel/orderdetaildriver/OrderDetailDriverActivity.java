@@ -1,8 +1,8 @@
 package com.neptuunia.travel.orderdetaildriver;
 
-import com.neptuunia.data.driver.model.HistoryDriverResponse;
+import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.travel.base.BaseActivity;
-import com.neptuunia.travel.constant.Variable;
+import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityOrderDetailDriverBinding;
 
 import android.os.Bundle;
@@ -29,17 +29,17 @@ public class OrderDetailDriverActivity extends BaseActivity {
 
     private void setupForm(Bundle bundle) {
         HistoryDriverResponse historyDriverResponse =
-            bundle.getParcelable(Variable.HISTORY_DRIVER_RESPONSE_DATA);
+            bundle.getParcelable(Constant.HISTORY_DRIVER_RESPONSE_DATA);
 
         if (historyDriverResponse != null) {
-            binding.acetOrderCode.setText(String.valueOf(historyDriverResponse.getOrderCode()));
+            binding.acetOrderCode.setText(historyDriverResponse.getOrderCode());
             binding.acetGroup.setText(historyDriverResponse.getGroup());
             binding.acetArmadaClass.setText(historyDriverResponse.getArmadaClass());
             binding.acetUserName.setText(historyDriverResponse.getUserName());
             binding.acetTicketAmount.setText(historyDriverResponse.getSeatBooked());
-            binding.acetTotalPrice.setText(String.valueOf(historyDriverResponse.getPrice()));
+            binding.acetTotalPrice.setText(String.valueOf(historyDriverResponse.getTotalPrice()));
             binding.acetNote.setText(historyDriverResponse.getNote());
-            binding.acetLocation.setText(String.valueOf(historyDriverResponse.getOrderCode()));
+            binding.acetLocation.setText(historyDriverResponse.getLatitude());
         }
     }
 }

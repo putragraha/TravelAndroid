@@ -1,8 +1,10 @@
 package com.neptuunia.travel.historydriver;
 
-import com.neptuunia.data.driver.model.HistoryDriverResponse;
+import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
+import com.neptuunia.travel.R;
 import com.neptuunia.travel.databinding.ItemHistoryDriverBinding;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -75,13 +77,18 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
         }
 
         public void bind(HistoryDriverResponse historyDriverResponse) {
+            Context context = itemHistoryDriverBinding.getRoot().getContext();
+
             rootView.setOnClickListener(view ->
                 historyDriverResponseConsumer.accept(historyDriverResponse)
             );
-            itemHistoryDriverBinding.actvOrderCode.setText(
-                String.valueOf(historyDriverResponse.getOrderCode())
+            itemHistoryDriverBinding.actvOrderCode.setText(historyDriverResponse.getOrderCode());
+            itemHistoryDriverBinding.actvSeatBooked.setText(
+                String.format(
+                    context.getString(R.string.amount_seat_booked),
+                    historyDriverResponse.getSeatBooked()
+                )
             );
-            itemHistoryDriverBinding.actvSeatBooked.setText(historyDriverResponse.getSeatBooked());
             itemHistoryDriverBinding.actvUserName.setText(historyDriverResponse.getUserName());
         }
     }

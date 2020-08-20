@@ -1,5 +1,9 @@
 package com.neptuunia.data.ticket.repository;
 
+import com.neptuunia.data.account.repository.AccountRepository;
+import com.neptuunia.data.constant.Source;
+import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.ticket.model.OrderTicketRequest;
 import com.neptuunia.data.ticket.model.TicketResponse;
 import com.neptuunia.data.ticket.repository.source.TicketEntity;
 
@@ -13,17 +17,30 @@ public class TicketEntityRepository implements TicketRepository {
 
     private TicketEntityFactory ticketEntityFactory;
 
+    private AccountRepository accountRepository;
+
     @Inject
-    public TicketEntityRepository(TicketEntityFactory ticketEntityFactory) {
+    public TicketEntityRepository(
+        TicketEntityFactory ticketEntityFactory,
+        AccountRepository accountRepository
+    ) {
         this.ticketEntityFactory = ticketEntityFactory;
+        this.accountRepository = accountRepository;
     }
 
     @Override
     public Single<List<TicketResponse>> getTickets() {
-        return createTicketEntity().getTickets();
+        return createNetworkTicketEntity().getTickets();
     }
 
-    public TicketEntity createTicketEntity() {
-        return ticketEntityFactory.createTicketEntity();
+    @Override
+    public Single<CommonResponse> orderTicket(OrderTicketRequest orderTicketRequest) {
+        orderTicketRequest.setUserId(accountRepository.getSession().getId());
+
+        return createNetworkTicketEntity().orderTicket(orderTicketRequest);
+    }
+
+    public TicketEntity createNetworkTicketEntity() {
+        return ticketEntityFactory.createTicketEntity(Source.NETWORK);
     }
 }
