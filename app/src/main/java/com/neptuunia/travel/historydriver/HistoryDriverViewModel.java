@@ -1,6 +1,6 @@
 package com.neptuunia.travel.historydriver;
 
-import com.neptuunia.data.driver.model.HistoryDriverResponse;
+import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.data.driver.repository.DriverRepository;
 import com.neptuunia.travel.utils.AutoDisposeSingleObserver;
 import com.neptuunia.travel.utils.Transformer;

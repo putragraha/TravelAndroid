@@ -1,9 +1,9 @@
 package com.neptuunia.data.driver.repository.source.network;
 
 import com.neptuunia.data.account.model.Account;
-import com.neptuunia.data.driver.model.LoginDriverRequest;
-import com.neptuunia.data.driver.model.LoginDriverResponse;
-import com.neptuunia.data.driver.model.ProfileDriverResponse;
+import com.neptuunia.data.driver.model.request.LoginDriverRequest;
+import com.neptuunia.data.driver.model.response.LoginDriverResponse;
+import com.neptuunia.data.driver.model.response.ProfileDriverResponse;
 
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.http.Body;

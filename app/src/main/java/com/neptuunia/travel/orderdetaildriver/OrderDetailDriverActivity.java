@@ -1,6 +1,6 @@
 package com.neptuunia.travel.orderdetaildriver;
 
-import com.neptuunia.data.driver.model.HistoryDriverResponse;
+import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityOrderDetailDriverBinding;

@@ -1,6 +1,6 @@
 package com.neptuunia.travel.logindriver;
 
-import com.neptuunia.data.driver.model.LoginDriverResponse;
+import com.neptuunia.data.driver.model.response.LoginDriverResponse;
 import com.neptuunia.data.driver.repository.DriverRepository;
 import com.neptuunia.travel.utils.AutoDisposeSingleObserver;
 import com.neptuunia.travel.utils.Transformer;

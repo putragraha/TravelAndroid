@@ -1,4 +1,4 @@
-package com.neptuunia.data.driver.model;
+package com.neptuunia.data.driver.model.response;
 
 /**
  * @author Putra Nugraha (putra.nugraha@dana.id)

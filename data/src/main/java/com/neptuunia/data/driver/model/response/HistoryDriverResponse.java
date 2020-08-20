@@ -1,4 +1,4 @@
-package com.neptuunia.data.driver.model;
+package com.neptuunia.data.driver.model.response;
 
 import android.os.Parcel;
 import android.os.Parcelable;

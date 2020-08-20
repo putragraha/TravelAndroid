@@ -4,10 +4,10 @@ import com.neptuunia.data.account.model.Account;
 import com.neptuunia.data.account.repository.AccountRepository;
 import com.neptuunia.data.constant.AccountType;
 import com.neptuunia.data.constant.Source;
-import com.neptuunia.data.driver.model.HistoryDriverResponse;
-import com.neptuunia.data.driver.model.LoginDriverRequest;
-import com.neptuunia.data.driver.model.LoginDriverResponse;
-import com.neptuunia.data.driver.model.ProfileDriverResponse;
+import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
+import com.neptuunia.data.driver.model.request.LoginDriverRequest;
+import com.neptuunia.data.driver.model.response.LoginDriverResponse;
+import com.neptuunia.data.driver.model.response.ProfileDriverResponse;
 import com.neptuunia.data.driver.repository.source.DriverEntity;
 
 import java.util.List;

@@ -1,8 +1,8 @@
 package com.neptuunia.data.driver.repository;
 
-import com.neptuunia.data.driver.model.HistoryDriverResponse;
-import com.neptuunia.data.driver.model.LoginDriverResponse;
-import com.neptuunia.data.driver.model.ProfileDriverResponse;
+import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
+import com.neptuunia.data.driver.model.response.LoginDriverResponse;
+import com.neptuunia.data.driver.model.response.ProfileDriverResponse;
 
 import java.util.List;
 

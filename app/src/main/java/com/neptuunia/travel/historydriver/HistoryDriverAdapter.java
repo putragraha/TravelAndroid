@@ -1,6 +1,6 @@
 package com.neptuunia.travel.historydriver;
 
-import com.neptuunia.data.driver.model.HistoryDriverResponse;
+import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.travel.databinding.ItemHistoryDriverBinding;
 
 import android.view.LayoutInflater;
