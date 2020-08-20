@@ -46,4 +46,10 @@ public class DateTimeUtils {
         SimpleDateFormat formatter = new SimpleDateFormat(TIME_FORMAT, Locale.getDefault());
         return formatter.format(date);
     }
+
+    public static String getFormattedDatetime(Date date) {
+        String pattern = DATE_FORMAT + " " + TIME_FORMAT;
+        SimpleDateFormat formatter = new SimpleDateFormat(pattern, Locale.getDefault());
+        return formatter.format(date);
+    }
 }

@@ -4,13 +4,16 @@ import com.bumptech.glide.Glide;
 import com.neptuunia.data.user.model.response.HistoryUserResponse;
 import com.neptuunia.travel.R;
 import com.neptuunia.travel.databinding.ItemHistoryUserBinding;
+import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.ImageUtils;
+import com.neptuunia.travel.utils.NumberUtils;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -79,17 +82,20 @@ public class HistoryUserAdapter extends RecyclerView.Adapter<HistoryUserAdapter.
         }
 
         public void bind(HistoryUserResponse historyUserResponse) {
+            Date date = new Date(Long.parseLong(historyUserResponse.getDatetime()));
+
             rootView.setOnClickListener(view ->
                 historyUserResponseConsumer.accept(historyUserResponse)
             );
             Glide.with(rootView)
                 .load(ImageUtils.loadImage(historyUserResponse.getPhotoName()))
-                .centerCrop()
                 .placeholder(R.mipmap.ic_launcher)
                 .into(binding.acivDriverPicture);
             binding.actvOrderCode.setText(historyUserResponse.getOrderCode());
-            binding.actvTotalPrice.setText(String.valueOf(historyUserResponse.getTotalPrice()));
-            binding.actvDriverDepartDate.setText(historyUserResponse.getDatetime());
+            binding.actvTotalPrice.setText(
+                NumberUtils.toRupiah(historyUserResponse.getTotalPrice())
+            );
+            binding.actvDriverDepartDate.setText(DateTimeUtils.getFormattedDatetime(date));
         }
     }
 }
