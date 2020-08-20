@@ -4,6 +4,7 @@ import com.neptuunia.data.model.CommonRequest;
 import com.neptuunia.data.model.CommonResponse;
 import com.neptuunia.data.user.model.request.EditProfileUserRequest;
 import com.neptuunia.data.user.model.request.LoginUserRequest;
+import com.neptuunia.data.user.model.request.RegisterUserRequest;
 import com.neptuunia.data.user.model.response.HistoryUserResponse;
 import com.neptuunia.data.user.model.response.LoginUserResponse;
 import com.neptuunia.data.user.model.response.ProfileUserResponse;
@@ -21,4 +22,6 @@ public interface UserEntity {
     Single<ProfileUserResponse> getProfileUser(CommonRequest commonRequest);
 
     Single<CommonResponse> updateProfileUser(EditProfileUserRequest editProfileUserRequest);
+
+    Single<CommonResponse> registerUser(RegisterUserRequest registerUserRequest);
 }

@@ -4,6 +4,7 @@ import com.neptuunia.data.model.CommonRequest;
 import com.neptuunia.data.model.CommonResponse;
 import com.neptuunia.data.user.model.request.EditProfileUserRequest;
 import com.neptuunia.data.user.model.request.LoginUserRequest;
+import com.neptuunia.data.user.model.request.RegisterUserRequest;
 import com.neptuunia.data.user.model.response.HistoryUserResponse;
 import com.neptuunia.data.user.model.response.LoginUserResponse;
 import com.neptuunia.data.user.model.response.ProfileUserResponse;
@@ -48,5 +49,10 @@ public class NetworkUserEntity implements UserEntity {
     @Override
     public Single<CommonResponse> updateProfileUser(EditProfileUserRequest editProfileUserRequest) {
         return userApi.updateProfileUser(editProfileUserRequest);
+    }
+
+    @Override
+    public Single<CommonResponse> registerUser(RegisterUserRequest registerUserRequest) {
+        return userApi.registerUser(registerUserRequest);
     }
 }
