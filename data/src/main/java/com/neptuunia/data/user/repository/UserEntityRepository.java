@@ -38,8 +38,8 @@ public class UserEntityRepository implements UserRepository {
 
     @Override
     public Single<List<HistoryUserResponse>> getHistoryUsers() {
-        return createUserEntity(Source.MOCK)
-            .getHistoryUsers();
+        return createUserEntity(Source.NETWORK)
+            .getHistoryUsers(new CommonRequest(accountRepository.getSession().getId()));
     }
 
     @Override

@@ -6,8 +6,11 @@ import com.neptuunia.data.user.model.request.ChangePasswordRequest;
 import com.neptuunia.data.user.model.request.EditProfileUserRequest;
 import com.neptuunia.data.user.model.request.LoginUserRequest;
 import com.neptuunia.data.user.model.request.RegisterUserRequest;
+import com.neptuunia.data.user.model.response.HistoryUserResponse;
 import com.neptuunia.data.user.model.response.LoginUserResponse;
 import com.neptuunia.data.user.model.response.ProfileUserResponse;
+
+import java.util.List;
 
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.http.Body;
@@ -33,4 +36,7 @@ public interface UserApi {
 
     @POST("change_password.php")
     Single<CommonResponse> changePassword(@Body ChangePasswordRequest changePasswordRequest);
+
+    @POST("get_history_user.php")
+    Single<List<HistoryUserResponse>> getHistoryUsers(@Body CommonRequest commonRequest);
 }

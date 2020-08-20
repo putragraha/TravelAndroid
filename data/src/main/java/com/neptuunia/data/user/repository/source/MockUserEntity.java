@@ -25,7 +25,7 @@ public class MockUserEntity implements UserEntity {
     }
 
     @Override
-    public Single<List<HistoryUserResponse>> getHistoryUsers() {
+    public Single<List<HistoryUserResponse>> getHistoryUsers(CommonRequest commonRequest) {
         List<HistoryUserResponse> historyUserResponses = new ArrayList<>();
 
         for (int i = 1; i <= 5; i++) {
@@ -33,15 +33,14 @@ public class MockUserEntity implements UserEntity {
             historyUserResponse.setOrderCode("Code" + i);
             historyUserResponse.setGroup("Group: " + i);
             historyUserResponse.setArmadaClass("Armada Class: " + i);
-            historyUserResponse.setPhotoUrl("PhotoUrl" + i);
+            historyUserResponse.setPhotoName("PhotoUrl" + i);
             historyUserResponse.setDriverName("DriverName " + i);
             historyUserResponse.setDriverPhoneNumber("Driver Phone Number " + i);
-            historyUserResponse.setSeatAmount(i);
+            historyUserResponse.setSeatBooked(i + " seat booked");
             historyUserResponse.setTotalPrice(i * 120000);
-            historyUserResponse.setDepartureDate("DepartureDate" + i);
-            historyUserResponse.setDepartureTime("DepartureTime" + i);
-            historyUserResponse.setLatitude(i);
-            historyUserResponse.setLongitude(i);
+            historyUserResponse.setDatetime("Departure Time: " + i);
+            historyUserResponse.setLatitude("Latitude:" + i);
+            historyUserResponse.setLongitude("Longitude:" + i);
             historyUserResponse.setNote("Note" + i);
 
             historyUserResponses.add(historyUserResponse);

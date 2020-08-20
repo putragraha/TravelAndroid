@@ -16,7 +16,7 @@ import io.reactivex.rxjava3.core.Single;
 
 public interface UserEntity {
 
-    Single<List<HistoryUserResponse>> getHistoryUsers();
+    Single<List<HistoryUserResponse>> getHistoryUsers(CommonRequest commonRequest);
 
     Single<LoginUserResponse> loginUser(LoginUserRequest loginUserRequest);
 

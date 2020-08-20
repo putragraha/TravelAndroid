@@ -32,9 +32,8 @@ public class NetworkUserEntity implements UserEntity {
     }
 
     @Override
-    public Single<List<HistoryUserResponse>> getHistoryUsers() {
-        // TODO (Putra): 20/08/20 Get History User here
-        throw new UnsupportedOperationException("Will support later");
+    public Single<List<HistoryUserResponse>> getHistoryUsers(CommonRequest commonRequest) {
+        return userApi.getHistoryUsers(commonRequest);
     }
 
     @Override

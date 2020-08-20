@@ -36,4 +36,14 @@ public class DateTimeUtils {
 
         return 0;
     }
+
+    public static String getFormattedDate(Date date) {
+        SimpleDateFormat formatter = new SimpleDateFormat(DATE_FORMAT, Locale.getDefault());
+        return formatter.format(date);
+    }
+
+    public static String getFormattedTime(Date date) {
+        SimpleDateFormat formatter = new SimpleDateFormat(TIME_FORMAT, Locale.getDefault());
+        return formatter.format(date);
+    }
 }
