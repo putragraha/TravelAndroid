@@ -5,6 +5,8 @@ import com.neptuunia.data.account.repository.AccountRepository;
 import com.neptuunia.data.constant.AccountType;
 import com.neptuunia.data.constant.Source;
 import com.neptuunia.data.model.CommonRequest;
+import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.user.model.request.EditProfileUserRequest;
 import com.neptuunia.data.user.model.request.LoginUserRequest;
 import com.neptuunia.data.user.model.response.HistoryUserResponse;
 import com.neptuunia.data.user.model.response.LoginUserResponse;
@@ -49,6 +51,14 @@ public class UserEntityRepository implements UserRepository {
     public Single<ProfileUserResponse> getProfileUser() {
         return createUserEntity(Source.NETWORK)
             .getProfileUser(new CommonRequest(accountRepository.getSession().getId()));
+    }
+
+    @Override
+    public Single<CommonResponse> updateProfileUser(EditProfileUserRequest editProfileUserRequest) {
+        editProfileUserRequest.setId(accountRepository.getSession().getId());
+
+        return createUserEntity(Source.NETWORK)
+            .updateProfileUser(editProfileUserRequest);
     }
 
     public UserEntity createUserEntity(@Source String source) {

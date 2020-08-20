@@ -1,6 +1,8 @@
 package com.neptuunia.data.user.repository.source;
 
 import com.neptuunia.data.model.CommonRequest;
+import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.user.model.request.EditProfileUserRequest;
 import com.neptuunia.data.user.model.request.LoginUserRequest;
 import com.neptuunia.data.user.model.response.HistoryUserResponse;
 import com.neptuunia.data.user.model.response.LoginUserResponse;
@@ -54,5 +56,10 @@ public class MockUserEntity implements UserEntity {
     @Override
     public Single<ProfileUserResponse> getProfileUser(CommonRequest commonRequest) {
         return Single.just(new ProfileUserResponse());
+    }
+
+    @Override
+    public Single<CommonResponse> updateProfileUser(EditProfileUserRequest editProfileUserRequest) {
+        return Single.just(new CommonResponse());
     }
 }

@@ -1,6 +1,8 @@
 package com.neptuunia.travel.profileuser;
 
+import com.neptuunia.data.user.model.request.EditProfileUserRequest;
 import com.neptuunia.data.user.model.response.ProfileUserResponse;
+import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.databinding.ActivityProfileUserBinding;
@@ -32,12 +34,9 @@ public class ProfileUserActivity extends BaseActivity {
     public void setup() {
         initProfileUserViewModel();
         setupOnSuccessGetProfileUser();
+        setupOnSuccessEditProfileDriver();
         setupOnErrorGetProfileDriver();
-    }
-
-    private void setupOnErrorGetProfileDriver() {
-        profileUserViewModel.getErrorProfileUserLiveData()
-            .observe(this, this::showErrorMessage);
+        setupOnUpdateClick();
     }
 
     private void initProfileUserViewModel() {
@@ -50,9 +49,30 @@ public class ProfileUserActivity extends BaseActivity {
             .observe(this, this::setupForm);
     }
 
+    private void setupOnSuccessEditProfileDriver() {
+        profileUserViewModel.getSuccessEditProfileUserLiveData()
+            .observe(this, commonResponse -> showMessage(getString(R.string.update_success)));
+    }
+
     private void setupForm(ProfileUserResponse profileUserResponse) {
         binding.acetName.setText(profileUserResponse.getName());
         binding.acetEmail.setText(profileUserResponse.getEmail());
         binding.acetPhoneNumber.setText(profileUserResponse.getPhoneNumber());
+    }
+
+    private void setupOnErrorGetProfileDriver() {
+        profileUserViewModel.getErrorLiveData()
+            .observe(this, this::showErrorMessage);
+    }
+
+    private void setupOnUpdateClick() {
+        binding.btnUpdate.setOnClickListener(view -> {
+            EditProfileUserRequest editProfileUserRequest = new EditProfileUserRequest();
+            editProfileUserRequest.setEmail(getEditTextValue(binding.acetEmail));
+            editProfileUserRequest.setName(getEditTextValue(binding.acetName));
+            editProfileUserRequest.setPhoneNumber(getEditTextValue(binding.acetPhoneNumber));
+
+            profileUserViewModel.editProfileUser(editProfileUserRequest);
+        });
     }
 }

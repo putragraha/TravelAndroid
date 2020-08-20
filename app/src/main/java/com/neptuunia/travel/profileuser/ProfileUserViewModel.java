@@ -1,5 +1,7 @@
 package com.neptuunia.travel.profileuser;
 
+import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.user.model.request.EditProfileUserRequest;
 import com.neptuunia.data.user.model.response.ProfileUserResponse;
 import com.neptuunia.data.user.repository.UserRepository;
 import com.neptuunia.travel.utils.AutoDisposeSingleObserver;
@@ -17,6 +19,9 @@ import androidx.lifecycle.MutableLiveData;
 public class ProfileUserViewModel extends AndroidViewModel {
 
     private MutableLiveData<ProfileUserResponse> successGetProfileUserLiveData =
+        new MutableLiveData<>();
+
+    private MutableLiveData<CommonResponse> successEditProfileUserLiveData =
         new MutableLiveData<>();
 
     private MutableLiveData<String> errorLiveData = new MutableLiveData<>();
@@ -37,8 +42,36 @@ public class ProfileUserViewModel extends AndroidViewModel {
         return successGetProfileUserLiveData;
     }
 
-    public MutableLiveData<String> getErrorProfileUserLiveData() {
+    public MutableLiveData<CommonResponse> getSuccessEditProfileUserLiveData() {
+        return successEditProfileUserLiveData;
+    }
+
+    public MutableLiveData<String> getErrorLiveData() {
         return errorLiveData;
+    }
+
+    public void editProfileUser(EditProfileUserRequest editProfileUserRequest) {
+        userRepository.updateProfileUser(editProfileUserRequest)
+            .compose(Transformer::applySchedulers)
+            .subscribe(new AutoDisposeSingleObserver<CommonResponse>() {
+
+                @Override
+                public void onSuccess(CommonResponse commonResponse) {
+                    super.onSuccess(commonResponse);
+
+                    if (commonResponse.isSuccess()) {
+                        successEditProfileUserLiveData.postValue(commonResponse);
+                    } else {
+                        errorLiveData.postValue("");
+                    }
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    super.onError(e);
+                    errorLiveData.postValue(e.getMessage());
+                }
+            });
     }
 
     private void fetchProfileUser() {

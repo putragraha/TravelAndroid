@@ -1,6 +1,8 @@
 package com.neptuunia.data.user.repository.source.network;
 
 import com.neptuunia.data.model.CommonRequest;
+import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.user.model.request.EditProfileUserRequest;
 import com.neptuunia.data.user.model.request.LoginUserRequest;
 import com.neptuunia.data.user.model.response.LoginUserResponse;
 import com.neptuunia.data.user.model.response.ProfileUserResponse;
@@ -20,4 +22,7 @@ public interface UserApi {
 
     @POST("profile_user.php")
     Single<ProfileUserResponse> getProfileUser(@Body CommonRequest commonRequest);
+
+    @POST("edit_profile_user.php")
+    Single<CommonResponse> updateProfileUser(@Body EditProfileUserRequest editProfileUserRequest);
 }
