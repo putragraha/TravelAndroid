@@ -1,5 +1,7 @@
 package com.neptuunia.data.ticket.repository.source;
 
+import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.ticket.model.OrderTicketRequest;
 import com.neptuunia.data.ticket.model.TicketResponse;
 
 import java.util.ArrayList;
@@ -36,5 +38,10 @@ public class MockTicketEntity implements TicketEntity {
         }
 
         return Single.just(ticketResponses);
+    }
+
+    @Override
+    public Single<CommonResponse> orderTicket(OrderTicketRequest orderTicketRequest) {
+        return Single.just(new CommonResponse());
     }
 }

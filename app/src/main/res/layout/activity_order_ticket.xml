@@ -221,30 +221,16 @@
         </androidx.cardview.widget.CardView>
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_phone_number"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_phone"
-            android:focusableInTouchMode="false"
-            android:hint="@string/phone_number"
-            android:importantForAutofill="no"
-            android:inputType="phone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/cv_seat_information" />
-
-        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/acet_seat"
             style="@style/RoundedBoxEditText.Iconed"
             android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_seat"
-            android:focusableInTouchMode="false"
             android:hint="@string/choose_amount_seat_to_order"
             android:importantForAutofill="no"
-            android:inputType="date"
+            android:inputType="number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_phone_number" />
+            app:layout_constraintTop_toBottomOf="@id/cv_seat_information" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/acet_note"

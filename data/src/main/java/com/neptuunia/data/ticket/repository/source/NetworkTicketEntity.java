@@ -1,5 +1,7 @@
 package com.neptuunia.data.ticket.repository.source;
 
+import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.ticket.model.OrderTicketRequest;
 import com.neptuunia.data.ticket.model.TicketResponse;
 import com.neptuunia.data.ticket.repository.source.network.TicketApi;
 
@@ -26,5 +28,10 @@ public class NetworkTicketEntity implements TicketEntity {
     @Override
     public Single<List<TicketResponse>> getTickets() {
         return ticketApi.getTickets();
+    }
+
+    @Override
+    public Single<CommonResponse> orderTicket(OrderTicketRequest orderTicketRequest) {
+        return ticketApi.orderTicket(orderTicketRequest);
     }
 }
