@@ -1,8 +1,10 @@
 package com.neptuunia.data.driver.repository.source;
 
+import com.neptuunia.data.account.model.Account;
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.data.driver.model.LoginDriverRequest;
 import com.neptuunia.data.driver.model.LoginDriverResponse;
+import com.neptuunia.data.driver.model.ProfileDriverResponse;
 import com.neptuunia.data.driver.repository.source.network.DriverApi;
 
 import java.util.List;
@@ -29,6 +31,11 @@ public class NetworkDriverEntity implements DriverEntity {
     public Single<List<HistoryDriverResponse>> getHistoryDrivers() {
         // TODO (Putra): 17/08/20 Get History Drivers
         throw new UnsupportedOperationException("Will support later");
+    }
+
+    @Override
+    public Single<ProfileDriverResponse> getProfileDriver(Account account) {
+        return driverApi.getProfileDriver(account);
     }
 
     @Override

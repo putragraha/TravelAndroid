@@ -10,21 +10,8 @@
         android:padding="24dp">
 
         <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_name"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:drawableStart="@drawable/ic_user"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:hint="@string/name"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/acet_group"
             style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_group"
             android:enabled="false"
             android:importantForAutofill="no"
@@ -32,7 +19,7 @@
             android:hint="@string/group"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_name" />
+            app:layout_constraintTop_toTopOf="parent" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/acet_email"
@@ -48,6 +35,18 @@
             app:layout_constraintTop_toBottomOf="@id/acet_group" />
 
         <androidx.appcompat.widget.AppCompatEditText
+            android:id="@+id/acet_name"
+            style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_user"
+            android:importantForAutofill="no"
+            android:inputType="text"
+            android:hint="@string/name"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_email" />
+
+        <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/acet_phone_number"
             style="@style/RoundedBoxEditText.Iconed"
             android:layout_marginTop="24dp"
@@ -58,14 +57,14 @@
             android:hint="@string/phone_number"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_email" />
+            app:layout_constraintTop_toBottomOf="@id/acet_name" />
 
         <Button
-            android:id="@+id/btn_login"
+            android:id="@+id/btn_update"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_marginTop="32dp"
-            android:text="@string/submit"
+            android:text="@string/update"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/acet_phone_number" />

@@ -1,8 +1,10 @@
 package com.neptuunia.data.driver.repository.source;
 
+import com.neptuunia.data.account.model.Account;
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.data.driver.model.LoginDriverRequest;
 import com.neptuunia.data.driver.model.LoginDriverResponse;
+import com.neptuunia.data.driver.model.ProfileDriverResponse;
 
 import java.util .ArrayList;
 import java.util.List;
@@ -38,6 +40,11 @@ public class MockDriverEntity implements DriverEntity {
         }
 
         return Single.just(armadaSettingResponses);
+    }
+
+    @Override
+    public Single<ProfileDriverResponse> getProfileDriver(Account account) {
+        return Single.just(new ProfileDriverResponse());
     }
 
     @Override

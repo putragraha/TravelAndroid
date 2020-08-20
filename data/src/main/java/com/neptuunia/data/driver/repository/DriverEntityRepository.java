@@ -7,6 +7,7 @@ import com.neptuunia.data.constant.Source;
 import com.neptuunia.data.driver.model.HistoryDriverResponse;
 import com.neptuunia.data.driver.model.LoginDriverRequest;
 import com.neptuunia.data.driver.model.LoginDriverResponse;
+import com.neptuunia.data.driver.model.ProfileDriverResponse;
 import com.neptuunia.data.driver.repository.source.DriverEntity;
 
 import java.util.List;
@@ -34,6 +35,12 @@ public class DriverEntityRepository implements DriverRepository {
     public Single<List<HistoryDriverResponse>> getHistoryDrivers() {
         return createDriverEntity(Source.MOCK)
             .getHistoryDrivers();
+    }
+
+    @Override
+    public Single<ProfileDriverResponse> getProfileDriver() {
+        return createDriverEntity(Source.NETWORK)
+            .getProfileDriver(accountRepository.getSession());
     }
 
     @Override
