@@ -1,6 +1,6 @@
 package com.neptuunia.travel.orderdetailuser;
 
-import com.neptuunia.data.user.model.HistoryUserResponse;
+import com.neptuunia.data.user.model.response.HistoryUserResponse;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityOrderDetailUserBinding;

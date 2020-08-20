@@ -1,7 +1,7 @@
 package com.neptuunia.travel.historyuser;
 
 import com.bumptech.glide.Glide;
-import com.neptuunia.data.user.model.HistoryUserResponse;
+import com.neptuunia.data.user.model.response.HistoryUserResponse;
 import com.neptuunia.travel.R;
 import com.neptuunia.travel.databinding.ItemHistoryUserBinding;
 

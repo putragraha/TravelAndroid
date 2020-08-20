@@ -1,6 +1,8 @@
 package com.neptuunia.data.user.repository.source;
 
-import com.neptuunia.data.user.model.HistoryUserResponse;
+import com.neptuunia.data.user.model.request.LoginUserRequest;
+import com.neptuunia.data.user.model.response.HistoryUserResponse;
+import com.neptuunia.data.user.model.response.LoginUserResponse;
 
 import java.util.List;
 
@@ -9,4 +11,6 @@ import io.reactivex.rxjava3.core.Single;
 public interface UserEntity {
 
     Single<List<HistoryUserResponse>> getHistoryUsers();
+
+    Single<LoginUserResponse> loginUser(LoginUserRequest loginUserRequest);
 }

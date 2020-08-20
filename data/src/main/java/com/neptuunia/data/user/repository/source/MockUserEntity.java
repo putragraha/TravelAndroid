@@ -1,6 +1,8 @@
 package com.neptuunia.data.user.repository.source;
 
-import com.neptuunia.data.user.model.HistoryUserResponse;
+import com.neptuunia.data.user.model.request.LoginUserRequest;
+import com.neptuunia.data.user.model.response.HistoryUserResponse;
+import com.neptuunia.data.user.model.response.LoginUserResponse;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -40,5 +42,10 @@ public class MockUserEntity implements UserEntity {
         }
 
         return Single.just(historyUserResponses);
+    }
+
+    @Override
+    public Single<LoginUserResponse> loginUser(LoginUserRequest loginUserRequest) {
+        return Single.just(new LoginUserResponse());
     }
 }

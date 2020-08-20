@@ -4,7 +4,9 @@ import com.neptuunia.travel.armadasetting.ArmadaSettingViewModel;
 import com.neptuunia.travel.historydriver.HistoryDriverViewModel;
 import com.neptuunia.travel.historyuser.HistoryUserViewModel;
 import com.neptuunia.travel.homedriver.HomeDriverViewModel;
+import com.neptuunia.travel.homeuser.HomeUserViewModel;
 import com.neptuunia.travel.logindriver.LoginDriverViewModel;
+import com.neptuunia.travel.loginuser.LoginUserViewModel;
 import com.neptuunia.travel.onboarding.MainViewModel;
 import com.neptuunia.travel.profiledriver.ProfileDriverViewModel;
 import com.neptuunia.travel.searchticket.SearchTicketViewModel;
@@ -42,6 +44,12 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     ArmadaSettingViewModel armadaSettingViewModel;
 
     @Inject
+    LoginUserViewModel loginUserViewModel;
+
+    @Inject
+    HomeUserViewModel homeUserViewModel;
+
+    @Inject
     public ViewModelFactory() {
         // For hilt injection
     }
@@ -73,6 +81,12 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
         } else if (modelClass.isAssignableFrom(ArmadaSettingViewModel.class)) {
             //noinspection unchecked
             return (T) armadaSettingViewModel;
+        } else if (modelClass.isAssignableFrom(LoginUserViewModel.class)) {
+            //noinspection unchecked
+            return (T) loginUserViewModel;
+        } else if (modelClass.isAssignableFrom(HomeUserViewModel.class)) {
+            //noinspection unchecked
+            return (T) homeUserViewModel;
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

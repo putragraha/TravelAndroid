@@ -1,4 +1,4 @@
-package com.neptuunia.data.user.model;
+package com.neptuunia.data.user.model.response;
 
 import android.os.Parcel;
 import android.os.Parcelable;

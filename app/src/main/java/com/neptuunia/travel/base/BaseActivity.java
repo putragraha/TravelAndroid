@@ -1,6 +1,7 @@
 package com.neptuunia.travel.base;
 
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.textfield.TextInputLayout;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
@@ -63,6 +64,12 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected int getEditTextAsInteger(EditText editText) {
         return editText.getText() == null ? 0 : Integer.parseInt(editText.getText().toString());
+    }
+
+    protected String getTextInputLayoutValue(TextInputLayout textInputLayout) {
+        EditText editText = textInputLayout.getEditText();
+
+        return editText == null ? "" : editText.getText().toString().trim();
     }
 
     private void initApps() {

@@ -1,14 +1,11 @@
 package com.neptuunia.travel.logindriver;
 
-import com.google.android.material.textfield.TextInputLayout;
-
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.databinding.ActivityLoginDriverBinding;
 import com.neptuunia.travel.homedriver.HomeDriverActivity;
 
 import android.view.View;
-import android.widget.EditText;
 
 import javax.inject.Inject;
 
@@ -53,12 +50,6 @@ public class LoginDriverActivity extends BaseActivity {
                 getTextInputLayoutValue(binding.tilEmail),
                 getTextInputLayoutValue(binding.tilPassword)
             );
-    }
-
-    private String getTextInputLayoutValue(TextInputLayout textInputLayout) {
-        EditText editText = textInputLayout.getEditText();
-
-        return editText == null ? "" : editText.getText().toString().trim();
     }
 
     private void setupOnSuccessLoginDriver() {
