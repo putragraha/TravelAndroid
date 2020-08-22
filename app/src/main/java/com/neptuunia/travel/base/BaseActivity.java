@@ -44,6 +44,11 @@ public abstract class BaseActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    protected <T> void startActivityForResult(Class<T> clazz, int requestCode) {
+        Intent intent = new Intent(this, clazz);
+        startActivityForResult(intent, requestCode);
+    }
+
     protected <T> void startActivityAndFinish(Class<T> clazz) {
         Intent intent = new Intent(this, clazz);
         startActivity(intent);

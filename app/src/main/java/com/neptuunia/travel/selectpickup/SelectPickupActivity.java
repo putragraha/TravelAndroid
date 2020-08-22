@@ -22,20 +22,20 @@ import com.karumi.dexter.listener.PermissionRequest;
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener;
 import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
+import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivitySelectPickupBinding;
+import com.neptuunia.travel.utils.LocationUtils;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Address;
-import android.location.Geocoder;
 import android.location.Location;
 import android.view.View;
 
-import java.io.IOException;
 import java.util.List;
-import java.util.Locale;
 
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
@@ -57,16 +57,21 @@ public class SelectPickupActivity extends BaseActivity
 
     private GoogleMap googleMap;
 
+    private ActivitySelectPickupBinding binding;
+
+    private LatLng selectedLocation;
+
     @Override
     public View getView() {
-        return ActivitySelectPickupBinding.inflate(getLayoutInflater())
-            .getRoot();
+        binding = ActivitySelectPickupBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
 
     @Override
     public void setup() {
         initMapsFragment();
         initMaps();
+        setupOnConfirmClick();
     }
 
     @SuppressLint("MissingPermission")
@@ -78,7 +83,7 @@ public class SelectPickupActivity extends BaseActivity
             this.googleMap.setMyLocationEnabled(true);
             this.googleMap.getUiSettings().setMyLocationButtonEnabled(true);
             this.googleMap.getUiSettings().setZoomControlsEnabled(true);
-            this.googleMap.setOnMapClickListener(this::updateMarker);
+            this.googleMap.setOnMapClickListener(this::updateMarkerAndAddress);
             initCurrentLocation();
         } else {
             requestPermission();
@@ -104,14 +109,10 @@ public class SelectPickupActivity extends BaseActivity
         token.continuePermissionRequest();
     }
 
-    private void updateMarker(LatLng latLng) {
-        googleMap.clear();
-        googleMap.addMarker(
-            new MarkerOptions().position(latLng)
-                .title(getString(R.string.location))
-                .snippet(getAddress(latLng))
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker))
-        ).showInfoWindow();
+    private void updateMarkerAndAddress(LatLng latLng) {
+        selectedLocation = latLng;
+        updateAddress(latLng);
+        updateMarker(latLng);
     }
 
     private void showAlertAndFinish() {
@@ -130,6 +131,24 @@ public class SelectPickupActivity extends BaseActivity
 
     private void initMaps() {
         fusedLocationProviderClient = new FusedLocationProviderClient(this);
+    }
+
+    private void setupOnConfirmClick() {
+        binding.btnConfirmation.setOnClickListener(view -> {
+            if (selectedLocation == null) {
+                showMessage(getString(R.string.choose_pick_up_location));
+                return;
+            }
+
+            setResultAndFinish();
+        });
+    }
+
+    private void setResultAndFinish() {
+        Intent intent = new Intent();
+        intent.putExtra(Constant.LATLNG_DATA, selectedLocation);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
     private boolean isPermissionGranted() {
@@ -197,27 +216,28 @@ public class SelectPickupActivity extends BaseActivity
             return;
         }
 
-        updateCameraPosition(location);
+        selectedLocation = new LatLng(location.getLatitude(), location.getLongitude());
+        updateAddress(selectedLocation);
+        updateMarker(selectedLocation);
+        updateCameraPosition(selectedLocation);
     }
 
-    private String getAddress(LatLng latLng) {
-        try {
-            Geocoder geocoder = new Geocoder(this, Locale.getDefault());
-            List<Address> addresses = geocoder
-                .getFromLocation(latLng.latitude, latLng.longitude, 1);
+    private void updateAddress(LatLng latLng) {
+        Address address = LocationUtils.getAddress(this, latLng);
 
-            if (!addresses.isEmpty()) {
-                return addresses.get(0).getAddressLine(0);
-            }
-        } catch (IOException exception) {
-            exception.printStackTrace();
-        }
-
-        return getString(R.string.address_not_found);
+        binding.actvLocality.setText(address.getLocality());
+        binding.actvAddress.setText(address.getAddressLine(0));
     }
 
-    private void updateCameraPosition(Location location) {
-        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
+    private void updateMarker(LatLng latLng) {
+        googleMap.clear();
+        googleMap.addMarker(
+            new MarkerOptions().position(latLng)
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker))
+        );
+    }
+
+    private void updateCameraPosition(LatLng latLng) {
         CameraPosition cameraPosition = new CameraPosition.Builder()
             .target(latLng)
             .zoom(DEFAULT_CAMERA_POSITION)

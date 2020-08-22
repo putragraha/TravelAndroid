@@ -1,5 +1,7 @@
 package com.neptuunia.travel.orderticket;
 
+import com.google.android.gms.maps.model.LatLng;
+
 import com.bumptech.glide.Glide;
 import com.neptuunia.data.ticket.model.OrderTicketRequest;
 import com.neptuunia.data.ticket.model.TicketResponse;
@@ -11,9 +13,12 @@ import com.neptuunia.travel.databinding.ActivityOrderTicketBinding;
 import com.neptuunia.travel.selectpickup.SelectPickupActivity;
 import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.ImageUtils;
+import com.neptuunia.travel.utils.LocationUtils;
 import com.neptuunia.travel.utils.NumberUtils;
 
 import android.content.Context;
+import android.content.Intent;
+import android.location.Address;
 import android.os.Bundle;
 import android.view.View;
 
@@ -21,11 +26,14 @@ import java.util.Date;
 
 import javax.inject.Inject;
 
+import androidx.annotation.Nullable;
 import androidx.lifecycle.ViewModelProvider;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
 public class OrderTicketActivity extends BaseActivity {
+
+    private static final int PICKUP_LOCATION_REQUEST_CODE = 1;
 
     @Inject
     ViewModelFactory viewModelFactory;
@@ -50,6 +58,23 @@ public class OrderTicketActivity extends BaseActivity {
         setupOnLocationClick();
         setupOnSuccessOrderTicket();
         setupOnErrorOrderTicket();
+    }
+
+    @Override
+    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+        if (PICKUP_LOCATION_REQUEST_CODE == requestCode && RESULT_OK == resultCode && data != null) {
+            setupAddressField(data);
+        }
+    }
+
+    private void setupAddressField(Intent data) {
+        LatLng latLng = data.getParcelableExtra(Constant.LATLNG_DATA);
+
+        if (latLng != null) {
+            Address address = LocationUtils.getAddress(this, latLng);
+            binding.acetLocation.setText(address.getAddressLine(0));
+        }
     }
 
     private void initOrderTicketViewModel() {
@@ -125,7 +150,9 @@ public class OrderTicketActivity extends BaseActivity {
     }
 
     private void setupOnLocationClick() {
-        binding.acetLocation.setOnClickListener(view -> startActivity(SelectPickupActivity.class));
+        binding.acetLocation.setOnClickListener(view ->
+            startActivityForResult(SelectPickupActivity.class, PICKUP_LOCATION_REQUEST_CODE)
+        );
     }
 
     private void setupOnSuccessOrderTicket() {
