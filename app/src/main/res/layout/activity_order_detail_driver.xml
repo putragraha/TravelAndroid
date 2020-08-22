@@ -10,16 +10,29 @@
         android:layout_height="wrap_content"
         android:padding="24dp">
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textStyle="bold"
+            android:textAllCaps="true"
+            android:paddingHorizontal="48dp"
+            android:paddingVertical="4dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Status"/>
+
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/acet_order_code"
             style="@style/RoundedBoxEditText.Iconed"
+            android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_order_code"
             android:enabled="false"
             android:importantForAutofill="no"
             android:inputType="text"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actv_status"
             tools:text="Order Code" />
 
         <androidx.appcompat.widget.AppCompatEditText

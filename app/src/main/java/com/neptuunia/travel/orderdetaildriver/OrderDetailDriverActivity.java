@@ -7,6 +7,7 @@ import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityOrderDetailDriverBinding;
 import com.neptuunia.travel.utils.LocationUtils;
+import com.neptuunia.travel.utils.StatusUtils;
 
 import android.os.Bundle;
 import android.view.View;
@@ -43,6 +44,13 @@ public class OrderDetailDriverActivity extends BaseActivity {
             binding.acetTotalPrice.setText(String.valueOf(historyDriverResponse.getTotalPrice()));
             binding.acetNote.setText(historyDriverResponse.getNote());
             binding.acetLocation.setText(getAddress(historyDriverResponse));
+            binding.actvStatus.setText(historyDriverResponse.getStatus());
+            binding.actvStatus.setBackgroundColor(
+                StatusUtils.getBackgroundColor(historyDriverResponse.getStatus())
+            );
+            binding.actvStatus.setTextColor(
+                StatusUtils.getTextColor(historyDriverResponse.getStatus())
+            );
         }
     }
 

@@ -36,6 +36,8 @@ public class HistoryDriverResponse implements Parcelable {
 
     private String longitude;
 
+    private String status;
+
     public HistoryDriverResponse() {
         // Enable empty constructor
     }
@@ -50,6 +52,7 @@ public class HistoryDriverResponse implements Parcelable {
         note = in.readString();
         latitude = in.readString();
         longitude = in.readString();
+        status = in.readString();
     }
 
     @Override
@@ -68,6 +71,7 @@ public class HistoryDriverResponse implements Parcelable {
         out.writeString(note);
         out.writeString(latitude);
         out.writeString(longitude);
+        out.writeString(status);
     }
 
     public String getOrderCode() {
@@ -140,5 +144,13 @@ public class HistoryDriverResponse implements Parcelable {
 
     public void setLongitude(String longitude) {
         this.longitude = longitude;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

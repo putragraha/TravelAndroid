@@ -1,5 +1,6 @@
 package com.neptuunia.data.driver.repository.source;
 
+import com.neptuunia.data.constant.TicketStatus;
 import com.neptuunia.data.driver.model.request.EditProfileDriverRequest;
 import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.data.driver.model.request.LoginDriverRequest;
@@ -34,6 +35,7 @@ public class MockDriverEntity implements DriverEntity {
             armadaSettingResponse.setUserName(String.format("User Name: %s", i));
             armadaSettingResponse.setLatitude("Latitude: " + i);
             armadaSettingResponse.setLongitude("Longitude: " + i);
+            armadaSettingResponse.setStatus(TicketStatus.PENDING);
             armadaSettingResponse.setNote(String.format("Code: %s", i));
             armadaSettingResponse.setTotalPrice(i);
             armadaSettingResponse.setSeatBooked(String.format("Seat number: %s", i));

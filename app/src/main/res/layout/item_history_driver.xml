@@ -12,15 +12,28 @@
         android:padding="16dp">
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_status"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingHorizontal="48dp"
+            android:paddingVertical="4dp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="Status" />
+
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/actv_order_code"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
             android:drawableStart="@drawable/ic_order_code"
             android:drawablePadding="8dp"
             android:textSize="20sp"
             android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actv_status"
             tools:text="123456" />
 
         <androidx.appcompat.widget.AppCompatTextView

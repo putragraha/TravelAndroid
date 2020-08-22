@@ -3,6 +3,7 @@ package com.neptuunia.travel.historydriver;
 import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.travel.R;
 import com.neptuunia.travel.databinding.ItemHistoryDriverBinding;
+import com.neptuunia.travel.utils.StatusUtils;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -90,6 +91,13 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
                 )
             );
             itemHistoryDriverBinding.actvUserName.setText(historyDriverResponse.getUserName());
+            itemHistoryDriverBinding.actvStatus.setText(historyDriverResponse.getStatus());
+            itemHistoryDriverBinding.actvStatus.setBackgroundColor(
+                StatusUtils.getBackgroundColor(historyDriverResponse.getStatus())
+            );
+            itemHistoryDriverBinding.actvStatus.setTextColor(
+                StatusUtils.getTextColor(historyDriverResponse.getStatus())
+            );
         }
     }
 }
