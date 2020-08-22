@@ -46,4 +46,8 @@
     <string name="update_pickup_location">Update Pickup Location</string>
     <string name="amount_of_seat_available">%1$s of %2$s seat available</string>
     <string name="order_ticket_success">Successfully order ticket</string>
+    <string name="alert_permission_required">Permission required for showing location</string>
+    <string name="current_location_not_found">Current location not found</string>
+    <string name="address_not_found">Address not found</string>
+    <string name="location">Location</string>
 </resources>

@@ -8,6 +8,7 @@ import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityOrderTicketBinding;
+import com.neptuunia.travel.selectpickup.SelectPickupActivity;
 import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.ImageUtils;
 import com.neptuunia.travel.utils.NumberUtils;
@@ -46,6 +47,7 @@ public class OrderTicketActivity extends BaseActivity {
         initOrderTicketViewModel();
         setupBundleData();
         setupOnSubmitClick();
+        setupOnLocationClick();
         setupOnSuccessOrderTicket();
         setupOnErrorOrderTicket();
     }
@@ -120,6 +122,10 @@ public class OrderTicketActivity extends BaseActivity {
 
             orderTicketViewModel.orderTicket(orderTicketRequest);
         });
+    }
+
+    private void setupOnLocationClick() {
+        binding.acetLocation.setOnClickListener(view -> startActivity(SelectPickupActivity.class));
     }
 
     private void setupOnSuccessOrderTicket() {

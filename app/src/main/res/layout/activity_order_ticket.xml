@@ -1,10 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    xmlns:tools="http://schemas.android.com/tools">
+    android:layout_height="match_parent">
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -15,10 +14,10 @@
             android:id="@+id/aciv_driver_picture"
             android:layout_width="100dp"
             android:layout_height="100dp"
-            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:src="@mipmap/ic_launcher"/>
+            tools:src="@mipmap/ic_launcher" />
 
         <androidx.cardview.widget.CardView
             android:id="@+id/cv_armada_information"
@@ -26,8 +25,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             app:cardBackgroundColor="@color/lightGrey"
-            app:cardElevation="1dp"
             app:cardCornerRadius="8dp"
+            app:cardElevation="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/aciv_driver_picture">
@@ -54,7 +53,7 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/actv_driver_name_title"
-                    tools:text="Nice"/>
+                    tools:text="Nice" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_group_title"
@@ -74,7 +73,7 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/actv_group_title"
-                    tools:text="Libra"/>
+                    tools:text="Libra" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_phone_number_title"
@@ -94,7 +93,7 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/actv_phone_number_title"
-                    tools:text="080898987878"/>
+                    tools:text="080898987878" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_car_title"
@@ -114,7 +113,7 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/actv_car_title"
-                    tools:text="Isuzu Panther"/>
+                    tools:text="Isuzu Panther" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_departure_time_title"
@@ -134,7 +133,7 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/actv_departure_time_title"
-                    tools:text="Sunday, 09/08/2020 20:00"/>
+                    tools:text="Sunday, 09/08/2020 20:00" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -146,8 +145,8 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="24dp"
             app:cardBackgroundColor="@color/lightGrey"
-            app:cardElevation="1dp"
             app:cardCornerRadius="8dp"
+            app:cardElevation="1dp"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/cv_armada_information">
@@ -174,7 +173,7 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/actv_armada_class_title"
-                    tools:text="Economy Class"/>
+                    tools:text="Economy Class" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_seat_available_title"
@@ -194,7 +193,7 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/actv_seat_available_title"
-                    tools:text="1 of 5 Seat Available"/>
+                    tools:text="1 of 5 Seat Available" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_price_title"
@@ -214,7 +213,7 @@
                     android:textSize="16sp"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toBottomOf="@id/actv_price_title"
-                    tools:text="Rp 160000"/>
+                    tools:text="Rp 160000" />
 
             </androidx.constraintlayout.widget.ConstraintLayout>
 
@@ -249,6 +248,7 @@
             style="@style/RoundedBoxEditText.Iconed"
             android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_location"
+            android:focusableInTouchMode="false"
             android:hint="@string/choose_pick_up_location"
             android:importantForAutofill="no"
             android:inputType="number"
