@@ -55,7 +55,7 @@ public class LoginDriverActivity extends BaseActivity {
     private void setupOnSuccessLoginDriver() {
         loginDriverViewModel.getSuccessLiveData().observe(
             this,
-            success -> startActivityAndFinish(HomeDriverActivity.class)
+            success -> startActivityAndFinishAffinity(HomeDriverActivity.class)
         );
     }
 

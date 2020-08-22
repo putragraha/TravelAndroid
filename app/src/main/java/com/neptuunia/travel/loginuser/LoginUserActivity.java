@@ -88,7 +88,7 @@ public class LoginUserActivity extends BaseActivity {
     private void setupOnSuccessLoginUser() {
         loginUserViewModel.getSuccessLiveData().observe(
             this,
-            success -> startActivityAndFinish(HomeUserActivity.class)
+            success -> startActivityAndFinishAffinity(HomeUserActivity.class)
         );
     }
 

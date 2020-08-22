@@ -55,6 +55,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         finish();
     }
 
+    protected <T> void startActivityAndFinishAffinity(Class<T> clazz) {
+        Intent intent = new Intent(this, clazz);
+        startActivity(intent);
+        finishAffinity();
+    }
+
     protected void showErrorMessage(String message) {
         showMessage(TextUtils.isEmpty(message) ? getString(R.string.failed) : message);
     }
