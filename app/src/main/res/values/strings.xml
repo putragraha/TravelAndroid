@@ -9,6 +9,7 @@
     <string name="user">User</string>
     <string name="have_no_account">Have no account? %s</string>
     <string name="register_here">Register here</string>
+    <string name="register">Register</string>
     <string name="armada_setting">Armada Setting</string>
     <string name="history">History</string>
     <string name="profile">Profile</string>
@@ -53,4 +54,6 @@
     <string name="reject">Reject</string>
     <string name="accept">Accept</string>
     <string name="order_confirmed">Order Confirmed</string>
+    <string name="order_ticket">Order Ticket</string>
+    <string name="detail_information">Detail Information</string>
 </resources>
