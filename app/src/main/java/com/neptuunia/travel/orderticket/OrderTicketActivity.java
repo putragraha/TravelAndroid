@@ -44,6 +44,8 @@ public class OrderTicketActivity extends BaseActivity {
 
     private TicketResponse ticketResponse;
 
+    private LatLng latLng;
+
     @Override
     public View getView() {
         binding = ActivityOrderTicketBinding.inflate(getLayoutInflater());
@@ -69,7 +71,7 @@ public class OrderTicketActivity extends BaseActivity {
     }
 
     private void setupAddressField(Intent data) {
-        LatLng latLng = data.getParcelableExtra(Constant.LATLNG_DATA);
+        latLng = data.getParcelableExtra(Constant.LATLNG_DATA);
 
         if (latLng != null) {
             Address address = LocationUtils.getAddress(this, latLng);
@@ -142,11 +144,19 @@ public class OrderTicketActivity extends BaseActivity {
             orderTicketRequest.setArmadaId(ticketResponse.getArmadaId());
             orderTicketRequest.setNote(getEditTextValue(binding.acetNote));
             orderTicketRequest.setSeatBooked(getEditTextValue(binding.acetSeat));
-            orderTicketRequest.setLatitude("0.0");
-            orderTicketRequest.setLongitude("0.0");
+            orderTicketRequest.setLatitude(getLatitudeValue());
+            orderTicketRequest.setLongitude(getLongitudeValue());
 
             orderTicketViewModel.orderTicket(orderTicketRequest);
         });
+    }
+
+    private String getLatitudeValue() {
+        return latLng == null ? "0.0" : String.valueOf(latLng.latitude);
+    }
+
+    private String getLongitudeValue() {
+        return latLng == null ? "0.0" : String.valueOf(latLng.longitude);
     }
 
     private void setupOnLocationClick() {

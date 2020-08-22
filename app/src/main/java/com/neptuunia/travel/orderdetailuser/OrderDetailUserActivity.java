@@ -1,10 +1,14 @@
 package com.neptuunia.travel.orderdetailuser;
 
+import com.google.android.gms.maps.model.LatLng;
+
+import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.data.user.model.response.HistoryUserResponse;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityOrderDetailUserBinding;
 import com.neptuunia.travel.utils.DateTimeUtils;
+import com.neptuunia.travel.utils.LocationUtils;
 
 import android.os.Bundle;
 import android.view.View;
@@ -45,9 +49,19 @@ public class OrderDetailUserActivity extends BaseActivity {
             binding.acetTotalPrice.setText(String.valueOf(historyUserResponse.getTotalPrice()));
             binding.acetDepartureDate.setText(DateTimeUtils.getFormattedDate(date));
             binding.acetDepartureTime.setText(DateTimeUtils.getFormattedTime(date));
-            binding.acetLocation.setText(String.valueOf(historyUserResponse.getLatitude()));
+            binding.acetLocation.setText(getAddress(historyUserResponse));
             binding.acetNote.setText(historyUserResponse.getNote());
             binding.acetDriverPhoneNumber.setText(historyUserResponse.getDriverPhoneNumber());
         }
+    }
+
+    private String getAddress(HistoryUserResponse historyUserResponse) {
+        LatLng latLng = new LatLng(
+            Double.parseDouble(historyUserResponse.getLatitude()),
+            Double.parseDouble(historyUserResponse.getLongitude())
+        );
+
+        return LocationUtils.getAddress(this, latLng)
+            .getAddressLine(0);
     }
 }
