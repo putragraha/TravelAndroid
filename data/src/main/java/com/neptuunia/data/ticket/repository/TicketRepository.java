@@ -8,7 +8,6 @@ import com.neptuunia.data.ticket.model.TicketResponse;
 import java.util.List;
 
 import io.reactivex.rxjava3.core.Single;
-import retrofit2.http.Body;
 
 public interface TicketRepository {
 
@@ -16,5 +15,7 @@ public interface TicketRepository {
 
     Single<CommonResponse> orderTicket(OrderTicketRequest orderTicketRequest);
 
-    Single<CommonResponse> editTicket(@Body EditTicketRequest editTicketRequest);
+    Single<CommonResponse> editTicket(EditTicketRequest editTicketRequest);
+
+    Single<CommonResponse> confirmTicket(String orderCode, String status);
 }

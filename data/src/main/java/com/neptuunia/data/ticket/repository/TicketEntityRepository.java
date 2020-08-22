@@ -5,6 +5,7 @@ import com.neptuunia.data.constant.Source;
 import com.neptuunia.data.model.CommonResponse;
 import com.neptuunia.data.ticket.model.EditTicketRequest;
 import com.neptuunia.data.ticket.model.OrderTicketRequest;
+import com.neptuunia.data.ticket.model.TicketStatusRequest;
 import com.neptuunia.data.ticket.model.TicketResponse;
 import com.neptuunia.data.ticket.repository.source.TicketEntity;
 
@@ -44,6 +45,15 @@ public class TicketEntityRepository implements TicketRepository {
     @Override
     public Single<CommonResponse> editTicket(EditTicketRequest editTicketRequest) {
         return createNetworkTicketEntity().editTicket(editTicketRequest);
+    }
+
+    @Override
+    public Single<CommonResponse> confirmTicket(String orderCode, String status) {
+        TicketStatusRequest ticketStatusRequest = new TicketStatusRequest();
+        ticketStatusRequest.setOrderCode(orderCode);
+        ticketStatusRequest.setStatus(status);
+
+        return createNetworkTicketEntity().confirmTicket(ticketStatusRequest);
     }
 
     public TicketEntity createNetworkTicketEntity() {

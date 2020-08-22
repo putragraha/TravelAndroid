@@ -14,13 +14,13 @@
             android:id="@+id/actv_status"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textAllCaps="true"
             android:paddingHorizontal="48dp"
             android:paddingVertical="4dp"
+            android:textAllCaps="true"
+            android:textStyle="bold"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            tools:text="Status"/>
+            tools:text="Status" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/acet_order_code"
@@ -41,12 +41,12 @@
             android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_group"
             android:enabled="false"
+            android:hint="@string/group"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:hint="@string/group"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_order_code"/>
+            app:layout_constraintTop_toBottomOf="@id/acet_order_code" />
 
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/acet_armada_class"
@@ -54,9 +54,9 @@
             android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_star"
             android:enabled="false"
+            android:hint="@string/armada_class"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:hint="@string/armada_class"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/acet_group" />
@@ -118,14 +118,38 @@
             style="@style/RoundedBoxEditText.Iconed"
             android:layout_marginTop="24dp"
             android:drawableStart="@drawable/ic_location"
+            android:enabled="false"
             android:focusableInTouchMode="false"
             android:importantForAutofill="no"
             android:inputType="text"
-            android:enabled="false"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/acet_note"
             tools:text="Location" />
+
+        <Button
+            android:id="@+id/btn_reject"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/darkRed"
+            android:text="@string/reject"
+            android:visibility="gone"
+            app:layout_constraintEnd_toStartOf="@id/btn_accept"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_location" />
+
+        <Button
+            android:id="@+id/btn_accept"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="32dp"
+            android:backgroundTint="@color/darkGreen"
+            android:text="@string/accept"
+            android:visibility="gone"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toEndOf="@id/btn_reject"
+            app:layout_constraintTop_toBottomOf="@id/acet_location" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 

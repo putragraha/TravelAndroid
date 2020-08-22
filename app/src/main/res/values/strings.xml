@@ -50,4 +50,7 @@
     <string name="current_location_not_found">Current location not found</string>
     <string name="address_not_found">Address not found</string>
     <string name="confirm_pickup_location">Confirm Pickup Location</string>
+    <string name="reject">Reject</string>
+    <string name="accept">Accept</string>
+    <string name="order_confirmed">Order Confirmed</string>
 </resources>
