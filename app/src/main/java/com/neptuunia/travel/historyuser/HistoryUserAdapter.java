@@ -7,6 +7,7 @@ import com.neptuunia.travel.databinding.ItemHistoryUserBinding;
 import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.ImageUtils;
 import com.neptuunia.travel.utils.NumberUtils;
+import com.neptuunia.travel.utils.StatusUtils;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -96,6 +97,13 @@ public class HistoryUserAdapter extends RecyclerView.Adapter<HistoryUserAdapter.
                 NumberUtils.toRupiah(historyUserResponse.getTotalPrice())
             );
             binding.actvDriverDepartDate.setText(DateTimeUtils.getFormattedDatetime(date));
+            binding.actvStatus.setText(historyUserResponse.getStatus());
+            binding.actvStatus.setBackgroundColor(
+                StatusUtils.getBackgroundColor(historyUserResponse.getStatus())
+            );
+            binding.actvStatus.setTextColor(
+                StatusUtils.getTextColor(historyUserResponse.getStatus())
+            );
         }
     }
 }

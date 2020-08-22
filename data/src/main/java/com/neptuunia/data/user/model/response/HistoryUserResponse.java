@@ -39,6 +39,8 @@ public class HistoryUserResponse implements Parcelable {
 
     private String longitude;
 
+    private String status;
+
     private String note;
 
     public HistoryUserResponse() {
@@ -57,6 +59,7 @@ public class HistoryUserResponse implements Parcelable {
         datetime = in.readString();
         latitude = in.readString();
         longitude = in.readString();
+        status = in.readString();
         note = in.readString();
     }
 
@@ -78,6 +81,7 @@ public class HistoryUserResponse implements Parcelable {
         dest.writeString(this.datetime);
         dest.writeString(this.latitude);
         dest.writeString(this.longitude);
+        dest.writeString(this.status);
         dest.writeString(this.note);
     }
 
@@ -159,6 +163,14 @@ public class HistoryUserResponse implements Parcelable {
 
     public void setLongitude(String longitude) {
         this.longitude = longitude;
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 
     public String getNote() {

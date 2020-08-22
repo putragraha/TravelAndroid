@@ -13,6 +13,7 @@ import com.neptuunia.travel.databinding.ActivityOrderDetailUserBinding;
 import com.neptuunia.travel.selectpickup.SelectPickupActivity;
 import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.LocationUtils;
+import com.neptuunia.travel.utils.StatusUtils;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -137,6 +138,13 @@ public class OrderDetailUserActivity extends BaseActivity {
             binding.acetLocation.setText(getAddress(historyUserResponse));
             binding.acetNote.setText(historyUserResponse.getNote());
             binding.acetDriverPhoneNumber.setText(historyUserResponse.getDriverPhoneNumber());
+            binding.actvStatus.setText(historyUserResponse.getStatus());
+            binding.actvStatus.setBackgroundColor(
+                StatusUtils.getBackgroundColor(historyUserResponse.getStatus())
+            );
+            binding.actvStatus.setTextColor(
+                StatusUtils.getTextColor(historyUserResponse.getStatus())
+            );
         }
     }
 

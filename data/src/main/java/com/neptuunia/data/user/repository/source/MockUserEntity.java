@@ -1,5 +1,6 @@
 package com.neptuunia.data.user.repository.source;
 
+import com.neptuunia.data.constant.TicketStatus;
 import com.neptuunia.data.model.CommonRequest;
 import com.neptuunia.data.model.CommonResponse;
 import com.neptuunia.data.user.model.request.ChangePasswordRequest;
@@ -41,6 +42,7 @@ public class MockUserEntity implements UserEntity {
             historyUserResponse.setDatetime("Departure Time: " + i);
             historyUserResponse.setLatitude("Latitude:" + i);
             historyUserResponse.setLongitude("Longitude:" + i);
+            historyUserResponse.setStatus(TicketStatus.PENDING);
             historyUserResponse.setNote("Note" + i);
 
             historyUserResponses.add(historyUserResponse);
