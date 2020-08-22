@@ -29,14 +29,13 @@ public class SearchTicketViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.ticketRepository = ticketRepository;
-        fetchTickets();
     }
 
     public LiveData<List<TicketResponse>> getTickets() {
         return ticketResponseLiveData;
     }
 
-    private void fetchTickets() {
+    public void fetchTickets() {
         ticketRepository.getTickets()
             .compose(Transformer::applySchedulers)
             .subscribe(new AutoDisposeSingleObserver<List<TicketResponse>>() {

@@ -26,6 +26,8 @@ public class SearchTicketActivity extends BaseActivity {
 
     private ActivitySearchTicketBinding binding;
 
+    private SearchTicketViewModel searchTicketViewModel;
+
     @Override
     public View getView() {
         binding = ActivitySearchTicketBinding.inflate(getLayoutInflater());
@@ -35,7 +37,15 @@ public class SearchTicketActivity extends BaseActivity {
     @Override
     public void setup() {
         setupRecylerView();
-        setupSearchTicketViewModel();
+        initSearchTicketViewModel();
+        getTickets();
+        setupOnSuccessGetTickets();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getTickets();
     }
 
     private void setupRecylerView() {
@@ -44,18 +54,25 @@ public class SearchTicketActivity extends BaseActivity {
         binding.rvSearchTicket.setAdapter(searchTicketAdapter);
     }
 
-    private void setupSearchTicketViewModel() {
-        new ViewModelProvider(this, viewModelFactory).get(SearchTicketViewModel.class)
-            .getTickets()
-            .observe(
-                this,
-                ticketResponses -> searchTicketAdapter.submitList(ticketResponses)
-            );
+    private void initSearchTicketViewModel() {
+        searchTicketViewModel = new ViewModelProvider(this, viewModelFactory)
+            .get(SearchTicketViewModel.class);
+    }
+
+    private void getTickets() {
+        if (searchTicketViewModel != null) {
+            searchTicketViewModel.fetchTickets();
+        }
     }
 
     private void startOrderDetailActivity(TicketResponse ticketResponse) {
         Bundle bundle = new Bundle();
         bundle.putParcelable(Constant.TICKET_RESPONSE_DATA, ticketResponse);
         startActivityWithBundle(OrderTicketActivity.class, bundle);
+    }
+
+    private void setupOnSuccessGetTickets() {
+        searchTicketViewModel.getTickets()
+            .observe(this, searchTicketAdapter::submitList);
     }
 }

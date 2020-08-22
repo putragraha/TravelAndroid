@@ -26,6 +26,8 @@ public class HistoryUserActivity extends BaseActivity {
 
     private ActivityHistoryUserBinding binding;
 
+    private HistoryUserViewModel historyUserViewModel;
+
     @Override
     public View getView() {
         binding = ActivityHistoryUserBinding.inflate(getLayoutInflater());
@@ -35,7 +37,15 @@ public class HistoryUserActivity extends BaseActivity {
     @Override
     public void setup() {
         setupRecylerView();
-        setupHistoryDriverViewModel();
+        initHistoryDriverViewModel();
+        getHistoryUsers();
+        setupOnSuccessGetHistoryUser();
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getHistoryUsers();
     }
 
     private void setupRecylerView() {
@@ -44,13 +54,20 @@ public class HistoryUserActivity extends BaseActivity {
         binding.rvHistoryUser.setAdapter(historyUserAdapter);
     }
 
-    private void setupHistoryDriverViewModel() {
-        new ViewModelProvider(this, viewModelFactory).get(HistoryUserViewModel.class)
-            .getHistoryUsers()
-            .observe(
-                this,
-                historyUserResponse -> historyUserAdapter.submitList(historyUserResponse)
-            );
+    private void initHistoryDriverViewModel() {
+        historyUserViewModel = new ViewModelProvider(this, viewModelFactory)
+            .get(HistoryUserViewModel.class);
+    }
+
+    private void getHistoryUsers() {
+        if (historyUserViewModel != null) {
+            historyUserViewModel.fetchHistoryUsers();
+        }
+    }
+
+    private void setupOnSuccessGetHistoryUser() {
+        historyUserViewModel.getHistoryUsers()
+            .observe(this, historyUserAdapter::submitList);
     }
 
     private void startOrderDetailActivity(HistoryUserResponse historyUserResponse) {

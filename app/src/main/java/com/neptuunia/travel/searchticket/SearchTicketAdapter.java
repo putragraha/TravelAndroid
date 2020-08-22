@@ -59,6 +59,7 @@ public class SearchTicketAdapter extends RecyclerView.Adapter<SearchTicketAdapte
 
     public void submitList(List<TicketResponse> ticketResponses) {
         if (ticketResponses != null) {
+            this.ticketResponses.clear();
             this.ticketResponses.addAll(ticketResponses);
             notifyDataSetChanged();
         }

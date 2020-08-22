@@ -30,14 +30,13 @@ public class HistoryUserViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.userRepository = userRepository;
-        fetchHistoryUsers();
     }
 
     public LiveData<List<HistoryUserResponse>> getHistoryUsers() {
         return historyUserResponseLiveData;
     }
 
-    private void fetchHistoryUsers() {
+    public void fetchHistoryUsers() {
         userRepository.getHistoryUsers()
             .compose(Transformer::applySchedulers)
             .subscribe(new AutoDisposeSingleObserver<List<HistoryUserResponse>>() {

@@ -54,6 +54,7 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
 
     public void submitList(List<HistoryDriverResponse> historyDriverResponses) {
         if (historyDriverResponses != null) {
+            this.historyDriverResponses.clear();
             this.historyDriverResponses.addAll(historyDriverResponses);
             notifyDataSetChanged();
         }

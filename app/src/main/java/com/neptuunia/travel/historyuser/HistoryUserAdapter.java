@@ -59,6 +59,7 @@ public class HistoryUserAdapter extends RecyclerView.Adapter<HistoryUserAdapter.
 
     public void submitList(List<HistoryUserResponse> historyUserResponses) {
         if (historyUserResponses != null) {
+            this.historyUserResponses.clear();
             this.historyUserResponses.addAll(historyUserResponses);
             notifyDataSetChanged();
         }

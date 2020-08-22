@@ -26,6 +26,8 @@ public class HistoryDriverActivity extends BaseActivity {
 
     private ActivityHistoryDriverBinding binding;
 
+    private HistoryDriverViewModel historyDriverViewModel;
+
     @Override
     public View getView() {
         binding = ActivityHistoryDriverBinding.inflate(getLayoutInflater());
@@ -35,7 +37,9 @@ public class HistoryDriverActivity extends BaseActivity {
     @Override
     public void setup() {
         setupRecylerView();
-        setupHistoryDriverViewModel();
+        initHistoryDriverViewModel();
+        getHistoryDrivers();
+        setupOnSuccessGetHistoryDrivers();
     }
 
     private void setupRecylerView() {
@@ -44,18 +48,27 @@ public class HistoryDriverActivity extends BaseActivity {
         binding.rvHistoryDriver.setAdapter(historyDriverAdapter);
     }
 
-    private void setupHistoryDriverViewModel() {
-        new ViewModelProvider(this, viewModelFactory).get(HistoryDriverViewModel.class)
-            .getHistoryDrivers()
-            .observe(
-                this,
-                historyDriverResponses -> historyDriverAdapter.submitList(historyDriverResponses)
-            );
+    private void initHistoryDriverViewModel() {
+        historyDriverViewModel = new ViewModelProvider(this, viewModelFactory)
+            .get(HistoryDriverViewModel.class);
+    }
+
+    private void getHistoryDrivers() {
+        if (historyDriverViewModel != null) {
+            historyDriverViewModel.fetchHistoryDrivers();
+        }
     }
 
     private void startOrderDetailActivity(HistoryDriverResponse historyDriverResponse) {
         Bundle bundle = new Bundle();
         bundle.putParcelable(Constant.HISTORY_DRIVER_RESPONSE_DATA, historyDriverResponse);
         startActivityWithBundle(OrderDetailDriverActivity.class, bundle);
+    }
+
+    private void setupOnSuccessGetHistoryDrivers() {
+        if (historyDriverViewModel != null) {
+            historyDriverViewModel.getHistoryDrivers()
+                .observe(this, historyDriverAdapter::submitList);
+        }
     }
 }

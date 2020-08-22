@@ -30,14 +30,13 @@ public class HistoryDriverViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.driverRepository = driverRepository;
-        fetchHistoryDrivers();
     }
 
     public LiveData<List<HistoryDriverResponse>> getHistoryDrivers() {
         return historyDriverResponseLiveData;
     }
 
-    private void fetchHistoryDrivers() {
+    public void fetchHistoryDrivers() {
         driverRepository.getHistoryDrivers()
             .compose(Transformer::applySchedulers)
             .subscribe(new AutoDisposeSingleObserver<List<HistoryDriverResponse>>() {
