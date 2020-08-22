@@ -78,6 +78,7 @@ public class SelectPickupActivity extends BaseActivity
             this.googleMap.setMyLocationEnabled(true);
             this.googleMap.getUiSettings().setMyLocationButtonEnabled(true);
             this.googleMap.getUiSettings().setZoomControlsEnabled(true);
+            this.googleMap.setOnMapClickListener(this::updateMarker);
             initCurrentLocation();
         } else {
             requestPermission();
@@ -101,6 +102,16 @@ public class SelectPickupActivity extends BaseActivity
         }
 
         token.continuePermissionRequest();
+    }
+
+    private void updateMarker(LatLng latLng) {
+        googleMap.clear();
+        googleMap.addMarker(
+            new MarkerOptions().position(latLng)
+                .title(getString(R.string.location))
+                .snippet(getAddress(latLng))
+                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker))
+        ).showInfoWindow();
     }
 
     private void showAlertAndFinish() {
@@ -186,18 +197,7 @@ public class SelectPickupActivity extends BaseActivity
             return;
         }
 
-        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
-        updateMarker(latLng);
-        updateCameraPosition(latLng);
-    }
-
-    private void updateMarker(LatLng latLng) {
-        googleMap.addMarker(
-            new MarkerOptions().position(latLng)
-                .title(getString(R.string.location))
-                .snippet(getAddress(latLng))
-                .icon(BitmapDescriptorFactory.fromResource(R.drawable.ic_marker))
-        );
+        updateCameraPosition(location);
     }
 
     private String getAddress(LatLng latLng) {
@@ -216,7 +216,8 @@ public class SelectPickupActivity extends BaseActivity
         return getString(R.string.address_not_found);
     }
 
-    private void updateCameraPosition(LatLng latLng) {
+    private void updateCameraPosition(Location location) {
+        LatLng latLng = new LatLng(location.getLatitude(), location.getLongitude());
         CameraPosition cameraPosition = new CameraPosition.Builder()
             .target(latLng)
             .zoom(DEFAULT_CAMERA_POSITION)
