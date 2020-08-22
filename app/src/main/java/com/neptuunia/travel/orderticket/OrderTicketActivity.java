@@ -18,7 +18,6 @@ import com.neptuunia.travel.utils.NumberUtils;
 
 import android.content.Context;
 import android.content.Intent;
-import android.location.Address;
 import android.os.Bundle;
 import android.view.View;
 
@@ -66,17 +65,19 @@ public class OrderTicketActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (PICKUP_LOCATION_REQUEST_CODE == requestCode && RESULT_OK == resultCode && data != null) {
-            setupAddressField(data);
+            binding.acetLocation.setText(getAddress(data));
         }
     }
 
-    private void setupAddressField(Intent data) {
+    private String getAddress(Intent data) {
         latLng = data.getParcelableExtra(Constant.LATLNG_DATA);
 
         if (latLng != null) {
-            Address address = LocationUtils.getAddress(this, latLng);
-            binding.acetLocation.setText(address.getAddressLine(0));
+            return LocationUtils.getAddress(this, latLng)
+                .getAddressLine(0);
         }
+
+        return getString(R.string.address_not_found);
     }
 
     private void initOrderTicketViewModel() {

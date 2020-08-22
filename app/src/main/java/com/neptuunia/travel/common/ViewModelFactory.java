@@ -8,6 +8,7 @@ import com.neptuunia.travel.homeuser.HomeUserViewModel;
 import com.neptuunia.travel.logindriver.LoginDriverViewModel;
 import com.neptuunia.travel.loginuser.LoginUserViewModel;
 import com.neptuunia.travel.onboarding.MainViewModel;
+import com.neptuunia.travel.orderdetailuser.EditOrderTicketViewModel;
 import com.neptuunia.travel.orderticket.OrderTicketViewModel;
 import com.neptuunia.travel.profiledriver.ProfileDriverViewModel;
 import com.neptuunia.travel.profileuser.ProfileUserViewModel;
@@ -62,6 +63,9 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     OrderTicketViewModel orderTicketViewModel;
 
     @Inject
+    EditOrderTicketViewModel editOrderTicketViewModel;
+
+    @Inject
     public ViewModelFactory() {
         // For hilt injection
     }
@@ -108,6 +112,9 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
         } else if (modelClass.isAssignableFrom(OrderTicketViewModel.class)) {
             //noinspection unchecked
             return (T) orderTicketViewModel;
+        } else if (modelClass.isAssignableFrom(EditOrderTicketViewModel.class)) {
+            //noinspection unchecked
+            return (T) editOrderTicketViewModel;
         }
 
         throw new IllegalArgumentException("Unknown ViewModel class: " + modelClass.getName());

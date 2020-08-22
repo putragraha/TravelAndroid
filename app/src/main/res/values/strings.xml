@@ -49,6 +49,5 @@
     <string name="alert_permission_required">Permission required for showing location</string>
     <string name="current_location_not_found">Current location not found</string>
     <string name="address_not_found">Address not found</string>
-    <string name="location">Location</string>
     <string name="confirm_pickup_location">Confirm Pickup Location</string>
 </resources>

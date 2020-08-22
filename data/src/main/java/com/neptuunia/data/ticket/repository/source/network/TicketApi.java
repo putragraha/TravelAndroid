@@ -1,6 +1,7 @@
 package com.neptuunia.data.ticket.repository.source.network;
 
 import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.ticket.model.EditTicketRequest;
 import com.neptuunia.data.ticket.model.OrderTicketRequest;
 import com.neptuunia.data.ticket.model.TicketResponse;
 
@@ -22,4 +23,7 @@ public interface TicketApi {
 
     @POST("order_ticket.php")
     Single<CommonResponse> orderTicket(@Body OrderTicketRequest orderTicketRequest);
+
+    @POST("edit_order_ticket.php")
+    Single<CommonResponse> editTicket(@Body EditTicketRequest editTicketRequest);
 }

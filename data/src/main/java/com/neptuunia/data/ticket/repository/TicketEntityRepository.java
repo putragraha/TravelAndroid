@@ -3,6 +3,7 @@ package com.neptuunia.data.ticket.repository;
 import com.neptuunia.data.account.repository.AccountRepository;
 import com.neptuunia.data.constant.Source;
 import com.neptuunia.data.model.CommonResponse;
+import com.neptuunia.data.ticket.model.EditTicketRequest;
 import com.neptuunia.data.ticket.model.OrderTicketRequest;
 import com.neptuunia.data.ticket.model.TicketResponse;
 import com.neptuunia.data.ticket.repository.source.TicketEntity;
@@ -38,6 +39,11 @@ public class TicketEntityRepository implements TicketRepository {
         orderTicketRequest.setUserId(accountRepository.getSession().getId());
 
         return createNetworkTicketEntity().orderTicket(orderTicketRequest);
+    }
+
+    @Override
+    public Single<CommonResponse> editTicket(EditTicketRequest editTicketRequest) {
+        return createNetworkTicketEntity().editTicket(editTicketRequest);
     }
 
     public TicketEntity createNetworkTicketEntity() {
