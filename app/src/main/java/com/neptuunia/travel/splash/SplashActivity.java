@@ -21,22 +21,17 @@ public class SplashActivity extends BaseActivity {
     @Inject
     ViewModelFactory viewModelFactory;
 
-    private ActivitySplashBinding binding;
-
     private SplashViewModel splashViewModel;
 
     @Override
     public View getView() {
-        binding = ActivitySplashBinding.inflate(getLayoutInflater());
-        return binding.getRoot();
+        return ActivitySplashBinding.inflate(getLayoutInflater()).getRoot();
     }
 
     @Override
     public void setup() {
         initSplashViewModel();
         checkSession();
-        setupButtonLoginDriver();
-        setupButtonUserDriver();
         setupOnShouldGoToHomeDriver();
         setupOnShouldGoToHomeUser();
         setupOnShouldGoToLoginDriver();
@@ -50,18 +45,6 @@ public class SplashActivity extends BaseActivity {
 
     private void checkSession() {
         splashViewModel.checkSession();
-    }
-
-    private void setupButtonLoginDriver() {
-        binding.btnLoginDriver.setOnClickListener(
-            view -> startActivity(LoginDriverActivity.class)
-        );
-    }
-
-    private void setupButtonUserDriver() {
-        binding.btnLoginUser.setOnClickListener(
-            view -> startActivity(LoginUserActivity.class)
-        );
     }
 
     private void setupOnShouldGoToHomeDriver() {
