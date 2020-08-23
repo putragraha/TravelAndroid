@@ -24,7 +24,7 @@
             android:value="${mapsApiKey}" />
 
         <activity
-            android:name=".onboarding.MainActivity"
+            android:name=".splash.SplashActivity"
             android:screenOrientation="portrait"
             android:label="@string/app_name"
             android:theme="@style/NoActionBarAppTheme" >

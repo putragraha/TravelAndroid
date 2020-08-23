@@ -1,4 +1,4 @@
-package com.neptuunia.travel.onboarding;
+package com.neptuunia.travel.splash;
 
 import com.neptuunia.data.constant.AccountType;
 import com.neptuunia.travel.common.ViewModelFactory;
@@ -17,7 +17,7 @@ import androidx.lifecycle.ViewModelProvider;
 import dagger.hilt.android.AndroidEntryPoint;
 
 @AndroidEntryPoint
-public class MainActivity extends BaseActivity {
+public class SplashActivity extends BaseActivity {
 
     @Inject
     ViewModelFactory viewModelFactory;
@@ -50,7 +50,7 @@ public class MainActivity extends BaseActivity {
     }
 
     private void setupMainViewModel() {
-        new ViewModelProvider(this, viewModelFactory).get(MainViewModel.class)
+        new ViewModelProvider(this, viewModelFactory).get(SplashViewModel.class)
             .getSessionLiveData()
             .observe(this, this::startRespectiveHomeActivity);
     }

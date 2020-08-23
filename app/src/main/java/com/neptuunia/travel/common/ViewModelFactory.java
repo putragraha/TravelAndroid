@@ -7,7 +7,7 @@ import com.neptuunia.travel.homedriver.HomeDriverViewModel;
 import com.neptuunia.travel.homeuser.HomeUserViewModel;
 import com.neptuunia.travel.logindriver.LoginDriverViewModel;
 import com.neptuunia.travel.loginuser.LoginUserViewModel;
-import com.neptuunia.travel.onboarding.MainViewModel;
+import com.neptuunia.travel.splash.SplashViewModel;
 import com.neptuunia.travel.orderdetaildriver.OrderDetailDriverViewModel;
 import com.neptuunia.travel.orderdetailuser.EditOrderTicketViewModel;
 import com.neptuunia.travel.orderticket.OrderTicketViewModel;
@@ -37,7 +37,7 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
     SearchTicketViewModel searchTicketViewModel;
 
     @Inject
-    MainViewModel mainViewModel;
+    SplashViewModel mainViewModel;
 
     @Inject
     HomeDriverViewModel homeDriverViewModel;
@@ -89,7 +89,7 @@ public class ViewModelFactory implements ViewModelProvider.Factory {
         } else if (modelClass.isAssignableFrom(SearchTicketViewModel.class)) {
             //noinspection unchecked
             return (T) searchTicketViewModel;
-        } else if (modelClass.isAssignableFrom(MainViewModel.class)) {
+        } else if (modelClass.isAssignableFrom(SplashViewModel.class)) {
             //noinspection unchecked
             return (T) mainViewModel;
         } else if (modelClass.isAssignableFrom(HomeDriverViewModel.class)) {

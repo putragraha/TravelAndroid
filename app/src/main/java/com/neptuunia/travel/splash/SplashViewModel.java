@@ -1,4 +1,4 @@
-package com.neptuunia.travel.onboarding;
+package com.neptuunia.travel.splash;
 
 import com.neptuunia.data.account.model.Account;
 import com.neptuunia.data.account.repository.AccountRepository;
@@ -16,14 +16,14 @@ import androidx.lifecycle.MutableLiveData;
  * @author Putra Nugraha (putra.nugraha@dana.id)
  * @version MainViewModel, v 0.0.1 19/08/20 12.05 by Putra Nugraha
  */
-public class MainViewModel extends AndroidViewModel {
+public class SplashViewModel extends AndroidViewModel {
 
     private MutableLiveData<String> sessionLiveData = new MutableLiveData<>();
 
     private AccountRepository accountRepository;
 
     @Inject
-    public MainViewModel(
+    public SplashViewModel(
         @NonNull Application application,
         AccountRepository accountRepository
     ) {
