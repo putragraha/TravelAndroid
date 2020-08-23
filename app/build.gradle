@@ -21,22 +21,49 @@ android {
     }
 
     buildTypes {
-        def baseUrlLabel = "BASE_URL"
-        def baseUrlDataType = "String"
-
-        debug {
-            buildConfigField baseUrlDataType, baseUrlLabel, "\"${baseUrl}\""
-        }
         release {
             minifyEnabled false
             proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
-            buildConfigField baseUrlDataType, baseUrlLabel, "\"${baseUrl}\""
+        }
+    }
+
+    flavorDimensions "account"
+    productFlavors {
+        driver {
+            dimension "account"
+            applicationIdSuffix '.driver'
+            versionNameSuffix '-driver'
+            manifestPlaceholders = [
+                    appIcon         : "@mipmap/ic_driver_icon",
+                    appRoundIcon    : "@mipmap/ic_driver_icon_round"
+            ]
+        }
+
+        user {
+            dimension "account"
+            applicationIdSuffix '.user'
+            versionNameSuffix '-user'
+            manifestPlaceholders = [
+                    appIcon         : "@mipmap/ic_user_icon",
+                    appRoundIcon    : "@mipmap/ic_user_icon_round"
+            ]
+        }
+    }
+
+    applicationVariants.all { variant ->
+        variant.buildConfigField("String", "BASE_URL", "\"${baseUrl}\"")
+
+        if (name.contains("driver")) {
+            variant.resValue("string", "app_name", "Neptuunia Driver")
+        } else if (name.contains("user")) {
+            variant.resValue("string", "app_name", "Neptuunia User")
         }
     }
 
     buildFeatures {
         viewBinding true
     }
+
     compileOptions {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8

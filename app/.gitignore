@@ -1,2 +1,3 @@
 /build
-google-services.json
+src/driver/google-services.json
+src/user/google-services.json

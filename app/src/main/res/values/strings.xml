@@ -1,5 +1,4 @@
 <resources>
-    <string name="app_name">Neptuunia Travel</string>
     <string name="app_green_light">green_light</string>
     <string name="email">Email</string>
     <string name="password">Password</string>

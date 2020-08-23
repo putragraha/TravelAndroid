@@ -10,8 +10,8 @@
     <application
         android:name=".TravelApplication"
         android:allowBackup="false"
-        android:icon="@mipmap/ic_launcher"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:icon="${appIcon}"
+        android:roundIcon="${appRoundIcon}"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
 
