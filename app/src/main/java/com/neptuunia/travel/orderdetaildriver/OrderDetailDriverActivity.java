@@ -132,8 +132,8 @@ public class OrderDetailDriverActivity extends BaseActivity {
             if (historyDriverResponse != null) {
                 LocationUtils.openGoogleMaps(
                     OrderDetailDriverActivity.this,
-                    Double.parseDouble(historyDriverResponse.getLatitude().replace(",", ".")),
-                    Double.parseDouble(historyDriverResponse.getLongitude().replace(",", "."))
+                    historyDriverResponse.getLatitude(),
+                    historyDriverResponse.getLongitude()
                 );
             }
         });

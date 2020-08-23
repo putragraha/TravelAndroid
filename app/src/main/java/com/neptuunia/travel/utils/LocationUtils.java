@@ -40,7 +40,10 @@ public class LocationUtils {
         return new Address(Locale.getDefault());
     }
 
-    public static void openGoogleMaps(Context context, double latitude, double longitude) {
+    public static void openGoogleMaps(Context context, String latitudeText, String longitudeText) {
+        double latitude = Double.parseDouble(latitudeText.replace(",", "."));
+        double longitude = Double.parseDouble(longitudeText.replace(",", "."));
+
         String uri = String.format(Locale.ENGLISH, GOOGLE_MAPS_URL_FORMAT, latitude, longitude);
         Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse(uri));
         context.startActivity(intent);
