@@ -93,11 +93,11 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
             );
             itemHistoryDriverBinding.actvUserName.setText(historyDriverResponse.getUserName());
             itemHistoryDriverBinding.actvStatus.setText(historyDriverResponse.getStatus());
-            itemHistoryDriverBinding.actvStatus.setBackgroundColor(
+            itemHistoryDriverBinding.actvStatus.setBackgroundResource(
                 StatusUtils.getBackgroundColor(historyDriverResponse.getStatus())
             );
             itemHistoryDriverBinding.actvStatus.setTextColor(
-                StatusUtils.getTextColor(historyDriverResponse.getStatus())
+                StatusUtils.getTextColor(context, historyDriverResponse.getStatus())
             );
         }
     }

@@ -75,11 +75,11 @@ public class OrderDetailDriverActivity extends BaseActivity {
             binding.acetNote.setText(historyDriverResponse.getNote());
             binding.acetLocation.setText(getAddress(historyDriverResponse));
             binding.actvStatus.setText(historyDriverResponse.getStatus());
-            binding.actvStatus.setBackgroundColor(
+            binding.actvStatus.setBackgroundResource(
                 StatusUtils.getBackgroundColor(historyDriverResponse.getStatus())
             );
             binding.actvStatus.setTextColor(
-                StatusUtils.getTextColor(historyDriverResponse.getStatus())
+                StatusUtils.getTextColor(this, historyDriverResponse.getStatus())
             );
             binding.btnAccept.setVisibility(
                 isTicketStatusPending(historyDriverResponse.getStatus()) ? View.VISIBLE : View.GONE

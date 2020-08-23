@@ -139,11 +139,11 @@ public class OrderDetailUserActivity extends BaseActivity {
             binding.acetNote.setText(historyUserResponse.getNote());
             binding.acetDriverPhoneNumber.setText(historyUserResponse.getDriverPhoneNumber());
             binding.actvStatus.setText(historyUserResponse.getStatus());
-            binding.actvStatus.setBackgroundColor(
+            binding.actvStatus.setBackgroundResource(
                 StatusUtils.getBackgroundColor(historyUserResponse.getStatus())
             );
             binding.actvStatus.setTextColor(
-                StatusUtils.getTextColor(historyUserResponse.getStatus())
+                StatusUtils.getTextColor(this, historyUserResponse.getStatus())
             );
         }
     }

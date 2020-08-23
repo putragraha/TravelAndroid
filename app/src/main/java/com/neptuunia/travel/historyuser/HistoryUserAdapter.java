@@ -9,6 +9,7 @@ import com.neptuunia.travel.utils.ImageUtils;
 import com.neptuunia.travel.utils.NumberUtils;
 import com.neptuunia.travel.utils.StatusUtils;
 
+import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -84,6 +85,7 @@ public class HistoryUserAdapter extends RecyclerView.Adapter<HistoryUserAdapter.
         }
 
         public void bind(HistoryUserResponse historyUserResponse) {
+            Context context = rootView.getContext();
             Date date = new Date(Long.parseLong(historyUserResponse.getDatetime()));
 
             rootView.setOnClickListener(view ->
@@ -99,11 +101,11 @@ public class HistoryUserAdapter extends RecyclerView.Adapter<HistoryUserAdapter.
             );
             binding.actvDriverDepartDate.setText(DateTimeUtils.getFormattedDatetime(date));
             binding.actvStatus.setText(historyUserResponse.getStatus());
-            binding.actvStatus.setBackgroundColor(
+            binding.actvStatus.setBackgroundResource(
                 StatusUtils.getBackgroundColor(historyUserResponse.getStatus())
             );
             binding.actvStatus.setTextColor(
-                StatusUtils.getTextColor(historyUserResponse.getStatus())
+                StatusUtils.getTextColor(context, historyUserResponse.getStatus())
             );
         }
     }
