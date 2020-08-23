@@ -45,6 +45,7 @@ public class OrderDetailDriverActivity extends BaseActivity {
         setupBundleData();
         setupOnAcceptClick();
         setupOnRejectClick();
+        setupOnLocationClick();
         setupOnSuccessConfirmOrderTicket();
         setupOnErrorConfirmOrderTicket();
     }
@@ -121,6 +122,18 @@ public class OrderDetailDriverActivity extends BaseActivity {
                 orderDetailDriverViewModel.confirmTicket(
                     historyDriverResponse.getOrderCode(),
                     TicketStatus.REJECTED
+                );
+            }
+        });
+    }
+
+    private void setupOnLocationClick() {
+        binding.acetLocation.setOnClickListener(view -> {
+            if (historyDriverResponse != null) {
+                LocationUtils.openGoogleMaps(
+                    OrderDetailDriverActivity.this,
+                    Double.parseDouble(historyDriverResponse.getLatitude().replace(",", ".")),
+                    Double.parseDouble(historyDriverResponse.getLongitude().replace(",", "."))
                 );
             }
         });
