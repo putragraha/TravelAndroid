@@ -1,12 +1,11 @@
 package com.neptuunia.travel.splash;
 
-import com.neptuunia.data.constant.AccountType;
 import com.neptuunia.travel.common.ViewModelFactory;
+import com.neptuunia.travel.databinding.ActivitySplashBinding;
 import com.neptuunia.travel.homedriver.HomeDriverActivity;
 import com.neptuunia.travel.homeuser.HomeUserActivity;
 import com.neptuunia.travel.logindriver.LoginDriverActivity;
 import com.neptuunia.travel.base.BaseActivity;
-import com.neptuunia.travel.databinding.ActivityMainBinding;
 import com.neptuunia.travel.loginuser.LoginUserActivity;
 
 import android.view.View;
@@ -22,44 +21,66 @@ public class SplashActivity extends BaseActivity {
     @Inject
     ViewModelFactory viewModelFactory;
 
-    private ActivityMainBinding activityMainBinding;
+    private ActivitySplashBinding binding;
+
+    private SplashViewModel splashViewModel;
 
     @Override
     public View getView() {
-        activityMainBinding = ActivityMainBinding.inflate(getLayoutInflater());
-        return activityMainBinding.getRoot();
+        binding = ActivitySplashBinding.inflate(getLayoutInflater());
+        return binding.getRoot();
     }
 
     @Override
     public void setup() {
+        initSplashViewModel();
+        checkSession();
         setupButtonLoginDriver();
         setupButtonUserDriver();
-        setupMainViewModel();
+        setupOnShouldGoToHomeDriver();
+        setupOnShouldGoToHomeUser();
+        setupOnShouldGoToLoginDriver();
+        setupOnShouldGoToLoginUser();
+    }
+
+    private void initSplashViewModel() {
+        splashViewModel = new ViewModelProvider(this, viewModelFactory)
+            .get(SplashViewModel.class);
+    }
+
+    private void checkSession() {
+        splashViewModel.checkSession();
     }
 
     private void setupButtonLoginDriver() {
-        activityMainBinding.btnLoginDriver.setOnClickListener(
+        binding.btnLoginDriver.setOnClickListener(
             view -> startActivity(LoginDriverActivity.class)
         );
     }
 
     private void setupButtonUserDriver() {
-        activityMainBinding.btnLoginUser.setOnClickListener(
+        binding.btnLoginUser.setOnClickListener(
             view -> startActivity(LoginUserActivity.class)
         );
     }
 
-    private void setupMainViewModel() {
-        new ViewModelProvider(this, viewModelFactory).get(SplashViewModel.class)
-            .getSessionLiveData()
-            .observe(this, this::startRespectiveHomeActivity);
+    private void setupOnShouldGoToHomeDriver() {
+        splashViewModel.getHomeDriverLiveData()
+            .observe(this, accountType -> startActivityAndFinish(HomeDriverActivity.class));
     }
 
-    private void startRespectiveHomeActivity(@AccountType String type) {
-        if (AccountType.USER.equals(type)) {
-            startActivityAndFinish(HomeUserActivity.class);
-        } else {
-            startActivityAndFinish(HomeDriverActivity.class);
-        }
+    private void setupOnShouldGoToHomeUser() {
+        splashViewModel.getHomeUserLiveData()
+            .observe(this, accountType -> startActivityAndFinish(HomeUserActivity.class));
+    }
+
+    private void setupOnShouldGoToLoginDriver() {
+        splashViewModel.getLoginDriverLiveData()
+            .observe(this, accountType -> startActivityAndFinish(LoginDriverActivity.class));
+    }
+
+    private void setupOnShouldGoToLoginUser() {
+        splashViewModel.getLoginUserLiveData()
+            .observe(this, accountType -> startActivityAndFinish(LoginUserActivity.class));
     }
 }

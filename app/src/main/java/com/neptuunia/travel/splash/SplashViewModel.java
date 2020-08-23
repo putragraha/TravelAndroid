@@ -2,6 +2,8 @@ package com.neptuunia.travel.splash;
 
 import com.neptuunia.data.account.model.Account;
 import com.neptuunia.data.account.repository.AccountRepository;
+import com.neptuunia.data.constant.AccountType;
+import com.neptuunia.travel.BuildConfig;
 
 import android.app.Application;
 import android.text.TextUtils;
@@ -18,7 +20,13 @@ import androidx.lifecycle.MutableLiveData;
  */
 public class SplashViewModel extends AndroidViewModel {
 
-    private MutableLiveData<String> sessionLiveData = new MutableLiveData<>();
+    private MutableLiveData<String> homeDriverLiveData = new MutableLiveData<>();
+
+    private MutableLiveData<String> homeUserLiveData = new MutableLiveData<>();
+
+    private MutableLiveData<String> loginDriverLiveData = new MutableLiveData<>();
+
+    private MutableLiveData<String> loginUserLiveData = new MutableLiveData<>();
 
     private AccountRepository accountRepository;
 
@@ -29,17 +37,46 @@ public class SplashViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.accountRepository = accountRepository;
-        checkSession();
     }
 
-    public MutableLiveData<String> getSessionLiveData() {
-        return sessionLiveData;
+    public MutableLiveData<String> getHomeDriverLiveData() {
+        return homeDriverLiveData;
     }
 
-    private void checkSession() {
+    public MutableLiveData<String> getHomeUserLiveData() {
+        return homeUserLiveData;
+    }
+
+    public MutableLiveData<String> getLoginDriverLiveData() {
+        return loginDriverLiveData;
+    }
+
+    public MutableLiveData<String> getLoginUserLiveData() {
+        return loginUserLiveData;
+    }
+
+    public void checkSession() {
         Account account = accountRepository.getSession();
         if (account.getId() > 0 && !TextUtils.isEmpty(account.getType())) {
-            sessionLiveData.postValue(account.getType());
+            postHomeLiveData(account.getType());
+        } else {
+            postLoginLiveData(BuildConfig.FLAVOR);
+        }
+    }
+
+    private void postHomeLiveData(@AccountType String accountType) {
+        if (AccountType.DRIVER.equalsIgnoreCase(accountType)) {
+            homeDriverLiveData.postValue(accountType);
+        } else {
+            homeUserLiveData.postValue(accountType);
+        }
+    }
+
+    private void postLoginLiveData(String accountType) {
+        if (AccountType.DRIVER.equalsIgnoreCase(accountType)) {
+            loginDriverLiveData.postValue(accountType);
+        } else {
+            loginUserLiveData.postValue(accountType);
         }
     }
 }
