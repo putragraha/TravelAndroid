@@ -96,6 +96,7 @@ public class OrderDetailUserActivity extends BaseActivity {
         editTicketRequest.setOrderCode(historyUserResponse.getOrderCode());
         editTicketRequest.setLatitude(String.valueOf(latLng.latitude));
         editTicketRequest.setLongitude(String.valueOf(latLng.longitude));
+        editTicketRequest.setNote(getEditTextValue(binding.acetNote));
 
         return editTicketRequest;
     }

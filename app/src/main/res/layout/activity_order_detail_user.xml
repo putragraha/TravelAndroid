@@ -158,7 +158,6 @@
             style="@style/RoundedBoxEditText"
             android:layout_height="100dp"
             android:layout_marginTop="24dp"
-            android:enabled="false"
             android:importantForAutofill="no"
             android:inputType="textMultiLine"
             app:layout_constraintEnd_toEndOf="parent"

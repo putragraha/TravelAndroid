@@ -12,6 +12,8 @@ public class EditTicketRequest {
 
     private String longitude;
 
+    private String note;
+
     public String getOrderCode() {
         return orderCode;
     }
@@ -34,5 +36,13 @@ public class EditTicketRequest {
 
     public void setLongitude(String longitude) {
         this.longitude = longitude;
+    }
+
+    public String getNote() {
+        return note;
+    }
+
+    public void setNote(String note) {
+        this.note = note;
     }
 }
