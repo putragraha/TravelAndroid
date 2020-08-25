@@ -12,8 +12,13 @@ public class ImageUtils {
         // Prevent outside instantiation
     }
 
-    public static String getFullUrl(String imageName) {
-        String imageFullUrl = Constant.IMAGE_URL + imageName;
+    public static String getDriverFullUrl(String imageName) {
+        String imageFullUrl = Constant.DRIVER_IMAGE_URL + imageName;
+        return imageFullUrl.replace(" ", "%20");
+    }
+
+    public static String getCarFullUrl(String imageName) {
+        String imageFullUrl = Constant.CAR_IMAGE_URL + imageName;
         return imageFullUrl.replace(" ", "%20");
     }
 }
