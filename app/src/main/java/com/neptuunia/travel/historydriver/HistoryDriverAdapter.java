@@ -3,6 +3,7 @@ package com.neptuunia.travel.historydriver;
 import com.neptuunia.data.driver.model.response.HistoryDriverResponse;
 import com.neptuunia.travel.R;
 import com.neptuunia.travel.databinding.ItemHistoryDriverBinding;
+import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.StatusUtils;
 
 import android.content.Context;
@@ -11,6 +12,7 @@ import android.view.View;
 import android.view.ViewGroup;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import androidx.annotation.NonNull;
@@ -92,12 +94,21 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
                 )
             );
             itemHistoryDriverBinding.actvUserName.setText(historyDriverResponse.getUserName());
+            itemHistoryDriverBinding.actvDepartureTime.setText(
+                getDatetimeLabel(historyDriverResponse.getDatetime())
+            );
             itemHistoryDriverBinding.actvStatus.setText(historyDriverResponse.getStatus());
             itemHistoryDriverBinding.actvStatus.setBackgroundResource(
                 StatusUtils.getBackgroundColor(historyDriverResponse.getStatus())
             );
             itemHistoryDriverBinding.actvStatus.setTextColor(
                 StatusUtils.getTextColor(context, historyDriverResponse.getStatus())
+            );
+        }
+
+        private String getDatetimeLabel(String datetime) {
+            return DateTimeUtils.getFormattedDatetime(
+                new Date(Long.parseLong(datetime))
             );
         }
     }

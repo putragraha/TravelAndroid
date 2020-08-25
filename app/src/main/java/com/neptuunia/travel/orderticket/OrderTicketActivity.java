@@ -98,12 +98,16 @@ public class OrderTicketActivity extends BaseActivity {
 
         if (ticketResponse != null) {
             Glide.with(this)
-                .load(ImageUtils.getFullUrl(ticketResponse.getPhotoName()))
+                .load(ImageUtils.getDriverFullUrl(ticketResponse.getPhotoName()))
                 .placeholder(R.mipmap.ic_launcher)
                 .into(binding.acivDriverPicture);
+            Glide.with(this)
+                .load(ImageUtils.getCarFullUrl(ticketResponse.getCar()))
+                .placeholder(R.mipmap.ic_launcher)
+                .into(binding.acivCarPicture);
             binding.actvDriverName.setText(ticketResponse.getDriverName());
             binding.actvGroup.setText(ticketResponse.getGroup());
-            binding.actvCar.setText(ticketResponse.getCar());
+            binding.actvCar.setText(ticketResponse.getCarName());
             binding.actvDepartureTime.setText(getDatetimeLabel(ticketResponse.getDatetime()));
             binding.actvArmadaClass.setText(ticketResponse.getArmadaClass());
             binding.actvSeatAvailable.setText(getAvailableSeatLabel(ticketResponse));

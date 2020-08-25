@@ -10,11 +10,14 @@ import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityOrderDetailDriverBinding;
+import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.LocationUtils;
 import com.neptuunia.travel.utils.StatusUtils;
 
 import android.os.Bundle;
 import android.view.View;
+
+import java.util.Date;
 
 import javax.inject.Inject;
 
@@ -67,12 +70,16 @@ public class OrderDetailDriverActivity extends BaseActivity {
          historyDriverResponse = bundle.getParcelable(Constant.HISTORY_DRIVER_RESPONSE_DATA);
 
         if (historyDriverResponse != null) {
+            Date date = new Date(Long.parseLong(historyDriverResponse.getDatetime()));
+
             binding.acetOrderCode.setText(historyDriverResponse.getOrderCode());
             binding.acetGroup.setText(historyDriverResponse.getGroup());
             binding.acetArmadaClass.setText(historyDriverResponse.getArmadaClass());
             binding.acetUserName.setText(historyDriverResponse.getUserName());
             binding.acetTicketAmount.setText(historyDriverResponse.getSeatBooked());
             binding.acetTotalPrice.setText(String.valueOf(historyDriverResponse.getTotalPrice()));
+            binding.acetDepartureDate.setText(DateTimeUtils.getFormattedDate(date));
+            binding.acetDepartureTime.setText(DateTimeUtils.getFormattedTime(date));
             binding.acetNote.setText(historyDriverResponse.getNote());
             binding.acetLocation.setText(getAddress(historyDriverResponse));
             binding.actvStatus.setText(historyDriverResponse.getStatus());

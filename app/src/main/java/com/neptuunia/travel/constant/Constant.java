@@ -14,7 +14,11 @@ public class Constant {
 
     public static final String API_URL = BuildConfig.BASE_URL + "/project_travel/api/";
 
-    public static final String IMAGE_URL = BuildConfig.BASE_URL + "/project_travel/upload/foto_driver/";
+    public static final String IMAGE_URL = BuildConfig.BASE_URL + "/project_travel/upload/";
+
+    public static final String DRIVER_IMAGE_URL = IMAGE_URL + "foto_driver/";
+
+    public static final String CAR_IMAGE_URL = IMAGE_URL + "mobil/";
 
     public static final String SP_NAME = "cache";
 

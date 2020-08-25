@@ -86,7 +86,7 @@ public class SearchTicketAdapter extends RecyclerView.Adapter<SearchTicketAdapte
         public void bind(TicketResponse ticketResponse) {
             rootView.setOnClickListener(view -> ticketResponseConsumer.accept(ticketResponse));
             Glide.with(rootView)
-                .load(ImageUtils.getFullUrl(ticketResponse.getPhotoName()))
+                .load(ImageUtils.getDriverFullUrl(ticketResponse.getPhotoName()))
                 .placeholder(R.mipmap.ic_launcher)
                 .into(binding.acivDriverPicture);
             binding.actvDriverName.setText(ticketResponse.getDriverName());
