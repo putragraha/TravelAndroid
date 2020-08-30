@@ -14,10 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version MainViewModel, v 0.0.1 19/08/20 12.05 by Putra Nugraha
- */
 public class SplashViewModel extends AndroidViewModel {
 
     private MutableLiveData<String> homeDriverLiveData = new MutableLiveData<>();

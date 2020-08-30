@@ -6,10 +6,6 @@ import android.content.SharedPreferences;
 
 import javax.inject.Inject;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version LocalAccountEntity, v 0.0.1 19/08/20 11.27 by Putra Nugraha
- */
 public class LocalAccountEntity implements AccountEntity {
 
     private static final String KEY_ID = "ID";

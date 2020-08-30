@@ -11,10 +11,6 @@ import retrofit2.Retrofit;
 import retrofit2.adapter.rxjava3.RxJava3CallAdapterFactory;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version AppModule, v 0.0.1 18/08/20 07.22 by Putra Nugraha
- */
 @Module
 @InstallIn(ApplicationComponent.class)
 public class AppModule {

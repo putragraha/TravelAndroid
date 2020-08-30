@@ -1,9 +1,5 @@
 package com.neptuunia.data.armada.model.request;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version AddArmadaRequest, v 0.0.1 20/08/20 10.27 by Putra Nugraha
- */
 public class AddArmadaRequest {
 
     private int driverId;

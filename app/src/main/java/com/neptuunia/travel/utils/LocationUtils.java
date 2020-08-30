@@ -12,10 +12,6 @@ import java.io.IOException;
 import java.util.List;
 import java.util.Locale;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version LocationUtils, v 0.0.1 22/08/20 13.03 by Putra Nugraha
- */
 public class LocationUtils {
 
     private static final String GOOGLE_MAPS_URL_FORMAT = "http://maps.google.com/maps?daddr=%f,%f";

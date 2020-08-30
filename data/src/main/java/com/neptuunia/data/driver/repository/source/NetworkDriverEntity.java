@@ -16,10 +16,6 @@ import javax.inject.Inject;
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.Retrofit;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version NetworkDriverEntity, v 0.0.1 17/08/20 21.51 by Putra Nugraha
- */
 public class NetworkDriverEntity implements DriverEntity {
 
     private DriverApi driverApi;

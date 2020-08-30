@@ -14,10 +14,6 @@ import io.reactivex.rxjava3.core.Single;
 import retrofit2.http.Body;
 import retrofit2.http.POST;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version DriverApi, v 0.0.1 17/08/20 21.39 by Putra Nugraha
- */
 public interface DriverApi {
 
     @POST("get_history_driver.php")

@@ -1,9 +1,5 @@
 package com.neptuunia.data.user.model.request;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version ChangePasswordRequest, v 0.0.1 20/08/20 16.03 by Putra Nugraha
- */
 public class ChangePasswordRequest {
 
     private int id;

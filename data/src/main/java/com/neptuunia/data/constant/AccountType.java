@@ -7,10 +7,6 @@ import java.lang.annotation.RetentionPolicy;
 
 import androidx.annotation.StringDef;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version AccountType, v 0.0.1 19/08/20 11.20 by Putra Nugraha
- */
 @StringDef({AccountType.DRIVER, AccountType.USER})
 @Retention(RetentionPolicy.SOURCE)
 public @interface AccountType {

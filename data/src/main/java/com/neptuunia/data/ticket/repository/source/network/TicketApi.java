@@ -13,10 +13,6 @@ import retrofit2.http.Body;
 import retrofit2.http.GET;
 import retrofit2.http.POST;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version TicketApi, v 0.0.1 20/08/20 18.48 by Putra Nugraha
- */
 public interface TicketApi {
 
     @GET("get_armada_setting.php")

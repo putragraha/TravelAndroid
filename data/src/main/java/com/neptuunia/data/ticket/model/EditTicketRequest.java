@@ -1,9 +1,5 @@
 package com.neptuunia.data.ticket.model;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version EditTicketResponse, v 0.0.1 22/08/20 14.36 by Putra Nugraha
- */
 public class EditTicketRequest {
 
     private String orderCode;

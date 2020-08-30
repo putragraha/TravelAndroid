@@ -1,9 +1,5 @@
 package com.neptuunia.data.user.model.request;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version EditProfileDriverRequest, v 0.0.1 20/08/20 08.26 by Putra Nugraha
- */
 public class EditProfileUserRequest {
 
     private int id;

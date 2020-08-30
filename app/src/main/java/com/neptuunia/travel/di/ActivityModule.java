@@ -10,7 +10,6 @@ import com.neptuunia.data.ticket.repository.TicketEntityRepository;
 import com.neptuunia.data.ticket.repository.TicketRepository;
 import com.neptuunia.data.user.repository.UserEntityRepository;
 import com.neptuunia.data.user.repository.UserRepository;
-import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.constant.Constant;
 
 import android.content.Context;
@@ -22,18 +21,13 @@ import dagger.hilt.InstallIn;
 import dagger.hilt.android.components.ActivityComponent;
 import dagger.hilt.android.qualifiers.ActivityContext;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version ActivityModule, v 0.0.1 19/08/20 07.41 by Putra Nugraha
- */
 @Module
 @InstallIn(ActivityComponent.class)
 public class ActivityModule {
 
     @Provides
     SharedPreferences provideSharedPreferences(@ActivityContext Context context) {
-        return ((BaseActivity) context)
-            .getSharedPreferences(Constant.SP_NAME, Context.MODE_PRIVATE);
+        return context.getSharedPreferences(Constant.SP_NAME, Context.MODE_PRIVATE);
     }
 
     @Provides

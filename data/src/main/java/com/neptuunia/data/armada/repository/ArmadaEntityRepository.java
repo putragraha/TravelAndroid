@@ -10,10 +10,6 @@ import javax.inject.Inject;
 
 import io.reactivex.rxjava3.core.Single;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version ArmadaEntityRepository, v 0.0.1 20/08/20 10.43 by Putra Nugraha
- */
 public class ArmadaEntityRepository implements ArmadaRepository {
 
     private AccountRepository accountRepository;

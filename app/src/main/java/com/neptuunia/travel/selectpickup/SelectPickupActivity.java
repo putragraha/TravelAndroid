@@ -40,10 +40,6 @@ import java.util.List;
 import androidx.core.content.ContextCompat;
 import androidx.fragment.app.Fragment;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version SelectPickupActivity, v 0.0.1 21/08/20 14.05 by Putra Nugraha
- */
 public class SelectPickupActivity extends BaseActivity
     implements OnMapReadyCallback, MultiplePermissionsListener {
 

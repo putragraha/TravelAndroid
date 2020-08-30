@@ -1,9 +1,5 @@
 package com.neptuunia.data.ticket.model;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version OrderTicketRequest, v 0.0.1 20/08/20 22.27 by Putra Nugraha
- */
 public class OrderTicketRequest {
 
     private int userId;

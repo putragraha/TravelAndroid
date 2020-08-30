@@ -4,10 +4,6 @@ import com.neptuunia.data.account.model.Account;
 
 import javax.inject.Inject;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version AccountEntityRepository, v 0.0.1 19/08/20 11.25 by Putra Nugraha
- */
 public class AccountEntityRepository implements AccountRepository {
 
     private AccountEntityFactory accountEntityFactory;

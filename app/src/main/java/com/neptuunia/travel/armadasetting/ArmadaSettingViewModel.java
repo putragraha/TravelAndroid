@@ -14,10 +14,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version ArmadaSettingViewModel, v 0.0.1 20/08/20 10.48 by Putra Nugraha
- */
 public class ArmadaSettingViewModel extends AndroidViewModel {
 
     private ArmadaRepository armadaRepository;

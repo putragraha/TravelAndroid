@@ -14,10 +14,6 @@ import javax.inject.Inject;
 import io.reactivex.rxjava3.core.Single;
 import retrofit2.Retrofit;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version NetworkTicketEntity, v 0.0.1 20/08/20 20.58 by Putra Nugraha
- */
 public class NetworkTicketEntity implements TicketEntity {
 
     private TicketApi ticketApi;

@@ -10,10 +10,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version HomeDriverViewModel, v 0.0.1 19/08/20 12.14 by Putra Nugraha
- */
 public class HomeDriverViewModel extends AndroidViewModel {
 
     private MutableLiveData<Boolean> sessionLiveData = new MutableLiveData<>();

@@ -13,10 +13,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.MutableLiveData;
 
-/**
- * @author Putra Nugraha (putra.nugraha@dana.id)
- * @version LoginUserViewModel, v 0.0.1 18/08/20 08.32 by Putra Nugraha
- */
 public class LoginUserViewModel extends AndroidViewModel {
 
     private MutableLiveData<Boolean> successLiveData = new MutableLiveData<>();
