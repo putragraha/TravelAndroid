@@ -105,7 +105,7 @@
             android:id="@+id/acet_departure_time"
             style="@style/RoundedBoxEditText.Iconed"
             android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_dollar"
+            android:drawableStart="@drawable/ic_access_time"
             android:enabled="false"
             android:importantForAutofill="no"
             android:inputType="number"
