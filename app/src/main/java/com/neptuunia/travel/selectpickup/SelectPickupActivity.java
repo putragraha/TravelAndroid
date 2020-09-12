@@ -191,7 +191,8 @@ public class SelectPickupActivity extends BaseActivity
     }
 
     private void handleOnCompleteLocationSettings(Task<LocationSettingsResponse> task) {
-        if (task.getResult().getLocationSettingsStates().isLocationPresent()) {
+        if (task.isSuccessful() &&
+            task.getResult().getLocationSettingsStates().isLocationPresent()) {
             initGetLastLocation();
         }
     }
