@@ -10,6 +10,7 @@ import com.neptuunia.data.model.CommonRequest;
 import com.neptuunia.data.model.CommonResponse;
 
 import java.util .ArrayList;
+import java.util.Date;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -31,11 +32,14 @@ public class MockDriverEntity implements DriverEntity {
             HistoryDriverResponse armadaSettingResponse = new HistoryDriverResponse();
             armadaSettingResponse.setOrderCode("String code: " + i);
             armadaSettingResponse.setGroup(String.format("Group: %s", i));
+            armadaSettingResponse.setDeparture(String.format("Departure: %s", i));
+            armadaSettingResponse.setArrival(String.format("Arrival: %s", i));
             armadaSettingResponse.setArmadaClass(String.format("Armada Class: %s", i));
             armadaSettingResponse.setUserName(String.format("User Name: %s", i));
             armadaSettingResponse.setLatitude("Latitude: " + i);
             armadaSettingResponse.setLongitude("Longitude: " + i);
             armadaSettingResponse.setStatus(TicketStatus.PENDING);
+            armadaSettingResponse.setDatetime(new Date().toString());
             armadaSettingResponse.setNote(String.format("Code: %s", i));
             armadaSettingResponse.setTotalPrice(i);
             armadaSettingResponse.setSeatBooked(String.format("Seat number: %s", i));

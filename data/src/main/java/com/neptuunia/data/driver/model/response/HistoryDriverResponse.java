@@ -22,6 +22,10 @@ public class HistoryDriverResponse implements Parcelable {
 
     private String group;
 
+    private String departure;
+
+    private String arrival;
+
     private String armadaClass;
 
     private String userName;
@@ -47,6 +51,8 @@ public class HistoryDriverResponse implements Parcelable {
     protected HistoryDriverResponse(Parcel in) {
         orderCode = in.readString();
         group = in.readString();
+        departure = in.readString();
+        arrival = in.readString();
         armadaClass = in.readString();
         userName = in.readString();
         seatBooked = in.readString();
@@ -67,6 +73,8 @@ public class HistoryDriverResponse implements Parcelable {
     public void writeToParcel(Parcel out, int flags) {
         out.writeString(orderCode);
         out.writeString(group);
+        out.writeString(departure);
+        out.writeString(arrival);
         out.writeString(armadaClass);
         out.writeString(userName);
         out.writeString(seatBooked);
@@ -92,6 +100,22 @@ public class HistoryDriverResponse implements Parcelable {
 
     public void setGroup(String group) {
         this.group = group;
+    }
+
+    public String getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(String departure) {
+        this.departure = departure;
+    }
+
+    public String getArrival() {
+        return arrival;
+    }
+
+    public void setArrival(String arrival) {
+        this.arrival = arrival;
     }
 
     public String getArmadaClass() {

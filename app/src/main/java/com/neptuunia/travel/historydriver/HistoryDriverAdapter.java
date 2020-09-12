@@ -93,6 +93,9 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
                     historyDriverResponse.getSeatBooked()
                 )
             );
+            itemHistoryDriverBinding.actvRoute.setText(
+                getRouteMessage(context, historyDriverResponse)
+            );
             itemHistoryDriverBinding.actvUserName.setText(historyDriverResponse.getUserName());
             itemHistoryDriverBinding.actvDepartureTime.setText(
                 getDatetimeLabel(historyDriverResponse.getDatetime())
@@ -103,6 +106,17 @@ public class HistoryDriverAdapter extends RecyclerView.Adapter<HistoryDriverAdap
             );
             itemHistoryDriverBinding.actvStatus.setTextColor(
                 StatusUtils.getTextColor(context, historyDriverResponse.getStatus())
+            );
+        }
+
+        private String getRouteMessage(
+            Context context,
+            HistoryDriverResponse historyDriverResponse
+        ) {
+            return String.format(
+                context.getString(R.string.route_message),
+                historyDriverResponse.getDeparture(),
+                historyDriverResponse.getArrival()
             );
         }
 

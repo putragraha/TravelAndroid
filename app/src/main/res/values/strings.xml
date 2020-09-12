@@ -54,4 +54,5 @@
     <string name="order_confirmed">Order Confirmed</string>
     <string name="order_ticket">Order Ticket</string>
     <string name="detail_information">Detail Information</string>
+    <string name="route_message">From %s to %s</string>
 </resources>

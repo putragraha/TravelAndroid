@@ -74,6 +74,8 @@ public class OrderDetailDriverActivity extends BaseActivity {
 
             binding.acetOrderCode.setText(historyDriverResponse.getOrderCode());
             binding.acetGroup.setText(historyDriverResponse.getGroup());
+            binding.acetDeparture.setText(historyDriverResponse.getDeparture());
+            binding.acetArrival.setText(historyDriverResponse.getArrival());
             binding.acetArmadaClass.setText(historyDriverResponse.getArmadaClass());
             binding.acetUserName.setText(historyDriverResponse.getUserName());
             binding.acetTicketAmount.setText(historyDriverResponse.getSeatBooked());
