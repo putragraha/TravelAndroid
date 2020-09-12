@@ -47,6 +47,18 @@
             tools:text="Order Code" />
 
         <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_route"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="8dp"
+            android:drawableStart="@drawable/ic_car"
+            android:drawablePadding="4dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="@id/actv_order_code"
+            app:layout_constraintTop_toBottomOf="@id/actv_order_code"
+            tools:text="From Pekanbaru to Rengat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/actv_total_price"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -55,7 +67,7 @@
             android:drawablePadding="4dp"
             android:textSize="16sp"
             app:layout_constraintStart_toStartOf="@id/actv_order_code"
-            app:layout_constraintTop_toBottomOf="@id/actv_order_code"
+            app:layout_constraintTop_toBottomOf="@id/actv_route"
             tools:text="320000" />
 
         <androidx.appcompat.widget.AppCompatTextView

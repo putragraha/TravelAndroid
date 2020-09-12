@@ -129,6 +129,8 @@ public class OrderDetailUserActivity extends BaseActivity {
             Date date = new Date(Long.parseLong(historyUserResponse.getDatetime()));
 
             binding.acetOrderCode.setText(historyUserResponse.getOrderCode());
+            binding.acetDeparture.setText(historyUserResponse.getDeparture());
+            binding.acetArrival.setText(historyUserResponse.getArrival());
             binding.acetGroup.setText(historyUserResponse.getGroup());
             binding.acetArmadaClass.setText(historyUserResponse.getArmadaClass());
             binding.acetDriverName.setText(historyUserResponse.getDriverName());

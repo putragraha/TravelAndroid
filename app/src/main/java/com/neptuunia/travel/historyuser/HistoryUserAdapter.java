@@ -96,6 +96,9 @@ public class HistoryUserAdapter extends RecyclerView.Adapter<HistoryUserAdapter.
                 .placeholder(R.mipmap.ic_launcher)
                 .into(binding.acivDriverPicture);
             binding.actvOrderCode.setText(historyUserResponse.getOrderCode());
+            binding.actvRoute.setText(
+                getRouteMessage(context, historyUserResponse)
+            );
             binding.actvTotalPrice.setText(
                 NumberUtils.toRupiah(historyUserResponse.getTotalPrice())
             );
@@ -106,6 +109,17 @@ public class HistoryUserAdapter extends RecyclerView.Adapter<HistoryUserAdapter.
             );
             binding.actvStatus.setTextColor(
                 StatusUtils.getTextColor(context, historyUserResponse.getStatus())
+            );
+        }
+
+        private String getRouteMessage(
+            Context context,
+            HistoryUserResponse historyUserResponse
+        ) {
+            return String.format(
+                context.getString(R.string.route_message),
+                historyUserResponse.getDeparture(),
+                historyUserResponse.getArrival()
             );
         }
     }

@@ -33,6 +33,8 @@ public class MockUserEntity implements UserEntity {
             HistoryUserResponse historyUserResponse = new HistoryUserResponse();
             historyUserResponse.setOrderCode("Code" + i);
             historyUserResponse.setGroup("Group: " + i);
+            historyUserResponse.setDeparture("Departure: " + i);
+            historyUserResponse.setArrival("Arrival: " + i);
             historyUserResponse.setArmadaClass("Armada Class: " + i);
             historyUserResponse.setPhotoName("PhotoUrl" + i);
             historyUserResponse.setDriverName("DriverName " + i);
