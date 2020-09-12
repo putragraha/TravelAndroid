@@ -22,6 +22,10 @@ public class Constant {
 
     public static final String SP_NAME = "cache";
 
+    public static final String PEKANBARU_CITY = "Pekanbaru";
+
+    public static final String RENGAT_CITY = "Rengat";
+
     private Constant() {
         // Prevent instantiation
     }

@@ -56,4 +56,10 @@
     <string name="detail_information">Detail Information</string>
     <string name="route_message">From %s to %s</string>
     <string name="route">Route</string>
+    <string name="depart_from">Depart from</string>
+
+    <string-array name="city_list">
+        <item>Pekanbaru</item>
+        <item>Rengat</item>
+    </string-array>
 </resources>

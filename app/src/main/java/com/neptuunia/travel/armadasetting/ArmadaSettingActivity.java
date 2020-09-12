@@ -4,6 +4,7 @@ import com.neptuunia.data.armada.model.request.AddArmadaRequest;
 import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
+import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityArmadaSettingBinding;
 import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.NumberUtils;
@@ -109,6 +110,8 @@ public class ArmadaSettingActivity extends BaseActivity {
         AddArmadaRequest addArmadaRequest = new AddArmadaRequest();
         addArmadaRequest.setDatetime(getDateTimeInMillis());
         addArmadaRequest.setNote(getEditTextValue(binding.etNote));
+        addArmadaRequest.setDeparture(binding.acsDeparture.getSelectedItem().toString());
+        addArmadaRequest.setArrival(getArrival());
         addArmadaRequest.setPrice(getEditTextAsInteger(binding.etTicketPrice));
         addArmadaRequest.setSeatAmount(getEditTextAsInteger(binding.etSeatAmount));
 
@@ -135,5 +138,13 @@ public class ArmadaSettingActivity extends BaseActivity {
     private void setupOnErrorAddArmada() {
         armadaSettingViewModel.getErrorLiveData()
             .observe(this, this::showErrorMessage);
+    }
+
+    private String getArrival(){
+        String departure = binding.acsDeparture.getSelectedItem().toString();
+
+        return Constant.PEKANBARU_CITY.equalsIgnoreCase(departure) ?
+            Constant.RENGAT_CITY :
+            Constant.PEKANBARU_CITY;
     }
 }

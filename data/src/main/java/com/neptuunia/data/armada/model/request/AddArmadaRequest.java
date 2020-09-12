@@ -8,6 +8,10 @@ public class AddArmadaRequest {
 
     private String armadaClass;
 
+    private String departure;
+
+    private String arrival;
+
     private int price;
 
     private int seatAmount;
@@ -36,6 +40,22 @@ public class AddArmadaRequest {
 
     public void setArmadaClass(String armadaClass) {
         this.armadaClass = armadaClass;
+    }
+
+    public String getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(String departure) {
+        this.departure = departure;
+    }
+
+    public String getArrival() {
+        return arrival;
+    }
+
+    public void setArrival(String arrival) {
+        this.arrival = arrival;
     }
 
     public int getPrice() {

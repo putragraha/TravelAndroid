@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
@@ -35,6 +34,27 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@id/acet_departure_time" />
 
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_departure_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:text="@string/depart_from"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/acet_departure_date" />
+
+        <androidx.appcompat.widget.AppCompatSpinner
+            android:id="@+id/acs_departure"
+            android:layout_width="0dp"
+            android:layout_height="45dp"
+            android:layout_marginTop="4dp"
+            android:background="@drawable/spinner_rounded_box"
+            android:entries="@array/city_list"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actv_departure_title" />
+
         <androidx.appcompat.widget.AppCompatEditText
             android:id="@+id/acet_class"
             style="@style/RoundedBoxEditText.Iconed"
@@ -46,7 +66,7 @@
             android:visibility="gone"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_departure_date" />
+            app:layout_constraintTop_toBottomOf="@id/acs_departure" />
 
         <EditText
             android:id="@+id/et_ticket_price"
