@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_green_light">green_light</string>
+    <string name="email">Email</string>
+    <string name="password">Password</string>
+    <string name="login">Masuk</string>
+    <string name="driver">Driver</string>
+    <string name="user">User</string>
+    <string name="have_no_account">Belum punya akun? %s</string>
+    <string name="register_here">Daftar disini</string>
+    <string name="register">Daftar</string>
+    <string name="armada_setting">Pengaturan Armada</string>
+    <string name="history">Riwayat</string>
+    <string name="profile">Profil</string>
+    <string name="get_ticket">Pesan Tiket</string>
+    <string name="choose_departure_time">Pilih jam keberangkatan</string>
+    <string name="choose_departure_date">Pilih tanggal keberangkatan</string>
+    <string name="ticket_price">Harga tiket</string>
+    <string name="seat_amount">Jumlah kursi</string>
+    <string name="note">Catatan</string>
+    <string name="submit">Kirim</string>
+    <string name="name">Nama</string>
+    <string name="phone_number">Nomor Telpon</string>
+    <string name="confirm_password">Konfirmasi Password</string>
+    <string name="car">Mobil</string>
+    <string name="departure_time">Waktu Keberangkatan</string>
+    <string name="seat_available">Kursi Tersedia</string>
+    <string name="choose_pick_up_location">Pilih Lokasi Jemput</string>
+    <string name="choose_amount_seat_to_order">Berapa kursi?</string>
+    <string name="change_password">Ubah Password</string>
+    <string name="update_profile">Ubah Profil</string>
+    <string name="old_password">Password Lama</string>
+    <string name="new_password">Password Baru</string>
+    <string name="confirm_new_password">Konfirmasi Password Baru</string>
+    <string name="armada_class">Kelas Armada</string>
+    <string name="group">Grup</string>
+    <string name="logout">Keluar</string>
+    <string name="failed">Gagal… Silakan coba lagi</string>
+    <string name="update">Ubah</string>
+    <string name="update_success">Berhasil diubah</string>
+    <string name="add_success">Berhasil ditambah</string>
+    <string name="amount_seat_booked">%1$s kursi dipesan</string>
+    <string name="register_success">Berhasil terdaftar</string>
+    <string name="password_did_not_match">Password tidak cocok</string>
+    <string name="password_changed">Password berhasil diubah</string>
+    <string name="update_pickup_location">Ubah Lokasi Jemput</string>
+    <string name="amount_of_seat_available">%1$s dari %2$s kursi tersedia</string>
+    <string name="order_ticket_success">Berhasil pesan tiket</string>
+    <string name="alert_permission_required">Izin dibutuhkan untuk menunjukkan lokasi</string>
+    <string name="current_location_not_found">Lokasi tidak ditemukan</string>
+    <string name="address_not_found">Alamat tidak ditemukan</string>
+    <string name="confirm_pickup_location">Konfirmasi Lokasi Jemput</string>
+    <string name="reject">Tolak</string>
+    <string name="accept">Terima</string>
+    <string name="order_confirmed">Pesanan dikonfirmasi</string>
+    <string name="order_ticket">Pesan Tiket</string>
+    <string name="detail_information">Informasi Selanjutnya</string>
+    <string name="route_message">Dari %s ke %s</string>
+    <string name="route">Rute</string>
+    <string name="depart_from">Berangkat dari</string>
+
+    <string-array name="city_list">
+        <item>Pekanbaru</item>
+        <item>Rengat</item>
+    </string-array>
+</resources>
