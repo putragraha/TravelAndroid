@@ -108,12 +108,21 @@ public class OrderTicketActivity extends BaseActivity {
             binding.actvDriverName.setText(ticketResponse.getDriverName());
             binding.actvGroup.setText(ticketResponse.getGroup());
             binding.actvCar.setText(ticketResponse.getCarName());
+            binding.actvRoute.setText(getRouteMessage(this, ticketResponse));
             binding.actvDepartureTime.setText(getDatetimeLabel(ticketResponse.getDatetime()));
             binding.actvArmadaClass.setText(ticketResponse.getArmadaClass());
             binding.actvSeatAvailable.setText(getAvailableSeatLabel(ticketResponse));
             binding.actvPrice.setText(getPriceLabel(ticketResponse.getPrice()));
             binding.actvPhoneNumber.setText(ticketResponse.getDriverPhoneNumber());
         }
+    }
+
+    private String getRouteMessage(Context context, TicketResponse ticketResponse) {
+        return String.format(
+            context.getString(R.string.route_message),
+            ticketResponse.getDeparture(),
+            ticketResponse.getArrival()
+        );
     }
 
     private String getDatetimeLabel(String datetime) {

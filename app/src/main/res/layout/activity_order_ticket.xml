@@ -170,6 +170,26 @@
                     tools:text="Economy Class" />
 
                 <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_route_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="12dp"
+                    android:text="@string/route"
+                    android:textSize="12sp"
+                    android:textStyle="bold"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_armada_class" />
+
+                <androidx.appcompat.widget.AppCompatTextView
+                    android:id="@+id/actv_route"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="16sp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@id/actv_route_title"
+                    tools:text="From Pekanbaru to Rengat" />
+
+                <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_seat_available_title"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
@@ -178,7 +198,7 @@
                     android:textSize="12sp"
                     android:textStyle="bold"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/actv_armada_class" />
+                    app:layout_constraintTop_toBottomOf="@id/actv_route" />
 
                 <androidx.appcompat.widget.AppCompatTextView
                     android:id="@+id/actv_seat_available"

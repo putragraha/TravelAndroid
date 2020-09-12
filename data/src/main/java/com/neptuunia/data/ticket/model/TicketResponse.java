@@ -21,6 +21,10 @@ public class TicketResponse implements Parcelable {
 
     private String driverId;
 
+    private String departure;
+
+    private String arrival;
+
     private String photoName;
 
     private String driverName;
@@ -52,6 +56,8 @@ public class TicketResponse implements Parcelable {
     protected TicketResponse(Parcel in) {
         armadaId = in.readString();
         driverId = in.readString();
+        departure = in.readString();
+        arrival = in.readString();
         photoName = in.readString();
         driverName = in.readString();
         group = in.readString();
@@ -75,6 +81,8 @@ public class TicketResponse implements Parcelable {
     public void writeToParcel(Parcel dest, int flags) {
         dest.writeString(armadaId);
         dest.writeString(driverId);
+        dest.writeString(departure);
+        dest.writeString(arrival);
         dest.writeString(photoName);
         dest.writeString(driverName);
         dest.writeString(group);
@@ -93,16 +101,24 @@ public class TicketResponse implements Parcelable {
         return armadaId;
     }
 
-    public void setArmadaId(String armadaId) {
-        this.armadaId = armadaId;
-    }
-
     public String getDriverId() {
         return driverId;
     }
 
-    public void setDriverId(String driverId) {
-        this.driverId = driverId;
+    public String getDeparture() {
+        return departure;
+    }
+
+    public void setDeparture(String departure) {
+        this.departure = departure;
+    }
+
+    public String getArrival() {
+        return arrival;
+    }
+
+    public void setArrival(String arrival) {
+        this.arrival = arrival;
     }
 
     public String getPhotoName() {

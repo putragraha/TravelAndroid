@@ -84,15 +84,26 @@ public class SearchTicketAdapter extends RecyclerView.Adapter<SearchTicketAdapte
         }
 
         public void bind(TicketResponse ticketResponse) {
+            Context context = rootView.getContext();
+
             rootView.setOnClickListener(view -> ticketResponseConsumer.accept(ticketResponse));
             Glide.with(rootView)
                 .load(ImageUtils.getDriverFullUrl(ticketResponse.getPhotoName()))
                 .placeholder(R.mipmap.ic_launcher)
                 .into(binding.acivDriverPicture);
+            binding.actvRoute.setText(getRouteMessage(context, ticketResponse));
             binding.actvDriverName.setText(ticketResponse.getDriverName());
             binding.actvSeatAvailable.setText(getAvailableSeatLabel(ticketResponse));
             binding.actvDriverDepartDateTime.setText(getDatetimeLabel(ticketResponse.getDatetime()));
             binding.actvTicketPrice.setText(getPriceLabel(ticketResponse.getPrice()));
+        }
+
+        private String getRouteMessage(Context context, TicketResponse ticketResponse) {
+            return String.format(
+                context.getString(R.string.route_message),
+                ticketResponse.getDeparture(),
+                ticketResponse.getArrival()
+            );
         }
 
         private String getAvailableSeatLabel(TicketResponse ticketResponse) {
