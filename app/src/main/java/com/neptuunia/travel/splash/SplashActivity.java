@@ -31,7 +31,7 @@ public class SplashActivity extends BaseActivity {
     @Override
     public void setup() {
         initSplashViewModel();
-        checkSession();
+        initSplashAction();
         setupOnShouldGoToHomeDriver();
         setupOnShouldGoToHomeUser();
         setupOnShouldGoToLoginDriver();
@@ -43,8 +43,8 @@ public class SplashActivity extends BaseActivity {
             .get(SplashViewModel.class);
     }
 
-    private void checkSession() {
-        splashViewModel.checkSession();
+    private void initSplashAction() {
+        splashViewModel.initSplashAction();
     }
 
     private void setupOnShouldGoToHomeDriver() {
