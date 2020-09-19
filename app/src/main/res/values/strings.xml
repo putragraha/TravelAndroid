@@ -3,6 +3,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="login_subtitle">Login to continue</string>
     <string name="driver">Driver</string>
     <string name="user">User</string>
     <string name="have_no_account">Have no account? %s</string>
