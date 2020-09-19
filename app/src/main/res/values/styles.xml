@@ -17,7 +17,7 @@
         <item name="android:windowLightStatusBar" tools:targetApi="23">true</item>
         <item name="android:statusBarColor">@android:color/white</item>
         <item name="colorPrimary">@color/marigold</item>
-        <item name="colorPrimaryDark">@color/blueSapphire</item>
+        <item name="colorPrimaryDark">@color/coarchoal</item>
         <item name="colorAccent">@color/indigoDye</item>
     </style>
 
