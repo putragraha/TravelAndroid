@@ -7,9 +7,9 @@
     android:padding="40dp">
 
     <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/aciv_text_logo"
-        android:layout_width="250dp"
-        android:layout_height="250dp"
+        android:id="@+id/aciv_logo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         app:layout_constraintBottom_toTopOf="@id/view_login"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
