@@ -32,6 +32,7 @@ public class ProfileDriverActivity extends BaseActivity {
     @Override
     public void setup() {
         initProfileDriverViewModel();
+        fetchProfileDriver();
         setupOnSuccessGetProfileDriver();
         setupOnSuccessEditProfileDriver();
         setupOnErrorGetProfileDriver();
@@ -41,6 +42,10 @@ public class ProfileDriverActivity extends BaseActivity {
     private void initProfileDriverViewModel() {
         profileDriverViewModel = new ViewModelProvider(this, viewModelFactory)
             .get(ProfileDriverViewModel.class);
+    }
+
+    private void fetchProfileDriver() {
+        profileDriverViewModel.fetchProfileDriver();
     }
 
     private void setupOnSuccessGetProfileDriver() {

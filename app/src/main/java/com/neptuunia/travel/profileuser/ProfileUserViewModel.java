@@ -38,7 +38,25 @@ public class ProfileUserViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.userRepository = userRepository;
-        fetchProfileUser();
+    }
+
+    public void fetchProfileUser() {
+        userRepository.getProfileUser()
+            .compose(Transformer::applySchedulers)
+            .subscribe(new AutoDisposeSingleObserver<ProfileUserResponse>() {
+
+                @Override
+                public void onSuccess(ProfileUserResponse profileUserResponse) {
+                    super.onSuccess(profileUserResponse);
+                    successGetProfileUserLiveData.postValue(profileUserResponse);
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    super.onError(e);
+                    errorLiveData.postValue(e.getMessage());
+                }
+            });
     }
 
     public LiveData<ProfileUserResponse> getSuccessGetProfileUserLiveData() {
@@ -95,25 +113,6 @@ public class ProfileUserViewModel extends AndroidViewModel {
                     } else {
                         errorLiveData.postValue("");
                     }
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    super.onError(e);
-                    errorLiveData.postValue(e.getMessage());
-                }
-            });
-    }
-
-    private void fetchProfileUser() {
-        userRepository.getProfileUser()
-            .compose(Transformer::applySchedulers)
-            .subscribe(new AutoDisposeSingleObserver<ProfileUserResponse>() {
-
-                @Override
-                public void onSuccess(ProfileUserResponse profileUserResponse) {
-                    super.onSuccess(profileUserResponse);
-                    successGetProfileUserLiveData.postValue(profileUserResponse);
                 }
 
                 @Override

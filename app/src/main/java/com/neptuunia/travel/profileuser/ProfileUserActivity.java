@@ -33,6 +33,7 @@ public class ProfileUserActivity extends BaseActivity {
     @Override
     public void setup() {
         initProfileUserViewModel();
+        fetchProfileUser();
         setupOnSuccessGetProfileUser();
         setupOnSuccessEditProfileUser();
         setupOnSuccessChangePassword();
@@ -44,6 +45,10 @@ public class ProfileUserActivity extends BaseActivity {
     private void initProfileUserViewModel() {
         profileUserViewModel = new ViewModelProvider(this, viewModelFactory)
             .get(ProfileUserViewModel.class);
+    }
+
+    private void fetchProfileUser() {
+        profileUserViewModel.fetchProfileUser();
     }
 
     private void setupOnSuccessGetProfileUser() {
