@@ -4,6 +4,7 @@
     <string name="password">Password</string>
     <string name="login">Login</string>
     <string name="login_driver_title">Driver Login</string>
+    <string name="login_user_title">User Login</string>
     <string name="login_subtitle">Login to continue</string>
     <string name="driver">Driver</string>
     <string name="user">User</string>

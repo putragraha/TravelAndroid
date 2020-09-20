@@ -42,7 +42,7 @@
         <activity
             android:name=".loginuser.LoginUserActivity"
             android:screenOrientation="portrait"
-            android:label="@string/login" />
+            android:theme="@style/NoActionBarAppTheme" />
 
         <activity
             android:name=".homedriver.HomeDriverActivity"

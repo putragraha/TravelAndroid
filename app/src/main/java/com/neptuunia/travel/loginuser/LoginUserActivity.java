@@ -51,9 +51,9 @@ public class LoginUserActivity extends BaseActivity {
     }
 
     private void setupRegisterTextView() {
-        binding.tvRegisterLabel.setText(getRegisterSpannableText());
-        binding.tvRegisterLabel.setMovementMethod(LinkMovementMethod.getInstance());
-        binding.tvRegisterLabel.setHighlightColor(Color.TRANSPARENT);
+        binding.viewLogin.tvRegisterLabel.setText(getRegisterSpannableText());
+        binding.viewLogin.tvRegisterLabel.setMovementMethod(LinkMovementMethod.getInstance());
+        binding.viewLogin.tvRegisterLabel.setHighlightColor(Color.TRANSPARENT);
     }
 
     private SpannableString getRegisterSpannableText() {
@@ -75,13 +75,13 @@ public class LoginUserActivity extends BaseActivity {
     }
 
     private void setupButtonLogin() {
-        binding.btnLogin.setOnClickListener(this::loginUser);
+        binding.viewLogin.btnLogin.setOnClickListener(this::loginUser);
     }
 
     private void loginUser(View view) {
         loginUserViewModel.loginUser(
-            getTextInputLayoutValue(binding.tilEmail),
-            getTextInputLayoutValue(binding.tilPassword)
+            getTextInputLayoutValue(binding.viewLogin.tilEmail),
+            getTextInputLayoutValue(binding.viewLogin.tilPassword)
         );
     }
 
