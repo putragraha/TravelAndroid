@@ -54,9 +54,9 @@ android {
         variant.buildConfigField("String", "BASE_URL", "\"${baseUrl}\"")
 
         if (name.contains("driver")) {
-            variant.resValue("string", "app_name", "Neptuunia Driver")
+            variant.resValue("string", "app_name", "Driver Neptuunia")
         } else if (name.contains("user")) {
-            variant.resValue("string", "app_name", "Neptuunia User")
+            variant.resValue("string", "app_name", "User Neptuunia")
         }
     }
 
