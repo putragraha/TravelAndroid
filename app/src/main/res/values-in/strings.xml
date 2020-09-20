@@ -4,6 +4,7 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Masuk</string>
+    <string name="login_driver_title">Masuk Sebagai Driver</string>
     <string name="login_subtitle">Login untuk melanjutkan</string>
     <string name="driver">Driver</string>
     <string name="user">User</string>
