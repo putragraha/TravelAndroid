@@ -29,31 +29,31 @@ public class NetworkUserEntity implements UserEntity {
 
     @Override
     public Single<List<HistoryUserResponse>> getHistoryUsers(CommonRequest commonRequest) {
-        return userApi.getHistoryUsers(commonRequest);
+        return Single.defer(() -> userApi.getHistoryUsers(commonRequest));
     }
 
     @Override
     public Single<LoginUserResponse> loginUser(LoginUserRequest loginUserRequest) {
-        return userApi.loginUser(loginUserRequest);
+        return Single.defer(() -> userApi.loginUser(loginUserRequest));
     }
 
     @Override
     public Single<ProfileUserResponse> getProfileUser(CommonRequest commonRequest) {
-        return userApi.getProfileUser(commonRequest);
+        return Single.defer(() -> userApi.getProfileUser(commonRequest));
     }
 
     @Override
     public Single<CommonResponse> updateProfileUser(EditProfileUserRequest editProfileUserRequest) {
-        return userApi.updateProfileUser(editProfileUserRequest);
+        return Single.defer(() -> userApi.updateProfileUser(editProfileUserRequest));
     }
 
     @Override
     public Single<CommonResponse> registerUser(RegisterUserRequest registerUserRequest) {
-        return userApi.registerUser(registerUserRequest);
+        return Single.defer(() -> userApi.registerUser(registerUserRequest));
     }
 
     @Override
     public Single<CommonResponse> changePassword(ChangePasswordRequest changePasswordRequest) {
-        return userApi.changePassword(changePasswordRequest);
+        return Single.defer(() -> userApi.changePassword(changePasswordRequest));
     }
 }

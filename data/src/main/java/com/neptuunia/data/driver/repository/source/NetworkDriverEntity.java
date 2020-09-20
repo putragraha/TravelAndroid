@@ -27,23 +27,23 @@ public class NetworkDriverEntity implements DriverEntity {
 
     @Override
     public Single<List<HistoryDriverResponse>> getHistoryDrivers(CommonRequest commonRequest) {
-        return driverApi.getHistoryDrivers(commonRequest);
+        return Single.defer(() -> driverApi.getHistoryDrivers(commonRequest));
     }
 
     @Override
     public Single<ProfileDriverResponse> getProfileDriver(CommonRequest commonRequest) {
-        return driverApi.getProfileDriver(commonRequest);
+        return Single.defer(() -> driverApi.getProfileDriver(commonRequest));
     }
 
     @Override
     public Single<LoginDriverResponse> loginDriver(LoginDriverRequest loginDriverRequest) {
-        return driverApi.loginDriver(loginDriverRequest);
+        return Single.defer(() -> driverApi.loginDriver(loginDriverRequest));
     }
 
     @Override
     public Single<CommonResponse> updateProfileDriver(
         EditProfileDriverRequest editProfileDriverRequest
     ) {
-        return driverApi.updateProfileDriver(editProfileDriverRequest);
+        return Single.defer(() -> driverApi.updateProfileDriver(editProfileDriverRequest));
     }
 }
