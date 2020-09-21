@@ -4,12 +4,14 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Masuk</string>
+    <string name="signup">Daftar</string>
     <string name="login_driver_title">Masuk Sebagai Driver</string>
     <string name="login_user_title">Masuk Sebagai User</string>
     <string name="login_subtitle">Login untuk melanjutkan</string>
     <string name="driver">Driver</string>
     <string name="user">User</string>
     <string name="have_no_account">Belum punya akun? %s</string>
+    <string name="have_an_account">Sudah punya akun? %s</string>
     <string name="register_here">Daftar disini</string>
     <string name="register">Daftar</string>
     <string name="armada_setting">Pengaturan Armada</string>

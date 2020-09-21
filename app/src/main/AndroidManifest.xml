@@ -92,8 +92,8 @@
 
         <activity
             android:name=".registeruser.RegisterUserActivity"
-            android:label="@string/register"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarAppTheme" />
 
         <activity
             android:name=".searchticket.SearchTicketActivity"
