@@ -52,8 +52,8 @@
 
         <activity
             android:name=".homeuser.HomeUserActivity"
-            android:label="@string/user"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarAppTheme"  />
 
         <activity
             android:name=".armadasetting.ArmadaSettingActivity"
