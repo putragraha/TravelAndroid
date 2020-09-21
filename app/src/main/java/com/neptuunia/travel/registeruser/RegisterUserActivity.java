@@ -5,17 +5,14 @@ import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.databinding.ActivityRegisterUserBinding;
+import com.neptuunia.travel.utils.StringUtils;
 
 import android.graphics.Color;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.View;
 
 import javax.inject.Inject;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -72,27 +69,19 @@ public class RegisterUserActivity extends BaseActivity {
     }
 
     private void setupLoginTextView() {
-        binding.viewRegister.tvLoginLabel.setText(getLoginSpannableText());
+        binding.viewRegister.tvLoginLabel.setText(
+            StringUtils.getSpannableText(
+                getString(R.string.login),
+                getString(R.string.have_an_account),
+                this::onSpannedTextClicked
+            )
+        );
         binding.viewRegister.tvLoginLabel.setMovementMethod(LinkMovementMethod.getInstance());
         binding.viewRegister.tvLoginLabel.setHighlightColor(Color.TRANSPARENT);
     }
 
-    private SpannableString getLoginSpannableText() {
-        String loginHere = getString(R.string.login);
-        SpannableString loginSpannableText = new SpannableString(
-            String.format(getString(R.string.have_an_account), loginHere)
-        );
-        int startIndex = loginSpannableText.length() - loginHere.length();
-
-        loginSpannableText.setSpan(new ClickableSpan() {
-
-            @Override
-            public void onClick(@NonNull View widget) {
-                onBackPressed();
-            }
-        }, startIndex, loginSpannableText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        return loginSpannableText;
+    private void onSpannedTextClicked(View view) {
+        onBackPressed();
     }
 
     private void setupOnSuccessRegisterUser() {

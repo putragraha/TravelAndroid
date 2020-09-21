@@ -6,17 +6,14 @@ import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.databinding.ActivityLoginUserBinding;
 import com.neptuunia.travel.homeuser.HomeUserActivity;
 import com.neptuunia.travel.registeruser.RegisterUserActivity;
+import com.neptuunia.travel.utils.StringUtils;
 
 import android.graphics.Color;
-import android.text.SpannableString;
-import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
-import android.text.style.ClickableSpan;
 import android.view.View;
 
 import javax.inject.Inject;
 
-import androidx.annotation.NonNull;
 import androidx.lifecycle.ViewModelProvider;
 import dagger.hilt.android.AndroidEntryPoint;
 
@@ -51,27 +48,19 @@ public class LoginUserActivity extends BaseActivity {
     }
 
     private void setupRegisterTextView() {
-        binding.viewLogin.tvRegisterLabel.setText(getRegisterSpannableText());
+        binding.viewLogin.tvRegisterLabel.setText(
+            StringUtils.getSpannableText(
+                getString(R.string.register_here),
+                getString(R.string.have_no_account),
+                this::onSpannedTextClicked
+            )
+        );
         binding.viewLogin.tvRegisterLabel.setMovementMethod(LinkMovementMethod.getInstance());
         binding.viewLogin.tvRegisterLabel.setHighlightColor(Color.TRANSPARENT);
     }
 
-    private SpannableString getRegisterSpannableText() {
-        String registerHere = getString(R.string.register_here);
-        SpannableString registerSpannableText = new SpannableString(
-            String.format(getString(R.string.have_no_account), registerHere)
-        );
-        int startIndex = registerSpannableText.length() - registerHere.length();
-
-        registerSpannableText.setSpan(new ClickableSpan() {
-
-            @Override
-            public void onClick(@NonNull View widget) {
-                startActivity(RegisterUserActivity.class);
-            }
-        }, startIndex, registerSpannableText.length(), Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
-
-        return registerSpannableText;
+    private void onSpannedTextClicked(View view) {
+        startActivity(RegisterUserActivity.class);
     }
 
     private void setupButtonLogin() {
