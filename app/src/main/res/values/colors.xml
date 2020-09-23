@@ -4,11 +4,8 @@
     <color name="colorPrimaryDark">#0f4c75</color>
     <color name="colorAccent">#1b262c</color>
     <color name="lightGrey">#FBFBFB</color>
-    <color name="lightGreen">#BBF1EC</color>
     <color name="darkGreen">#007E72</color>
-    <color name="lightYellow">#F1EDC8</color>
     <color name="darkYellow">#EAD30B</color>
-    <color name="lightRed">#EFA6BF</color>
     <color name="darkRed">#E91E63</color>
     <color name="marigold">#e8a348</color>
     <color name="coarchoal">#3a4a54</color>

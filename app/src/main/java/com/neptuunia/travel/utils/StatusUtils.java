@@ -15,11 +15,11 @@ public class StatusUtils {
     public static int getBackgroundColor(@TicketStatus String status) {
         switch (status) {
             case TicketStatus.REJECTED:
-                return R.color.lightRed;
+                return R.color.darkRed;
             case TicketStatus.ACCEPTED:
-                return R.color.lightGreen;
+                return R.color.darkGreen;
             default:
-                return R.color.lightYellow;
+                return R.color.darkYellow;
         }
     }
 
@@ -31,11 +31,10 @@ public class StatusUtils {
     private static int getColorId(@TicketStatus String status) {
         switch (status) {
             case TicketStatus.REJECTED:
-                return R.color.darkRed;
             case TicketStatus.ACCEPTED:
-                return R.color.darkGreen;
+                return android.R.color.white;
             default:
-                return R.color.darkYellow;
+                return R.color.coarchoal;
         }
     }
 }

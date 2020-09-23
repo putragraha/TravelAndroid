@@ -62,8 +62,8 @@
 
         <activity
             android:name=".historydriver.HistoryDriverActivity"
-            android:label="@string/history"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarAppTheme" />
 
         <activity
             android:name=".orderdetaildriver.OrderDetailDriverActivity"
