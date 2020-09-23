@@ -30,7 +30,6 @@
     <string name="departure_date">Departure Date</string>
     <string name="seat_available">Seat Available</string>
     <string name="choose_pick_up_location">Choose Pick Up Location</string>
-    <string name="choose_amount_seat_to_order">How many seat?</string>
     <string name="change_password">Change Password</string>
     <string name="update_profile">Update Profile</string>
     <string name="old_password">Old Password</string>
@@ -67,6 +66,8 @@
     <string name="armada_detail">Armada Detail</string>
     <string name="account_information">Account Information</string>
     <string name="passenger_detail">Passenger Detail</string>
+    <string name="driver_detail">Driver Detail</string>
+    <string name="fill_your_data">Fill Your Data</string>
     <string name="order_code">Order Code</string>
     <string name="open_pickup_location">Open Pickup Location</string>
 

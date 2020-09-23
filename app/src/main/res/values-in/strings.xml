@@ -31,7 +31,6 @@
     <string name="departure_date">Tanggal Keberangkatan</string>
     <string name="seat_available">Kursi Tersedia</string>
     <string name="choose_pick_up_location">Pilih Lokasi Jemput</string>
-    <string name="choose_amount_seat_to_order">Berapa kursi?</string>
     <string name="change_password">Ubah Password</string>
     <string name="update_profile">Ubah Profil</string>
     <string name="old_password">Password Lama</string>
@@ -68,6 +67,8 @@
     <string name="armada_detail">Detail Armada</string>
     <string name="account_information">Informasi Akun</string>
     <string name="passenger_detail">Detail Penumpang</string>
+    <string name="driver_detail">Detail Pengemudi</string>
+    <string name="fill_your_data">Isi Data Diri</string>
     <string name="order_code">Kode Pemesanan</string>
     <string name="open_pickup_location">Lihat Lokasi Jemput</string>
 

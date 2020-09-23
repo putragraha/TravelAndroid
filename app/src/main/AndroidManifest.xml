@@ -102,8 +102,8 @@
 
         <activity
             android:name=".orderticket.OrderTicketActivity"
-            android:label="@string/order_ticket"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarAppTheme" />
 
         <activity
             android:name=".selectpickup.SelectPickupActivity"
