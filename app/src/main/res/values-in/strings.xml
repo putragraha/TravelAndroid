@@ -73,6 +73,8 @@
     <string name="open_pickup_location">Lihat Lokasi Jemput</string>
     <string name="update_ticket_order">Ubah Tiket Pesanan</string>
     <string name="seat_booked">Kursi dipesan</string>
+    <string name="date_range">Rentang Tanggal</string>
+    <string name="date_range_message">%s sampai %s</string>
 
     <string-array name="city_list">
         <item>Pekanbaru</item>

@@ -72,6 +72,8 @@
     <string name="open_pickup_location">Open Pickup Location</string>
     <string name="update_ticket_order">Update Ticket Order</string>
     <string name="seat_booked">Seat Booked</string>
+    <string name="date_range">Date Range</string>
+    <string name="date_range_message">%s to %s</string>
 
     <string-array name="city_list">
         <item>Pekanbaru</item>
