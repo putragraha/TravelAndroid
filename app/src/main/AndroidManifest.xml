@@ -47,8 +47,8 @@
 
         <activity
             android:name=".homedriver.HomeDriverActivity"
-            android:label="@string/driver"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarAppTheme" />
 
         <activity
             android:name=".homeuser.HomeUserActivity"
