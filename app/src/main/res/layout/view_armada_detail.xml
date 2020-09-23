@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_armada_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/armada_detail"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_departure"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:drawableStart="@drawable/ic_departure"
+            android:drawableTint="@color/darkGreen"
+            android:drawablePadding="4dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/actv_armada_detail_title"
+            tools:text="Pekanbaru" />
+
+        <View
+            android:id="@+id/divider_departure"
+            android:layout_width="20dp"
+            android:layout_height="1dp"
+            android:layout_marginStart="12dp"
+            android:background="@color/coarchoal"
+            app:layout_constraintStart_toEndOf="@id/actv_departure"
+            app:layout_constraintTop_toTopOf="@id/actv_departure"
+            app:layout_constraintBottom_toBottomOf="@id/actv_departure" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_arrival"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="12dp"
+            android:drawableStart="@drawable/ic_arrival"
+            android:drawableTint="@color/darkRed"
+            android:drawablePadding="4dp"
+            android:textSize="16sp"
+            app:layout_constraintStart_toEndOf="@id/divider_departure"
+            app:layout_constraintTop_toTopOf="@id/actv_departure"
+            tools:text="Rengat" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_order_code_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/order_ticket"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/aciv_order_code"
+            app:layout_constraintTop_toBottomOf="@id/actv_departure" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aciv_order_code"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/actv_order_code_title"
+            app:layout_constraintBottom_toBottomOf="@id/actv_order_code"
+            app:srcCompat="@drawable/ic_order_code" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_order_code"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/actv_order_code_title"
+            app:layout_constraintTop_toBottomOf="@id/actv_order_code_title"
+            tools:text="0981209123102313" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_group_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/group"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/aciv_group"
+            app:layout_constraintTop_toBottomOf="@id/actv_order_code" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aciv_group"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/actv_group_title"
+            app:layout_constraintBottom_toBottomOf="@id/actv_group"
+            app:srcCompat="@drawable/ic_group" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_group"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/actv_group_title"
+            app:layout_constraintTop_toBottomOf="@id/actv_group_title"
+            tools:text="Libra Travel" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_departure_time_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/departure_time"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/aciv_departure_time"
+            app:layout_constraintTop_toBottomOf="@id/actv_group" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aciv_departure_time"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/actv_departure_time_title"
+            app:layout_constraintBottom_toBottomOf="@id/actv_departure_time"
+            app:srcCompat="@drawable/ic_access_time" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_departure_time"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/actv_departure_time_title"
+            app:layout_constraintTop_toBottomOf="@id/actv_departure_time_title"
+            tools:text="23 Sept 2020" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_price_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/ticket_price"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/aciv_departure_time"
+            app:layout_constraintTop_toBottomOf="@id/actv_departure_time" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aciv_price"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/actv_price_title"
+            app:layout_constraintBottom_toBottomOf="@id/actv_price"
+            app:srcCompat="@drawable/ic_dollar" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_price"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/actv_price_title"
+            app:layout_constraintTop_toBottomOf="@id/actv_price_title"
+            tools:text="Rp 160.000" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>

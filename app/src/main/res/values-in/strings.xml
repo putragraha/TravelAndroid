@@ -55,6 +55,7 @@
     <string name="current_location_not_found">Lokasi tidak ditemukan</string>
     <string name="address_not_found">Alamat tidak ditemukan</string>
     <string name="confirm_pickup_location">Konfirmasi Lokasi Jemput</string>
+    <string name="pickup_location">Lokasi Jemput</string>
     <string name="reject">Tolak</string>
     <string name="accept">Terima</string>
     <string name="order_confirmed">Pesanan dikonfirmasi</string>
@@ -64,6 +65,10 @@
     <string name="route">Rute</string>
     <string name="depart_from">Berangkat dari</string>
     <string name="welcome">Selamat Datang,</string>
+    <string name="armada_detail">Detail Armada</string>
+    <string name="passenger_detail">Detail Penumpang</string>
+    <string name="order_code">Kode Pemesanan</string>
+    <string name="open_pickup_location">Lihat Lokasi Jemput</string>
 
     <string-array name="city_list">
         <item>Pekanbaru</item>

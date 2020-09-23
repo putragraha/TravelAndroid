@@ -67,8 +67,8 @@
 
         <activity
             android:name=".orderdetaildriver.OrderDetailDriverActivity"
-            android:label="@string/detail_information"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarAppTheme" />
 
         <activity
             android:name=".profiledriver.ProfileDriverActivity"
