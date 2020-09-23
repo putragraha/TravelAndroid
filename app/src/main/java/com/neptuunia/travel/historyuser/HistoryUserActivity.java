@@ -1,6 +1,7 @@
 package com.neptuunia.travel.historyuser;
 
 import com.neptuunia.data.user.model.response.HistoryUserResponse;
+import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.constant.Constant;
@@ -38,6 +39,7 @@ public class HistoryUserActivity extends BaseActivity {
     public void setup() {
         setupRecylerView();
         initHistoryDriverViewModel();
+        setupToolbar();
         getHistoryUsers();
         setupOnSuccessGetHistoryUser();
     }
@@ -57,6 +59,11 @@ public class HistoryUserActivity extends BaseActivity {
     private void initHistoryDriverViewModel() {
         historyUserViewModel = new ViewModelProvider(this, viewModelFactory)
             .get(HistoryUserViewModel.class);
+    }
+
+    private void setupToolbar() {
+        binding.viewToolbar.actvTitle.setText(R.string.history);
+        binding.viewToolbar.acivArrowBack.setOnClickListener(view -> onBackPressed());
     }
 
     private void getHistoryUsers() {
