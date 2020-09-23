@@ -72,10 +72,6 @@ public abstract class BaseActivity extends AppCompatActivity {
         return editText.getText() == null ? "" : editText.getText().toString().trim();
     }
 
-    protected int getEditTextAsInteger(EditText editText) {
-        return editText.getText() == null ? 0 : Integer.parseInt(editText.getText().toString());
-    }
-
     protected int getTextInputLayoutAsInteger(TextInputLayout textInputLayout) {
         String textInputLayoutValue = getTextInputLayoutValue(textInputLayout);
 
