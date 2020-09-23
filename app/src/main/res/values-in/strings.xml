@@ -28,6 +28,7 @@
     <string name="confirm_password">Konfirmasi Password</string>
     <string name="car">Mobil</string>
     <string name="departure_time">Waktu Keberangkatan</string>
+    <string name="departure_date">Tanggal Keberangkatan</string>
     <string name="seat_available">Kursi Tersedia</string>
     <string name="choose_pick_up_location">Pilih Lokasi Jemput</string>
     <string name="choose_amount_seat_to_order">Berapa kursi?</string>

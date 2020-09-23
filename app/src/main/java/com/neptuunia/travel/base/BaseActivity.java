@@ -76,6 +76,12 @@ public abstract class BaseActivity extends AppCompatActivity {
         return editText.getText() == null ? 0 : Integer.parseInt(editText.getText().toString());
     }
 
+    protected int getTextInputLayoutAsInteger(TextInputLayout textInputLayout) {
+        String textInputLayoutValue = getTextInputLayoutValue(textInputLayout);
+
+        return TextUtils.isEmpty(textInputLayoutValue) ? 0 : Integer.parseInt(textInputLayoutValue);
+    }
+
     protected String getTextInputLayoutValue(TextInputLayout textInputLayout) {
         EditText editText = textInputLayout.getEditText();
 

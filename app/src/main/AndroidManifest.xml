@@ -57,8 +57,8 @@
 
         <activity
             android:name=".armadasetting.ArmadaSettingActivity"
-            android:label="@string/armada_setting"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarAppTheme" />
 
         <activity
             android:name=".historydriver.HistoryDriverActivity"
