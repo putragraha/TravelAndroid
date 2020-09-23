@@ -7,6 +7,7 @@ import com.neptuunia.travel.utils.Transformer;
 
 import android.app.Application;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -21,6 +22,8 @@ public class SearchTicketViewModel extends AndroidViewModel {
     private MutableLiveData<List<TicketResponse>> ticketResponseLiveData = new MutableLiveData<>();
 
     private TicketRepository ticketRepository;
+
+    private List<TicketResponse> ticketResponses = new ArrayList<>();
 
     @Inject
     public SearchTicketViewModel(
@@ -43,8 +46,27 @@ public class SearchTicketViewModel extends AndroidViewModel {
                 @Override
                 public void onSuccess(List<TicketResponse> ticketResponses) {
                     super.onSuccess(ticketResponses);
+                    SearchTicketViewModel.this.ticketResponses = ticketResponses;
                     ticketResponseLiveData.postValue(ticketResponses);
                 }
             });
+    }
+
+    public void filterTickets(long minDate, long maxDate) {
+        List<TicketResponse> results = new ArrayList<>();
+
+        for (TicketResponse ticketResponse : ticketResponses) {
+            long datetime = Long.parseLong(ticketResponse.getDatetime());
+
+            if (datetime >= minDate && datetime <= maxDate) {
+                results.add(ticketResponse);
+            }
+        }
+
+        ticketResponseLiveData.postValue(results);
+    }
+
+    public void clearTickets() {
+        ticketResponseLiveData.postValue(ticketResponses);
     }
 }

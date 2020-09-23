@@ -9,6 +9,10 @@
         android:id="@+id/view_toolbar"
         layout="@layout/view_toolbar" />
 
+    <include
+        android:id="@+id/view_filter_date"
+        layout="@layout/view_filter_date" />
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
