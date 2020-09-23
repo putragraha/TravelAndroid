@@ -97,8 +97,8 @@
 
         <activity
             android:name=".searchticket.SearchTicketActivity"
-            android:label="@string/get_ticket"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarAppTheme"  />
 
         <activity
             android:name=".orderticket.OrderTicketActivity"
