@@ -66,6 +66,7 @@
     <string name="depart_from">Berangkat dari</string>
     <string name="welcome">Selamat Datang,</string>
     <string name="armada_detail">Detail Armada</string>
+    <string name="account_information">Informasi Akun</string>
     <string name="passenger_detail">Detail Penumpang</string>
     <string name="order_code">Kode Pemesanan</string>
     <string name="open_pickup_location">Lihat Lokasi Jemput</string>

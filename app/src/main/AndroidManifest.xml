@@ -72,8 +72,8 @@
 
         <activity
             android:name=".profiledriver.ProfileDriverActivity"
-            android:label="@string/profile"
-            android:screenOrientation="portrait" />
+            android:screenOrientation="portrait"
+            android:theme="@style/NoActionBarAppTheme" />
 
         <activity
             android:name=".profileuser.ProfileUserActivity"

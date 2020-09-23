@@ -32,6 +32,7 @@ public class ProfileDriverActivity extends BaseActivity {
     @Override
     public void setup() {
         initProfileDriverViewModel();
+        setupToolbar();
         fetchProfileDriver();
         setupOnSuccessGetProfileDriver();
         setupOnSuccessEditProfileDriver();
@@ -42,6 +43,11 @@ public class ProfileDriverActivity extends BaseActivity {
     private void initProfileDriverViewModel() {
         profileDriverViewModel = new ViewModelProvider(this, viewModelFactory)
             .get(ProfileDriverViewModel.class);
+    }
+
+    private void setupToolbar() {
+        binding.viewToolbar.actvTitle.setText(R.string.profile);
+        binding.viewToolbar.acivArrowBack.setOnClickListener(view -> onBackPressed());
     }
 
     private void fetchProfileDriver() {
@@ -64,17 +70,19 @@ public class ProfileDriverActivity extends BaseActivity {
     }
 
     private void setupForm(ProfileDriverResponse profileDriverResponse) {
-        binding.acetName.setText(profileDriverResponse.getName());
-        binding.acetEmail.setText(profileDriverResponse.getEmail());
-        binding.acetGroup.setText(profileDriverResponse.getGroup());
-        binding.acetPhoneNumber.setText(profileDriverResponse.getPhoneNumber());
+        binding.viewUpdateDriverProfile.tietDriverName.setText(profileDriverResponse.getName());
+        binding.viewDriverAccount.actvEmail.setText(profileDriverResponse.getEmail());
+        binding.viewDriverAccount.actvGroup.setText(profileDriverResponse.getGroup());
+        binding.viewUpdateDriverProfile.tietPhoneNumber.setText(
+            profileDriverResponse.getPhoneNumber()
+        );
     }
 
     private void setupOnEditClick() {
-        binding.btnUpdate.setOnClickListener(view ->
+        binding.viewUpdateDriverProfile.btnUpdate.setOnClickListener(view ->
             profileDriverViewModel.editProfileDriver(
-                getEditTextValue(binding.acetName),
-                getEditTextValue(binding.acetPhoneNumber)
+                getTextInputLayoutValue(binding.viewUpdateDriverProfile.tilDriverName),
+                getTextInputLayoutValue(binding.viewUpdateDriverProfile.tilPhoneNumber)
             )
         );
     }

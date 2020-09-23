@@ -65,6 +65,7 @@
     <string name="depart_from">Depart from</string>
     <string name="welcome">Welcome,</string>
     <string name="armada_detail">Armada Detail</string>
+    <string name="account_information">Account Information</string>
     <string name="passenger_detail">Passenger Detail</string>
     <string name="order_code">Order Code</string>
     <string name="open_pickup_location">Open Pickup Location</string>
