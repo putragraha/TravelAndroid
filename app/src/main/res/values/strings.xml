@@ -70,6 +70,8 @@
     <string name="fill_your_data">Fill Your Data</string>
     <string name="order_code">Order Code</string>
     <string name="open_pickup_location">Open Pickup Location</string>
+    <string name="update_ticket_order">Update Ticket Order</string>
+    <string name="seat_booked">Seat Booked</string>
 
     <string-array name="city_list">
         <item>Pekanbaru</item>

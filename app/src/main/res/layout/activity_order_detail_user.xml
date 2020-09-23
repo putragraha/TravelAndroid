@@ -1,206 +1,65 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <include
+        android:id="@+id/view_toolbar"
+        layout="@layout/view_toolbar" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="24dp">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/actv_status"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textStyle="bold"
-            android:textAllCaps="true"
-            android:paddingHorizontal="48dp"
-            android:paddingVertical="4dp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Status"/>
+            android:padding="24dp">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_order_code"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_order_code"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/actv_status"
-            tools:text="Order Code" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_status"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingHorizontal="48dp"
+                android:paddingVertical="4dp"
+                android:textAllCaps="true"
+                android:textStyle="bold"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Status" />
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_departure"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_departure"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_order_code"
-            tools:text="Departure"/>
+            <include
+                android:id="@+id/view_armada_detail"
+                layout="@layout/view_armada_detail"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/actv_status" />
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_arrival"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_arrival"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_departure"
-            tools:text="Arrival"/>
+            <include
+                android:id="@+id/view_driver_order_detail_user"
+                layout="@layout/view_driver_order_detail_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_armada_detail" />
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_group"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_group"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:hint="@string/group"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_arrival"/>
+            <include
+                android:id="@+id/view_update_order_detail_user"
+                layout="@layout/view_update_order_detail_user"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/view_driver_order_detail_user" />
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_armada_class"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_star"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:hint="@string/armada_class"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_group" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_driver_name"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_user"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_armada_class"
-            tools:text="Driver Name" />
+    </ScrollView>
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_driver_phone_number"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_phone"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_driver_name"
-            tools:text="Driver Phone Number" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_seat_amount"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_seat"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_driver_phone_number"
-            tools:text="Ticket Ordered Amount" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_total_price"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_dollar"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_seat_amount"
-            tools:text="Total Price" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_departure_date"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_calendar"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_total_price"
-            tools:text="Departure Date" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_departure_time"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_access_time"
-            android:enabled="false"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_departure_date"
-            tools:text="Departure Time" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_location"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_location"
-            android:focusableInTouchMode="false"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_departure_time"
-            tools:text="Location" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_note"
-            style="@style/RoundedBoxEditText"
-            android:layout_height="100dp"
-            android:layout_marginTop="24dp"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_location"
-            tools:text="Note" />
-
-        <Button
-            android:id="@+id/btn_update"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/update_pickup_location"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_note" />
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-</ScrollView>
+</LinearLayout>

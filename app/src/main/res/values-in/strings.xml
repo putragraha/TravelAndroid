@@ -71,6 +71,8 @@
     <string name="fill_your_data">Isi Data Diri</string>
     <string name="order_code">Kode Pemesanan</string>
     <string name="open_pickup_location">Lihat Lokasi Jemput</string>
+    <string name="update_ticket_order">Ubah Tiket Pesanan</string>
+    <string name="seat_booked">Kursi dipesan</string>
 
     <string-array name="city_list">
         <item>Pekanbaru</item>

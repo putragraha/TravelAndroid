@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="2dp"
+    app:layout_constraintStart_toStartOf="parent"
+    app:layout_constraintTop_toTopOf="parent">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="14dp">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_driver_detail_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/driver_detail"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_name_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="24dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/name"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/aciv_name"
+            app:layout_constraintTop_toBottomOf="@id/actv_driver_detail_title" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aciv_name"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/actv_name_title"
+            app:layout_constraintBottom_toBottomOf="@id/actv_name"
+            app:srcCompat="@drawable/ic_user" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/actv_name_title"
+            app:layout_constraintTop_toBottomOf="@id/actv_name_title"
+            tools:text="Driver Name" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_phone_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="16dp"
+            android:layout_marginStart="8dp"
+            android:text="@string/phone_number"
+            android:textSize="12sp"
+            app:layout_constraintStart_toEndOf="@id/aciv_phone"
+            app:layout_constraintTop_toBottomOf="@id/actv_name" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aciv_phone"
+            android:layout_width="32dp"
+            android:layout_height="32dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="@id/actv_phone_title"
+            app:layout_constraintBottom_toBottomOf="@id/actv_phone"
+            app:srcCompat="@drawable/ic_phone" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_phone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toStartOf="@id/actv_phone_title"
+            app:layout_constraintTop_toBottomOf="@id/actv_phone_title"
+            tools:text="085275879012" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.cardview.widget.CardView>
