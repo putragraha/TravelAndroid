@@ -1,57 +1,76 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:padding="24dp">
 
-    <androidx.appcompat.widget.AppCompatImageView
-        android:id="@+id/aciv_driver_picture"
-        android:layout_width="150dp"
-        android:layout_height="150dp"
-        android:layout_marginBottom="28dp"
-        android:src="@drawable/abdurrab"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintBottom_toTopOf="@id/btn_armada_setting"/>
-
-    <Button
-        android:id="@+id/btn_armada_setting"
-        android:layout_width="wrap_content"
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="@string/armada_setting"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        android:layout_centerInParent="true" >
 
-    <Button
-        android:id="@+id/btn_history"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/history"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_armada_setting" />
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/actv_title"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:text="@string/welcome"
+            android:textColor="@android:color/black"
+            android:textSize="24sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toTopOf="@id/aciv_home_image"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-    <Button
-        android:id="@+id/btn_profile"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/profile"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_history" />
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/aciv_home_image"
+            android:layout_width="wrap_content"
+            android:layout_height="330dp"
+            app:layout_constraintBottom_toTopOf="@id/mb_armada_setting"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:srcCompat="@drawable/gradien" />
 
-    <Button
-        android:id="@+id/btn_logout"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="16dp"
-        android:text="@string/logout"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@id/btn_profile" />
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_armada_setting"
+            style="@style/MaterialButton.Outlined.CustomIconed"
+            android:layout_marginTop="6dp"
+            android:text="@string/armada_setting"
+            app:icon="@drawable/ic_car"
+            app:layout_constraintBottom_toTopOf="@id/mb_history"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
 
-</androidx.constraintlayout.widget.ConstraintLayout>
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_history"
+            style="@style/MaterialButton.Outlined.CustomIconed"
+            android:layout_marginTop="6dp"
+            android:text="@string/history"
+            app:icon="@drawable/ic_chart"
+            app:layout_constraintBottom_toTopOf="@id/mb_profile"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_profile"
+            style="@style/MaterialButton.Outlined.CustomIconed"
+            android:layout_marginTop="6dp"
+            android:text="@string/profile"
+            app:icon="@drawable/ic_user"
+            app:layout_constraintBottom_toTopOf="@id/mb_logout"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/mb_logout"
+            style="@style/MaterialButton.Outlined.CustomIconed"
+            android:layout_marginTop="6dp"
+            android:text="@string/logout"
+            app:icon="@drawable/ic_logout"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</RelativeLayout>

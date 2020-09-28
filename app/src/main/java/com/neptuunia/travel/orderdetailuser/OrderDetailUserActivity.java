@@ -13,6 +13,7 @@ import com.neptuunia.travel.databinding.ActivityOrderDetailUserBinding;
 import com.neptuunia.travel.selectpickup.SelectPickupActivity;
 import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.LocationUtils;
+import com.neptuunia.travel.utils.NumberUtils;
 import com.neptuunia.travel.utils.StatusUtils;
 
 import android.content.Intent;
@@ -52,6 +53,7 @@ public class OrderDetailUserActivity extends BaseActivity {
     @Override
     public void setup() {
         initEditOrderTicketViewModel();
+        setupToolbar();
         setupBundleData();
         setupOnUpdateClick();
         setupOnLocationClick();
@@ -63,13 +65,18 @@ public class OrderDetailUserActivity extends BaseActivity {
     protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
         if (EDIT_LOCATION_REQUEST_CODE == requestCode && RESULT_OK == resultCode && data != null) {
-            binding.acetLocation.setText(getAddress(data));
+            binding.viewUpdateOrderDetailUser.acetLocation.setText(getAddress(data));
         }
     }
 
     private void initEditOrderTicketViewModel() {
         editOrderTicketViewModel = new ViewModelProvider(this, viewModelFactory)
             .get(EditOrderTicketViewModel.class);
+    }
+
+    private void setupToolbar() {
+        binding.viewToolbar.actvTitle.setText(R.string.detail_information);
+        binding.viewToolbar.acivArrowBack.setOnClickListener(view -> onBackPressed());
     }
 
     private void setupBundleData() {
@@ -81,7 +88,7 @@ public class OrderDetailUserActivity extends BaseActivity {
     }
 
     private void setupOnUpdateClick() {
-        binding.btnUpdate.setOnClickListener(view -> {
+        binding.viewUpdateOrderDetailUser.btnUpdate.setOnClickListener(view -> {
             if (historyUserResponse == null || latLng == null) {
                 showMessage(getString(R.string.address_not_found));
                 return;
@@ -96,13 +103,15 @@ public class OrderDetailUserActivity extends BaseActivity {
         editTicketRequest.setOrderCode(historyUserResponse.getOrderCode());
         editTicketRequest.setLatitude(String.valueOf(latLng.latitude));
         editTicketRequest.setLongitude(String.valueOf(latLng.longitude));
-        editTicketRequest.setNote(getEditTextValue(binding.acetNote));
+        editTicketRequest.setNote(
+            getTextInputLayoutValue(binding.viewUpdateOrderDetailUser.tilNote)
+        );
 
         return editTicketRequest;
     }
 
     private void setupOnLocationClick() {
-        binding.acetLocation.setOnClickListener(view ->
+        binding.viewUpdateOrderDetailUser.acetLocation.setOnClickListener(view ->
             startActivityForResult(SelectPickupActivity.class, EDIT_LOCATION_REQUEST_CODE)
         );
     }
@@ -128,19 +137,25 @@ public class OrderDetailUserActivity extends BaseActivity {
         if (historyUserResponse != null) {
             Date date = new Date(Long.parseLong(historyUserResponse.getDatetime()));
 
-            binding.acetOrderCode.setText(historyUserResponse.getOrderCode());
-            binding.acetDeparture.setText(historyUserResponse.getDeparture());
-            binding.acetArrival.setText(historyUserResponse.getArrival());
-            binding.acetGroup.setText(historyUserResponse.getGroup());
-            binding.acetArmadaClass.setText(historyUserResponse.getArmadaClass());
-            binding.acetDriverName.setText(historyUserResponse.getDriverName());
-            binding.acetSeatAmount.setText(String.valueOf(historyUserResponse.getSeatBooked()));
-            binding.acetTotalPrice.setText(String.valueOf(historyUserResponse.getTotalPrice()));
-            binding.acetDepartureDate.setText(DateTimeUtils.getFormattedDate(date));
-            binding.acetDepartureTime.setText(DateTimeUtils.getFormattedTime(date));
-            binding.acetLocation.setText(getAddress(historyUserResponse));
-            binding.acetNote.setText(historyUserResponse.getNote());
-            binding.acetDriverPhoneNumber.setText(historyUserResponse.getDriverPhoneNumber());
+            binding.viewArmadaDetail.actvOrderCode.setText(historyUserResponse.getOrderCode());
+            binding.viewArmadaDetail.actvDeparture.setText(historyUserResponse.getDeparture());
+            binding.viewArmadaDetail.actvArrival.setText(historyUserResponse.getArrival());
+            binding.viewArmadaDetail.actvGroup.setText(historyUserResponse.getGroup());
+            binding.viewDriverOrderDetailUser.actvName.setText(historyUserResponse.getDriverName());
+            binding.viewUpdateOrderDetailUser.actvSeatBooked.setText(
+                historyUserResponse.getSeatBooked()
+            );
+            binding.viewArmadaDetail.actvPrice.setText(
+                NumberUtils.toRupiah(historyUserResponse.getTotalPrice())
+            );
+            binding.viewArmadaDetail.actvDepartureTime.setText(
+                DateTimeUtils.getFormattedDatetime(date)
+            );
+            binding.viewUpdateOrderDetailUser.acetLocation.setText(getAddress(historyUserResponse));
+            binding.viewUpdateOrderDetailUser.tietNote.setText(historyUserResponse.getNote());
+            binding.viewDriverOrderDetailUser.actvPhone.setText(
+                historyUserResponse.getDriverPhoneNumber()
+            );
             binding.actvStatus.setText(historyUserResponse.getStatus());
             binding.actvStatus.setBackgroundResource(
                 StatusUtils.getBackgroundColor(historyUserResponse.getStatus())

@@ -12,13 +12,13 @@
         android:layout_height="wrap_content"
         android:padding="12dp">
 
-        <androidx.appcompat.widget.AppCompatImageView
+        <com.google.android.material.imageview.ShapeableImageView
             android:id="@+id/aciv_driver_picture"
             android:layout_width="75dp"
             android:layout_height="75dp"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintBottom_toBottomOf="parent"
+            app:shapeAppearanceOverlay="@style/CircleImageView"
             tools:src="@mipmap/ic_launcher"/>
 
         <androidx.appcompat.widget.AppCompatTextView

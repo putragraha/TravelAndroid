@@ -54,9 +54,9 @@ android {
         variant.buildConfigField("String", "BASE_URL", "\"${baseUrl}\"")
 
         if (name.contains("driver")) {
-            variant.resValue("string", "app_name", "Neptuunia Driver")
+            variant.resValue("string", "app_name", "Driver Neptuunia")
         } else if (name.contains("user")) {
-            variant.resValue("string", "app_name", "Neptuunia User")
+            variant.resValue("string", "app_name", "User Neptuunia")
         }
     }
 
@@ -73,10 +73,10 @@ android {
 dependencies {
     implementation project(path: ':data')
     implementation 'androidx.appcompat:appcompat:1.2.0'
-    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.1'
     implementation 'androidx.cardview:cardview:1.0.0'
 
-    implementation 'com.google.android.material:material:1.2.0'
+    implementation 'com.google.android.material:material:1.2.1'
 
     implementation "io.reactivex.rxjava3:rxjava:3.0.0"
     implementation "io.reactivex.rxjava3:rxandroid:3.0.0"

@@ -33,6 +33,8 @@ public class ProfileUserActivity extends BaseActivity {
     @Override
     public void setup() {
         initProfileUserViewModel();
+        setupToolbar();
+        fetchProfileUser();
         setupOnSuccessGetProfileUser();
         setupOnSuccessEditProfileUser();
         setupOnSuccessChangePassword();
@@ -46,6 +48,15 @@ public class ProfileUserActivity extends BaseActivity {
             .get(ProfileUserViewModel.class);
     }
 
+    private void setupToolbar() {
+        binding.viewToolbar.actvTitle.setText(R.string.profile);
+        binding.viewToolbar.acivArrowBack.setOnClickListener(view -> onBackPressed());
+    }
+
+    private void fetchProfileUser() {
+        profileUserViewModel.fetchProfileUser();
+    }
+
     private void setupOnSuccessGetProfileUser() {
         profileUserViewModel.getSuccessGetProfileUserLiveData()
             .observe(this, this::setupForm);
@@ -57,9 +68,9 @@ public class ProfileUserActivity extends BaseActivity {
     }
 
     private void setupForm(ProfileUserResponse profileUserResponse) {
-        binding.acetName.setText(profileUserResponse.getName());
-        binding.acetEmail.setText(profileUserResponse.getEmail());
-        binding.acetPhoneNumber.setText(profileUserResponse.getPhoneNumber());
+        binding.tietName.setText(profileUserResponse.getName());
+        binding.tietEmail.setText(profileUserResponse.getEmail());
+        binding.tietPhoneNumber.setText(profileUserResponse.getPhoneNumber());
     }
 
     private void setupOnSuccessChangePassword() {
@@ -75,9 +86,9 @@ public class ProfileUserActivity extends BaseActivity {
     private void setupOnUpdateClick() {
         binding.btnUpdate.setOnClickListener(view -> {
             EditProfileUserRequest editProfileUserRequest = new EditProfileUserRequest();
-            editProfileUserRequest.setEmail(getEditTextValue(binding.acetEmail));
-            editProfileUserRequest.setName(getEditTextValue(binding.acetName));
-            editProfileUserRequest.setPhoneNumber(getEditTextValue(binding.acetPhoneNumber));
+            editProfileUserRequest.setEmail(getTextInputLayoutValue(binding.tilEmail));
+            editProfileUserRequest.setName(getTextInputLayoutValue(binding.tilName));
+            editProfileUserRequest.setPhoneNumber(getTextInputLayoutValue(binding.tilPhoneNumber));
 
             profileUserViewModel.editProfileUser(editProfileUserRequest);
         });
@@ -87,18 +98,18 @@ public class ProfileUserActivity extends BaseActivity {
         binding.btnChange.setOnClickListener(view -> {
             if (isPasswordMatch()) {
                 profileUserViewModel.changePassword(
-                    getEditTextValue(binding.acetNewPassword),
-                    getEditTextValue(binding.acetOldPassword)
+                    getTextInputLayoutValue(binding.tilNewPassword),
+                    getTextInputLayoutValue(binding.tilOldPassword)
                 );
             } else {
-                binding.acetConfirmPassword.setError(getString(R.string.password_did_not_match));
+                binding.tilConfirmPassword.setError(getString(R.string.password_did_not_match));
             }
         });
     }
 
     private boolean isPasswordMatch() {
-        return getEditTextValue(binding.acetNewPassword).equals(
-            getEditTextValue(binding.acetConfirmPassword)
+        return getTextInputLayoutValue(binding.tilNewPassword).equals(
+            getTextInputLayoutValue(binding.tilConfirmPassword)
         );
     }
 }

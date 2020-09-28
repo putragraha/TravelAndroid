@@ -1,119 +1,175 @@
 <?xml version="1.0" encoding="utf-8"?>
-<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="match_parent">
+    android:layout_height="match_parent"
+    android:orientation="vertical">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <include
+        android:id="@+id/view_toolbar"
+        layout="@layout/view_toolbar" />
+
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:padding="24dp">
+        android:layout_height="match_parent">
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_departure_time"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:drawableStart="@drawable/ic_access_time"
-            android:focusableInTouchMode="false"
-            android:hint="@string/choose_departure_time"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
-
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_departure_date"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_calendar"
-            android:focusableInTouchMode="false"
-            android:hint="@string/choose_departure_date"
-            android:importantForAutofill="no"
-            android:inputType="date"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_departure_time" />
-
-        <androidx.appcompat.widget.AppCompatTextView
-            android:id="@+id/actv_departure_title"
-            android:layout_width="wrap_content"
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:text="@string/depart_from"
-            android:textSize="16sp"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_departure_date" />
+            android:padding="24dp">
 
-        <androidx.appcompat.widget.AppCompatSpinner
-            android:id="@+id/acs_departure"
-            android:layout_width="0dp"
-            android:layout_height="45dp"
-            android:layout_marginTop="4dp"
-            android:background="@drawable/spinner_rounded_box"
-            android:entries="@array/city_list"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/actv_departure_title" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_departure_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/depart_from"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent" />
 
-        <androidx.appcompat.widget.AppCompatEditText
-            android:id="@+id/acet_class"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_star"
-            android:hint="@string/armada_class"
-            android:importantForAutofill="no"
-            android:inputType="text"
-            android:visibility="gone"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acs_departure" />
+            <androidx.appcompat.widget.AppCompatSpinner
+                android:id="@+id/acs_departure"
+                android:layout_width="0dp"
+                android:layout_height="45dp"
+                android:layout_marginTop="4dp"
+                android:background="@drawable/spinner_rounded_box"
+                android:entries="@array/city_list"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/actv_departure_title" />
 
-        <EditText
-            android:id="@+id/et_ticket_price"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_dollar"
-            android:hint="@string/ticket_price"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/acet_class" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_departure_date_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/departure_date"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/acs_departure" />
 
-        <EditText
-            android:id="@+id/et_seat_amount"
-            style="@style/RoundedBoxEditText.Iconed"
-            android:layout_marginTop="24dp"
-            android:drawableStart="@drawable/ic_seat"
-            android:hint="@string/seat_amount"
-            android:importantForAutofill="no"
-            android:inputType="number"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_ticket_price" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/acet_departure_date"
+                style="@style/RoundedBoxEditText.Iconed"
+                android:layout_marginTop="4dp"
+                android:drawableStart="@drawable/ic_calendar"
+                android:focusableInTouchMode="false"
+                android:hint="@string/choose_departure_date"
+                android:importantForAutofill="no"
+                android:inputType="date"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/actv_departure_date_title" />
 
-        <EditText
-            android:id="@+id/et_note"
-            style="@style/RoundedBoxEditText"
-            android:layout_height="100dp"
-            android:layout_marginTop="24dp"
-            android:hint="@string/note"
-            android:importantForAutofill="no"
-            android:inputType="textMultiLine"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_seat_amount" />
+            <androidx.appcompat.widget.AppCompatTextView
+                android:id="@+id/actv_departure_time_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:text="@string/departure_time"
+                android:textSize="16sp"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/acet_departure_date" />
 
-        <Button
-            android:id="@+id/btn_submit"
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="32dp"
-            android:text="@string/submit"
-            app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/et_note" />
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/acet_departure_time"
+                style="@style/RoundedBoxEditText.Iconed"
+                android:layout_marginTop="4dp"
+                android:drawableStart="@drawable/ic_access_time"
+                android:focusableInTouchMode="false"
+                android:hint="@string/choose_departure_time"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/actv_departure_time_title" />
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.appcompat.widget.AppCompatEditText
+                android:id="@+id/acet_class"
+                style="@style/RoundedBoxEditText.Iconed"
+                android:layout_marginTop="24dp"
+                android:drawableStart="@drawable/ic_star"
+                android:hint="@string/armada_class"
+                android:importantForAutofill="no"
+                android:inputType="text"
+                android:visibility="gone"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/acet_departure_time" />
 
-</ScrollView>
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_ticket_price"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:focusableInTouchMode="false"
+                android:hint="@string/ticket_price"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/acet_class"
+                app:startIconDrawable="@drawable/ic_dollar">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/white"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_seat_amount"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/seat_amount"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_ticket_price"
+                app:startIconDrawable="@drawable/ic_seat">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/white"
+                    android:inputType="number" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/til_note"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/note"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_seat_amount">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:backgroundTint="@android:color/white"
+                    android:inputType="textMultiLine" />
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <Button
+                android:id="@+id/btn_submit"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="32dp"
+                android:backgroundTint="@color/coarchoal"
+                android:text="@string/submit"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/til_note" />
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </ScrollView>
+
+</LinearLayout>

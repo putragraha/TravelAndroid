@@ -55,25 +55,25 @@ public class HomeDriverActivity extends BaseActivity {
     }
 
     private void setupStartProfileDriverActivity() {
-        binding.btnProfile.setOnClickListener(
+        binding.mbProfile.setOnClickListener(
             view -> startActivity(ProfileDriverActivity.class)
         );
     }
 
     private void setupStartHistoryDriverActivity() {
-        binding.btnHistory.setOnClickListener(
+        binding.mbHistory.setOnClickListener(
             view -> startActivity(HistoryDriverActivity.class)
         );
     }
 
     private void setupStartArmadaSettingActivity() {
-        binding.btnArmadaSetting.setOnClickListener(
+        binding.mbArmadaSetting.setOnClickListener(
             view -> startActivity(ArmadaSettingActivity.class)
         );
     }
 
     private void setupLogout() {
-        binding.btnLogout.setOnClickListener(view -> homeDriverViewModel.logout());
+        binding.mbLogout.setOnClickListener(view -> homeDriverViewModel.logout());
     }
 
     private void logout(boolean sessionClear) {

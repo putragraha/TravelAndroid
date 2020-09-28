@@ -42,13 +42,13 @@ public class LoginDriverActivity extends BaseActivity {
     }
 
     private void setupButton() {
-        binding.btnLogin.setOnClickListener(view -> loginDriver());
+        binding.viewLogin.btnLogin.setOnClickListener(view -> loginDriver());
     }
 
     private void loginDriver() {
         loginDriverViewModel.loginDriver(
-                getTextInputLayoutValue(binding.tilEmail),
-                getTextInputLayoutValue(binding.tilPassword)
+                getTextInputLayoutValue(binding.viewLogin.tilEmail),
+                getTextInputLayoutValue(binding.viewLogin.tilPassword)
             );
     }
 

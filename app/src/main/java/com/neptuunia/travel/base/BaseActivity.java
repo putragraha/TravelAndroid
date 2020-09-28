@@ -6,6 +6,7 @@ import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
 import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 
 import com.neptuunia.travel.R;
+import com.neptuunia.travel.utils.DurationUtils;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,8 +19,6 @@ import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 
 public abstract class BaseActivity extends AppCompatActivity {
-
-    private static final int ONE_MINUTE = 60;
 
     private FirebaseRemoteConfig firebaseRemoteConfig;
 
@@ -73,8 +72,10 @@ public abstract class BaseActivity extends AppCompatActivity {
         return editText.getText() == null ? "" : editText.getText().toString().trim();
     }
 
-    protected int getEditTextAsInteger(EditText editText) {
-        return editText.getText() == null ? 0 : Integer.parseInt(editText.getText().toString());
+    protected int getTextInputLayoutAsInteger(TextInputLayout textInputLayout) {
+        String textInputLayoutValue = getTextInputLayoutValue(textInputLayout);
+
+        return TextUtils.isEmpty(textInputLayoutValue) ? 0 : Integer.parseInt(textInputLayoutValue);
     }
 
     protected String getTextInputLayoutValue(TextInputLayout textInputLayout) {
@@ -93,7 +94,7 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     private FirebaseRemoteConfigSettings getFirebaseRemoteConfigSettings() {
         return new FirebaseRemoteConfigSettings.Builder()
-            .setMinimumFetchIntervalInSeconds(ONE_MINUTE)
+            .setMinimumFetchIntervalInSeconds(DurationUtils.ONE_MINUTE_IN_SECONDS)
             .build();
     }
 

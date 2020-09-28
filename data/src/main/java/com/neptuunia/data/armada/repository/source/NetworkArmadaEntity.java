@@ -20,6 +20,6 @@ public class NetworkArmadaEntity implements ArmadaEntity {
 
     @Override
     public Single<CommonResponse> addArmada(AddArmadaRequest addArmadaRequest) {
-        return armadaApi.addArmada(addArmadaRequest);
+        return Single.defer(() -> armadaApi.addArmada(addArmadaRequest));
     }
 }

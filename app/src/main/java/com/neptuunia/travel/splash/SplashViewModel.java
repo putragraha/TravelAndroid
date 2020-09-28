@@ -4,8 +4,10 @@ import com.neptuunia.data.account.model.Account;
 import com.neptuunia.data.account.repository.AccountRepository;
 import com.neptuunia.data.constant.AccountType;
 import com.neptuunia.travel.BuildConfig;
+import com.neptuunia.travel.utils.DurationUtils;
 
 import android.app.Application;
+import android.os.Handler;
 import android.text.TextUtils;
 
 import javax.inject.Inject;
@@ -51,7 +53,11 @@ public class SplashViewModel extends AndroidViewModel {
         return loginUserLiveData;
     }
 
-    public void checkSession() {
+    public void initSplashAction() {
+        new Handler().postDelayed(this::checkSession, DurationUtils.ONE_SECOND_IN_MILLIS);
+    }
+
+    private void checkSession() {
         Account account = accountRepository.getSession();
         if (account.getId() > 0 && !TextUtils.isEmpty(account.getType())) {
             postHomeLiveData(account.getType());

@@ -34,7 +34,25 @@ public class ProfileDriverViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.driverRepository = driverRepository;
-        fetchProfileDriver();
+    }
+
+    public void fetchProfileDriver() {
+        driverRepository.getProfileDriver()
+            .compose(Transformer::applySchedulers)
+            .subscribe(new AutoDisposeSingleObserver<ProfileDriverResponse>() {
+
+                @Override
+                public void onSuccess(ProfileDriverResponse profileDriverResponse) {
+                    super.onSuccess(profileDriverResponse);
+                    successGetProfileDriverLiveData.postValue(profileDriverResponse);
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    super.onError(e);
+                    errorLiveData.postValue(e.getMessage());
+                }
+            });
     }
 
     public LiveData<ProfileDriverResponse> getSuccessGetProfileDriverLiveData() {
@@ -63,25 +81,6 @@ public class ProfileDriverViewModel extends AndroidViewModel {
                     } else {
                         errorLiveData.postValue("");
                     }
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    super.onError(e);
-                    errorLiveData.postValue(e.getMessage());
-                }
-            });
-    }
-
-    private void fetchProfileDriver() {
-        driverRepository.getProfileDriver()
-            .compose(Transformer::applySchedulers)
-            .subscribe(new AutoDisposeSingleObserver<ProfileDriverResponse>() {
-
-                @Override
-                public void onSuccess(ProfileDriverResponse profileDriverResponse) {
-                    super.onSuccess(profileDriverResponse);
-                    successGetProfileDriverLiveData.postValue(profileDriverResponse);
                 }
 
                 @Override

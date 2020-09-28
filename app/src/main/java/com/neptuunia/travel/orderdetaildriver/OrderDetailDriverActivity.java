@@ -12,9 +12,11 @@ import com.neptuunia.travel.constant.Constant;
 import com.neptuunia.travel.databinding.ActivityOrderDetailDriverBinding;
 import com.neptuunia.travel.utils.DateTimeUtils;
 import com.neptuunia.travel.utils.LocationUtils;
+import com.neptuunia.travel.utils.NumberUtils;
 import com.neptuunia.travel.utils.StatusUtils;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 
 import java.util.Date;
@@ -45,6 +47,7 @@ public class OrderDetailDriverActivity extends BaseActivity {
     @Override
     public void setup() {
         initOrderDetailDriverViewModel();
+        setupToolbar();
         setupBundleData();
         setupOnAcceptClick();
         setupOnRejectClick();
@@ -56,6 +59,11 @@ public class OrderDetailDriverActivity extends BaseActivity {
     private void initOrderDetailDriverViewModel() {
         orderDetailDriverViewModel = new ViewModelProvider(this, viewModelFactory)
             .get(OrderDetailDriverViewModel.class);
+    }
+
+    private void setupToolbar() {
+        binding.viewToolbar.actvTitle.setText(R.string.detail_information);
+        binding.viewToolbar.acivArrowBack.setOnClickListener(view -> onBackPressed());
     }
 
     private void setupBundleData() {
@@ -72,18 +80,22 @@ public class OrderDetailDriverActivity extends BaseActivity {
         if (historyDriverResponse != null) {
             Date date = new Date(Long.parseLong(historyDriverResponse.getDatetime()));
 
-            binding.acetOrderCode.setText(historyDriverResponse.getOrderCode());
-            binding.acetGroup.setText(historyDriverResponse.getGroup());
-            binding.acetDeparture.setText(historyDriverResponse.getDeparture());
-            binding.acetArrival.setText(historyDriverResponse.getArrival());
-            binding.acetArmadaClass.setText(historyDriverResponse.getArmadaClass());
-            binding.acetUserName.setText(historyDriverResponse.getUserName());
-            binding.acetTicketAmount.setText(historyDriverResponse.getSeatBooked());
-            binding.acetTotalPrice.setText(String.valueOf(historyDriverResponse.getTotalPrice()));
-            binding.acetDepartureDate.setText(DateTimeUtils.getFormattedDate(date));
-            binding.acetDepartureTime.setText(DateTimeUtils.getFormattedTime(date));
-            binding.acetNote.setText(historyDriverResponse.getNote());
-            binding.acetLocation.setText(getAddress(historyDriverResponse));
+            binding.viewArmadaDetail.actvOrderCode.setText(historyDriverResponse.getOrderCode());
+            binding.viewArmadaDetail.actvGroup.setText(historyDriverResponse.getGroup());
+            binding.viewArmadaDetail.actvDeparture.setText(historyDriverResponse.getDeparture());
+            binding.viewArmadaDetail.actvArrival.setText(historyDriverResponse.getArrival());
+            binding.viewArmadaDetail.actvPrice.setText(
+                NumberUtils.toRupiah(historyDriverResponse.getTotalPrice())
+            );
+            binding.viewPassengerDetail.actvName.setText(historyDriverResponse.getUserName());
+            binding.viewPassengerDetail.actvSeatBooked.setText(
+                getString(R.string.amount_seat_booked, historyDriverResponse.getSeatBooked())
+            );
+            binding.viewArmadaDetail.actvDepartureTime.setText(
+                DateTimeUtils.getFormattedDatetime(date)
+            );
+            binding.viewPassengerDetail.actvNote.setText(historyDriverResponse.getNote());
+            binding.viewPassengerDetail.actvLocation.setText(getAddress(historyDriverResponse));
             binding.actvStatus.setText(historyDriverResponse.getStatus());
             binding.actvStatus.setBackgroundResource(
                 StatusUtils.getBackgroundColor(historyDriverResponse.getStatus())
@@ -106,8 +118,10 @@ public class OrderDetailDriverActivity extends BaseActivity {
             Double.parseDouble(historyDriverResponse.getLongitude())
         );
 
-        return LocationUtils.getAddress(this, latLng)
+        String address = LocationUtils.getAddress(this, latLng)
             .getAddressLine(0);
+
+        return TextUtils.isEmpty(address) ? "-" : address;
     }
 
     private boolean isTicketStatusPending(@TicketStatus String status) {
@@ -137,7 +151,7 @@ public class OrderDetailDriverActivity extends BaseActivity {
     }
 
     private void setupOnLocationClick() {
-        binding.acetLocation.setOnClickListener(view -> {
+        binding.viewPassengerDetail.mbOpenPickupLocation.setOnClickListener(view -> {
             if (historyDriverResponse != null) {
                 LocationUtils.openGoogleMaps(
                     OrderDetailDriverActivity.this,

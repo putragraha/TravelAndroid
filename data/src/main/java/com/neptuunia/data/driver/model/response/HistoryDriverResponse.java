@@ -2,6 +2,7 @@ package com.neptuunia.data.driver.model.response;
 
 import android.os.Parcel;
 import android.os.Parcelable;
+import android.text.TextUtils;
 
 public class HistoryDriverResponse implements Parcelable {
 
@@ -151,7 +152,7 @@ public class HistoryDriverResponse implements Parcelable {
     }
 
     public String getNote() {
-        return note;
+        return TextUtils.isEmpty(note) ? "-" : note;
     }
 
     public void setNote(String note) {

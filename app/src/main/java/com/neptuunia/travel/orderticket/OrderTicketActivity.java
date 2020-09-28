@@ -54,6 +54,7 @@ public class OrderTicketActivity extends BaseActivity {
     @Override
     public void setup() {
         initOrderTicketViewModel();
+        setupToolbar();
         setupBundleData();
         setupOnSubmitClick();
         setupOnLocationClick();
@@ -83,6 +84,11 @@ public class OrderTicketActivity extends BaseActivity {
     private void initOrderTicketViewModel() {
         orderTicketViewModel = new ViewModelProvider(this, viewModelFactory)
             .get(OrderTicketViewModel.class);
+    }
+
+    private void setupToolbar() {
+        binding.viewToolbar.actvTitle.setText(R.string.order_ticket);
+        binding.viewToolbar.acivArrowBack.setOnClickListener(view -> onBackPressed());
     }
 
     private void setupBundleData() {
@@ -156,8 +162,8 @@ public class OrderTicketActivity extends BaseActivity {
 
             OrderTicketRequest orderTicketRequest = new OrderTicketRequest();
             orderTicketRequest.setArmadaId(ticketResponse.getArmadaId());
-            orderTicketRequest.setNote(getEditTextValue(binding.acetNote));
-            orderTicketRequest.setSeatBooked(getEditTextValue(binding.acetSeat));
+            orderTicketRequest.setNote(getTextInputLayoutValue(binding.tilNote));
+            orderTicketRequest.setSeatBooked(getTextInputLayoutValue(binding.tilSeatAmount));
             orderTicketRequest.setLatitude(getLatitudeValue());
             orderTicketRequest.setLongitude(getLongitudeValue());
 

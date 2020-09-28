@@ -25,21 +25,21 @@ public class NetworkTicketEntity implements TicketEntity {
 
     @Override
     public Single<List<TicketResponse>> getTickets() {
-        return ticketApi.getTickets();
+        return Single.defer(() -> ticketApi.getTickets());
     }
 
     @Override
     public Single<CommonResponse> orderTicket(OrderTicketRequest orderTicketRequest) {
-        return ticketApi.orderTicket(orderTicketRequest);
+        return Single.defer(() -> ticketApi.orderTicket(orderTicketRequest));
     }
 
     @Override
     public Single<CommonResponse> editTicket(EditTicketRequest editTicketRequest) {
-        return ticketApi.editTicket(editTicketRequest);
+        return Single.defer(() -> ticketApi.editTicket(editTicketRequest));
     }
 
     @Override
     public Single<CommonResponse> confirmTicket(TicketStatusRequest ticketStatusRequest) {
-        return ticketApi.confirmTicket(ticketStatusRequest);
+        return Single.defer(() -> ticketApi.confirmTicket(ticketStatusRequest));
     }
 }

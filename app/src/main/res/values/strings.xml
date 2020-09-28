@@ -3,9 +3,13 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Login</string>
+    <string name="signup">Sign up</string>
+    <string name="login_driver_title">Driver Login</string>
+    <string name="login_user_title">User Login</string>
+    <string name="login_subtitle">Login to continue</string>
     <string name="driver">Driver</string>
-    <string name="user">User</string>
     <string name="have_no_account">Have no account? %s</string>
+    <string name="have_an_account">Already have an account? %s</string>
     <string name="register_here">Register here</string>
     <string name="register">Register</string>
     <string name="armada_setting">Armada Setting</string>
@@ -23,9 +27,9 @@
     <string name="confirm_password">Confirm Password</string>
     <string name="car">Car</string>
     <string name="departure_time">Departure Time</string>
+    <string name="departure_date">Departure Date</string>
     <string name="seat_available">Seat Available</string>
     <string name="choose_pick_up_location">Choose Pick Up Location</string>
-    <string name="choose_amount_seat_to_order">How many seat?</string>
     <string name="change_password">Change Password</string>
     <string name="update_profile">Update Profile</string>
     <string name="old_password">Old Password</string>
@@ -49,6 +53,7 @@
     <string name="current_location_not_found">Current location not found</string>
     <string name="address_not_found">Address not found</string>
     <string name="confirm_pickup_location">Confirm Pickup Location</string>
+    <string name="pickup_location">Pickup Location</string>
     <string name="reject">Reject</string>
     <string name="accept">Accept</string>
     <string name="order_confirmed">Order Confirmed</string>
@@ -57,6 +62,18 @@
     <string name="route_message">From %s to %s</string>
     <string name="route">Route</string>
     <string name="depart_from">Depart from</string>
+    <string name="welcome">Welcome,</string>
+    <string name="armada_detail">Armada Detail</string>
+    <string name="account_information">Account Information</string>
+    <string name="passenger_detail">Passenger Detail</string>
+    <string name="driver_detail">Driver Detail</string>
+    <string name="fill_your_data">Fill Your Data</string>
+    <string name="order_code">Order Code</string>
+    <string name="open_pickup_location">Open Pickup Location</string>
+    <string name="update_ticket_order">Update Ticket Order</string>
+    <string name="seat_booked">Seat Booked</string>
+    <string name="date_range">Date Range</string>
+    <string name="date_range_message">%s to %s</string>
 
     <string-array name="city_list">
         <item>Pekanbaru</item>

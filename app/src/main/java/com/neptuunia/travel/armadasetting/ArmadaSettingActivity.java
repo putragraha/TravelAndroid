@@ -43,6 +43,7 @@ public class ArmadaSettingActivity extends BaseActivity {
     public void setup() {
         initArmadaSettingViewModel();
         setupEditTextDepartureTime();
+        setupToolbar();
         setupEditTextDepartureDate();
         setupOnSubmitClicked();
         setupOnSuccessAddArmada();
@@ -52,6 +53,11 @@ public class ArmadaSettingActivity extends BaseActivity {
     private void initArmadaSettingViewModel() {
         armadaSettingViewModel = new ViewModelProvider(this, viewModelFactory)
             .get(ArmadaSettingViewModel.class);
+    }
+
+    private void setupToolbar() {
+        binding.viewToolbar.actvTitle.setText(R.string.armada_setting);
+        binding.viewToolbar.acivArrowBack.setOnClickListener(view -> onBackPressed());
     }
 
     private void setupEditTextDepartureTime() {
@@ -109,11 +115,11 @@ public class ArmadaSettingActivity extends BaseActivity {
     private void addArmada(View view) {
         AddArmadaRequest addArmadaRequest = new AddArmadaRequest();
         addArmadaRequest.setDatetime(getDateTimeInMillis());
-        addArmadaRequest.setNote(getEditTextValue(binding.etNote));
+        addArmadaRequest.setNote(getTextInputLayoutValue(binding.tilNote));
         addArmadaRequest.setDeparture(binding.acsDeparture.getSelectedItem().toString());
         addArmadaRequest.setArrival(getArrival());
-        addArmadaRequest.setPrice(getEditTextAsInteger(binding.etTicketPrice));
-        addArmadaRequest.setSeatAmount(getEditTextAsInteger(binding.etSeatAmount));
+        addArmadaRequest.setPrice(getTextInputLayoutAsInteger(binding.tilTicketPrice));
+        addArmadaRequest.setSeatAmount(getTextInputLayoutAsInteger(binding.tilSeatAmount));
 
         armadaSettingViewModel.addArmada(addArmadaRequest);
     }

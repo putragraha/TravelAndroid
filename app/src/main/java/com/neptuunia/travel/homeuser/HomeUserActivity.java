@@ -51,25 +51,25 @@ public class HomeUserActivity extends BaseActivity {
     }
 
     private void startHistoryUserActivity() {
-        binding.btnHistory.setOnClickListener(view ->
+        binding.mbHistory.setOnClickListener(view ->
             startActivity(HistoryUserActivity.class)
         );
     }
 
     private void startProfileUserActivity() {
-        binding.btnProfile.setOnClickListener(view ->
+        binding.mbProfile.setOnClickListener(view ->
             startActivity(ProfileUserActivity.class)
         );
     }
 
     private void startSearchTicketActivity() {
-        binding.btnGetTicket.setOnClickListener(view ->
+        binding.mbGetTicket.setOnClickListener(view ->
             startActivity(SearchTicketActivity.class)
         );
     }
 
     private void setupLogout() {
-        binding.btnLogout.setOnClickListener(view -> homeUserViewModel.logout());
+        binding.mbLogout.setOnClickListener(view -> homeUserViewModel.logout());
     }
 
     private void logout(boolean sessionClear) {

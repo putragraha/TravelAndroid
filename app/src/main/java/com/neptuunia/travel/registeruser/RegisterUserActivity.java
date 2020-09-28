@@ -5,7 +5,10 @@ import com.neptuunia.travel.R;
 import com.neptuunia.travel.base.BaseActivity;
 import com.neptuunia.travel.common.ViewModelFactory;
 import com.neptuunia.travel.databinding.ActivityRegisterUserBinding;
+import com.neptuunia.travel.utils.StringUtils;
 
+import android.graphics.Color;
+import android.text.method.LinkMovementMethod;
 import android.view.View;
 
 import javax.inject.Inject;
@@ -32,7 +35,9 @@ public class RegisterUserActivity extends BaseActivity {
     @Override
     public void setup() {
         initRegisterViewModel();
+        setupToolbar();
         setupOnSubmitClick();
+        setupLoginTextView();
         setupOnSuccessRegisterUser();
         setupOnErrorRegisterUser();
     }
@@ -42,25 +47,41 @@ public class RegisterUserActivity extends BaseActivity {
             .get(RegisterUserViewModel.class);
     }
 
-    private void setupOnSubmitClick() {
-        binding.btnSubmit.setOnClickListener(view -> {
-            if (isPasswordMatch()) {
-                RegisterUserRequest registerUserRequest = new RegisterUserRequest();
-                registerUserRequest.setEmail(getEditTextValue(binding.acetEmail));
-                registerUserRequest.setPassword(getEditTextValue(binding.acetPassword));
-                registerUserRequest.setUserName(getEditTextValue(binding.acetName));
-                registerUserRequest.setPhoneNumber(getEditTextValue(binding.acetPhoneNumber));
+    private void setupToolbar() {
+        binding.viewToolbar.actvTitle.setText(R.string.signup);
+        binding.viewToolbar.acivArrowBack.setOnClickListener(view -> onBackPressed());
+    }
 
-                registerUserViewModel.registerUser(registerUserRequest);
-            } else {
-                binding.acetConfirmPassword.setError(getString(R.string.password_did_not_match));
-            }
+    private void setupOnSubmitClick() {
+        binding.viewRegister.btnSignUp.setOnClickListener(view -> {
+            RegisterUserRequest registerUserRequest = new RegisterUserRequest();
+            registerUserRequest.setEmail(getTextInputLayoutValue(binding.viewRegister.tilEmail));
+            registerUserRequest.setPassword(
+                getTextInputLayoutValue(binding.viewRegister.tilPassword)
+            );
+            registerUserRequest.setUserName(getTextInputLayoutValue(binding.viewRegister.tilName));
+            registerUserRequest.setPhoneNumber(
+                getTextInputLayoutValue(binding.viewRegister.tilPhoneNumber)
+            );
+
+            registerUserViewModel.registerUser(registerUserRequest);
         });
     }
 
-    private boolean isPasswordMatch() {
-        return getEditTextValue(binding.acetPassword)
-            .equals(getEditTextValue(binding.acetConfirmPassword));
+    private void setupLoginTextView() {
+        binding.viewRegister.tvLoginLabel.setText(
+            StringUtils.getSpannableText(
+                getString(R.string.login),
+                getString(R.string.have_an_account),
+                this::onSpannedTextClicked
+            )
+        );
+        binding.viewRegister.tvLoginLabel.setMovementMethod(LinkMovementMethod.getInstance());
+        binding.viewRegister.tvLoginLabel.setHighlightColor(Color.TRANSPARENT);
+    }
+
+    private void onSpannedTextClicked(View view) {
+        onBackPressed();
     }
 
     private void setupOnSuccessRegisterUser() {

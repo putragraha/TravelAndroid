@@ -4,9 +4,13 @@
     <string name="email">Email</string>
     <string name="password">Password</string>
     <string name="login">Masuk</string>
+    <string name="signup">Daftar</string>
+    <string name="login_driver_title">Masuk Sebagai Driver</string>
+    <string name="login_user_title">Masuk Sebagai User</string>
+    <string name="login_subtitle">Login untuk melanjutkan</string>
     <string name="driver">Driver</string>
-    <string name="user">User</string>
     <string name="have_no_account">Belum punya akun? %s</string>
+    <string name="have_an_account">Sudah punya akun? %s</string>
     <string name="register_here">Daftar disini</string>
     <string name="register">Daftar</string>
     <string name="armada_setting">Pengaturan Armada</string>
@@ -24,9 +28,9 @@
     <string name="confirm_password">Konfirmasi Password</string>
     <string name="car">Mobil</string>
     <string name="departure_time">Waktu Keberangkatan</string>
+    <string name="departure_date">Tanggal Keberangkatan</string>
     <string name="seat_available">Kursi Tersedia</string>
     <string name="choose_pick_up_location">Pilih Lokasi Jemput</string>
-    <string name="choose_amount_seat_to_order">Berapa kursi?</string>
     <string name="change_password">Ubah Password</string>
     <string name="update_profile">Ubah Profil</string>
     <string name="old_password">Password Lama</string>
@@ -50,6 +54,7 @@
     <string name="current_location_not_found">Lokasi tidak ditemukan</string>
     <string name="address_not_found">Alamat tidak ditemukan</string>
     <string name="confirm_pickup_location">Konfirmasi Lokasi Jemput</string>
+    <string name="pickup_location">Lokasi Jemput</string>
     <string name="reject">Tolak</string>
     <string name="accept">Terima</string>
     <string name="order_confirmed">Pesanan dikonfirmasi</string>
@@ -58,6 +63,18 @@
     <string name="route_message">Dari %s ke %s</string>
     <string name="route">Rute</string>
     <string name="depart_from">Berangkat dari</string>
+    <string name="welcome">Selamat Datang,</string>
+    <string name="armada_detail">Detail Armada</string>
+    <string name="account_information">Informasi Akun</string>
+    <string name="passenger_detail">Detail Penumpang</string>
+    <string name="driver_detail">Detail Pengemudi</string>
+    <string name="fill_your_data">Isi Data Diri</string>
+    <string name="order_code">Kode Pemesanan</string>
+    <string name="open_pickup_location">Lihat Lokasi Jemput</string>
+    <string name="update_ticket_order">Ubah Tiket Pesanan</string>
+    <string name="seat_booked">Kursi dipesan</string>
+    <string name="date_range">Rentang Tanggal</string>
+    <string name="date_range_message">%s sampai %s</string>
 
     <string-array name="city_list">
         <item>Pekanbaru</item>

@@ -15,6 +15,8 @@ public class DateTimeUtils {
 
     public static final String TIME_FORMAT = "HH:mm";
 
+    public static final long ONE_DAY_IN_MILLIS = 86400000L;
+
     private DateTimeUtils() {
         // Prevent outside instantiation
     }

@@ -7,6 +7,7 @@ import com.neptuunia.travel.utils.Transformer;
 
 import android.app.Application;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.inject.Inject;
@@ -22,6 +23,8 @@ public class HistoryDriverViewModel extends AndroidViewModel {
         new MutableLiveData<>();
 
     private DriverRepository driverRepository;
+
+    private List<HistoryDriverResponse> historyDriverResponses = new ArrayList<>();
 
     @Inject
     public HistoryDriverViewModel(
@@ -44,8 +47,27 @@ public class HistoryDriverViewModel extends AndroidViewModel {
                 @Override
                 public void onSuccess(List<HistoryDriverResponse> historyDriverResponses) {
                     super.onSuccess(historyDriverResponses);
+                    HistoryDriverViewModel.this.historyDriverResponses = historyDriverResponses;
                     historyDriverResponseLiveData.postValue(historyDriverResponses);
                 }
             });
+    }
+
+    public void filterHistoryDrivers(long minDate, long maxDate) {
+        List<HistoryDriverResponse> results = new ArrayList<>();
+
+        for (HistoryDriverResponse historyDriverResponse : historyDriverResponses) {
+            long datetime = Long.parseLong(historyDriverResponse.getDatetime());
+
+            if (datetime >= minDate && datetime <= maxDate) {
+                results.add(historyDriverResponse);
+            }
+        }
+
+        historyDriverResponseLiveData.postValue(results);
+    }
+
+    public void clearHistoryDrivers() {
+        historyDriverResponseLiveData.postValue(historyDriverResponses);
     }
 }
