@@ -17,15 +17,15 @@ import androidx.lifecycle.MutableLiveData;
 
 public class ProfileDriverViewModel extends AndroidViewModel {
 
-    private MutableLiveData<ProfileDriverResponse> successGetProfileDriverLiveData =
+    private final MutableLiveData<ProfileDriverResponse> successGetProfileDriverLiveData =
         new MutableLiveData<>();
 
-    private MutableLiveData<CommonResponse> successEditProfileDriverLiveData =
+    private final MutableLiveData<CommonResponse> successEditProfileDriverLiveData =
         new MutableLiveData<>();
 
-    private MutableLiveData<String> errorLiveData = new MutableLiveData<>();
+    private final MutableLiveData<String> errorLiveData = new MutableLiveData<>();
 
-    private DriverRepository driverRepository;
+    private final DriverRepository driverRepository;
 
     @Inject
     public ProfileDriverViewModel(
@@ -34,25 +34,7 @@ public class ProfileDriverViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.driverRepository = driverRepository;
-    }
-
-    public void fetchProfileDriver() {
-        driverRepository.getProfileDriver()
-            .compose(Transformer::applySchedulers)
-            .subscribe(new AutoDisposeSingleObserver<ProfileDriverResponse>() {
-
-                @Override
-                public void onSuccess(ProfileDriverResponse profileDriverResponse) {
-                    super.onSuccess(profileDriverResponse);
-                    successGetProfileDriverLiveData.postValue(profileDriverResponse);
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    super.onError(e);
-                    errorLiveData.postValue(e.getMessage());
-                }
-            });
+        fetchProfileDriver();
     }
 
     public LiveData<ProfileDriverResponse> getSuccessGetProfileDriverLiveData() {
@@ -73,7 +55,7 @@ public class ProfileDriverViewModel extends AndroidViewModel {
             .subscribe(new AutoDisposeSingleObserver<CommonResponse>() {
 
                 @Override
-                public void onSuccess(CommonResponse commonResponse) {
+                public void onSuccess(@NonNull CommonResponse commonResponse) {
                     super.onSuccess(commonResponse);
 
                     if (commonResponse.isSuccess()) {
@@ -81,6 +63,25 @@ public class ProfileDriverViewModel extends AndroidViewModel {
                     } else {
                         errorLiveData.postValue("");
                     }
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    super.onError(e);
+                    errorLiveData.postValue(e.getMessage());
+                }
+            });
+    }
+
+    private void fetchProfileDriver() {
+        driverRepository.getProfileDriver()
+            .compose(Transformer::applySchedulers)
+            .subscribe(new AutoDisposeSingleObserver<ProfileDriverResponse>() {
+
+                @Override
+                public void onSuccess(@NonNull ProfileDriverResponse profileDriverResponse) {
+                    super.onSuccess(profileDriverResponse);
+                    successGetProfileDriverLiveData.postValue(profileDriverResponse);
                 }
 
                 @Override

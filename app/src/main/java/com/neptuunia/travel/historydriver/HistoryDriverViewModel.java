@@ -19,10 +19,10 @@ import androidx.lifecycle.MutableLiveData;
 
 public class HistoryDriverViewModel extends AndroidViewModel {
 
-    private MutableLiveData<List<HistoryDriverResponse>> historyDriverResponseLiveData =
+    private final MutableLiveData<List<HistoryDriverResponse>> historyDriverResponseLiveData =
         new MutableLiveData<>();
 
-    private DriverRepository driverRepository;
+    private final DriverRepository driverRepository;
 
     private List<HistoryDriverResponse> historyDriverResponses = new ArrayList<>();
 
@@ -33,24 +33,11 @@ public class HistoryDriverViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.driverRepository = driverRepository;
+        fetchHistoryDrivers();
     }
 
     public LiveData<List<HistoryDriverResponse>> getHistoryDrivers() {
         return historyDriverResponseLiveData;
-    }
-
-    public void fetchHistoryDrivers() {
-        driverRepository.getHistoryDrivers()
-            .compose(Transformer::applySchedulers)
-            .subscribe(new AutoDisposeSingleObserver<List<HistoryDriverResponse>>() {
-
-                @Override
-                public void onSuccess(List<HistoryDriverResponse> historyDriverResponses) {
-                    super.onSuccess(historyDriverResponses);
-                    HistoryDriverViewModel.this.historyDriverResponses = historyDriverResponses;
-                    historyDriverResponseLiveData.postValue(historyDriverResponses);
-                }
-            });
     }
 
     public void filterHistoryDrivers(long minDate, long maxDate) {
@@ -69,5 +56,19 @@ public class HistoryDriverViewModel extends AndroidViewModel {
 
     public void clearHistoryDrivers() {
         historyDriverResponseLiveData.postValue(historyDriverResponses);
+    }
+
+    private void fetchHistoryDrivers() {
+        driverRepository.getHistoryDrivers()
+            .compose(Transformer::applySchedulers)
+            .subscribe(new AutoDisposeSingleObserver<List<HistoryDriverResponse>>() {
+
+                @Override
+                public void onSuccess(@NonNull List<HistoryDriverResponse> historyDriverResponses) {
+                    super.onSuccess(historyDriverResponses);
+                    HistoryDriverViewModel.this.historyDriverResponses = historyDriverResponses;
+                    historyDriverResponseLiveData.postValue(historyDriverResponses);
+                }
+            });
     }
 }

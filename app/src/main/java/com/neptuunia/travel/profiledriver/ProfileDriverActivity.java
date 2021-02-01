@@ -33,7 +33,6 @@ public class ProfileDriverActivity extends BaseActivity {
     public void setup() {
         initProfileDriverViewModel();
         setupToolbar();
-        fetchProfileDriver();
         setupOnSuccessGetProfileDriver();
         setupOnSuccessEditProfileDriver();
         setupOnErrorGetProfileDriver();
@@ -48,10 +47,6 @@ public class ProfileDriverActivity extends BaseActivity {
     private void setupToolbar() {
         binding.viewToolbar.actvTitle.setText(R.string.profile);
         binding.viewToolbar.acivArrowBack.setOnClickListener(view -> onBackPressed());
-    }
-
-    private void fetchProfileDriver() {
-        profileDriverViewModel.fetchProfileDriver();
     }
 
     private void setupOnSuccessGetProfileDriver() {

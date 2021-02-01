@@ -52,7 +52,6 @@ public class HistoryDriverActivity extends BaseActivity {
         setupDatePickerPositiveListener();
         setupToolbar();
         setupDateFilter();
-        getHistoryDrivers();
         setupOnSuccessGetHistoryDrivers();
     }
 
@@ -114,12 +113,6 @@ public class HistoryDriverActivity extends BaseActivity {
     private void clearDateRangeFilter(View view) {
         binding.viewFilterDate.actvDate.setText(getString(R.string.date_range));
         historyDriverViewModel.clearHistoryDrivers();
-    }
-
-    private void getHistoryDrivers() {
-        if (historyDriverViewModel != null) {
-            historyDriverViewModel.fetchHistoryDrivers();
-        }
     }
 
     private void startOrderDetailActivity(HistoryDriverResponse historyDriverResponse) {
