@@ -52,7 +52,6 @@ public class HistoryUserActivity extends BaseActivity {
         setupDatePickerPositiveListener();
         setupToolbar();
         setupDateFilter();
-        getHistoryUsers();
         setupOnSuccessGetHistoryUser();
     }
 

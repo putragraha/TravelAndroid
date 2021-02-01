@@ -19,10 +19,10 @@ import androidx.lifecycle.MutableLiveData;
 
 public class HistoryUserViewModel extends AndroidViewModel {
 
-    private MutableLiveData<List<HistoryUserResponse>> historyUserResponseLiveData =
+    private final MutableLiveData<List<HistoryUserResponse>> historyUserResponseLiveData =
         new MutableLiveData<>();
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     private List<HistoryUserResponse> historyUserResponses = new ArrayList<>();
 
@@ -33,6 +33,7 @@ public class HistoryUserViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.userRepository = userRepository;
+        fetchHistoryUsers();
     }
 
     public LiveData<List<HistoryUserResponse>> getHistoryUsers() {
@@ -45,7 +46,7 @@ public class HistoryUserViewModel extends AndroidViewModel {
             .subscribe(new AutoDisposeSingleObserver<List<HistoryUserResponse>>() {
 
                 @Override
-                public void onSuccess(List<HistoryUserResponse> historyUserResponses) {
+                public void onSuccess(@NonNull List<HistoryUserResponse> historyUserResponses) {
                     super.onSuccess(historyUserResponses);
                     HistoryUserViewModel.this.historyUserResponses = historyUserResponses;
                     historyUserResponseLiveData.postValue(historyUserResponses);

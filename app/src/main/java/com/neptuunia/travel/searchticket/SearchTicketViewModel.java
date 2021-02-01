@@ -19,9 +19,10 @@ import androidx.lifecycle.MutableLiveData;
 
 public class SearchTicketViewModel extends AndroidViewModel {
 
-    private MutableLiveData<List<TicketResponse>> ticketResponseLiveData = new MutableLiveData<>();
+    private final MutableLiveData<List<TicketResponse>> ticketResponseLiveData =
+        new MutableLiveData<>();
 
-    private TicketRepository ticketRepository;
+    private final TicketRepository ticketRepository;
 
     private List<TicketResponse> ticketResponses = new ArrayList<>();
 
@@ -32,6 +33,7 @@ public class SearchTicketViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.ticketRepository = ticketRepository;
+        fetchTickets();
     }
 
     public LiveData<List<TicketResponse>> getTickets() {
@@ -44,7 +46,7 @@ public class SearchTicketViewModel extends AndroidViewModel {
             .subscribe(new AutoDisposeSingleObserver<List<TicketResponse>>() {
 
                 @Override
-                public void onSuccess(List<TicketResponse> ticketResponses) {
+                public void onSuccess(@NonNull List<TicketResponse> ticketResponses) {
                     super.onSuccess(ticketResponses);
                     SearchTicketViewModel.this.ticketResponses = ticketResponses;
                     ticketResponseLiveData.postValue(ticketResponses);

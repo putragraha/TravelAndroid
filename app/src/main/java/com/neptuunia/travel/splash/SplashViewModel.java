@@ -18,15 +18,15 @@ import androidx.lifecycle.MutableLiveData;
 
 public class SplashViewModel extends AndroidViewModel {
 
-    private MutableLiveData<String> homeDriverLiveData = new MutableLiveData<>();
+    private final MutableLiveData<String> homeDriverLiveData = new MutableLiveData<>();
 
-    private MutableLiveData<String> homeUserLiveData = new MutableLiveData<>();
+    private final MutableLiveData<String> homeUserLiveData = new MutableLiveData<>();
 
-    private MutableLiveData<String> loginDriverLiveData = new MutableLiveData<>();
+    private final MutableLiveData<String> loginDriverLiveData = new MutableLiveData<>();
 
-    private MutableLiveData<String> loginUserLiveData = new MutableLiveData<>();
+    private final MutableLiveData<String> loginUserLiveData = new MutableLiveData<>();
 
-    private AccountRepository accountRepository;
+    private final AccountRepository accountRepository;
 
     @Inject
     public SplashViewModel(
@@ -35,6 +35,7 @@ public class SplashViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.accountRepository = accountRepository;
+        initSplashAction();
     }
 
     public MutableLiveData<String> getHomeDriverLiveData() {
@@ -53,7 +54,7 @@ public class SplashViewModel extends AndroidViewModel {
         return loginUserLiveData;
     }
 
-    public void initSplashAction() {
+    private void initSplashAction() {
         new Handler().postDelayed(this::checkSession, DurationUtils.ONE_SECOND_IN_MILLIS);
     }
 

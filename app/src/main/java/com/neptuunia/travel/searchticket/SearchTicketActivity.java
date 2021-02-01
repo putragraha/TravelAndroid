@@ -52,7 +52,6 @@ public class SearchTicketActivity extends BaseActivity {
         setupDatePickerPositiveListener();
         setupToolbar();
         setupDateFilter();
-        getTickets();
         setupOnSuccessGetTickets();
     }
 

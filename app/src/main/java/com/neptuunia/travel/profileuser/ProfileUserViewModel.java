@@ -18,18 +18,18 @@ import androidx.lifecycle.MutableLiveData;
 
 public class ProfileUserViewModel extends AndroidViewModel {
 
-    private MutableLiveData<ProfileUserResponse> successGetProfileUserLiveData =
+    private final MutableLiveData<ProfileUserResponse> successGetProfileUserLiveData =
         new MutableLiveData<>();
 
-    private MutableLiveData<CommonResponse> successEditProfileUserLiveData =
+    private final MutableLiveData<CommonResponse> successEditProfileUserLiveData =
         new MutableLiveData<>();
 
-    private MutableLiveData<CommonResponse> successChangePasswordLiveData =
+    private final MutableLiveData<CommonResponse> successChangePasswordLiveData =
         new MutableLiveData<>();
 
-    private MutableLiveData<String> errorLiveData = new MutableLiveData<>();
+    private final MutableLiveData<String> errorLiveData = new MutableLiveData<>();
 
-    private UserRepository userRepository;
+    private final UserRepository userRepository;
 
     @Inject
     public ProfileUserViewModel(
@@ -38,25 +38,7 @@ public class ProfileUserViewModel extends AndroidViewModel {
     ) {
         super(application);
         this.userRepository = userRepository;
-    }
-
-    public void fetchProfileUser() {
-        userRepository.getProfileUser()
-            .compose(Transformer::applySchedulers)
-            .subscribe(new AutoDisposeSingleObserver<ProfileUserResponse>() {
-
-                @Override
-                public void onSuccess(ProfileUserResponse profileUserResponse) {
-                    super.onSuccess(profileUserResponse);
-                    successGetProfileUserLiveData.postValue(profileUserResponse);
-                }
-
-                @Override
-                public void onError(Throwable e) {
-                    super.onError(e);
-                    errorLiveData.postValue(e.getMessage());
-                }
-            });
+        fetchProfileUser();
     }
 
     public LiveData<ProfileUserResponse> getSuccessGetProfileUserLiveData() {
@@ -81,7 +63,7 @@ public class ProfileUserViewModel extends AndroidViewModel {
             .subscribe(new AutoDisposeSingleObserver<CommonResponse>() {
 
                 @Override
-                public void onSuccess(CommonResponse commonResponse) {
+                public void onSuccess(@NonNull CommonResponse commonResponse) {
                     super.onSuccess(commonResponse);
 
                     if (commonResponse.isSuccess()) {
@@ -105,7 +87,7 @@ public class ProfileUserViewModel extends AndroidViewModel {
             .subscribe(new AutoDisposeSingleObserver<CommonResponse>() {
 
                 @Override
-                public void onSuccess(CommonResponse commonResponse) {
+                public void onSuccess(@NonNull CommonResponse commonResponse) {
                     super.onSuccess(commonResponse);
 
                     if (commonResponse.isSuccess()) {
@@ -113,6 +95,25 @@ public class ProfileUserViewModel extends AndroidViewModel {
                     } else {
                         errorLiveData.postValue("");
                     }
+                }
+
+                @Override
+                public void onError(Throwable e) {
+                    super.onError(e);
+                    errorLiveData.postValue(e.getMessage());
+                }
+            });
+    }
+
+    private void fetchProfileUser() {
+        userRepository.getProfileUser()
+            .compose(Transformer::applySchedulers)
+            .subscribe(new AutoDisposeSingleObserver<ProfileUserResponse>() {
+
+                @Override
+                public void onSuccess(@NonNull ProfileUserResponse profileUserResponse) {
+                    super.onSuccess(profileUserResponse);
+                    successGetProfileUserLiveData.postValue(profileUserResponse);
                 }
 
                 @Override

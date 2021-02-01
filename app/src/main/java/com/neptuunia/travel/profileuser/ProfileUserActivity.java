@@ -34,7 +34,6 @@ public class ProfileUserActivity extends BaseActivity {
     public void setup() {
         initProfileUserViewModel();
         setupToolbar();
-        fetchProfileUser();
         setupOnSuccessGetProfileUser();
         setupOnSuccessEditProfileUser();
         setupOnSuccessChangePassword();
@@ -51,10 +50,6 @@ public class ProfileUserActivity extends BaseActivity {
     private void setupToolbar() {
         binding.viewToolbar.actvTitle.setText(R.string.profile);
         binding.viewToolbar.acivArrowBack.setOnClickListener(view -> onBackPressed());
-    }
-
-    private void fetchProfileUser() {
-        profileUserViewModel.fetchProfileUser();
     }
 
     private void setupOnSuccessGetProfileUser() {
