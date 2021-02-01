@@ -55,12 +55,6 @@ public class HistoryUserActivity extends BaseActivity {
         setupOnSuccessGetHistoryUser();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        getHistoryUsers();
-    }
-
     private void setupRecylerView() {
         historyUserAdapter = new HistoryUserAdapter(this::startOrderDetailActivity);
         binding.rvHistoryUser.setLayoutManager(new LinearLayoutManager(this));
@@ -119,12 +113,6 @@ public class HistoryUserActivity extends BaseActivity {
     private void clearDateRangeFilter(View view) {
         binding.viewFilterDate.actvDate.setText(getString(R.string.date_range));
         historyUserViewModel.clearHistoryUsers();
-    }
-
-    private void getHistoryUsers() {
-        if (historyUserViewModel != null) {
-            historyUserViewModel.fetchHistoryUsers();
-        }
     }
 
     private void setupOnSuccessGetHistoryUser() {

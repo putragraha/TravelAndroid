@@ -55,12 +55,6 @@ public class SearchTicketActivity extends BaseActivity {
         setupOnSuccessGetTickets();
     }
 
-    @Override
-    protected void onResume() {
-        super.onResume();
-        getTickets();
-    }
-
     private void setupRecylerView() {
         searchTicketAdapter = new SearchTicketAdapter(this::startOrderDetailActivity);
         binding.rvSearchTicket.setLayoutManager(new LinearLayoutManager(this));
@@ -119,12 +113,6 @@ public class SearchTicketActivity extends BaseActivity {
     private void clearDateRangeFilter(View view) {
         binding.viewFilterDate.actvDate.setText(getString(R.string.date_range));
         searchTicketViewModel.clearTickets();
-    }
-
-    private void getTickets() {
-        if (searchTicketViewModel != null) {
-            searchTicketViewModel.fetchTickets();
-        }
     }
 
     private void startOrderDetailActivity(TicketResponse ticketResponse) {

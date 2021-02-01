@@ -40,20 +40,6 @@ public class HistoryUserViewModel extends AndroidViewModel {
         return historyUserResponseLiveData;
     }
 
-    public void fetchHistoryUsers() {
-        userRepository.getHistoryUsers()
-            .compose(Transformer::applySchedulers)
-            .subscribe(new AutoDisposeSingleObserver<List<HistoryUserResponse>>() {
-
-                @Override
-                public void onSuccess(@NonNull List<HistoryUserResponse> historyUserResponses) {
-                    super.onSuccess(historyUserResponses);
-                    HistoryUserViewModel.this.historyUserResponses = historyUserResponses;
-                    historyUserResponseLiveData.postValue(historyUserResponses);
-                }
-            });
-    }
-
     public void filterHistoryUsers(long minDate, long maxDate) {
         List<HistoryUserResponse> results = new ArrayList<>();
 
@@ -70,5 +56,19 @@ public class HistoryUserViewModel extends AndroidViewModel {
 
     public void clearHistoryUsers() {
         historyUserResponseLiveData.postValue(historyUserResponses);
+    }
+
+    private void fetchHistoryUsers() {
+        userRepository.getHistoryUsers()
+            .compose(Transformer::applySchedulers)
+            .subscribe(new AutoDisposeSingleObserver<List<HistoryUserResponse>>() {
+
+                @Override
+                public void onSuccess(@NonNull List<HistoryUserResponse> historyUserResponses) {
+                    super.onSuccess(historyUserResponses);
+                    HistoryUserViewModel.this.historyUserResponses = historyUserResponses;
+                    historyUserResponseLiveData.postValue(historyUserResponses);
+                }
+            });
     }
 }

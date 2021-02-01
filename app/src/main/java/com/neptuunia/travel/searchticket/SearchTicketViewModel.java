@@ -40,20 +40,6 @@ public class SearchTicketViewModel extends AndroidViewModel {
         return ticketResponseLiveData;
     }
 
-    public void fetchTickets() {
-        ticketRepository.getTickets()
-            .compose(Transformer::applySchedulers)
-            .subscribe(new AutoDisposeSingleObserver<List<TicketResponse>>() {
-
-                @Override
-                public void onSuccess(@NonNull List<TicketResponse> ticketResponses) {
-                    super.onSuccess(ticketResponses);
-                    SearchTicketViewModel.this.ticketResponses = ticketResponses;
-                    ticketResponseLiveData.postValue(ticketResponses);
-                }
-            });
-    }
-
     public void filterTickets(long minDate, long maxDate) {
         List<TicketResponse> results = new ArrayList<>();
 
@@ -70,5 +56,19 @@ public class SearchTicketViewModel extends AndroidViewModel {
 
     public void clearTickets() {
         ticketResponseLiveData.postValue(ticketResponses);
+    }
+
+    private void fetchTickets() {
+        ticketRepository.getTickets()
+            .compose(Transformer::applySchedulers)
+            .subscribe(new AutoDisposeSingleObserver<List<TicketResponse>>() {
+
+                @Override
+                public void onSuccess(@NonNull List<TicketResponse> ticketResponses) {
+                    super.onSuccess(ticketResponses);
+                    SearchTicketViewModel.this.ticketResponses = ticketResponses;
+                    ticketResponseLiveData.postValue(ticketResponses);
+                }
+            });
     }
 }
